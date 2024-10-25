@@ -29,7 +29,7 @@
                     <li class="nav-item">
                         <a class="nav-link <?php if (is_page('my-favorites')) echo 'active'; ?>" href="<?php echo home_url('/my-favorites/'); ?>">
                             <i class="fa-regular fa-heart"></i>
-                            My Favorites2
+                            My Favorites2s
                         </a>
                     </li>
                     <li class="nav-item">
