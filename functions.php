@@ -546,32 +546,33 @@ function add_vendor_item() {
 
 // Function to get all vendor items for the current user
 add_action('wp_ajax_get_vendor_list_items', 'get_vendor_list_items');
-// function get_vendor_list_items() {
-//     global $wpdb;
-//     $table_name = $wpdb->prefix . 'vendor_list';
-//     $current_user_id = get_current_user_id();
-//     $id = intval($_POST['id']);
-//     $results = $wpdb->get_results(
-//         $wpdb->prepare(
-//             "SELECT * FROM $table_name WHERE id = %d AND user_id = %d",
-//             $id,
-//             $current_user_id
-//         ),
-//         ARRAY_A
-//     );
-//     return $results;
-// }
-
 function get_vendor_list_items() {
     global $wpdb;
     $table_name = $wpdb->prefix . 'vendor_list';
-    $user_id = get_current_user_id();
+    $current_user_id = get_current_user_id();
+    $id = intval($_POST['id']);
+    $results = $wpdb->get_results(
+        $wpdb->prepare(
+            "SELECT * FROM $table_name WHERE id = %d AND user_id = %d",
+            $id,
+            $current_user_id
+        ),
+        ARRAY_A
+    );
+    return $results;
+}
 
+// Function to get a vendor item for editing
+add_action('wp_ajax_get_vendor_list_item', 'get_vendor_list_item');
+function get_vendor_list_item() {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'vendor_list';
+    $user_id = get_current_user_id();
+    $id = intval($_POST['id']);
     $results = $wpdb->get_results($wpdb->prepare("
         SELECT * FROM $table_name 
-        WHERE user_id = %d 
-        ORDER BY date DESC
-    ", $user_id), ARRAY_A);
+        WHERE id = %d AND user_id = %d 
+    ", $id, $user_id), ARRAY_A);
 
     return $results;
 }

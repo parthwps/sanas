@@ -169,7 +169,7 @@ if (window.location.pathname === '/vendors-list/') {
             $.ajax({
                 type: 'POST',
                 url: ajax_object.ajax_url,
-                data: { id: vendorId, action: 'get_vendor_list_items' },
+                data: { id: vendorId, action: 'get_vendor_list_item' },
                 success: function(response) {
                     if (response.success) {
                         $('#edit-vendor-id').val(response.data.id);
