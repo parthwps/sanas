@@ -1,3 +1,8 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const tooltipTriggerList = document.querySelectorAll('[data-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+});
+
 if (window.location.pathname === '/to-do-list/') {
 document.addEventListener('DOMContentLoaded', () => {
     const today = new Date();
