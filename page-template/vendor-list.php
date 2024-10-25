@@ -54,7 +54,7 @@ get_sidebar('dashboard');
                       </thead>
                       <tbody>
                         <?php
-                        $vendor_items = get_vendor_list_items();
+                        $vendor_items = get_vendor_item();
                         ?>
                         <?php if ($vendor_items): ?>
                             <?php foreach ($vendor_items as $vendor): ?>
