@@ -20,8 +20,8 @@ get_sidebar('dashboard');
     <div class="container-fluid wl-dashboard-content">
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-          <div class="page-header">
-            <h3 class="pageheader-title">Vendors List</h3>
+          <div class="page-header d-flex">
+            <h3 class="pageheader-title w-1/4">Vendors List</h3>
             <p>Add your party vendors, then move your selcted vendors to the "My Vendors" Page.</p>
           </div>
         </div>
