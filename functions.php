@@ -515,6 +515,9 @@ add_action('wp_ajax_add_vendor_item', 'add_vendor_item');
 function add_vendor_item() {
     global $wpdb;
 
+    // Debugging: Log the received data
+    error_log(print_r($_POST, true));
+
     $category = sanitize_text_field($_POST['category']);
     $name = sanitize_text_field($_POST['name']);
     $phone = sanitize_text_field($_POST['phone']);
