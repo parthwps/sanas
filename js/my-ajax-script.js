@@ -178,7 +178,7 @@ if (window.location.pathname === '/vendors-list/') {
                         $('#edit-vendor-email').val(response.data.email);
                         $('#edit-vendor-phone').val(response.data.phone);
                         $('#edit-vendor-notes').val(response.data.notes);
-                        $('#edit-vendor-social_media_profile').val(response.data.social_media_profile);
+                        $('#edit-vendor-social-media-profile').val(response.data.social_media_profile);
                         $('#edit-vendor-pricing').val(response.data.pricing);
                         $('#edit-todolist-popup').modal('show');
                     }
