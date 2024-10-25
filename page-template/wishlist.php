@@ -89,7 +89,7 @@ if (!empty($wishlist_items)) {
 
             <div class="wishlist-box col-xxl-4 col-xl-5 col-lg-6 col-md-6 col-sm-6" data-category="<?php echo $category_ids_string; ?>">
                 <div class="inner-box">
-                    <a href="/?dashboard=cover&card_id=<?php echo $card_post->ID; ?>" class="flip-container">
+                    <a href="/user-dashboard/?dashboard=cover&card_id=<?php echo $card_post->ID; ?>" class="flip-container">
                         <div class="flipper">
                             <div class="front">
                                 <img src="<?php echo esc_url($front_image_url); ?>" alt="template">
