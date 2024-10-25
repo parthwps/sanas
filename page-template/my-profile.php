@@ -123,13 +123,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class="col-lg-6 col-sm-12">
                           <div class="form-group">
                             <label> Email</label>
-                            <input type="email" class="form-control" value="<?php echo esc_attr($email); ?> placeholder="" required="">
+                            <input type="email" class="form-control" value="<?php echo esc_attr($email); ?>" placeholder="" required="">
                           </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                           <div class="form-group">
                             <label> Phone Number</label>
-                            <input type="text" class="form-control" value="<?php echo esc_attr($phone); ?>"placeholder="" required="">
+                            <input type="text" class="form-control" value="<?php echo esc_attr($phone); ?>" placeholder="" required="">
                           </div>
                         </div>
                         <div class="form-group col-lg-12 col-sm-12">
