@@ -176,36 +176,36 @@ get_sidebar('dashboard');
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Category</label>
-                      <input type="text" name="category" class="form-control">
+                      <input type="text" name="category" id="edit-vendor-category" class="form-control">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Name</label>
-                      <input type="text" name="name" class="form-control">
+                      <input type="text" name="name" id="edit-vendor-name" class="form-control">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Email</label>
-                      <input type="email" name="email" class="form-control">
+                      <input type="email" name="email" id="edit-vendor-email" class="form-control">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Phone</label>
-                      <input type="number" name="phone" class="form-control">
+                      <input type="number" name="phone" id="edit-vendor-phone" class="form-control">
                     </div>
                   </div>
                   <div class="col-lg-12 col-sm-12">
                     <div class="form-group">
                       <label> Social Madia Profile</label>
-                      <input type="text" name="social_media_profile" class="form-control">
+                      <input type="text" name="social_media_profile" id="edit-vendor-social-media-profile" class="form-control">
                     </div>
                   </div>
                   <div class="col-lg-12 col-sm-12">
                     <label>Notes</label>
-                    <textarea name="notes" class="form-control"></textarea>
+                    <textarea name="notes" id="edit-vendor-notes" class="form-control"></textarea>
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">

@@ -175,6 +175,7 @@ if (window.location.pathname === '/vendors-list/') {
                         $('#edit-vendor-id').val(response.data.id);
                         $('#edit-vendor-category').val(response.data.category);
                         $('#edit-vendor-name').val(response.data.name);
+                        $('#edit-vendor-email').val(response.data.email);
                         $('#edit-vendor-phone').val(response.data.phone);
                         $('#edit-vendor-notes').val(response.data.notes);
                         $('#edit-vendor-social_media_profile').val(response.data.social_media_profile);
