@@ -497,7 +497,8 @@ function create_vendor_table() {
             user_id INT NOT NULL,
             category VARCHAR(255) NOT NULL,
             name VARCHAR(255) NOT NULL,
-            phone VARCHAR(20),
+            email VARCHAR(255) NOT NULL,
+            phone VARCHAR(20) NOT NULL,
             notes TEXT,
             social_media_profile VARCHAR(255),
             pricing DECIMAL(10, 2),
@@ -519,6 +520,7 @@ function add_vendor_item() {
 
     $category = sanitize_text_field($_POST['category']);
     $name = sanitize_text_field($_POST['name']);
+    $email = sanitize_text_field($_POST['email']);
     $phone = sanitize_text_field($_POST['phone']);
     $notes = sanitize_textarea_field($_POST['notes']);
     $social_media_profile = sanitize_text_field($_POST['social_media_profile']);
@@ -530,6 +532,7 @@ function add_vendor_item() {
             'user_id' => $current_user_id,
             'category' => $category,
             'name' => $name,
+            'email' => $email,
             'phone' => $phone,
             'notes' => $notes,
             'social_media_profile' => $social_media_profile,
@@ -568,6 +571,7 @@ function edit_vendor_item() {
 
     $category = sanitize_text_field($_POST['category']);
     $name = sanitize_text_field($_POST['name']);
+    $email = sanitize_text_field($_POST['email']);
     $phone = sanitize_text_field($_POST['phone']);
     $notes = sanitize_textarea_field($_POST['notes']);
     $social_media_profile = sanitize_text_field($_POST['social_media_profile']);
@@ -578,6 +582,7 @@ function edit_vendor_item() {
         array(
             'category' => $category,
             'name' => $name,
+            'email' => $email,
             'phone' => $phone,
             'notes' => $notes,
             'social_media_profile' => $social_media_profile,
