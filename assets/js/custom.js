@@ -853,7 +853,29 @@ if (jQuery('.nav-link').length) {
 }
 
 
-    // Function to show the preloader
+function show_alert_message2(title,msg,footer = 'no'  ) {
+// Show the modal
+
+    var modalElement = document.getElementById('modal_html_alert');
+    var modal = new bootstrap.Modal(modalElement);
+
+    // Update modal content
+    modalElement.querySelector('.modal-title').innerHTML  = title;
+    modalElement.querySelector('.modal-body').innerHTML  = msg;
+
+    // Show the modal
+   if(footer=='no')
+   {
+       var footerElement = modalElement.querySelector('.modal-footer');
+         footerElement.style.display = 'none';
+   }else{
+       var footerElement = modalElement.querySelector('.modal-footer');
+         footerElement.style.display = 'flex';
+
+   }
+
+    modal.show();
+}
 
 function show_alert_message(title,msg,footer = 'no'  ) {
 // Show the modal
