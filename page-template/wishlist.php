@@ -161,7 +161,7 @@ if (!empty($wishlist_items)) {
 jQuery(document).ready(function ($) {
   jQuery(".wishlist-delete-icon").on("click", function (e) {
     show_alert_message('Remove from wishlist', 'Do you want to this card from My Favorites?','yes');
-    console.log("test");
+    return;
     e.preventDefault();
     var $icon = $(this);
     var cardId = $icon.data("card-id");
