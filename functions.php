@@ -547,7 +547,14 @@ function add_vendor_item() {
 function get_vendor_list_items() {
     global $wpdb;
     $table_name = $wpdb->prefix . 'vendor_list';
-    $results = $wpdb->get_results("SELECT * FROM $table_name", ARRAY_A);
+    $current_user_id = get_current_user_id();
+    $results = $wpdb->get_results(
+        $wpdb->prepare(
+            "SELECT * FROM $table_name WHERE user_id = %d",
+            $current_user_id
+        ),
+        ARRAY_A
+    );
     return $results;
 }
 
