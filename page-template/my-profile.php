@@ -81,9 +81,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
             <div class="profile-info">
               <div class="profile-info-title">
-                <h4>Nancy</h4>
+                <h4><?php echo esc_html($first_name . ' ' . $last_name); ?></h4>
               </div>
-              <p class="profile-info-text">Dream big. Think different. Do great!</p>
+              <p class="profile-info-text"><?php echo esc_html($about); ?></p>
               <div class="profile-action">
                 <h4 class="">Active</h4>
               </div>
@@ -111,33 +111,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class=" col-lg-6 col-sm-12">
                           <div class="form-group">
                             <label>First Name</label>
-                            <input type="text" class="form-control" placeholder="" required="">
+                            <input type="text" class="form-control" value="<?php echo esc_attr($first_name); ?>" placeholder="" required="">
                           </div>
                         </div>
                         <div class=" col-lg-6 col-sm-12">
                           <div class="form-group">
                             <label>Last Name</label>
-                            <input type="text" class="form-control" placeholder="" required="">
+                            <input type="text" class="form-control" value="<?php echo esc_attr($last_name); ?>" placeholder="" required="">
                           </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                           <div class="form-group">
                             <label> Email</label>
-                            <input type="email" class="form-control" placeholder="" required="">
+                            <input type="email" class="form-control" value="<?php echo esc_attr($email); ?> placeholder="" required="">
                           </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                           <div class="form-group">
                             <label> Phone Number</label>
-                            <input type="text" class="form-control" placeholder="" required="">
+                            <input type="text" class="form-control" value="<?php echo esc_attr($phone); ?>"placeholder="" required="">
                           </div>
                         </div>
                         <div class="form-group col-lg-12 col-sm-12">
                           <label>About me</label>
-                          <textarea placeholder="Thank You!" name="story" rows="5" cols="33"></textarea>
+                          <textarea placeholder="Thank You!" name="story" rows="5" cols="33"><?php echo esc_html($about); ?></textarea>
                         </div>
                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                          <button type="submit" class="dashbord-btn">Save
+                          <button type="submit" name="update_profile" class="dashbord-btn">Save
                             Changes</button>
                         </div>
                       </div>
@@ -153,33 +153,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class=" col-lg-6 col-md-6 col-sm-12">
                           <div class="form-group">
                           <label>Facebook</label>
-                          <input type="text" class="form-control" placeholder="https://www.facebook.com/"
+                          <input type="text" class="form-control" value="<?php echo esc_url($facebook); ?>" placeholder="https://www.facebook.com/"
                             required="">
                           </div>
                         </div>
                         <div class=" col-lg-6 col-md-6 col-sm-12">
                           <div class="form-group">
                           <label>Twitter</label>
-                          <input type="text" class="form-control" placeholder="https://x.com/"
+                          <input type="text" class="form-control" value="<?php echo esc_url($twitter); ?>" placeholder="https://x.com/"
                             required="">
                           </div>
                         </div>
                         <div class=" col-lg-6 col-md-6 col-sm-12">
                           <div class="form-group">
                           <label>Instagram</label>
-                          <input type="text" class="form-control" placeholder="https://www.instagram.com/"
+                          <input type="text" class="form-control" value="<?php echo esc_url($instagram); ?>" placeholder="https://www.instagram.com/"
                             required="">
                           </div>
                         </div>
                         <div class=" col-lg-6 col-md-6 col-sm-12">
                           <div class="form-group">
                           <label>Youtube</label>
-                          <input type="text" class="form-control" placeholder="https://www.youtube.com/"
+                          <input type="text" class="form-control" value="<?php echo esc_url($youtube); ?>" placeholder="https://www.youtube.com/"
                             required="">
                           </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
-                          <button type="submit" class="dashbord-btn">Save
+                          <button type="submit" name="update_social" class="dashbord-btn">Save
                             Changes</button>
                         </div>
                       </div>
@@ -252,97 +252,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   </div>
 
 
-
-
-<!-- HTML Template Starts Here -->
-<div class="wl-dashboard-wrapper dashboard">
-    <div class="container-fluid wl-dashboard-content">
-        <div class="my-profile profile-form">
-            <div class="my-profile-box">
-                <div class="my-profile-details">
-                    <div class="profile-img">
-                        <img src="<?php echo esc_url(get_user_meta($user_id, 'profile_image', true) ?: 'assets/img/login-img.jpg'); ?>" alt="" class="img-fluid rounded-circle" width="100" height="100">
-                        <form method="post" enctype="multipart/form-data">
-                            <input type="file" name="profile_image" accept="image/*">
-                            <button type="submit" name="update_image" class="dashbord-btn">Edit Image</button>
-                        </form>
-                    </div>
-                    <div class="profile-info">
-                        <h4><?php echo esc_html($first_name . ' ' . $last_name); ?></h4>
-                        <p class="profile-info-text"><?php echo esc_html($about); ?></p>
-                        <div class="profile-action"><h4>Active</h4></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Profile Form -->
-            <div class="tab active-tab" id="tab-11">
-                <div class="form-block">
-                    <form method="post" action="">
-                        <div class="form-box">
-                            <div class="row">
-                                <div class="col-lg-6 col-sm-12">
-                                    <label>First Name</label>
-                                    <input type="text" name="first_name" value="<?php echo esc_attr($first_name); ?>" required>
-                                </div>
-                                <div class="col-lg-6 col-sm-12">
-                                    <label>Last Name</label>
-                                    <input type="text" name="last_name" value="<?php echo esc_attr($last_name); ?>" required>
-                                </div>
-                                <div class="col-lg-6 col-sm-12">
-                                    <label>Email</label>
-                                    <input type="email" name="email" value="<?php echo esc_attr($email); ?>" required>
-                                </div>
-                                <div class="col-lg-6 col-sm-12">
-                                    <label>Phone Number</label>
-                                    <input type="text" name="phone" value="<?php echo esc_attr($phone); ?>" required>
-                                </div>
-                                <div class="col-lg-12">
-                                    <label>About Me</label>
-                                    <textarea name="about" rows="5"><?php echo esc_html($about); ?></textarea>
-                                </div>
-                                <div class="col-lg-12">
-                                    <button type="submit" name="update_profile" class="dashbord-btn">Save Changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Social Media Form -->
-            <div class="tab" id="tab-14">
-                <div class="form-block">
-                    <form method="post" action="">
-                        <div class="form-box">
-                            <div class="row">
-                                <div class="col-lg-6 col-sm-12">
-                                    <label>Facebook</label>
-                                    <input type="text" name="facebook" value="<?php echo esc_url($facebook); ?>" required>
-                                </div>
-                                <div class="col-lg-6 col-sm-12">
-                                    <label>Twitter</label>
-                                    <input type="text" name="twitter" value="<?php echo esc_url($twitter); ?>" required>
-                                </div>
-                                <div class="col-lg-6 col-sm-12">
-                                    <label>Instagram</label>
-                                    <input type="text" name="instagram" value="<?php echo esc_url($instagram); ?>" required>
-                                </div>
-                                <div class="col-lg-6 col-sm-12">
-                                    <label>Youtube</label>
-                                    <input type="text" name="youtube" value="<?php echo esc_url($youtube); ?>" required>
-                                </div>
-                                <div class="col-lg-12">
-                                    <button type="submit" name="update_social" class="dashbord-btn">Save Changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 
