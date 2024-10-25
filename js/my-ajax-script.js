@@ -1,3 +1,4 @@
+if (window.location.pathname === '/to-do-list/') {
 document.addEventListener('DOMContentLoaded', () => {
     const today = new Date();
     document.getElementById('edit-todo-date').value = today.toISOString().split('T')[0];
@@ -139,3 +140,4 @@ jQuery(document).ready(function($) {
     const tooltipTriggerList = document.querySelectorAll('[data-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 });
+}
