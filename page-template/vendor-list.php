@@ -21,8 +21,8 @@ get_sidebar('dashboard');
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
           <div class="page-header d-flex">
-            <h3 class="pageheader-title w-1/4">Vendors List</h3>
-            <p>Add your party vendors, then move your selcted vendors to the "My Vendors" Page.</p>
+            <h3 class="pageheader-title m-0">Vendors List</h3>
+            <p class="m-0">Add your party vendors, then move your selcted vendors to the "My Vendors" Page.</p>
           </div>
         </div>
       </div>
