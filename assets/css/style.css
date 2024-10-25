@@ -6345,3 +6345,8 @@ th.todo-subhead h4 {
     margin-bottom: 0;
     color: #744F30;
 }
+.text-single-line{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

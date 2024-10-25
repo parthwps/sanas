@@ -62,11 +62,11 @@ get_sidebar('dashboard');
                             <?php foreach ($vendor_items as $vendor): ?>
                                 <tr>
                                     <td><input type="checkbox"></td>
-                                    <td><?php echo esc_html($vendor['category']); ?></td>
-                                    <td><?php echo esc_html($vendor['name']); ?></td>
-                                    <td><?php echo esc_html($vendor['email']); ?></td>
+                                    <td class="text-single-line"><?php echo esc_html($vendor['category']); ?></td>
+                                    <td class="text-single-line"><?php echo esc_html($vendor['name']); ?></td>
+                                    <td class="text-single-line"><?php echo esc_html($vendor['email']); ?></td>
                                     <td><?php echo esc_html($vendor['phone']); ?></td>
-                                    <td data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($vendor['notes']); ?>"><?php echo esc_html($vendor['notes']); ?></td>
+                                    <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($vendor['notes']); ?>"><?php echo esc_html($vendor['notes']); ?></td>
                                     <td><?php echo esc_html($vendor['social_media_profile']); ?></td>
                                     <td>$<?php echo esc_html($vendor['pricing']); ?></td>
                                     <td class="actions">
