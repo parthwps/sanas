@@ -138,6 +138,7 @@ jQuery(document).ready(function($) {
         });
     });
 });
+}
 
 function initializeTooltips() {
     const tooltipTriggerList = document.querySelectorAll('[data-toggle="tooltip"]');
