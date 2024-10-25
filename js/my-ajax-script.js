@@ -148,6 +148,7 @@ if (window.location.pathname === '/vendors-list/') {
         jQuery('#add-vendor-form').submit(function(e) {
             e.preventDefault();
             var formData = $(this).serialize();
+            console.log(formData); // Log form data
             $.ajax({
                 type: 'POST',
                 url: ajax_object.ajax_url,
