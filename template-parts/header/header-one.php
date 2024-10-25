@@ -9,15 +9,16 @@ $loginText    = sanas_options('sanas_header_login_button_text');
 $class_fixed = 'wl-header';
 if(is_page_template( 'page-template/myevent.php')
 || is_page_template( 'page-template/wishlist.php')
-|| is_page_template( 'page-template/todolist.php')) {
+|| is_page_template( 'page-template/todolist.php')
+|| is_page_template( 'page-template/my-vendors.php')
+|| is_page_template( 'page-template/vendor-list.php')) {
   $class_fixed = 'position-fixed';
 }
 
  global $current_user;    
-                wp_get_current_user();
-                $userID = $current_user->ID;
-
-                $first_char = substr($current_user->user_firstname, 0, 1);
+  wp_get_current_user();
+  $userID = $current_user->ID;
+  $first_char = substr($current_user->user_firstname, 0, 1);
 ?>
   <header class="main-header <?php echo esc_attr($class_fixed);?>">
     <div class="container">
