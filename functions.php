@@ -592,3 +592,26 @@ function edit_vendor_item() {
         wp_send_json_error('Failed to update vendor item.');
     }
 }
+
+add_action('wp_ajax_get_vendor_list_item', 'get_vendor_list_item');
+function get_vendor_list_item() {
+    global $wpdb;
+    $current_user_id = get_current_user_id();
+    $id = intval($_POST['id']);
+
+    $table_name = $wpdb->prefix . 'vendor_list';
+    $vendor = $wpdb->get_row(
+        $wpdb->prepare(
+            "SELECT * FROM $table_name WHERE id = %d AND user_id = %d",
+            $id,
+            $current_user_id
+        ),
+        ARRAY_A
+    );
+
+    if ($vendor) {
+        wp_send_json_success($vendor);
+    } else {
+        wp_send_json_error('Vendor item not found or access denied.');
+    }
+}
