@@ -1,6 +1,6 @@
 deployment:
   tasks:
-    - export DEPLOYPATH='/home4/sanasinvite.com/public_html/.dev132/wp-content/themes/sanas'
+    - export DEPLOYPATH='/home4/sanashub/home4/sanasinvite.com/public_html/.dev132/wp-content/themes/sanas'
     - echo "Deploying to $DEPLOYPATH"
     - cd $DEPLOYPATH
     - git fetch --all
