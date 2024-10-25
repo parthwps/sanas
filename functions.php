@@ -596,15 +596,13 @@ function edit_vendor_item() {
 add_action('wp_ajax_get_vendor_list_item', 'get_vendor_list_item');
 function get_vendor_list_item() {
     global $wpdb;
-    $current_user_id = get_current_user_id();
     $id = intval($_POST['id']);
 
     $table_name = $wpdb->prefix . 'vendor_list';
     $vendor = $wpdb->get_row(
         $wpdb->prepare(
-            "SELECT * FROM $table_name WHERE id = %d AND user_id = %d",
-            $id,
-            $current_user_id
+            "SELECT * FROM $table_name WHERE id = %d",
+            $id
         ),
         ARRAY_A
     );
