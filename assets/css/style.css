@@ -557,6 +557,9 @@ section.wedding-section .row {
     cursor: pointer;
     color: #9ca89c;
 }
+.heart-icon.active {
+    background-color: #f00;
+}
 
 .btn-outline-primary:hover {
     background-color: var(--snas-bg-primary);
