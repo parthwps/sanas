@@ -217,6 +217,7 @@ get_sidebar('dashboard');
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
+                      <input type="hidden" name="id" id="edit-vendor-id">
                       <button type="submit" class="dashbord-btn">Save</button>
                     </div>
                   </div>
