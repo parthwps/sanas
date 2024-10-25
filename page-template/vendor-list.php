@@ -67,7 +67,7 @@ get_sidebar('dashboard');
                                     <td><?php echo esc_html($vendor['social_media_profile']); ?></td>
                                     <td><?php echo esc_html($vendor['pricing']); ?></td>
                                     <td class="actions">
-                                        <a href="#" class="edit theme-btn" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup">
+                                        <a href="#" class="edit theme-btn" data-id="<?php echo esc_attr($vendor['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup">
                                             <i class="fa-solid fa-pen"></i>
                                         </a>
                                         <a href="#" class="delete theme-btn">
