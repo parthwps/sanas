@@ -578,21 +578,21 @@ function edit_vendor_item() {
     }
 }
 
-add_action('wp_ajax_get_vendor_item', 'get_vendor_item');
-function get_vendor_item() {
-    global $wpdb;
-    $current_user_id = get_current_user_id();
-    $id = intval($_POST['id']);
-    $tablename = $wpdb->prefix.'vendor_list';
-    $item = $wpdb->get_row($wpdb->prepare(
-        "SELECT * FROM $tablename WHERE id = %d AND user_id = %d",
-        $id,
-        $current_user_id
-    ));
+// add_action('wp_ajax_get_vendor_item', 'get_vendor_item');
+// function get_vendor_item() {
+//     global $wpdb;
+//     $current_user_id = get_current_user_id();
+//     $id = intval($_POST['id']);
+//     $tablename = $wpdb->prefix.'vendor_list';
+//     $item = $wpdb->get_row($wpdb->prepare(
+//         "SELECT * FROM $tablename WHERE id = %d AND user_id = %d",
+//         $id,
+//         $current_user_id
+//     ));
 
-    if ($item) {
-        wp_send_json_success($item);
-    } else {
-        wp_send_json_error('Vendor item not found or access denied.');
-    }
-}
+//     if ($item) {
+//         wp_send_json_success($item);
+//     } else {
+//         wp_send_json_error('Vendor item not found or access denied.');
+//     }
+// }
