@@ -540,3 +540,10 @@ function add_vendor_item() {
         wp_send_json_error('Failed to add vendor item.');
     }
 }
+
+function get_vendor_list_items() {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'vendor_list';
+    $results = $wpdb->get_results("SELECT * FROM $table_name", ARRAY_A);
+    return $results;
+}

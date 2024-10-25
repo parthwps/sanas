@@ -53,74 +53,30 @@ get_sidebar('dashboard');
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td><input type="checkbox"></td>
-                          <td>Food</td>
-                          <td>Martin</td>
-                          <td>+5721458752</td>
-                          <td>Thank You !</td>
-                          <td>martinfood.com</td>
-                          <td>$1450</td>
-                          <td class="actions">
-                            <a href="#" class="edit theme-btn" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup">
-                              <i class="fa-solid fa-pen"></i>
-                            </a>
-                            <a href="#" class="delete theme-btn">
-                              <i class="fa-regular fa-trash-can"></i>
-                            </a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox"></td>
-                          <td>Photography</td>
-                          <td>Ethen</td>
-                          <td>+5745783648</td>
-                          <td>Thank You !</td>
-                          <td>EthenPhotography.com</td>
-                          <td>$1840</td>
-                          <td class="actions">
-                            <a href="#" class="edit theme-btn" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup">
-                              <i class="fa-solid fa-pen"></i>
-                            </a>
-                            <a href="#" class="delete theme-btn">
-                              <i class="fa-regular fa-trash-can"></i>
-                            </a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox"></td>
-                          <td>Musics</td>
-                          <td>jack</td>
-                          <td>+5721458752</td>
-                          <td>Thank You !</td>
-                          <td>jackMusics.com</td>
-                          <td>$2000</td>
-                          <td class="actions">
-                            <a href="#" class="edit theme-btn" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup">
-                              <i class="fa-solid fa-pen"></i>
-                            </a>
-                            <a href="#" class="delete theme-btn">
-                              <i class="fa-regular fa-trash-can"></i>
-                            </a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox"></td>
-                          <td>Decorations</td>
-                          <td>dhaval</td>
-                          <td>+5721458752</td>
-                          <td>Thank You !</td>
-                          <td>dhavalDecorations.com</td>
-                          <td>$1000</td>
-                          <td class="actions">
-                            <a href="#" class="edit theme-btn" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup">
-                              <i class="fa-solid fa-pen"></i>
-                            </a>
-                            <a href="#" class="delete theme-btn">
-                              <i class="fa-regular fa-trash-can"></i>
-                            </a>
-                          </td>
-                        </tr>
+                        <?php
+                        $vendor_items = get_vendor_list_items();
+                        ?>
+                        <?php if ($vendor_items): ?>
+                            <?php foreach ($vendor_items as $vendor): ?>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td><?php echo esc_html($vendor['category']); ?></td>
+                                    <td><?php echo esc_html($vendor['name']); ?></td>
+                                    <td><?php echo esc_html($vendor['phone']); ?></td>
+                                    <td><?php echo esc_html($vendor['notes']); ?></td>
+                                    <td><?php echo esc_html($vendor['social_media_profile']); ?></td>
+                                    <td><?php echo esc_html($vendor['pricing']); ?></td>
+                                    <td class="actions">
+                                        <a href="#" class="edit theme-btn" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup">
+                                            <i class="fa-solid fa-pen"></i>
+                                        </a>
+                                        <a href="#" class="delete theme-btn">
+                                            <i class="fa-regular fa-trash-can"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                       </tbody>
                       </table>
                     </div>
