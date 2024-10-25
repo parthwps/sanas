@@ -46,9 +46,6 @@ function sanas_css()
         wp_enqueue_style('datatables', get_template_directory_uri() . '/assets/css/datatables.min.css', array(), SANAS_VERSION);
     }        
   }
-  if(is_page_template('page-template/my-vendors.php') || is_page_template('page-template/vendor-list.php')){
-    wp_enqueue_style('datatables', get_template_directory_uri() . '/assets/css/datatables.min.css', array(), SANAS_VERSION);
-  }
   if(is_page_template('page-template/todolist.php') || is_page_template('page-template/my-vendors.php') || is_page_template('page-template/vendor-list.php')){
     wp_enqueue_style('datatables', get_template_directory_uri() . '/assets/css/datatables.min.css', array(), SANAS_VERSION);
   }
@@ -93,7 +90,7 @@ function sanas_js()
           wp_enqueue_script('datatables', get_template_directory_uri() . '/assets/js/datatables.min.js', array('jquery'), SANAS_VERSION,true);
     }   
   }  
-  if(is_page_template('page-template/todolist.php')){
+  if(is_page_template('page-template/todolist.php') || is_page_template('page-template/my-vendors.php') || is_page_template('page-template/vendor-list.php')){
     wp_enqueue_script('datatables', get_template_directory_uri() . '/assets/js/datatables.min.js', array('jquery'), SANAS_VERSION,true);
   }
   wp_enqueue_script('sanas-custom', get_template_directory_uri() . '/assets/js/custom.js', array('jquery'), SANAS_VERSION,true);
