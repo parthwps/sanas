@@ -145,48 +145,48 @@ get_sidebar('dashboard');
             </button>
           </div>
           <div class="content-box">
-            <form method="post" action="#">
+            <form id="add-vendor-form" method="post" action="#">
               <div class="form-content">
                 <div class="row">
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Category*</label>
-                      <input type="text" class="form-control"  required="">
+                      <input type="text" name="category" class="form-control" required="">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Name*</label>
-                      <input type="text" class="form-control"  required="">
+                      <input type="text" name="name" class="form-control" required="">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Email</label>
-                      <input type="email" class="form-control"  required="">
+                      <input type="email" name="email" class="form-control">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Phone</label>
-                      <input type="number" class="form-control"  required="">
+                      <input type="number" name="phone" class="form-control">
                     </div>
                   </div>
                   <div class="col-lg-12 col-sm-12">
                     <div class="form-group">
-                      <label> Social Madia Profile</label>
-                      <input type="url" class="form-control" >
+                      <label>Social Media Profile</label>
+                      <input type="url" name="social_media_profile" class="form-control">
                     </div>
                   </div>
                   <div class="col-lg-12 col-sm-12">
                     <div class="form-group">
                       <label>Pricing</label>
-                      <input type="number" class="form-control" >
+                      <input type="number" name="pricing" class="form-control">
                     </div>
                   </div>
                   <div class="col-lg-12 col-sm-12">
                     <label>Notes</label>
-                    <textarea class="form-control"></textarea>
+                    <textarea name="notes" class="form-control"></textarea>
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">

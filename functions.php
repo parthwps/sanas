@@ -483,3 +483,60 @@ function delete_todo_item() {
         wp_send_json_error('Failed to delete To-Do item.');
     }
 }
+
+function create_vendor_table() {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'vendor_list';
+
+    // Check if the table already exists
+    if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
+        $charset_collate = $wpdb->get_charset_collate();
+
+        $sql = "CREATE TABLE $table_name (
+            id INT NOT NULL AUTO_INCREMENT,
+            category VARCHAR(255) NOT NULL,
+            name VARCHAR(255) NOT NULL,
+            phone VARCHAR(20),
+            notes TEXT,
+            social_media_profile VARCHAR(255),
+            pricing DECIMAL(10, 2),
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (id)
+        ) $charset_collate;";
+
+        require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+        dbDelta($sql);
+    }
+}
+add_action('after_switch_theme', 'create_vendor_table');
+
+// Function to add a vendor item
+add_action('wp_ajax_add_vendor_item', 'add_vendor_item');
+function add_vendor_item() {
+    global $wpdb;
+
+    $category = sanitize_text_field($_POST['category']);
+    $name = sanitize_text_field($_POST['name']);
+    $phone = sanitize_text_field($_POST['phone']);
+    $notes = sanitize_textarea_field($_POST['notes']);
+    $social_media_profile = sanitize_text_field($_POST['social_media_profile']);
+    $pricing = floatval($_POST['pricing']);
+
+    $wpdb->insert(
+        $wpdb->prefix . 'vendor_list',
+        array(
+            'category' => $category,
+            'name' => $name,
+            'phone' => $phone,
+            'notes' => $notes,
+            'social_media_profile' => $social_media_profile,
+            'pricing' => $pricing,
+        )
+    );
+
+    if ($wpdb->insert_id) {
+        wp_send_json_success('Vendor item added successfully.');
+    } else {
+        wp_send_json_error('Failed to add vendor item.');
+    }
+}

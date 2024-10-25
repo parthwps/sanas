@@ -141,3 +141,26 @@ jQuery(document).ready(function($) {
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 });
 }
+
+if (window.location.pathname === '/vendors-list/') {
+    jQuery(document).ready(function($) {
+        // Add Vendor Item
+        jQuery('#add-vendor-form').submit(function(e) {
+            e.preventDefault();
+            var formData = $(this).serialize();
+            $.ajax({
+                type: 'POST',
+                url: ajax_object.ajax_url,
+                data: formData + '&action=add_vendor_item',
+                success: function(response) {
+                    if (response.success) {
+                        alert(response.data);
+                        location.reload();
+                    } else {
+                        alert(response.data);
+                    }
+                }
+            });
+        });
+    });
+}
