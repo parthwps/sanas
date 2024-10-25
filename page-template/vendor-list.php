@@ -45,6 +45,7 @@ get_sidebar('dashboard');
                           <th> <input type="checkbox" name="allCheck" id="all-select-chechbox"> </th>
                           <th>Category</th>
                           <th>Name</th>
+                          <th>Email</th>
                           <th>Ph#</th>
                           <th>Notes</th>
                           <th>Social Madia Profile</th>
