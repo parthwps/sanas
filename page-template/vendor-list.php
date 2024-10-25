@@ -131,7 +131,7 @@ get_sidebar('dashboard');
                   <div class="col-lg-12 col-sm-12">
                     <div class="form-group">
                       <label>Social Media Profile</label>
-                      <input type="url" name="social_media_profile" class="form-control">
+                      <input type="text" name="social_media_profile" class="form-control">
                     </div>
                   </div>
                   <div class="col-lg-12 col-sm-12">
