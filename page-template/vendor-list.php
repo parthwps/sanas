@@ -72,7 +72,7 @@ get_sidebar('dashboard');
                                         <a href="#" class="edit theme-btn" data-id="<?php echo esc_attr($vendor['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup">
                                             <i class="fa-solid fa-pen"></i>
                                         </a>
-                                        <a href="#" class="delete theme-btn">
+                                        <a href="#" class="delete theme-btn" data-id="<?php echo esc_attr($vendor['id']); ?>">
                                             <i class="fa-regular fa-trash-can"></i>
                                         </a>
                                     </td>

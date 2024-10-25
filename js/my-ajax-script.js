@@ -204,5 +204,24 @@ if (window.location.pathname === '/vendors-list/') {
                 }
             });
         });
+
+        jQuery('.delete').on('click', function() {
+            var vendorId = jQuery(this).data('id');
+            if (confirm('Are you sure you want to delete this Vendor item?')) {
+                $.ajax({
+                    type: 'POST',
+                    url: ajax_object.ajax_url,
+                        data: { id: vendorId, action: 'delete_vendor_item' },
+                    success: function(response) {
+                        if (response.success) {
+                            alert(response.data);
+                            location.reload();
+                        } else {
+                            alert(response.data);
+                        }
+                    }
+                });
+            }
+        });
     });
 }

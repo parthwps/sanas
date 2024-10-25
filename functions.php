@@ -620,3 +620,22 @@ function get_vendor_list_item() {
         wp_send_json_error('Vendor item not found or access denied.');
     }
 }
+
+add_action('wp_ajax_delete_vendor_item', 'delete_vendor_item');
+function delete_vendor_item() {
+    global $wpdb;
+    $current_user_id = get_current_user_id();
+    $id = intval($_POST['id']);
+
+    // Delete the to-do item for the current user
+    $result = $wpdb->delete(
+        $wpdb->prefix . 'vendor_list', // Change to your actual table name
+        array('id' => $id, 'user_id' => $current_user_id) // Ensure the current user can only delete their own items
+    );
+
+    if ($result) {
+        wp_send_json_success('Vendor item deleted successfully.');
+    } else {
+        wp_send_json_error('Failed to delete vendor item.');
+    }
+}
