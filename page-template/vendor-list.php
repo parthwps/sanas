@@ -162,13 +162,13 @@ get_sidebar('dashboard');
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
-                      <label>Email*</label>
+                      <label>Email</label>
                       <input type="email" class="form-control"  required="">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
-                      <label>Phone*</label>
+                      <label>Phone</label>
                       <input type="number" class="form-control"  required="">
                     </div>
                   </div>
@@ -179,12 +179,23 @@ get_sidebar('dashboard');
                     </div>
                   </div>
                   <div class="col-lg-12 col-sm-12">
+                    <div class="form-group">
+                      <label>Pricing</label>
+                      <input type="number" class="form-control" >
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-sm-12">
                     <label>Notes</label>
                     <textarea class="form-control"></textarea>
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
                       <button type="submit" class="dashbord-btn">Save</button>
+                    </div>
+                  </div>
+                  <div class="form-group col-lg-12 col-sm-12">
+                    <div class="links-box">
+                      <button type="submit" class="dashbord-btn">Save and Add Another Vendor</button>
                     </div>
                   </div>
                 </div>
