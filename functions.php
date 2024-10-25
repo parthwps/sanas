@@ -494,6 +494,7 @@ function create_vendor_table() {
 
         $sql = "CREATE TABLE $table_name (
             id INT NOT NULL AUTO_INCREMENT,
+            user_id INT NOT NULL,
             category VARCHAR(255) NOT NULL,
             name VARCHAR(255) NOT NULL,
             phone VARCHAR(20),
@@ -514,9 +515,7 @@ add_action('after_switch_theme', 'create_vendor_table');
 add_action('wp_ajax_add_vendor_item', 'add_vendor_item');
 function add_vendor_item() {
     global $wpdb;
-
-    // Debugging: Log the received data
-    error_log(print_r($_POST, true));
+    $current_user_id = get_current_user_id();
 
     $category = sanitize_text_field($_POST['category']);
     $name = sanitize_text_field($_POST['name']);
@@ -528,6 +527,7 @@ function add_vendor_item() {
     $wpdb->insert(
         $wpdb->prefix . 'vendor_list',
         array(
+            'user_id' => $current_user_id,
             'category' => $category,
             'name' => $name,
             'phone' => $phone,
@@ -544,9 +544,55 @@ function add_vendor_item() {
     }
 }
 
-function get_vendor_list_items() {
+
+add_action('wp_ajax_edit_vendor_item', 'edit_vendor_item');
+function edit_vendor_item() {
     global $wpdb;
-    $table_name = $wpdb->prefix . 'vendor_list';
-    $results = $wpdb->get_results("SELECT * FROM $table_name", ARRAY_A);
-    return $results;
+    $current_user_id = get_current_user_id();
+    $id = intval($_POST['id']);
+
+    $category = sanitize_text_field($_POST['category']);
+    $name = sanitize_text_field($_POST['name']);
+    $phone = sanitize_text_field($_POST['phone']);
+    $notes = sanitize_textarea_field($_POST['notes']);
+    $social_media_profile = sanitize_text_field($_POST['social_media_profile']);
+    $pricing = floatval($_POST['pricing']);
+
+    $result = $wpdb->update(
+        $wpdb->prefix . 'vendor_list',
+        array(
+            'category' => $category,
+            'name' => $name,
+            'phone' => $phone,
+            'notes' => $notes,
+            'social_media_profile' => $social_media_profile,
+            'pricing' => $pricing,
+        ),
+        array('id' => $id, 'user_id' => $current_user_id)
+    );
+
+    if ($result !== false) {
+        wp_send_json_success('Vendor item updated successfully.');
+    } else {
+        wp_send_json_error('Failed to update vendor item.');
+    }
+}
+
+add_action('wp_ajax_get_vendor_item', 'get_vendor_item');
+function get_vendor_item() {
+    global $wpdb;
+    $current_user_id = get_current_user_id();
+    $id = intval($_POST['id']);
+    $tablename = $wpdb->prefix.'vendor_list';
+    $item = $wpdb->get_row($wpdb->prepare(
+        "SELECT * FROM $tablename WHERE id = %d AND user_id = %d",
+        $id,
+        $current_user_id
+    ));
+
+    if ($item) {
+        wp_send_json_success($item);
+    } else {
+        wp_send_json_error('Vendor item not found or access denied.');
+    }
 }

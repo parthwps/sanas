@@ -54,7 +54,7 @@ get_sidebar('dashboard');
                       </thead>
                       <tbody>
                         <?php
-                        $vendor_items = get_vendor_list_items();
+                        $vendor_items = get_vendor_item();
                         ?>
                         <?php if ($vendor_items): ?>
                             <?php foreach ($vendor_items as $vendor): ?>
@@ -65,7 +65,7 @@ get_sidebar('dashboard');
                                     <td><?php echo esc_html($vendor['phone']); ?></td>
                                     <td data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($vendor['notes']); ?>"><?php echo esc_html($vendor['notes']); ?></td>
                                     <td><?php echo esc_html($vendor['social_media_profile']); ?></td>
-                                    <td><?php echo esc_html($vendor['pricing']); ?></td>
+                                    <td>$<?php echo esc_html($vendor['pricing']); ?></td>
                                     <td class="actions">
                                         <a href="#" class="edit theme-btn" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup">
                                             <i class="fa-solid fa-pen"></i>
@@ -158,68 +158,68 @@ get_sidebar('dashboard');
       </div>
     </div>
   </div>
-  <div class="modal fade def-popup add-todolist-popup" id="edit-todolist-popup" tabindex="-1" role="dialog"
-    aria-hidden="true">
+  <div class="modal fade def-popup add-todolist-popup" id="edit-todolist-popup" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="modal-header">
-            <h4 class="modal-title">Edit Vendor</h4>
-            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-              <span class="cross"></span>
-            </button>
-          </div>
-          <div class="content-box">
-            <form method="post" action="#">
-              <div class="form-content">
-                <div class="row">
-                  <div class="col-lg-6 col-sm-12">
-                    <div class="form-group">
-                      <label>Category</label>
-                      <input type="text" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-lg-6 col-sm-12">
-                    <div class="form-group">
-                      <label>Name</label>
-                      <input type="text" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-lg-6 col-sm-12">
-                    <div class="form-group">
-                      <label>Email</label>
-                      <input type="email" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-lg-6 col-sm-12">
-                    <div class="form-group">
-                      <label>Phone</label>
-                      <input type="number" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-lg-12 col-sm-12">
-                    <div class="form-group">
-                      <label> Social Madia Profile</label>
-                      <input type="url" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-lg-12 col-sm-12">
-                    <label>Notes</label>
-                    <textarea class="form-control"></textarea>
-                  </div>
-                  <div class="form-group col-lg-12 col-sm-12">
-                    <div class="links-box">
-                      <button type="submit" class="dashbord-btn">Save</button>
-                    </div>
-                  </div>
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Vendor</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span class="cross"></span>
+                    </button>
                 </div>
-              </div>
-            </form>
-          </div>
+                <div class="content-box">
+                    <form id="edit-vendor-form" method="post" action="#">
+                        <div class="form-content">
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Category</label>
+                                        <input type="text" name="category" id="edit-vendor-category" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input type="text" name="name" id="edit-vendor-name" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Phone</label>
+                                        <input type="number" name="phone" id="edit-vendor-phone" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Social Media Profile</label>
+                                        <input type="url" name="social_media_profile" id="edit-vendor-social_media_profile" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Pricing</label>
+                                        <input type="number" name="pricing" id="edit-vendor-pricing" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-sm-12">
+                                    <label>Notes</label>
+                                    <textarea name="notes" id="edit-vendor-notes" class="form-control"></textarea>
+                                </div>
+                                <div class="form-group col-lg-12 col-sm-12">
+                                    <div class="links-box">
+                                        <input type="hidden" name="id" id="edit-vendor-id">
+                                        <button type="submit" class="dashbord-btn">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
 
 
 <?php

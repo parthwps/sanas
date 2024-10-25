@@ -148,11 +148,50 @@ if (window.location.pathname === '/vendors-list/') {
         jQuery('#add-vendor-form').submit(function(e) {
             e.preventDefault();
             var formData = $(this).serialize();
-            console.log(formData); // Log form data
             $.ajax({
                 type: 'POST',
                 url: ajax_object.ajax_url,
                 data: formData + '&action=add_vendor_item',
+                success: function(response) {
+                    if (response.success) {
+                        alert(response.data);
+                        location.reload();
+                    } else {
+                        alert(response.data);
+                    }
+                }
+            });
+        });
+
+        // Edit Vendor Item
+        jQuery('.edit').on('click', function() {
+            var vendorId = jQuery(this).data('id');
+            $.ajax({
+                type: 'POST',
+                url: ajax_object.ajax_url,
+                data: { id: vendorId, action: 'get_vendor_item' },
+                success: function(response) {
+                    if (response.success) {
+                        $('#edit-vendor-id').val(response.data.id);
+                        $('#edit-vendor-category').val(response.data.category);
+                        $('#edit-vendor-name').val(response.data.name);
+                        $('#edit-vendor-phone').val(response.data.phone);
+                        $('#edit-vendor-notes').val(response.data.notes);
+                        $('#edit-vendor-social_media_profile').val(response.data.social_media_profile);
+                        $('#edit-vendor-pricing').val(response.data.pricing);
+                        $('#edit-todolist-popup').modal('show');
+                    }
+                }
+            });
+        });
+
+        jQuery('#edit-vendor-form').submit(function(e) {
+            e.preventDefault();
+            var formData = $(this).serialize();
+            $.ajax({
+                type: 'POST',
+                url: ajax_object.ajax_url,
+                data: formData + '&action=edit_vendor_item',
                 success: function(response) {
                     if (response.success) {
                         alert(response.data);
