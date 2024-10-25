@@ -38,18 +38,28 @@ get_sidebar('dashboard');
                 <div class="inner-box3">
                   <div class="table-box upcoming-tasks">
                     <div class="table-responsive m-0">
-                      <div id="vendor-table_wrapper" class="dt-container dt-empty-footer"><div class="dt-layout-row"><div class="dt-layout-cell dt-start "><div class="dt-length"><select name="vendor-table_length" aria-controls="vendor-table" class="dt-input" id="dt-length-0"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select><label for="dt-length-0"> entries per page</label></div></div><div class="dt-layout-cell dt-end "><div class="dt-search"><label for="dt-search-0">Search:</label><input type="search" class="dt-input" id="dt-search-0" placeholder="" aria-controls="vendor-table"></div></div></div><div class="dt-layout-row dt-layout-table"><div class="dt-layout-cell "><table class="table dataTable" id="vendor-table" aria-describedby="vendor-table_info" style="width: 1020px;"><colgroup><col data-dt-column="0" style="width: 38px;"><col data-dt-column="1" style="width: 140.305px;"><col data-dt-column="2" style="width: 87.1094px;"><col data-dt-column="3" style="width: 151.797px;"><col data-dt-column="4" style="width: 153px;"><col data-dt-column="5" style="width: 229.93px;"><col data-dt-column="6" style="width: 96.0469px;"><col data-dt-column="7" style="width: 123.812px;"></colgroup>
+                      <table class="table" id="vendor-table">
                         <thead>
-                        <tr class="todo-check-title" role="row"><th data-dt-column="0" rowspan="1" colspan="1" class="dt-orderable-asc dt-orderable-desc dt-ordering-asc" aria-sort="ascending" aria-label="  : Activate to invert sorting" tabindex="0"><span class="dt-column-title" role="button"> <input type="checkbox" name="allCheck" id="all-select-chechbox"> </span><span class="dt-column-order"></span></th><th data-dt-column="1" rowspan="1" colspan="1" class="dt-orderable-asc dt-orderable-desc" aria-label="Category: Activate to sort" tabindex="0"><span class="dt-column-title" role="button">Category</span><span class="dt-column-order"></span></th><th data-dt-column="2" rowspan="1" colspan="1" class="dt-orderable-asc dt-orderable-desc" aria-label="Name: Activate to sort" tabindex="0"><span class="dt-column-title" role="button">Name</span><span class="dt-column-order"></span></th><th data-dt-column="3" rowspan="1" colspan="1" class="dt-type-numeric dt-orderable-asc dt-orderable-desc" aria-label="Ph#: Activate to sort" tabindex="0"><span class="dt-column-title" role="button">Ph#</span><span class="dt-column-order"></span></th><th data-dt-column="4" rowspan="1" colspan="1" class="dt-orderable-asc dt-orderable-desc" aria-label="Notes: Activate to sort" tabindex="0"><span class="dt-column-title" role="button">Notes</span><span class="dt-column-order"></span></th><th data-dt-column="5" rowspan="1" colspan="1" class="dt-orderable-asc dt-orderable-desc" aria-label="Social Madia Profile: Activate to sort" tabindex="0"><span class="dt-column-title" role="button">Social Madia Profile</span><span class="dt-column-order"></span></th><th data-dt-column="6" rowspan="1" colspan="1" class="dt-type-numeric dt-orderable-asc dt-orderable-desc" aria-label="Pricing: Activate to sort" tabindex="0"><span class="dt-column-title" role="button">Pricing</span><span class="dt-column-order"></span></th><th class="actions dt-orderable-asc dt-orderable-desc" data-dt-column="7" rowspan="1" colspan="1" aria-label="Actions: Activate to sort" tabindex="0"><span class="dt-column-title" role="button">Actions</span><span class="dt-column-order"></span></th></tr>
+                        <tr class="todo-check-title">
+                          <th> <input type="checkbox" name="allCheck" id="all-select-chechbox"> </th>
+                          <th>Category</th>
+                          <th>Name</th>
+                          <th>Ph#</th>
+                          <th>Notes</th>
+                          <th>Social Madia Profile</th>
+                          <th>Pricing</th>
+                          <th class="actions">Actions</th>
+                        </tr>
                       </thead>
-                      <tbody><tr>
-                          <td class="sorting_1"><input type="checkbox"></td>
+                      <tbody>
+                        <tr>
+                          <td><input type="checkbox"></td>
                           <td>Food</td>
                           <td>Martin</td>
-                          <td class="dt-type-numeric">+5721458752</td>
+                          <td>+5721458752</td>
                           <td>Thank You !</td>
                           <td>martinfood.com</td>
-                          <td class="dt-type-numeric">$1450</td>
+                          <td>$1450</td>
                           <td class="actions">
                             <a href="#" class="edit theme-btn" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup">
                               <i class="fa-solid fa-pen"></i>
@@ -58,14 +68,15 @@ get_sidebar('dashboard');
                               <i class="fa-regular fa-trash-can"></i>
                             </a>
                           </td>
-                        </tr><tr>
-                          <td class="sorting_1"><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox"></td>
                           <td>Photography</td>
                           <td>Ethen</td>
-                          <td class="dt-type-numeric">+5745783648</td>
+                          <td>+5745783648</td>
                           <td>Thank You !</td>
                           <td>EthenPhotography.com</td>
-                          <td class="dt-type-numeric">$1840</td>
+                          <td>$1840</td>
                           <td class="actions">
                             <a href="#" class="edit theme-btn" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup">
                               <i class="fa-solid fa-pen"></i>
@@ -74,13 +85,138 @@ get_sidebar('dashboard');
                               <i class="fa-regular fa-trash-can"></i>
                             </a>
                           </td>
-                        </tr></tbody>
-                      <tfoot></tfoot></table></div></div><div class="dt-layout-row"><div class="dt-layout-cell dt-start "><div class="dt-info" aria-live="polite" id="vendor-table_info" role="status">Showing 1 to 2 of 2 entries</div></div><div class="dt-layout-cell dt-end "><div class="dt-paging paging_full_numbers"><button class="dt-paging-button disabled first" role="link" type="button" aria-controls="vendor-table" aria-disabled="true" aria-label="First" data-dt-idx="first" tabindex="-1">«</button><button class="dt-paging-button disabled previous" role="link" type="button" aria-controls="vendor-table" aria-disabled="true" aria-label="Previous" data-dt-idx="previous" tabindex="-1">‹</button><button class="dt-paging-button current" role="link" type="button" aria-controls="vendor-table" aria-current="page" data-dt-idx="0" tabindex="0">1</button><button class="dt-paging-button disabled next" role="link" type="button" aria-controls="vendor-table" aria-disabled="true" aria-label="Next" data-dt-idx="next" tabindex="-1">›</button><button class="dt-paging-button disabled last" role="link" type="button" aria-controls="vendor-table" aria-disabled="true" aria-label="Last" data-dt-idx="last" tabindex="-1">»</button></div></div></div></div>
+                        </tr>
+                      </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade def-popup add-todolist-popup" id="add-todolist-popup" tabindex="-1" role="dialog"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="modal-header">
+            <h4 class="modal-title">Add Vendor</h4>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span class="cross"></span>
+            </button>
+          </div>
+          <div class="content-box">
+            <form method="post" action="#">
+              <div class="form-content">
+                <div class="row">
+                  <div class="col-lg-6 col-sm-12">
+                    <div class="form-group">
+                      <label>Category*</label>
+                      <input type="text" class="form-control"  required="">
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-sm-12">
+                    <div class="form-group">
+                      <label>Name*</label>
+                      <input type="text" class="form-control"  required="">
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-sm-12">
+                    <div class="form-group">
+                      <label>Email*</label>
+                      <input type="email" class="form-control"  required="">
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-sm-12">
+                    <div class="form-group">
+                      <label>Phone*</label>
+                      <input type="number" class="form-control"  required="">
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-sm-12">
+                    <div class="form-group">
+                      <label> Social Madia Profile</label>
+                      <input type="url" class="form-control" >
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-sm-12">
+                    <label>Notes</label>
+                    <textarea class="form-control"></textarea>
+                  </div>
+                  <div class="form-group col-lg-12 col-sm-12">
+                    <div class="links-box">
+                      <button type="submit" class="dashbord-btn">Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade def-popup add-todolist-popup" id="edit-todolist-popup" tabindex="-1" role="dialog"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="modal-header">
+            <h4 class="modal-title">Edit Vendor</h4>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span class="cross"></span>
+            </button>
+          </div>
+          <div class="content-box">
+            <form method="post" action="#">
+              <div class="form-content">
+                <div class="row">
+                  <div class="col-lg-6 col-sm-12">
+                    <div class="form-group">
+                      <label>Category</label>
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-sm-12">
+                    <div class="form-group">
+                      <label>Name</label>
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-sm-12">
+                    <div class="form-group">
+                      <label>Email</label>
+                      <input type="email" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-sm-12">
+                    <div class="form-group">
+                      <label>Phone</label>
+                      <input type="number" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-sm-12">
+                    <div class="form-group">
+                      <label> Social Madia Profile</label>
+                      <input type="url" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-sm-12">
+                    <label>Notes</label>
+                    <textarea class="form-control"></textarea>
+                  </div>
+                  <div class="form-group col-lg-12 col-sm-12">
+                    <div class="links-box">
+                      <button type="submit" class="dashbord-btn">Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
