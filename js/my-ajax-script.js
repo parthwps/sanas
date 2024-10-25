@@ -163,8 +163,5 @@ if (window.location.pathname === '/vendors-list/') {
                 }
             });
         });
-
-        const tooltipTriggerList = document.querySelectorAll('[data-toggle="tooltip"]')
-        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     });
 }
