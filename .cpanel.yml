@@ -1,6 +1,8 @@
 deployment:
   tasks:
     - export DEPLOYPATH='/home4/sanasinvite.com/public_html/.dev132/wp-content/themes/sanas'
-    - /bin/cp -R * $DEPLOYPATH
+    - echo "Deploying to $DEPLOYPATH"
     - cd $DEPLOYPATH
-    - git pull https://github.com/parthwps/sanas.git
+    - git fetch --all
+    - git reset --hard origin/main
+    - echo "Deployment completed"
