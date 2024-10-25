@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('add-todo-date').value = today.toISOString().split('T')[0];
   });
 jQuery(document).ready(function($) {
+    // Initialize tooltips
+    initializeTooltips();
+    
     // Add To-Do Item
     jQuery('#add-todo-form').submit(function(e) {
         e.preventDefault();
@@ -147,6 +150,7 @@ function initializeTooltips() {
 
 if (window.location.pathname === '/vendors-list/') {
     jQuery(document).ready(function($) {
+        initializeTooltips();
         // Add Vendor Item
         jQuery('#add-vendor-form').submit(function(e) {
             e.preventDefault();
