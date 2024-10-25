@@ -544,6 +544,8 @@ function add_vendor_item() {
     }
 }
 
+// Function to get all vendor items for the current user
+add_action('wp_ajax_get_vendor_list_items', 'get_vendor_list_items');
 function get_vendor_list_items() {
     global $wpdb;
     $table_name = $wpdb->prefix . 'vendor_list';
