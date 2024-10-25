@@ -63,7 +63,7 @@ get_sidebar('dashboard');
                                     <td><?php echo esc_html($vendor['category']); ?></td>
                                     <td><?php echo esc_html($vendor['name']); ?></td>
                                     <td><?php echo esc_html($vendor['phone']); ?></td>
-                                    <td><?php echo esc_html($vendor['notes']); ?></td>
+                                    <td data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($vendor['notes']); ?>"><?php echo esc_html($vendor['notes']); ?></td>
                                     <td><?php echo esc_html($vendor['social_media_profile']); ?></td>
                                     <td><?php echo esc_html($vendor['pricing']); ?></td>
                                     <td class="actions">
