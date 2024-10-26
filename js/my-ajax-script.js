@@ -168,6 +168,15 @@ if (window.location.pathname === '/vendors-list/') {
             });
         });
 
+        // Select All Checkbox
+        jQuery('#all-select-chechbox').on('change', function() {
+            var allChecked = $(this).is(':checked');
+            $('.checkSingle').prop('checked', allChecked);
+            if(allChecked === 0){
+                alert('Please select at least one vendor');
+            }
+        });
+
         // Get Vendor Item for Editing
         jQuery('.edit').on('click', function() {
             var vendorId = jQuery(this).data('id');

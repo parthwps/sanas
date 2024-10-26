@@ -43,7 +43,7 @@ get_sidebar('dashboard');
                       <table class="table" id="vendor-table">
                         <thead>
                         <tr class="todo-check-title">
-                          <th> <input type="checkbox" name="allCheck" id="all-select-chechbox"> </th>
+                          <th><input type="checkbox" name="allCheck" id="all-select-chechbox"></th>
                           <th>Category</th>
                           <th>Name</th>
                           <th>Email</th>
