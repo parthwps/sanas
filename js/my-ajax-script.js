@@ -239,12 +239,29 @@ if (window.location.pathname === '/vendors-list/') {
             // Move to My Vendors List button click
             $('.add-link-btn').on('click', function(e) {
                 e.preventDefault();
-                var anyChecked = $('.checkSingle:checked').length > 0;
-                if (!anyChecked) {
+                var selectedVendors = $('.checkSingle:checked').map(function() {
+                    return $(this).closest('tr').find('.edit').data('id');
+                }).get();
+
+                if (selectedVendors.length === 0) {
                     alert('Please select at least one vendor to move to the "My Vendors" page.');
                 } else {
-                    // Logic to move selected vendors to "My Vendors" page
-                    // This could involve an AJAX request or a form submission
+                    $.ajax({
+                        type: 'POST',
+                        url: ajax_object.ajax_url,
+                        data: {
+                            action: 'move_vendors_to_my_list',
+                            vendor_ids: selectedVendors
+                        },
+                        success: function(response) {
+                            if (response.success) {
+                                alert(response.data);
+                                location.reload();
+                            } else {
+                                alert(response.data);
+                            }
+                        }
+                    });
                 }
             });
         });

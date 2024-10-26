@@ -800,3 +800,51 @@ function delete_my_vendor_item() {
         wp_send_json_error('Failed to delete my vendor item.');
     }
 }
+
+add_action('wp_ajax_move_vendors_to_my_list', 'move_vendors_to_my_list');
+function move_vendors_to_my_list() {
+    global $wpdb;
+    $current_user_id = get_current_user_id();
+    $vendor_ids = $_POST['vendor_ids'];
+
+    if (!is_array($vendor_ids) || empty($vendor_ids)) {
+        wp_send_json_error('No vendors selected.');
+        return;
+    }
+
+    foreach ($vendor_ids as $vendor_id) {
+        $vendor_id = intval($vendor_id);
+
+        // Get vendor details
+        $vendor = $wpdb->get_row($wpdb->prepare(
+            "SELECT * FROM {$wpdb->prefix}vendor_list WHERE id = %d AND user_id = %d",
+            $vendor_id,
+            $current_user_id
+        ), ARRAY_A);
+
+        if ($vendor) {
+            // Insert into my_vendor_list
+            $wpdb->insert(
+                $wpdb->prefix . 'my_vendor_list',
+                array(
+                    'user_id' => $current_user_id,
+                    'category' => $vendor['category'],
+                    'name' => $vendor['name'],
+                    'email' => $vendor['email'],
+                    'phone' => $vendor['phone'],
+                    'notes' => $vendor['notes'],
+                    'social_media_profile' => $vendor['social_media_profile'],
+                    'pricing' => $vendor['pricing'],
+                )
+            );
+
+            // Delete from vendor_list
+            $wpdb->delete(
+                $wpdb->prefix . 'vendor_list',
+                array('id' => $vendor_id, 'user_id' => $current_user_id)
+            );
+        }
+    }
+
+    wp_send_json_success('Selected vendors moved to "My Vendors" list.');
+}
