@@ -172,7 +172,7 @@ if (window.location.pathname === '/vendors-list/') {
         jQuery('#all-select-chechbox').on('change', function() {
             var allChecked = $(this).is(':checked');
             $('.checkSingle').prop('checked', allChecked);
-            if(allChecked === 0){
+            if (!allChecked) {
                 alert('Please select at least one vendor');
             }
         });
