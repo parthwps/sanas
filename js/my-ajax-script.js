@@ -296,7 +296,7 @@ if (window.location.pathname === '/my-vendors/') {
 
         jQuery('.delete').on('click', function() {
             var vendorId = jQuery(this).data('id');
-            if (confirm('Are you sure you want to delete this My Vendor item?')) {
+            if (confirm('Do you want to delete this entry?')) {
                 $.ajax({
                     type: 'POST',
                     url: ajax_object.ajax_url,
