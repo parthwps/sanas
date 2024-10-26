@@ -11,7 +11,8 @@ if(is_page_template( 'page-template/myevent.php')
 || is_page_template( 'page-template/wishlist.php')
 || is_page_template( 'page-template/todolist.php')
 || is_page_template( 'page-template/my-vendors.php')
-|| is_page_template( 'page-template/vendor-list.php')) {
+|| is_page_template( 'page-template/vendor-list.php')
+|| is_page_template( 'page-template/mycontact.php')) {
   $class_fixed = 'position-fixed';
 }
 
