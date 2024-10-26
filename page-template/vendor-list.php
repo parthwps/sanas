@@ -30,8 +30,8 @@ get_sidebar('dashboard');
         <div class="inner">
           <div class="todo-search-add-link justify-content-end">
             <div class="add-link">
-              <a href="my-vendor.html" class=""> Move to My Vendors List</a>
-                <a href="#" class="" data-bs-toggle="modal" data-bs-target="#add-todolist-popup"> Add Vendor</a>
+              <a href="#" class="add-link-btn">Move to My Vendors List</a>
+                <a href="#" class="" data-bs-toggle="modal" data-bs-target="#add-todolist-popup">Add Vendor</a>
             </div>
           </div>
           <div class="todo-box">

@@ -234,6 +234,20 @@ if (window.location.pathname === '/vendors-list/') {
                 });
             }
         });
+
+        jQuery(document).ready(function($) {
+            // Move to My Vendors List button click
+            $('.add-link-btn').on('click', function(e) {
+                e.preventDefault();
+                var anyChecked = $('.checkSingle:checked').length > 0;
+                if (!anyChecked) {
+                    alert('Please select at least one vendor to move to the "My Vendors" page.');
+                } else {
+                    // Logic to move selected vendors to "My Vendors" page
+                    // This could involve an AJAX request or a form submission
+                }
+            });
+        });
     });
 }
 
