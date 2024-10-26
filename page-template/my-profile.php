@@ -241,7 +241,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                       <label class="form-check-label" for="CheckDel">Delete my account and
                         data listing also.</label>
                     </div>
-                    <p>By clicking "Delete", all your invitation cards, dashboard, contacts, and sign-in details will be permanently deleted, and you will no longer be able to log in to Sana's Invite.</p>
+                    <p>By clicking "Delete My Account", all your invitation cards, dashboard, contacts, and sign-in details will be permanently deleted, and you will no longer be able to log in to Sana's Invite.</p>
                     <button type="submit" class="dashbord-btn">Delete My Account</button>
                   </div>
                 </div>
