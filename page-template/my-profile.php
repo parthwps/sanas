@@ -83,7 +83,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               <div class="profile-info-title">
                 <h4><?php echo esc_html($first_name . ' ' . $last_name); ?></h4>
               </div>
-              <p class="profile-info-text"><?php echo esc_html($about); ?></p>
+              <p class="profile-info-text">
+                <?php if($about == ""){echo "Dream big. Think different. Do great!";}else{echo esc_html($about);} ?></p>
               <div class="profile-action">
                 <h4 class="">Active</h4>
               </div>
@@ -111,30 +112,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class=" col-lg-6 col-sm-12">
                           <div class="form-group">
                             <label>First Name</label>
-                            <input type="text" class="form-control" value="<?php echo esc_attr($first_name); ?>" placeholder="" required="">
+                            <input type="text" class="form-control" value="<?php echo esc_attr($first_name); ?>" name="first_name" placeholder="" required="">
                           </div>
                         </div>
                         <div class=" col-lg-6 col-sm-12">
                           <div class="form-group">
                             <label>Last Name</label>
-                            <input type="text" class="form-control" value="<?php echo esc_attr($last_name); ?>" placeholder="" required="">
+                            <input type="text" class="form-control" value="<?php echo esc_attr($last_name); ?>" name="last_name" placeholder="" required="">
                           </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                           <div class="form-group">
                             <label> Email</label>
-                            <input type="email" class="form-control" value="<?php echo esc_attr($email); ?>" placeholder="" required="">
+                            <input type="email" class="form-control" value="<?php echo esc_attr($email); ?>" name="email" placeholder="" required="">
                           </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                           <div class="form-group">
                             <label> Phone Number</label>
-                            <input type="text" class="form-control" value="<?php echo esc_attr($phone); ?>" placeholder="" required="">
+                            <input type="text" class="form-control" name="phone" value="<?php echo esc_attr($phone); ?>" placeholder="" required="">
                           </div>
                         </div>
                         <div class="form-group col-lg-12 col-sm-12">
                           <label>About me</label>
-                          <textarea placeholder="Thank You!" name="story" rows="5" cols="33"><?php echo esc_html($about); ?></textarea>
+                          <textarea placeholder="About your self" name="about" rows="5" cols="33"><?php echo esc_html($about); ?></textarea>
                         </div>
                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                           <button type="submit" name="update_profile" class="dashbord-btn">Save
