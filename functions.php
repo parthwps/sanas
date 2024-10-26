@@ -484,6 +484,7 @@ function delete_todo_item() {
     }
 }
 
+// Create Vendor List Table
 function create_vendor_table() {
     global $wpdb;
     $table_name = $wpdb->prefix . 'vendor_list';
@@ -637,5 +638,165 @@ function delete_vendor_item() {
         wp_send_json_success('Vendor item deleted successfully.');
     } else {
         wp_send_json_error('Failed to delete vendor item.');
+    }
+}
+
+// Create My Vendor List Table
+function create_my_vendor_table() {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'my_vendor_list';
+
+    // Check if the table already exists
+    if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
+        $charset_collate = $wpdb->get_charset_collate();
+
+        $sql = "CREATE TABLE $table_name (
+            id INT NOT NULL AUTO_INCREMENT,
+            user_id INT NOT NULL,
+            category VARCHAR(255) NOT NULL,
+            name VARCHAR(255) NOT NULL,
+            email VARCHAR(255) NOT NULL,
+            phone VARCHAR(20) NOT NULL,
+            notes TEXT,
+            social_media_profile VARCHAR(255),
+            pricing DECIMAL(10, 2),
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (id)
+        ) $charset_collate;";
+
+        require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+        dbDelta($sql);
+    }
+}
+add_action('after_switch_theme', 'create_my_vendor_table');
+
+// Function to add a my vendor item
+add_action('wp_ajax_add_my_vendor_item', 'add_my_vendor_item');
+function add_my_vendor_item() {
+    global $wpdb;
+    $current_user_id = get_current_user_id();
+
+    $category = sanitize_text_field($_POST['category']);
+    $name = sanitize_text_field($_POST['name']);
+    $email = sanitize_text_field($_POST['email']);
+    $phone = sanitize_text_field($_POST['phone']);
+    $notes = sanitize_textarea_field($_POST['notes']);
+    $social_media_profile = sanitize_text_field($_POST['social_media_profile']);
+    $pricing = floatval($_POST['pricing']);
+
+    $wpdb->insert(
+        $wpdb->prefix . 'my_vendor_list',
+        array(
+            'user_id' => $current_user_id,
+            'category' => $category,
+            'name' => $name,
+            'email' => $email,
+            'phone' => $phone,
+            'notes' => $notes,
+            'social_media_profile' => $social_media_profile,
+            'pricing' => $pricing,
+        )
+    );
+
+    if ($wpdb->insert_id) {
+        wp_send_json_success('My Vendor item added successfully.');
+    } else {
+        wp_send_json_error('Failed to add my vendor item.');
+    }
+}
+
+// Function to get all vendor items for the current user
+add_action('wp_ajax_get_my_vendor_list_items', 'get_my_vendor_list_items');
+function get_my_vendor_list_items() {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'my_vendor_list';
+    $current_user_id = get_current_user_id();
+    $results = $wpdb->get_results(
+        $wpdb->prepare(
+            "SELECT * FROM $table_name WHERE user_id = %d",
+            $current_user_id
+        ),
+        ARRAY_A
+    );
+    return $results;
+}
+
+// Function to edit a my vendor item
+add_action('wp_ajax_edit_my_vendor_item', 'edit_my_vendor_item');
+function edit_my_vendor_item() {
+    global $wpdb;
+    $current_user_id = get_current_user_id();
+    $id = intval($_POST['id']);
+
+    $category = sanitize_text_field($_POST['category']);
+    $name = sanitize_text_field($_POST['name']);
+    $email = sanitize_text_field($_POST['email']);
+    $phone = sanitize_text_field($_POST['phone']);
+    $notes = sanitize_textarea_field($_POST['notes']);
+    $social_media_profile = sanitize_text_field($_POST['social_media_profile']);
+    $pricing = floatval($_POST['pricing']);
+
+    $result = $wpdb->update(
+        $wpdb->prefix . 'my_vendor_list',
+        array(
+            'category' => $category,
+            'name' => $name,
+            'email' => $email,
+            'phone' => $phone,
+            'notes' => $notes,
+            'social_media_profile' => $social_media_profile,
+            'pricing' => $pricing,
+        ),
+        array('id' => $id, 'user_id' => $current_user_id)
+    );
+
+    if ($result !== false) {
+        wp_send_json_success('My Vendor item updated successfully.');
+    } else {
+        wp_send_json_error('Failed to update my vendor item.');
+    }
+}
+
+// Function to get a my vendor item for editing
+add_action('wp_ajax_get_my_vendor_list_item', 'get_my_vendor_list_item');
+function get_my_vendor_list_item() {
+    global $wpdb;
+    $current_user_id = get_current_user_id();
+    $id = intval($_POST['id']);
+
+    $table_name = $wpdb->prefix . 'my_vendor_list';
+    $vendor = $wpdb->get_row(
+        $wpdb->prepare(
+            "SELECT * FROM $table_name WHERE id = %d AND user_id = %d",
+            $id,
+            $current_user_id
+        ),
+        ARRAY_A
+    );
+
+    if ($vendor) {
+        wp_send_json_success($vendor);
+    } else {
+        wp_send_json_error('My Vendor item not found or access denied.');
+    }
+}
+
+// Function to delete a my vendor item
+add_action('wp_ajax_delete_my_vendor_item', 'delete_my_vendor_item');
+function delete_my_vendor_item() {
+    global $wpdb;
+    $current_user_id = get_current_user_id();
+    $id = intval($_POST['id']);
+
+    // Delete the to-do item for the current user
+    $result = $wpdb->delete(
+        $wpdb->prefix . 'my_vendor_list', // Change to your actual table name
+        array('id' => $id, 'user_id' => $current_user_id) // Ensure the current user can only delete their own items
+    );
+
+    if ($result) {
+        wp_send_json_success('My Vendor item deleted successfully.');
+    } else {
+        wp_send_json_error('Failed to delete my vendor item.');
     }
 }

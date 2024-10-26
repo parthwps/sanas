@@ -230,3 +230,87 @@ if (window.location.pathname === '/vendors-list/') {
         });
     });
 }
+
+if (window.location.pathname === '/my-vendors/') {
+    jQuery(document).ready(function($) {
+        // Add My Vendor Item
+        jQuery('#add-my-vendor-form').submit(function(e) {
+            e.preventDefault();
+            var formData = $(this).serialize();
+            $.ajax({
+                type: 'POST',
+                url: ajax_object.ajax_url,
+                data: formData + '&action=add_my_vendor_item',
+                success: function(response) {
+                    if (response.success) {
+                        alert(response.data);
+                        location.reload();
+                    } else {
+                        alert(response.data);
+                    }
+                }
+            });
+        });
+
+        // Get My Vendor Item for Editing
+        jQuery('.edit').on('click', function() {
+            var vendorId = jQuery(this).data('id');
+            $.ajax({
+                type: 'POST',
+                url: ajax_object.ajax_url,
+                data: { id: vendorId, action: 'get_my_vendor_list_item' },
+                success: function(response) {
+                    if (response.success) {
+                        $('#edit-my-vendor-id').val(response.data.id);
+                        $('#edit-my-vendor-category').val(response.data.category);
+                        $('#edit-my-vendor-name').val(response.data.name);
+                        $('#edit-my-vendor-email').val(response.data.email);
+                        $('#edit-my-vendor-phone').val(response.data.phone);
+                        $('#edit-my-vendor-notes').val(response.data.notes);
+                        $('#edit-my-vendor-social-media-profile').val(response.data.social_media_profile);
+                        $('#edit-my-vendor-pricing').val(response.data.pricing);
+                        $('#edit-todolist-popup').modal('show');
+                    }
+                }
+            });
+        });
+
+        // Edit My Vendor Item
+        jQuery('#edit-my-vendor-form').submit(function(e) {
+            e.preventDefault();
+            var formData = $(this).serialize();
+            $.ajax({
+                type: 'POST',
+                url: ajax_object.ajax_url,
+                data: formData + '&action=edit_my_vendor_item',
+                success: function(response) {
+                    if (response.success) {
+                        alert(response.data);
+                        location.reload();
+                    } else {
+                        alert(response.data);
+                    }
+                }
+            });
+        });
+
+        jQuery('.delete').on('click', function() {
+            var vendorId = jQuery(this).data('id');
+            if (confirm('Are you sure you want to delete this My Vendor item?')) {
+                $.ajax({
+                    type: 'POST',
+                    url: ajax_object.ajax_url,
+                        data: { id: vendorId, action: 'delete_my_vendor_item' },
+                    success: function(response) {
+                        if (response.success) {
+                            alert(response.data);
+                            location.reload();
+                        } else {
+                            alert(response.data);
+                        }
+                    }
+                });
+            }
+        });
+    });
+}

@@ -44,6 +44,7 @@ get_sidebar('dashboard');
                           <th> <input type="checkbox" name="allCheck" id="all-select-chechbox"> </th>
                           <th>Category</th>
                           <th>Name</th>
+                          <th>Email</th>
                           <th>Ph#</th>
                           <th>Notes</th>
                           <th>Social Madia Profile</th>
@@ -52,40 +53,31 @@ get_sidebar('dashboard');
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td><input type="checkbox"></td>
-                          <td>Food</td>
-                          <td>Martin</td>
-                          <td>+5721458752</td>
-                          <td>Thank You !</td>
-                          <td>martinfood.com</td>
-                          <td>$1450</td>
-                          <td class="actions">
-                            <a href="#" class="edit theme-btn" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup">
-                              <i class="fa-solid fa-pen"></i>
-                            </a>
-                            <a href="#" class="delete theme-btn">
-                              <i class="fa-regular fa-trash-can"></i>
-                            </a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox"></td>
-                          <td>Photography</td>
-                          <td>Ethen</td>
-                          <td>+5745783648</td>
-                          <td>Thank You !</td>
-                          <td>EthenPhotography.com</td>
-                          <td>$1840</td>
-                          <td class="actions">
-                            <a href="#" class="edit theme-btn" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup">
-                              <i class="fa-solid fa-pen"></i>
-                            </a>
-                            <a href="#" class="delete theme-btn">
-                              <i class="fa-regular fa-trash-can"></i>
-                            </a>
-                          </td>
-                        </tr>
+                      <?php
+                        $my_vendor_items = get_my_vendor_list_items();
+                        ?>
+                        <?php if ($my_vendor_items): ?>
+                            <?php foreach ($my_vendor_items as $my_vendor): ?>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['category']); ?>"><?php echo esc_html($my_vendor['category']); ?></td>
+                                    <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['name']); ?>"><?php echo esc_html($my_vendor['name']); ?></td>
+                                    <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['email']); ?>"><?php echo esc_html($my_vendor['email']); ?></td>
+                                    <td><?php echo esc_html($my_vendor['phone']); ?></td>
+                                    <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['notes']); ?>"><?php echo esc_html($my_vendor['notes']); ?></td>
+                                    <td><?php echo esc_html($my_vendor['social_media_profile']); ?></td>
+                                    <td>$<?php echo esc_html($my_vendor['pricing']); ?></td>
+                                    <td class="actions">
+                                        <a href="#" class="edit theme-btn" data-id="<?php echo esc_attr($my_vendor['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup">
+                                            <i class="fa-solid fa-pen"></i>
+                                        </a>
+                                        <a href="#" class="delete theme-btn" data-id="<?php echo esc_attr($my_vendor['id']); ?>">
+                                            <i class="fa-regular fa-trash-can"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                       </tbody>
                       </table>
                     </div>
@@ -110,48 +102,48 @@ get_sidebar('dashboard');
             </button>
           </div>
           <div class="content-box">
-            <form method="post" action="#">
+            <form method="post" action="#" id="add-my-vendor-form">
               <div class="form-content">
                 <div class="row">
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Category*</label>
-                      <input type="text" class="form-control"  required="">
+                      <input type="text" class="form-control" name="category" required="">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Name*</label>
-                      <input type="text" class="form-control"  required="">
+                      <input type="text" class="form-control" name="name" required="">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Email</label>
-                      <input type="email" class="form-control">
+                      <input type="email" class="form-control" name="email">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Phone</label>
-                      <input type="number" class="form-control">
+                      <input type="number" class="form-control" name="phone">
                     </div>
                   </div>
                   <div class="col-lg-12 col-sm-12">
                     <div class="form-group">
                       <label> Social Madia Profile</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" name="social_media_profile">
                     </div>
                   </div>
                   <div class="col-lg-12 col-sm-12">
                     <div class="form-group">
                       <label>Pricing</label>
-                      <input type="number" class="form-control">
+                      <input type="number" class="form-control" name="pricing">
                     </div>
                   </div>
                   <div class="col-lg-12 col-sm-12">
                     <label>Notes</label>
-                    <textarea class="form-control"></textarea>
+                    <textarea class="form-control" name="notes"></textarea>
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
@@ -179,51 +171,52 @@ get_sidebar('dashboard');
             </button>
           </div>
           <div class="content-box">
-            <form method="post" action="#">
+            <form method="post" action="#" id="edit-my-vendor-form">
               <div class="form-content">
                 <div class="row">
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Category</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" name="category" id="category">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Name</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" name="name" id="name">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Email</label>
-                      <input type="email" class="form-control">
+                      <input type="email" class="form-control" name="email" id="email">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Phone</label>
-                      <input type="number" class="form-control">
+                      <input type="number" class="form-control" name="phone" id="phone">
                     </div>
                   </div>
                   <div class="col-lg-12 col-sm-12">
                     <div class="form-group">
                       <label> Social Madia Profile</label>
-                      <input type="url" class="form-control">
+                      <input type="url" class="form-control" name="social_media_profile" id="social_media_profile">
                     </div>
                   </div>
                   <div class="col-lg-12 col-sm-12">
                     <div class="form-group">
                       <label>Pricing</label>
-                      <input type="number" class="form-control">
+                      <input type="number" class="form-control" name="pricing" id="pricing">
                     </div>
                   </div>
                   <div class="col-lg-12 col-sm-12">
                     <label>Notes</label>
-                    <textarea class="form-control"></textarea>
+                    <textarea class="form-control" name="notes" id="notes"></textarea>
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
+                      <input type="hidden" name="id" id="id">
                       <button type="submit" class="dashbord-btn">Save</button>
                     </div>
                   </div>
