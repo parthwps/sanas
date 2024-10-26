@@ -177,46 +177,46 @@ get_sidebar('dashboard');
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Category</label>
-                      <input type="text" class="form-control" name="category" id="category">
+                      <input type="text" class="form-control" name="category" id="edit-my-vendor-category">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Name</label>
-                      <input type="text" class="form-control" name="name" id="name">
+                      <input type="text" class="form-control" name="name" id="edit-my-vendor-name">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Email</label>
-                      <input type="email" class="form-control" name="email" id="email">
+                      <input type="email" class="form-control" name="email" id="edit-my-vendor-email">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Phone</label>
-                      <input type="number" class="form-control" name="phone" id="phone">
+                      <input type="number" class="form-control" name="phone" id="edit-my-vendor-phone">
                     </div>
                   </div>
                   <div class="col-lg-12 col-sm-12">
                     <div class="form-group">
                       <label> Social Madia Profile</label>
-                      <input type="url" class="form-control" name="social_media_profile" id="social_media_profile">
+                      <input type="url" class="form-control" name="social_media_profile" id="edit-my-vendor-social-media-profile">
                     </div>
                   </div>
                   <div class="col-lg-12 col-sm-12">
                     <div class="form-group">
                       <label>Pricing</label>
-                      <input type="number" class="form-control" name="pricing" id="pricing">
+                      <input type="number" class="form-control" name="pricing" id="edit-my-vendor-pricing">
                     </div>
                   </div>
                   <div class="col-lg-12 col-sm-12">
                     <label>Notes</label>
-                    <textarea class="form-control" name="notes" id="notes"></textarea>
+                    <textarea class="form-control" name="notes" id="edit-my-vendor-notes"></textarea>
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
-                      <input type="hidden" name="id" id="id">
+                      <input type="hidden" name="id" id="edit-my-vendor-id">
                       <button type="submit" class="dashbord-btn">Save</button>
                     </div>
                   </div>
