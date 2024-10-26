@@ -12,7 +12,8 @@ if(is_page_template( 'page-template/myevent.php')
 || is_page_template( 'page-template/todolist.php')
 || is_page_template( 'page-template/my-vendors.php')
 || is_page_template( 'page-template/vendor-list.php')
-|| is_page_template( 'page-template/mycontact.php')) {
+|| is_page_template( 'page-template/mycontact.php')
+|| is_page_template( 'page-template/my-profile.php')) {
   $class_fixed = 'position-fixed';
 }
 
