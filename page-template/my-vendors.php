@@ -127,20 +127,26 @@ get_sidebar('dashboard');
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
-                      <label>Email*</label>
-                      <input type="email" class="form-control"  required="">
+                      <label>Email</label>
+                      <input type="email" class="form-control">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
-                      <label>Phone*</label>
-                      <input type="number" class="form-control"  required="">
+                      <label>Phone</label>
+                      <input type="number" class="form-control">
                     </div>
                   </div>
                   <div class="col-lg-12 col-sm-12">
                     <div class="form-group">
                       <label> Social Madia Profile</label>
-                      <input type="url" class="form-control" >
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-sm-12">
+                    <div class="form-group">
+                      <label>Pricing</label>
+                      <input type="number" class="form-control">
                     </div>
                   </div>
                   <div class="col-lg-12 col-sm-12">
@@ -150,6 +156,7 @@ get_sidebar('dashboard');
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
                       <button type="submit" class="dashbord-btn">Save</button>
+                      <button type="submit" class="dashbord-btn">Save and Add Another Vendor</button>
                     </div>
                   </div>
                 </div>
