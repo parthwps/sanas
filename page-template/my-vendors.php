@@ -213,6 +213,12 @@ get_sidebar('dashboard');
                     </div>
                   </div>
                   <div class="col-lg-12 col-sm-12">
+                    <div class="form-group">
+                      <label>Pricing</label>
+                      <input type="number" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-sm-12">
                     <label>Notes</label>
                     <textarea class="form-control"></textarea>
                   </div>
