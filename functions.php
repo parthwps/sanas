@@ -846,5 +846,5 @@ function move_vendors_to_my_list() {
         }
     }
 
-    wp_send_json_success('Selected vendors moved to "My Vendors" list.');
+    wp_send_json_success('Selected vendors moved to "My Vendors" list successfully.');
 }
