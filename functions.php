@@ -897,3 +897,26 @@ function add_budget_category_item() {
         wp_send_json_error('Failed to add budget category item.');
     }
 }
+
+
+// Function to get all budget categories for the current user
+add_action('wp_ajax_get_all_budget_categories', 'get_all_budget_categories');
+function get_all_budget_categories() {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'budget_category';
+    $current_user_id = get_current_user_id();
+
+    $results = $wpdb->get_results(
+        $wpdb->prepare(
+            "SELECT * FROM $table_name WHERE user_id = %d",
+            $current_user_id
+        ),
+        ARRAY_A
+    );
+
+    if ($results) {
+        wp_send_json_success($results);
+    } else {
+        wp_send_json_error('No budget categories found.');
+    }
+}

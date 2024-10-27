@@ -90,43 +90,22 @@ get_sidebar('dashboard');
                 <div class="links-box">
                   <div class="links">
                     <ul class="p-0" id="category_cost_section">
-                      <li class="active"><a href="#">
-                          <div class="ttl"><i class="fa-solid fa-cake-candles"></i><span class="txt">Cake</span>
-                          </div>
-                          <div class="count"><span>$2,944</span> <i class="fa fa-trash"></i></div>
-                        </a></li>
-                      <li><a href="#">
-                          <div class="ttl"><i class="fa-solid fa-bowl-food"></i><span class="txt">Catering</span></div>
-                          <div class="count"><span>$2,944</span><i class="fa fa-trash"></i></div>
-                        </a></li>
-                      <li><a href="#">
-                          <div class="ttl"><i class="fa-brands fa-cotton-bureau"></i><span class="txt">Flower</span>
-                          </div>
-                          <div class="count"><span>$2,944</span><i class="fa fa-trash"></i></div>
-                        </a></li>
-                      <li><a href="#">
-                          <div class="ttl"><i class="fa-solid fa-person-dress"></i><span class="txt">Dress</span></div>
-                          <div class="count"><span>$2,944</span><i class="fa fa-trash"></i></div>
-                        </a></li>
-                      <li><a href="#">
-                          <div class="ttl"><i class="fa-solid fa-place-of-worship"></i><span class="txt">Venues</span>
-                          </div>
-                          <div class="count"><span>$2,944</span><i class="fa fa-trash"></i></div>
-                        </a></li>
-                      <li><a href="#">
-                          <div class="ttl"><i class="fa-solid fa-gift"></i><span class="txt">Favors &
-                              Gifts</span></div>
-                          <div class="count"><span>$2,944</span><i class="fa fa-trash"></i></div>
-                        </a></li>
-                      <li><a href="#">
-                          <div class="ttl"><i class="fa-solid fa-gem"></i><span class="txt">Jewelry</span></div>
-                          <div class="count"><span>$2,944</span><i class="fa fa-trash"></i></div>
-                        </a></li>
-                      <li><a href="#">
-                          <div class="ttl"><i class="fa-solid fa-camera-retro"></i><span class="txt">Photography</span>
-                          </div>
-                          <div class="count"><span>$2,944</span><i class="fa fa-trash"></i></div>
-                        </a></li>
+                    <?php
+                        $budget_categories = get_all_budget_categories();
+                        ?>
+                        <?php if ($budget_categories): ?>
+                            <?php foreach ($budget_categories as $budget_category): ?>
+                                <li><a href="#">
+                                        <div class="ttl">
+                                            <div class="circle-icon">
+                                                <i class="fa-solid fa-<?php echo strtolower(substr($budget_category['category_name'], 0, 1)); ?>"></i>
+                                            </div>
+                                            <span class="txt"><?php echo esc_html($budget_category['category_name']); ?></span>
+                                        </div>
+                                    <div class="count"><span>$<?php echo esc_html($budget_category['cost']); ?></span> <i class="fa fa-trash"></i></div>
+                                </a></li>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </ul>
                   </div>
                 </div>
