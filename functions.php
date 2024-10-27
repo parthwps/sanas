@@ -913,10 +913,5 @@ function get_all_budget_categories() {
         ),
         ARRAY_A
     );
-
-    if ($results) {
-        wp_send_json_success($results);
-    } else {
-        wp_send_json_error('No budget categories found.');
-    }
+    return $results;
 }
