@@ -241,6 +241,6 @@ get_sidebar('dashboard');
       </div>
     </div>
   </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <?php
 get_footer('dashboard');
