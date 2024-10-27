@@ -97,8 +97,7 @@ get_sidebar('dashboard');
                       <?php foreach ($categories as $category): ?>
                         <li><a href="#">
                           <div class="ttl">
-                            <div class="circle-icon">
-                              <i class="fa-solid fa-<?php echo strtolower(substr($category['category_name'], 0, 1)); ?>"></i>
+                              <i class="fa-solid fa-"></i>
                             </div>
                             <span class="txt"><?php echo esc_html($category['category_name']); ?></span>
                           </div>
