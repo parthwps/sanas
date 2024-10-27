@@ -80,10 +80,10 @@ get_sidebar('dashboard');
           <div class="title-box">
             <div class="title"><h4>Manage Budget</h4></div>
             <p>Select from below categories or add new category, then enter expense for each</p>
-            <div class="add-link align-items-center">
+          </div>
+          <div class="add-link align-items-center">
               <a href="#" class="dashbord-btn"> Clear Budget</a>
             </div>
-          </div>
           <div class="budget-man-box">
             <div class="row row-gap-5">
               <div class="cat-col col-xl-4 col-lg-12 col-md-12 col-sm-12">
