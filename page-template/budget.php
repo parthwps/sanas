@@ -104,7 +104,7 @@ get_sidebar('dashboard');
                             <span class="txt"><?php echo esc_html($category['category_name']); ?></span>
                           </div>
                           <div class="count">
-                            <span>$<?php echo esc_html($category['cost']); ?></span>
+                            <span>$<?php if(esc_html($category['cost']) != ""){echo esc_html($category['cost']);}else{echo "1000";} ?></span>
                             <i class="fa fa-trash<?php echo $category['user_id'] != 0 ? ' delete' : ''; ?>" <?php echo $category['user_id'] != 0 ? 'data-id="' . esc_attr($category['id']) . '"' : ''; ?>></i>
                           </div>
                         </a></li>
