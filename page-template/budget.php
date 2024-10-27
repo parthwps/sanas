@@ -81,7 +81,7 @@ get_sidebar('dashboard');
             <div class="title"><h4>Manage Budget</h4></div>
             <p>Select from below categories or add new category, then enter expense for each</p>
             <div class="add-link align-items-center">
-              <a href="#" class="dashbord-btn" data-bs-toggle="modal" data-bs-target="#add-category-popup"> Add Category</a>
+              <a href="#" class="dashbord-btn"> Clear Budget</a>
             </div>
           </div>
           <div class="budget-man-box">
