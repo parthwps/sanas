@@ -80,6 +80,9 @@ get_sidebar('dashboard');
           <div class="title-box">
             <div class="title"><h4>Manage Budget</h4></div>
             <p>Select from below categories or add new category, then enter expense for each</p>
+            <div class="add-link align-items-center">
+              <a href="#" class="dashbord-btn" data-bs-toggle="modal" data-bs-target="#add-category-popup"> Add Category</a>
+            </div>
           </div>
           <div class="budget-man-box">
             <div class="row row-gap-5">
@@ -87,7 +90,6 @@ get_sidebar('dashboard');
                 <div class="links-box">
                   <div class="links">
                       <div class="add-link align-items-center">
-                        <a href="#" class="dashbord-btn"> Clear Budget</a>
                         <a href="#" class="dashbord-btn" data-bs-toggle="modal" data-bs-target="#add-category-popup"> Add Category</a>
                       </div>
                     <ul class="p-0" id="category_cost_section">
