@@ -253,24 +253,24 @@ get_sidebar('dashboard');
             </button>
           </div>
           <div class="content-box">
-            <form method="post" action="#">
+            <form method="post" action="#" id="add-budget-category-form">
               <div class="form-content">
                 <div class="row">
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group ">
                       <label>CATEGORY NAME</label>
-                      <input type="text" class="form-control" id="add_new_category_input"  required="">
+                      <input type="text" class="form-control" id="add_new_category_input" name="category_name" required="">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group ">
                       <label>COST</label>
-                      <input type="text" class="form-control" id="add_category_cost_input"  required="">
+                      <input type="text" class="form-control" id="add_category_cost_input" name="cost" required="">
                     </div>
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
-                      <button type="button" class="dashbord-btn" id="add_new_category">Save</button>
+                      <button type="submit" class="dashbord-btn" id="add_new_category">Save</button>
                     </div>
                   </div>
                 </div>

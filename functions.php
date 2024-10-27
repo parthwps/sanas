@@ -848,3 +848,52 @@ function move_vendors_to_my_list() {
 
     wp_send_json_success('Selected vendors moved to "My Vendors" list successfully.');
 }
+
+// Create Budget Category Table
+function create_budget_category_table() {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'budget_category';
+
+    // Check if the table already exists
+    if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
+        $charset_collate = $wpdb->get_charset_collate();
+
+        $sql = "CREATE TABLE $table_name (
+            id INT NOT NULL AUTO_INCREMENT,
+            user_id INT NOT NULL,
+            category_name VARCHAR(255) NOT NULL,
+            cost DECIMAL(10, 2) NOT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (id)
+        ) $charset_collate;";
+
+        require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+        dbDelta($sql);
+    }
+}
+add_action('after_switch_theme', 'create_budget_category_table');
+
+// Function to add a budget category item
+add_action('wp_ajax_add_budget_category_item', 'add_budget_category_item');
+function add_budget_category_item() {
+    global $wpdb;
+    $current_user_id = get_current_user_id();
+
+    $category_name = sanitize_text_field($_POST['category_name']);
+    $cost = floatval($_POST['cost']);
+
+    $wpdb->insert(
+        $wpdb->prefix . 'budget_category',
+        array(
+            'user_id' => $current_user_id,
+            'category_name' => $category_name,
+            'cost' => $cost,
+        )
+    );
+
+    if ($wpdb->insert_id) {
+        wp_send_json_success('Budget category item added successfully.');
+    } else {
+        wp_send_json_error('Failed to add budget category item.');
+    }
+}

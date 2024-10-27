@@ -351,3 +351,45 @@ if (window.location.pathname === '/my-vendors/') {
         });
     });
 }
+
+if (window.location.pathname === '/budget/') {
+    jQuery(document).ready(function($) {
+        // Add Budget Category Item
+        jQuery('#add-budget-category-form').submit(function(e) {
+            e.preventDefault();
+            var formData = $(this).serialize();
+            $.ajax({
+                type: 'POST',
+                url: ajax_object.ajax_url,
+                data: formData + '&action=add_budget_category_item',
+                success: function(response) {
+                    if (response.success) {
+                        alert(response.data);
+                        location.reload();
+                    } else {
+                        alert(response.data);
+                    }
+                }
+            });
+        });
+
+        jQuery('.delete').on('click', function() {
+            var categoryId = jQuery(this).data('id');
+            if (confirm('Do you want to delete this entry?')) {
+                $.ajax({
+                    type: 'POST',
+                    url: ajax_object.ajax_url,
+                        data: { id: categoryId, action: 'delete_budget_category_item' },
+                    success: function(response) {
+                        if (response.success) {
+                            alert(response.data);
+                            location.reload();
+                        } else {
+                            alert(response.data);
+                        }
+                    }
+                });
+            }
+        });
+    });
+}
