@@ -241,6 +241,46 @@ get_sidebar('dashboard');
       </div>
     </div>
   </div>
+  <div class="modal fade def-popup add-category-popup" id="add-category-popup" tabindex="-1" role="dialog"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="modal-header">
+            <h4 class="modal-title">Add Category</h4>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span class="cross"></span>
+            </button>
+          </div>
+          <div class="content-box">
+            <form method="post" action="#">
+              <div class="form-content">
+                <div class="row">
+                  <div class="col-lg-6 col-sm-12">
+                    <div class="form-group ">
+                      <label>CATEGORY NAME</label>
+                      <input type="text" class="form-control" id="add_new_category_input"  required="">
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-sm-12">
+                    <div class="form-group ">
+                      <label>COST</label>
+                      <input type="text" class="form-control" id="add_category_cost_input"  required="">
+                    </div>
+                  </div>
+                  <div class="form-group col-lg-12 col-sm-12">
+                    <div class="links-box">
+                      <button type="button" class="dashbord-btn" id="add_new_category">Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <?php
 get_footer('dashboard');
