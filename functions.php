@@ -915,3 +915,14 @@ function get_all_budget_categories() {
     );
     return $results;
 }
+
+// Function to delete a budget category item
+add_action('wp_ajax_delete_budget_category_item', 'delete_budget_category_item');
+function delete_budget_category_item() {
+    global $wpdb;
+    $current_user_id = get_current_user_id();
+    $id = intval($_POST['id']);
+
+    $wpdb->delete($wpdb->prefix . 'budget_category', array('id' => $id, 'user_id' => $current_user_id));
+    wp_send_json_success('Budget category item deleted successfully.');
+}
