@@ -893,7 +893,7 @@ function create_budget_category_table() {
             $wpdb->insert(
                     $table_name,
                     [
-                        'user_id' => null,
+                        'user_id' => '',
                         'category_name' => $category_name,
                         'icon_class' => $icon_class
                     ]
