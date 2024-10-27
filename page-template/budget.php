@@ -89,20 +89,20 @@ get_sidebar('dashboard');
               <div class="cat-col col-xl-4 col-lg-12 col-md-12 col-sm-12">
                 <div class="links-box">
                   <div class="links">
-                    <ul class="p-0" id="category_cost_section">
                       <?php
                         $budget_categories = get_all_budget_categories();
-                      ?>
+                        ?>
                       <?php if ($budget_categories): ?>
-                          <?php foreach ($budget_categories as $budget_category): ?>    
+                        <?php foreach ($budget_categories as $budget_category): ?>    
+                            <ul class="p-0" id="category_cost_section">
                       <li><a href="#">
                           <div class="ttl"><i class="fa-solid fa-cake-candles"></i><span class="txt"><?php echo esc_html($budget_category['category_name']); ?></span>
                           </div>
                             <div class="count"><span>$<?php echo esc_html($budget_category['cost']); ?></span> <i class="fa fa-trash"></i></div>
-                        </a></li>
+                            </a></li>
+                        </ul>
                           <?php endforeach; ?>
                       <?php endif; ?>
-                    </ul>
                   </div>
                 </div>
               </div>
