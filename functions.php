@@ -862,7 +862,6 @@ function create_budget_category_table() {
             id INT NOT NULL AUTO_INCREMENT,
             user_id INT NOT NULL,
             category_name VARCHAR(255) NOT NULL,
-            cost DECIMAL(10, 2) NOT NULL,
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (id)
         ) $charset_collate;";
@@ -880,14 +879,14 @@ function add_budget_category_item() {
     $current_user_id = get_current_user_id();
 
     $category_name = sanitize_text_field($_POST['category_name']);
-    $cost = floatval($_POST['cost']);
+    // $cost = floatval($_POST['cost']);
 
     $wpdb->insert(
         $wpdb->prefix . 'budget_category',
         array(
             'user_id' => $current_user_id,
-            'category_name' => $category_name,
-            'cost' => $cost,
+            'category_name' => $category_name
+            // 'cost' => $cost,
         )
     );
 

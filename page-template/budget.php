@@ -239,12 +239,12 @@ get_sidebar('dashboard');
                       <input type="text" class="form-control" name="category_name" required>
                     </div>
                   </div>
-                  <div class="col-lg-6 col-sm-12">
+                  <!-- <div class="col-lg-6 col-sm-12">
                     <div class="form-group ">
                       <label>COST</label>
                       <input type="number" class="form-control" name="cost" required>
                     </div>
-                  </div>
+                  </div> -->
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
                       <button type="submit" class="dashbord-btn">Save</button>
