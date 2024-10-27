@@ -4833,9 +4833,13 @@ Category Wishlist
 .budget-man .title-box {
     position: relative;
     display: flex;
-    justify-content: space-between;
+    gap: 30px;
     margin-bottom: 25px;
     flex-wrap: wrap;
+}
+.budget-man-box .add-link{
+    justify-content: right;
+    margin: 20px;
 }
 
 .budget-man .title-box .title {
