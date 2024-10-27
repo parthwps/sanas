@@ -90,11 +90,24 @@ get_sidebar('dashboard');
                 <div class="links-box">
                   <div class="links">
                     <ul class="p-0" id="category_cost_section">
-                      <li><a href="#">
-                          <div class="ttl"><i class="fa-solid fa-cake-candles"></i><span class="txt">Cake</span>
-                          </div>
-                          <div class="count"><span>$2,944</span> <i class="fa fa-trash"></i></div>
-                        </a></li>
+                      <?php
+                      $budget_categories = get_all_budget_categories();
+                      if ($budget_categories && !is_wp_error($budget_categories)) {
+                          foreach ($budget_categories as $category) {
+                              $category_name = esc_html($category['category_name']);
+                              $cost = floatval($category['cost']);
+                              $formatted_cost = number_format($cost, 2);
+                              ?>
+                              <li><a href="#">
+                                  <div class="ttl"><i class="fa-solid fa-list"></i><span class="txt"><?php echo $category_name; ?></span></div>
+                                  <div class="count"><span>$<?php echo $formatted_cost; ?></span><i class="fa fa-trash"></i></div>
+                                </a></li>
+                              <?php
+                          }
+                      } else {
+                          echo '<li>No categories found.</li>';
+                      }
+                      ?>
                     </ul>
                   </div>
                 </div>
