@@ -141,7 +141,7 @@ get_sidebar('dashboard');
           </div>
         </div>
       </div>
-      <div class="budget-man-box col-12">
+      <div class="budget-man-box col-12" id="budget-expense-box">
         <div class="inner">
           <div class="lower-box">
             <div class="info-box">
@@ -239,7 +239,7 @@ get_sidebar('dashboard');
             <form method="post" action="#" id="add-budget-category-form">
               <div class="form-content">
                 <div class="row">
-                  <div class="col-lg-6 col-sm-12">
+                  <div class="col-lg-12 col-sm-12">
                     <div class="form-group ">
                       <label>CATEGORY NAME</label>
                       <input type="text" class="form-control" name="category_name" required>
