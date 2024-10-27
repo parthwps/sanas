@@ -92,29 +92,16 @@ get_sidebar('dashboard');
                     <ul class="p-0" id="category_cost_section">
                       <?php
                       $categories = get_all_budget_categories();
-                      if (!empty($categories)) {
-                          foreach ($categories as $category) {
-                              $category_name = esc_html($category['category_name']);
-                              $cost = floatval($category['cost']);
-                              ?>
-                              <li>
-                                  <a href="#">
-                                      <div class="ttl">
-                                          <i class="fa-solid fa-a"></i>
-                                          <span class="txt"><?php echo $category_name; ?></span>
-                                      </div>
-                                      <div class="count">
-                                          <span>$<?php echo number_format($cost, 2); ?></span>
-                                          <i class="fa fa-trash"></i>
-                                      </div>
-                                  </a>
-                              </li>
-                              <?php
-                          }
-                      } else {
-                          echo '<li>No categories found.</li>';
-                      }
                       ?>
+                      <?php if ($categories): ?>
+                      <?php foreach ($categories as $category): ?>
+                        <li><a href="#">
+                          <div class="ttl"><i class="fa-solid fa-a"></i><span class="txt"><?php echo esc_html($category['category_name']); ?></span>
+                          </div>
+                          <div class="count"><span>$<?php echo esc_html($category['cost']); ?></span> <i class="fa fa-trash"></i></div>
+                        </a></li>
+                      <?php endforeach; ?>
+                      <?php endif; ?>
                     </ul>
                   </div>
                 </div>
