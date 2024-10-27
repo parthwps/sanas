@@ -889,18 +889,15 @@ function create_budget_category_table() {
         ];
 
         // Insert default categories for all users
-        $users = get_users(['fields' => ['ID']]);
-        foreach ($users as $user) {
-            foreach ($categories as $category_name => $icon_class) {
-                $wpdb->insert(
+        foreach ($categories as $category_name => $icon_class) {
+            $wpdb->insert(
                     $table_name,
                     [
-                        'user_id' => $user->ID,
+                        'user_id' => null,
                         'category_name' => $category_name,
                         'icon_class' => $icon_class
                     ]
-                );
-            }
+            );
         }
     }
 }
