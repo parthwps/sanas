@@ -98,7 +98,7 @@ get_sidebar('dashboard');
                       ?>
                       <?php if ($categories): ?>
                       <?php foreach ($categories as $index => $category): ?>
-                        <li<?php echo $index === 0 ? ' class="active"' : ''; ?>><a href="#">
+                        <li<?php echo $index === 0 ? ' class="active"' : ''; ?>><a href="#budget-expense-box">
                           <div class="ttl">
                             <i class="fa-solid fa-<?php echo !empty($category['icon_class']) ? $category['icon_class'] : strtolower(substr($category['category_name'], 0, 1)); ?>"></i>
                             <span class="txt"><?php echo esc_html($category['category_name']); ?></span>
