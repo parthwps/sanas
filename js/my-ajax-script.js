@@ -357,11 +357,15 @@ if (window.location.pathname === '/budget/') {
         // Add Budget Category Item
         jQuery('#add-budget-category-form').submit(function(e) {
             e.preventDefault();
-            var formData = $(this).serialize();
+            var formData = {
+                action: 'add_budget_category_item',
+                category_name: $('#add_new_category_input').val(),
+                cost: $('#add_category_cost_input').val()
+            };
             $.ajax({
                 type: 'POST',
                 url: ajax_object.ajax_url,
-                data: formData + '&action=add_budget_category_item',
+                data: formData,
                 success: function(response) {
                     if (response.success) {
                         alert(response.data);
