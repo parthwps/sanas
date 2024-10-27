@@ -90,19 +90,11 @@ get_sidebar('dashboard');
                 <div class="links-box">
                   <div class="links">
                     <ul class="p-0" id="category_cost_section">
-                        <li><a href="#">
-                            <div class="ttl">
-                                <div class="circle-icon">
-                                    <i class="fa-solid fa-"></i>
-                                </div>
-                                    <span class="txt">cake</span>
-                                </div>
-                                <div class="count">
-                                    <span>$1000</span>
-                                    <i class="fa fa-trash"></i>
-                                </div>
-                            </a>
-                        </li>
+                      <li class="active"><a href="#">
+                          <div class="ttl"><i class="fa-solid fa-cake-candles"></i><span class="txt">Cake</span>
+                          </div>
+                          <div class="count"><span>$2,944</span> <i class="fa fa-trash"></i></div>
+                        </a></li>
                     </ul>
                   </div>
                 </div>
