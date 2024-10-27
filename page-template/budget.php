@@ -270,7 +270,7 @@ get_sidebar('dashboard');
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
-                      <button type="submit" class="dashbord-btn" id="add_new_category">Save</button>
+                      <button type="submit" class="dashbord-btn">Save</button>
                     </div>
                   </div>
                 </div>
