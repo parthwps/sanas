@@ -872,20 +872,20 @@ function create_budget_category_table() {
 
         // Default categories and icons
         $categories = [
-            'Rentals' => 'fa-truck-moving',
-            'Bartenders' => 'fa-martini-glass',
-            'DJ/VJ' => 'fa-music',
-            'Choreographers' => 'fa-person',
-            'Cole sparklers' => 'fa-volume-high',
-            '360° Photo Booth' => 'fa-camera',
-            'Transportation' => 'fa-car',
-            'Alterations' => 'fa-person',
-            'Priest' => 'fa-hand-praying',
-            'Florist' => 'fa-fan',
-            'Pre Event Shooting' => 'fa-camera',
-            'Mehndi services' => 'fa-hand',
-            'Makeup artist' => 'fa-paintbrush',
-            'Saree draping' => 'fa-shirt'
+            'Rentals' => 'truck-moving',
+            'Bartenders' => 'martini-glass',
+            'DJ/VJ' => 'music',
+            'Choreographers' => 'person',
+            'Cole sparklers' => 'volume-high',
+            '360° Photo Booth' => 'camera',
+            'Transportation' => 'car',
+            'Alterations' => 'person',
+            'Priest' => 'hand-praying',
+            'Florist' => 'fan',
+            'Pre Event Shooting' => 'camera',
+            'Mehndi services' => 'hand',
+            'Makeup artist' => 'paintbrush',
+            'Saree draping' => 'shirt'
         ];
 
         // Insert default categories for all users
