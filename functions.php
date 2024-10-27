@@ -938,7 +938,7 @@ function get_all_budget_categories() {
 
     $results = $wpdb->get_results(
         $wpdb->prepare(
-            "SELECT * FROM $table_name WHERE user_id = %d",
+            "SELECT * FROM $table_name WHERE user_id = %d OR user_id = 0",
             $current_user_id
         ),
         ARRAY_A
