@@ -100,7 +100,7 @@ get_sidebar('dashboard');
                             <i class="fa-solid fa-<?php echo strtolower(substr($category['category_name'], 0, 1)); ?>"></i>
                             <span class="txt"><?php echo esc_html($category['category_name']); ?></span>
                           </div>
-                          <div class="count"><span>$<?php echo esc_html($category['cost']); ?></span><a href="#" class="delete" data-id="<?php echo esc_attr($category['id']); ?>"><i class="fa fa-trash"></i></a></div>
+                          <div class="count"><span>$<?php echo esc_html($category['cost']); ?></span> <i class="fa fa-trash delete" data-id="<?php echo esc_attr($category['id']); ?>"></i></div>
                         </a></li>
                       <?php endforeach; ?>
                       <?php endif; ?>
