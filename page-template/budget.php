@@ -259,13 +259,13 @@ get_sidebar('dashboard');
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group ">
                       <label>CATEGORY NAME</label>
-                      <input type="text" class="form-control" id="add_new_category_input" name="category_name" required="">
+                      <input type="text" class="form-control" id="add_new_category_input" name="category_name" required>
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group ">
                       <label>COST</label>
-                      <input type="text" class="form-control" id="add_category_cost_input" name="cost" required="">
+                      <input type="number" class="form-control" id="add_category_cost_input" name="cost" required>
                     </div>
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">
