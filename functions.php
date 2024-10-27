@@ -880,7 +880,7 @@ function create_budget_category_table() {
             '360° Photo Booth' => 'camera',
             'Transportation' => 'car',
             'Alterations' => 'person',
-            'Priest' => 'hand-praying',
+            'Priest' => 'hands-praying',
             'Florist' => 'fan',
             'Pre Event Shooting' => 'camera',
             'Mehndi services' => 'hand',
