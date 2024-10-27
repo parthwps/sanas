@@ -153,6 +153,8 @@ if (window.location.pathname === '/vendors-list/') {
         jQuery('#add-vendor-form').submit(function(e) {
             e.preventDefault();
             var formData = $(this).serialize();
+            var addAnother = $(e.originalEvent.submitter).attr('id') === 'add-another-vendor';
+            
             $.ajax({
                 type: 'POST',
                 url: ajax_object.ajax_url,
@@ -160,7 +162,14 @@ if (window.location.pathname === '/vendors-list/') {
                 success: function(response) {
                     if (response.success) {
                         alert(response.data);
-                        location.reload();
+                        if (addAnother) {
+                            // Clear form fields
+                            $('#add-vendor-form')[0].reset();
+                            // Open the form again (assuming it's in a modal)
+                            $('#add-vendor-popup').modal('show');
+                        } else {
+                            location.reload();
+                        }
                     } else {
                         alert(response.data);
                     }
