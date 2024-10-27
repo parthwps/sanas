@@ -90,29 +90,19 @@ get_sidebar('dashboard');
                 <div class="links-box">
                   <div class="links">
                     <ul class="p-0" id="category_cost_section">
-                        <?php
-                        $budget_categories = get_all_budget_categories();
-                        if ($budget_categories && !is_wp_error($budget_categories)) {
-                            foreach ($budget_categories as $category) {
-                                ?>
-                                <li><a href="#">
-                                    <div class="ttl">
-                                        <div class="circle-icon">
-                                            <i class="fa-solid fa-"></i>
-                                        </div>
-                                        <span class="txt"><?php echo esc_html($category['category_name']); ?></span>
-                                    </div>
-                                    <div class="count">
-                                        <span>$<?php echo number_format($category['cost'], 2); ?></span>
-                                        <i class="fa fa-trash"></i>
-                                    </div>
-                                </a></li>
-                                <?php
-                            }
-                        } else {
-                            echo '<li>No categories found.</li>';
-                        }
-                        ?>
+                        <li><a href="#">
+                            <div class="ttl">
+                                <div class="circle-icon">
+                                    <i class="fa-solid fa-"></i>
+                                </div>
+                                    <span class="txt">cake</span>
+                                </div>
+                                <div class="count">
+                                    <span>$1000</span>
+                                    <i class="fa fa-trash"></i>
+                                </div>
+                            </a>
+                        </li>
                     </ul>
                   </div>
                 </div>
