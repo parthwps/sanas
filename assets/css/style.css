@@ -4867,9 +4867,13 @@ Category Wishlist
     border-radius: 8px;
     height: 100%;
 }
-
+#category_cost_section li{
+	font-size: 16px;
+}
 .budget-man-box .cat-col ul {
     position: relative;
+    max-height: 480px;
+    overflow-y: scroll;
 }
 
 .budget-man-box .cat-col ul li {
