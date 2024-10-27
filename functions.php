@@ -862,7 +862,7 @@ function create_budget_category_table() {
             id INT NOT NULL AUTO_INCREMENT,
             user_id INT NOT NULL,
             category_name VARCHAR(255) NOT NULL,
-            icon_class VARCHAR(50) NOT NULL,
+            icon_class VARCHAR(255) NOT NULL,
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (id)
         ) $charset_collate;";
@@ -870,8 +870,8 @@ function create_budget_category_table() {
         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
         dbDelta($sql);
 
-        // Insert default categories
-        $default_categories = array(
+        // Default categories and icons
+        $categories = [
             'Rentals' => 'fa-truck-moving',
             'Bartenders' => 'fa-martini-glass',
             'DJ/VJ' => 'fa-music',
@@ -886,17 +886,21 @@ function create_budget_category_table() {
             'Mehndi services' => 'fa-hand',
             'Makeup artist' => 'fa-paintbrush',
             'Saree draping' => 'fa-shirt'
-        );
+        ];
 
-        foreach ($default_categories as $category => $icon) {
-            $wpdb->insert(
-                $table_name,
-                array(
-                    'user_id' => null,
-                    'category_name' => $category,
-                    'icon_class' => $icon
-                )
-            );
+        // Insert default categories for all users
+        $users = get_users(['fields' => ['ID']]);
+        foreach ($users as $user) {
+            foreach ($categories as $category_name => $icon_class) {
+                $wpdb->insert(
+                    $table_name,
+                    [
+                        'user_id' => $user->ID,
+                        'category_name' => $category_name,
+                        'icon_class' => $icon_class
+                    ]
+                );
+            }
         }
     }
 }
@@ -909,14 +913,14 @@ function add_budget_category_item() {
     $current_user_id = get_current_user_id();
 
     $category_name = sanitize_text_field($_POST['category_name']);
-    $icon_class = sanitize_text_field($_POST['icon_class']);
+    // $cost = floatval($_POST['cost']);
 
     $wpdb->insert(
         $wpdb->prefix . 'budget_category',
         array(
             'user_id' => $current_user_id,
-            'category_name' => $category_name,
-            'icon_class' => $icon_class
+            'category_name' => $category_name
+            // 'cost' => $cost,
         )
     );
 
