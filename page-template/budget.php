@@ -90,22 +90,7 @@ get_sidebar('dashboard');
                 <div class="links-box">
                   <div class="links">
                     <ul class="p-0" id="category_cost_section">
-                    <?php
-                        $budget_categories = get_all_budget_categories();
-                        ?>
-                        <?php if ($budget_categories): ?>
-                            <?php foreach ($budget_categories as $budget_category): ?>
-                                <li><a href="#">
-                                        <div class="ttl">
-                                            <div class="circle-icon">
-                                                <i class="fa-solid fa-<?php echo strtolower(substr($budget_category['category_name'], 0, 1)); ?>"></i>
-                                            </div>
-                                            <span class="txt"><?php echo esc_html($budget_category['category_name']); ?></span>
-                                        </div>
-                                    <div class="count"><span>$<?php echo esc_html($budget_category['cost']); ?></span> <i class="fa fa-trash"></i></div>
-                                </a></li>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
+                    
                     </ul>
                   </div>
                 </div>
