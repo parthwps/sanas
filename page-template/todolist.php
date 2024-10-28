@@ -94,25 +94,24 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                 if ($todo_items) {
                                     $current_month = '';
                                     foreach ($todo_items as $item) {
-                                        $item_month = date('F', strtotime($item['date']));
-                                        $item_year = date('Y', strtotime($item['date']));
-                                        // Display a new month heading if the month changes.
-                                        if ($item_month . $item_year !== $current_month) {
-                                            $current_month = $item_month . $item_year;
-                                            echo '<thead>';
-                                            echo '<tr class="todo-check-title">
-                                                <th class="check">Mark</th>
-                                                <th>Category</th>
-                                                <th>Task</th>
-                                                <th>Notes</th>
-                                                <th>Date</th>
-                                                <th>Status</th>
-                                                <th class="actions">Actions</th>
-                                            </tr></thead>';
-                                        }
+                                        // $item_month = date('F', strtotime($item['date']));
+                                        // $item_year = date('Y', strtotime($item['date']));
+                                        // // Display a new month heading if the month changes.
+                                        // if ($item_month . $item_year !== $current_month) {
+                                        //     $current_month = $item_month . $item_year;
+
+                                        // }
+                                        echo '<thead>';
+                                        echo '<tr class="todo-check-title">
+                                            <th class="check">Mark</th>
+                                            <th>Category</th>
+                                            <th>Task</th>
+                                            <th>Notes</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                            <th class="actions">Actions</th>
+                                        </tr></thead>';
                                         echo "<tbody>";
-                                        // <th class="todo-reminder">Set Reminder</th>
-                                        // Display each todo item.
                                         echo '<tr ';
                                         if($item['completed'] == 1){
                                         echo 'class="text-decoration-line-through pe-none"';
@@ -128,7 +127,6 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                         echo '<td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="' . esc_html($item['title']) . '">' . esc_html($item['title']) . '</td>';
                                         echo '<td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="' . esc_html($item['notes']) . '">' . esc_html($item['notes']) . '</td>';
                                         echo '<td>' . DateTime::createFromFormat('Y-m-d', $item['date'])->format('jS M Y') . '</td>';
-                                        // echo '<td><i class="fa-solid fa-calendar-days"></i></td>';
                                         echo '<td class="todo-status">
                                               <select class="status-dropdown" data-id="' . $item['id'] . '">
                                                   <option value="Yet To Start"' . selected($item['status'], 'Yet To Start', false) . '>Yet To Start</option>
