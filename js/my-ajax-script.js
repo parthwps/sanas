@@ -90,9 +90,7 @@ jQuery(document).ready(function($) {
                 data: { id: todoId, action: 'delete_todo_item' },
                 success: function(response) {
                     if (response.success) {
-                        // Show the modal alert
-                        $('#modal_html_alert').modal('show');
-                        $('#modal-body-text').text(response.data);
+                        alert(response.data);
                         location.reload();
                     } else {
                         alert(response.data);
@@ -282,10 +280,14 @@ if (window.location.pathname === '/vendors-list/') {
                 data: { id: vendorId, action: 'delete_vendor_item' },
                 success: function(response) {
                     if (response.success) {
-                        alert(response.data);
+                        // Show the modal alert
+                        $('#modal_html_alert').modal('show');
+                        $('#modal-body-text').text(response.data);
                         location.reload();
                     } else {
-                        alert(response.data);
+                        // Show the modal alert
+                        $('#modal_html_alert').modal('show');
+                        $('#modal-body-text').text(response.data);
                     }
                 }
             });
@@ -443,7 +445,7 @@ if (window.location.pathname === '/my-favorites/') {
         $('#modal-yes-button').on('click', function () {
             // Trigger the removal process
             proceedWithRemoval();
-            $('#confirm_modal_html_alert').modal('hide');
+            $('#modal_html_alert').modal('hide');
         });
 
         // Function to handle the AJAX call for removal
@@ -480,4 +482,3 @@ if (window.location.pathname === '/my-favorites/') {
         });
     });
 }
-
