@@ -90,11 +90,7 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                 <div class="table-box upcoming-tasks">
                     <div class="table-responsive m-0">
                         <table class="table" id="todo-table">
-                                <?php
-                                if ($todo_items) {
-                                    $current_month = '';
-                                    echo '<thead>';
-                                    echo '<tr class="todo-check-title">
+                                    <thead><tr class="todo-check-title">
                                         <th class="check">Mark</th>
                                         <th>Category</th>
                                         <th>Task</th>
@@ -102,7 +98,10 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                         <th>Date</th>
                                         <th>Status</th>
                                         <th class="actions">Actions</th>
-                                    </tr></thead>';
+                                    </tr></thead>
+                                <?php
+                                if ($todo_items) {
+                                    $current_month = '';
                                     foreach ($todo_items as $item) {
                                         // $item_month = date('F', strtotime($item['date']));
                                         // $item_year = date('Y', strtotime($item['date']));
