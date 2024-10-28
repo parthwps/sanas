@@ -5700,15 +5700,18 @@ section.wedding-section {
     background-color: #dc587f;
 }
 
-.vendor .table>thead>tr>th{
-    width: auto;
-}
-.todo-list .table>thead>tr>th:first-child{
+
+.vendor .table>thead>tr>th:first-child, .todo-list .table>thead>tr>th:first-child{
     max-width: 80px;
 }
-.todo-list .table>thead>tr>th:last-child{
+.vendor .table>thead>tr>th:last-child, .todo-list .table>thead>tr>th:last-child{
     max-width: 120px;
 }
+.vendor .table>thead>tr>th:nth-child(2),
+.vendor .table>thead>tr>th:nth-child(3),
+.vendor .table>thead>tr>th:nth-child(4),
+.vendor .table>thead>tr>th:nth-child(5),
+.vendor .table>thead>tr>th:nth-child(6),
 .todo-list .table>thead>tr>th:nth-child(2),
 .todo-list .table>thead>tr>th:nth-child(3),
 .todo-list .table>thead>tr>th:nth-child(4),
