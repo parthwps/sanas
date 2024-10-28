@@ -964,11 +964,11 @@ function render_confirm_modal_html_alert() {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title fs-5" id="exampleModalLabel"></h4>
+                    <h4 class="modal-title fs-5" id="exampleConfirmModalLabel"></h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p id="modal-body-text"></p>
+                    <p id="confirm_modal-body-text"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">No</button>

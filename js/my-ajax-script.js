@@ -258,8 +258,8 @@ if (window.location.pathname === '/vendors-list/') {
 
         // Function to show the modal
         function show_alert_message2(title, message) {
-            $('#exampleModalLabel').text(title);
-            $('#modal-body-text').text(message);
+            $('#exampleConfirmModalLabel').text(title);
+            $('#confirm_modal-body-text').text(message);
             $('#confirm_modal_html_alert').modal('show');
         }
 
@@ -435,8 +435,8 @@ if (window.location.pathname === '/my-favorites/') {
     jQuery(document).ready(function ($) {
         // Function to show the modal
         function show_alert_message2(title, message) {
-            $('#exampleModalLabel').text(title);
-            $('#modal-body-text').text(message);
+            $('#exampleConfirmModalLabel').text(title);
+            $('#confirm_modal-body-text').text(message);
             $('#confirm_modal_html_alert').modal('show');
         }
 
@@ -444,7 +444,7 @@ if (window.location.pathname === '/my-favorites/') {
         $('#modal-yes-button').on('click', function () {
             // Trigger the removal process
             proceedWithRemoval();
-            $('#modal_html_alert').modal('hide');
+            $('#confirm_modal_html_alert').modal('hide');
         });
 
         // Function to handle the AJAX call for removal
