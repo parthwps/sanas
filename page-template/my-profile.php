@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="my-profile-box">
           <div class="my-profile-details">
             <div class="profile-img">
-              <img src="assets/img/login-img.jpg" alt="" class="img-fluid rounded-circle" width="100" height="100">
+            <?php echo ucfirst($first_char); ?>
               <button type="button" class="dashbord-btn">Edit Image</button>
             </div>
             <div class="profile-info">
