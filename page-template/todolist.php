@@ -92,74 +92,78 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                         $vendor_items = get_vendor_list_items();
                         ?>
                         <?php if ($todo_items): ?>
-                            <?php
-                            $current_month = ''; 
-                            $previous_month = ''; 
-                            ?>
-                            <?php foreach ($todo_items as $item): ?>
-                                <?php
-                                        $item_month = date('F', strtotime($item['date']));
-                                        $item_year = date('Y', strtotime($item['date']));
-                                        $current_item_month_year = $item_month . $item_year;
-                                    
-                                            $previous_month = $current_month;
-                                            $current_month = $current_item_month_year; 
-                                        echo "Current Month: " . $current_month . "<br>";
-                                        echo "Previous Month: " . $previous_month . "<br>";
-                                ?>
-                        <?php if($current_month == $previous_month){ ?>
-                        <table class="table" id="todo-table">
-                            <thead><tr class="todo-check-title">
-                                <th class="check">Mark</th>
-                                <th>Category</th>
-                                <th>Task</th>
-                                <th>Notes</th>
-                                <th>Date</th>
-                                <th>Status</th>
-                                <th class="actions">Actions</th>
-                            </tr></thead>
-                        <tbody>
-                        <?php } ?>
-                                <tr <?php echo ($item['completed'] == 1) ? 'class="text-decoration-line-through pe-none"' : ''; ?>>
-                                    <td class="check pe-auto">
-                                        <div class="input-box">
-                                            <input type="checkbox" class="checkSingle" name="field-name" id="t-c-<?php echo $item['id']; ?>" <?php echo ($item['completed'] == 1) ? 'checked' : ''; ?>>
-                                            <label for="t-c-<?php echo $item['id']; ?>"><span class="icon fas fa-check"></span></label>
-                                        </div>
-                                    </td>
-                                    <td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['category']); ?>">
-                                        <?php echo esc_html($item['category']); ?>
-                                    </td>
-                                    <td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['title']); ?>">
-                                        <?php echo esc_html($item['title']); ?>
-                                    </td>
-                                    <td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['notes']); ?>">
-                                        <?php echo esc_html($item['notes']); ?>
-                                    </td>
-                                    <td>
-                                        <?php echo DateTime::createFromFormat('Y-m-d', $item['date'])->format('jS M Y'); ?>
-                                    </td>
-                                    <td class="todo-status">
-                                        <select class="status-dropdown" data-id="<?php echo $item['id']; ?>">
-                                            <option value="Yet To Start" <?php echo selected($item['status'], 'Yet To Start', false); ?>>Yet To Start</option>
-                                            <option value="In Progress" <?php echo selected($item['status'], 'In Progress', false); ?>>In Progress</option>
-                                            <option value="Completed" <?php echo selected($item['status'], 'Completed', false); ?>>Completed</option>
-                                        </select>
-                                    </td>
-                                    <td class="actions">
-                                        <a href="#" class="edit theme-btn" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup" data-id="<?php echo $item['id']; ?>">
-                                            <i class="fa-solid fa-pen"></i>
-                                        </a>
-                                        <a href="#" class="delete theme-btn" data-id="<?php echo $item['id']; ?>">
-                                            <i class="fa-regular fa-trash-can"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <?php if($current_month == $previous_month){ ?>
-                            </tbody>
-                        </table>
-                        <?php } ?>
-                      <?php endforeach; ?>
+                            <?php 
+$grouped_items = []; // Initialize an array to hold grouped items
+
+foreach ($todo_items as $item) {
+    $item_month = date('F', strtotime($item['date']));
+    $item_year = date('Y', strtotime($item['date']));
+    $current_item_month_year = $item_month . ' ' . $item_year;
+
+    // Group items by month and year
+    if (!isset($grouped_items[$current_item_month_year])) {
+        $grouped_items[$current_item_month_year] = []; // Create an array for each month
+    }
+    $grouped_items[$current_item_month_year][] = $item; // Add the item to the respective month
+}
+
+// Generate tables for each month
+foreach ($grouped_items as $month_year => $items): ?>
+    <h3><?php echo $month_year; ?></h3>
+    <table class="table" id="todo-table-<?php echo str_replace(' ', '-', $month_year); ?>">
+        <thead>
+            <tr class="todo-check-title">
+                <th class="check">Mark</th>
+                <th>Category</th>
+                <th>Task</th>
+                <th>Notes</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th class="actions">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($items as $item): ?>
+                <tr <?php echo ($item['completed'] == 1) ? 'class="text-decoration-line-through pe-none"' : ''; ?>>
+                    <td class="check pe-auto">
+                        <div class="input-box">
+                            <input type="checkbox" class="checkSingle" name="field-name" id="t-c-<?php echo $item['id']; ?>" <?php echo ($item['completed'] == 1) ? 'checked' : ''; ?>>
+                            <label for="t-c-<?php echo $item['id']; ?>"><span class="icon fas fa-check"></span></label>
+                        </div>
+                    </td>
+                    <td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['category']); ?>">
+                        <?php echo esc_html($item['category']); ?>
+                    </td>
+                    <td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['title']); ?>">
+                        <?php echo esc_html($item['title']); ?>
+                    </td>
+                    <td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['notes']); ?>">
+                        <?php echo esc_html($item['notes']); ?>
+                    </td>
+                    <td>
+                        <?php echo DateTime::createFromFormat('Y-m-d', $item['date'])->format('jS M Y'); ?>
+                    </td>
+                    <td class="todo-status">
+                        <select class="status-dropdown" data-id="<?php echo $item['id']; ?>">
+                            <option value="Yet To Start" <?php echo selected($item['status'], 'Yet To Start', false); ?>>Yet To Start</option>
+                            <option value="In Progress" <?php echo selected($item['status'], 'In Progress', false); ?>>In Progress</option>
+                            <option value="Completed" <?php echo selected($item['status'], 'Completed', false); ?>>Completed</option>
+                        </select>
+                    </td>
+                    <td class="actions">
+                        <a href="#" class="edit theme-btn" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup" data-id="<?php echo $item['id']; ?>">
+                            <i class="fa-solid fa-pen"></i>
+                        </a>
+                        <a href="#" class="delete theme-btn" data-id="<?php echo $item['id']; ?>">
+                            <i class="fa-regular fa-trash-can"></i>
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+<?php endforeach; ?>
+
                     <?php endif; ?>
                     </div>
                 </div>
