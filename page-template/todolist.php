@@ -35,7 +35,30 @@ get_sidebar('dashboard');
             <div class="todo-status">
               <p>
               <?php
+// Fetch the to-do list items
 $todo_items = get_todo_list_items();
+
+// Check if there are no items
+if (empty($todo_items)) {
+    // Insert a default entry
+    global $wpdb;
+    $wpdb->insert(
+        $wpdb->prefix . 'todo_list',
+        array(
+            'title' => 'Photography',
+            'date' => current_time('mysql'),
+            'category' => 'General',
+            'notes' => 'photography for the wedding',
+            'user_id' => get_current_user_id(),
+            'status' => 'Yet To Start',
+            'completed' => 0
+        )
+    );
+
+    // Fetch the updated list of to-do items
+    $todo_items = get_todo_list_items();
+}
+
 $completed_count = 0;
 $pending_count = 0;
 
@@ -130,8 +153,6 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                               </td>';
                                         echo '</tr>';
                                     }
-                                } else {
-                                    echo '<tr><td class="text-align-start todo-subhead" colspan=8><h4>October<span>2024</span></h4><tr class=todo-check-title><th>Mark<th>Category<th>Task<th>Notes<th>Date<th>Status<th class=actions>Actions<tr><td class="check pe-auto"><div bis_skin_checked=1 class=input-box><input class=checkSingle name=field-name type=checkbox> <label><span class="fa-check fas icon"></span></label></div><td>Category<td class=todo-title>Task<td class=todo-nots-text>Notes<td>06/10/2024<td class=todo-status><select class="pe-none status-dropdown"><option value="Yet To Start"selected>Yet To Start<option value="In Progress">In Progress<option value=Completed>Completed</select><td class=actions><a class="theme-btn edit pe-none" href="#"><i class="fa-pen fa-solid"></i> </a><a class="theme-btn delete pe-none"href="#"><i class="fa-regular fa-trash-can"></i></a>';
                                 }
                                 ?>
                             </tbody>
