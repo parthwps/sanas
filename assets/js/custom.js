@@ -1004,3 +1004,16 @@ if (jQuery('.search-popup, .form-content').length) {
     }
 
 });
+
+$(document).ready(function() {
+    if ($('#todo-table').length) {
+        $('#todo-table').DataTable({
+            // Add any specific DataTable options here
+            "paging": true,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "responsive": true
+        });
+    }
+});
