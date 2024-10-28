@@ -260,14 +260,14 @@ if (window.location.pathname === '/vendors-list/') {
         function show_alert_message2(title, message) {
             $('#exampleModalLabel').text(title);
             $('#modal-body-text').text(message);
-            $('#modal_html_alert').modal('show');
+            $('#confirm_modal_html_alert').modal('show');
         }
 
         // When "Yes" button is clicked
         $('#modal-yes-button').on('click', function () {
             // Trigger the removal process
             proceedWithRemoval();
-            $('#modal_html_alert').modal('hide');
+            $('#confirm_modal_html_alert').modal('hide');
         });
 
         // Function to handle the AJAX call for removal
@@ -434,14 +434,14 @@ if (window.location.pathname === '/my-favorites/') {
         function show_alert_message2(title, message) {
             $('#exampleModalLabel').text(title);
             $('#modal-body-text').text(message);
-            $('#modal_html_alert').modal('show');
+            $('#confirm_modal_html_alert').modal('show');
         }
 
         // When "Yes" button is clicked
         $('#modal-yes-button').on('click', function () {
             // Trigger the removal process
             proceedWithRemoval();
-            $('#modal_html_alert').modal('hide');
+            $('#confirm_modal_html_alert').modal('hide');
         });
 
         // Function to handle the AJAX call for removal
