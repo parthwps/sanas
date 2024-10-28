@@ -132,7 +132,7 @@ if (!empty($wishlist_items)) {
     </div>
   </div>
   <?php render_modal_html_alert(); ?>
-  <script>
+  <!-- <script>
     document.addEventListener('DOMContentLoaded', function() {
     const categoryLinks = document.querySelectorAll('.category-link');
     const wishlistBoxes = document.querySelectorAll('.wishlist-box');
@@ -236,6 +236,6 @@ jQuery(document).ready(function ($) {
 });
 
 
-    </script>
+    </script> -->
 <?php
 get_footer('dashboard');

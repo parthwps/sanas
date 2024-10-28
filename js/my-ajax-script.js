@@ -403,7 +403,7 @@ if (window.location.pathname === '/budget/') {
     });
 }
 
-if (window.location.pathname === '/wishlist/') {
+if (window.location.pathname === '/my-favorites/') {
     jQuery(document).ready(function ($) {
         // Function to show the modal
         function show_alert_message2(title, message) {
