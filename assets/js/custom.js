@@ -430,6 +430,7 @@
         $('#guest-list-Table').DataTable();
         $('#vendor-table').DataTable();
         $('#guest-contact-list').DataTable();
+        $('#todo-table').DataTable();
     }
     if ($('.registry').length) {
         $('#program-time1').on('click', '.deletebtn', function () {
@@ -1003,17 +1004,4 @@ if (jQuery('.search-popup, .form-content').length) {
         jQuery('.form-boxed .cheng-password').removeClass('d-none');
     }
 
-});
-
-$(document).ready(function() {
-    if ($('#todo-table').length) {
-        $('#todo-table').DataTable({
-            // Add any specific DataTable options here
-            "paging": true,
-            "searching": true,
-            "ordering": true,
-            "info": true,
-            "responsive": true
-        });
-    }
 });
