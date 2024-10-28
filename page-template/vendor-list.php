@@ -40,16 +40,6 @@ get_sidebar('dashboard');
                 <div class="inner-box3">
                   <div class="table-box upcoming-tasks">
                     <div class="table-responsive m-0">
-                                                              <!-- // $item_month = date('F', strtotime($item['date']));
-                                        // $item_year = date('Y', strtotime($item['date']));
-                                        // // Display a new month heading if the month changes.
-                                        // if ($item_month . $item_year !== $current_month) {
-                                        //     $current_month = $item_month . $item_year;
-
-                                        // } -->
-                                        <!-- <tr><th class="todo-subhead text-align-start" colspan="7">';
-                                            echo '<h4>' . $item_month . '<span>' . $item_year . '</span></h4>';
-                                            echo '</th></tr> -->
                       <table class="table" id="vendor-table">
                         <thead>
                         <tr class="todo-check-title">
@@ -155,7 +145,7 @@ get_sidebar('dashboard');
                   </div>
                   <div class="col-lg-12 col-sm-12">
                     <label>Notes</label>
-                    <textarea name="notes" maxlength="250" class="form-control"></textarea>
+                    <textarea name="notes" class="form-control"></textarea>
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
@@ -224,7 +214,7 @@ get_sidebar('dashboard');
                   </div> 
                   <div class="col-lg-12 col-sm-12">
                     <label>Notes</label>
-                    <textarea name="notes" id="edit-vendor-notes" maxlength="250" class="form-control"></textarea>
+                    <textarea name="notes" id="edit-vendor-notes" class="form-control"></textarea>
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
