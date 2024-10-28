@@ -3877,7 +3877,7 @@ div.dt-container select.dt-input {
     margin-top: 20px;
 }
 
-.dt-column-order {
+table .dt-column-order:first-child {
     display: none !important;
 }
 
