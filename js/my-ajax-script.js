@@ -561,7 +561,7 @@ if (window.location.pathname === '/my-vendors/') {
             e.preventDefault();
             currentVendorId = $(this).data("id");
         
-            show_alert_message2('Delete Vendor', 'Do you want to delete this entry?');
+            show_alert_message2('Delete My Vendor', 'Do you want to delete this entry?');
         });
     }); 
 }
@@ -654,7 +654,7 @@ if (window.location.pathname === '/my-favorites/') {
             e.preventDefault();
             currentCardId = $(this).data("card-id");
 
-            show_alert_message2('Remove from wishlist', 'Do you want to remove this card from My Favorites?');
+            show_alert_message2('Delete Favorite', 'Do you want to remove this card from My Favorites?');
         });
     });
 }
