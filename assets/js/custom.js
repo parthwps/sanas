@@ -1005,25 +1005,3 @@ if (jQuery('.search-popup, .form-content').length) {
     }
 
 });
-
-// Function to add debatable section according to months
-function addDebatableSection() {
-    // Assuming you have a way to get the current month and year
-    const currentMonth = new Date().toLocaleString('default', { month: 'long' });
-    const currentYear = new Date().getFullYear();
-
-    // Find the table row for the current month
-    const monthRow = document.querySelector(`.todo-subhead:contains(${currentMonth})`);
-
-    if (monthRow) {
-        // Add a debatable section or modify existing content
-        const debatableSection = document.createElement('tr');
-        debatableSection.innerHTML = `<td colspan="8">Debatable content for ${currentMonth} ${currentYear}</td>`;
-        monthRow.parentNode.insertBefore(debatableSection, monthRow.nextSibling);
-    }
-}
-
-// Call the function when the document is ready
-jQuery(document).ready(function () {
-    addDebatableSection();
-});
