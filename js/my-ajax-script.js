@@ -226,8 +226,18 @@ if (window.location.pathname === '/vendors-list/') {
                 data: formData + '&action=edit_vendor_item',
                 success: function(response) {
                     if (response.success) {
-                        alert(response.data);
-                        location.reload();
+                        // Hide add-vendor-popup
+                        $('#edit-todolist-popup').modal('hide');
+                        // Set the modal title and message
+                        $('#exampleModalLabel').text('Success');
+                        $('#modal-body-text').text(response.data);
+                        // Show the modal
+                        $('#modal_html_alert').modal('show');
+
+                        // Handle the click event on the "Yes" button in the modal
+                        $('#render-modal-yes-button').on('click', function() {
+                            location.reload();
+                        });
                     } else {
                         alert(response.data);
                     }
