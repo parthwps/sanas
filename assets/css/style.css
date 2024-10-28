@@ -5704,6 +5704,9 @@ section.wedding-section {
     width: auto;
 }
 .todo-list .table>thead>tr>th:first-child{
+    max-width: 140px;
+}
+.todo-list .table>thead>tr>th:first-child{
     max-width: 80px;
 }
 .todo-list .table>thead>tr>th:last-child{
