@@ -169,7 +169,7 @@ jQuery(document).ready(function($) {
         e.preventDefault();
         currentTodoId = $(this).data("id");
 
-        show_alert_message2('Delete To-Do Item', 'Are you sure you want to delete this To-Do item?');
+        show_alert_message2('Delete Task', 'Do you want to delete this task?');
     });
     
     jQuery(".status-dropdown").on("change", function () {
