@@ -107,7 +107,7 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                         echo "Current Month: " . $current_month . "<br>";
                                         echo "Previous Month: " . $previous_month . "<br>";
                                 ?>
-
+                        <?php if($current_month == $previous_month){ ?>
                         <table class="table" id="todo-table">
                             <thead><tr class="todo-check-title">
                                 <th class="check">Mark</th>
@@ -118,8 +118,8 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                 <th>Status</th>
                                 <th class="actions">Actions</th>
                             </tr></thead>
-                      <tbody>
-                        
+                        <tbody>
+                        <?php } ?>
                                 <tr <?php echo ($item['completed'] == 1) ? 'class="text-decoration-line-through pe-none"' : ''; ?>>
                                     <td class="check pe-auto">
                                         <div class="input-box">
@@ -155,8 +155,10 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                         </a>
                                     </td>
                                 </tr>
-                      </tbody>
-                      </table>
+                                <?php if($current_month == $previous_month){ ?>
+                            </tbody>
+                        </table>
+                        <?php } ?>
                       <?php endforeach; ?>
                     <?php endif; ?>
                     </div>
