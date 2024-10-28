@@ -958,7 +958,7 @@ function delete_budget_category_item() {
 }
 
 // Render Modal HTML Alert
-function render_modal_html_alert() {
+function render_confirm_modal_html_alert() {
     ?>
     <div class="modal fade" id="modal_html_alert" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog">
@@ -972,6 +972,29 @@ function render_modal_html_alert() {
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-dark" id="modal-yes-button">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+
+
+// Render Modal HTML Alert
+function render_modal_html_alert() {
+    ?>
+       <div class="modal fade" id="modal_html_alert" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title fs-5" id="exampleModalLabel"></h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="modal-body-text"></p>
+                </div>
+                <div class="modal-footer">
                     <button type="button" class="btn btn-dark" id="modal-yes-button">Yes</button>
                 </div>
             </div>

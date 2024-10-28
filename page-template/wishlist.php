@@ -131,7 +131,7 @@ if (!empty($wishlist_items)) {
 
     </div>
   </div>
-  <?php render_modal_html_alert(); ?>
+  <?php render_confirm_modal_html_alert(); ?>
   <!-- <script>
     document.addEventListener('DOMContentLoaded', function() {
     const categoryLinks = document.querySelectorAll('.category-link');
