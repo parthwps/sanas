@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="my-profile-box">
           <div class="my-profile-details">
             <div class="profile-img">
-            <?php echo ucfirst($first_char); ?>
+              <div class="profile-firstc"><?php echo ucfirst($first_char); ?></div> 
               <button type="button" class="dashbord-btn">Edit Image</button>
             </div>
             <div class="profile-info">
