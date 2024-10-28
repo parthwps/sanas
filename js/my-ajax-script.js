@@ -420,7 +420,11 @@ if (window.location.pathname === '/vendors-list/') {
 
 if (window.location.pathname === '/my-vendors/') {
     jQuery(document).ready(function($) {
-        // Add My Vendor Item
+
+        let buttonDataId;
+        jQuery('#add-my-vendor-form button[type="submit"]').click(function() {
+            buttonDataId = jQuery(this).data('id');
+        });
         jQuery('#add-my-vendor-form').submit(function(e) {
             e.preventDefault();
             var formData = $(this).serialize();
@@ -430,17 +434,20 @@ if (window.location.pathname === '/my-vendors/') {
                 data: formData + '&action=add_my_vendor_item',
                 success: function(response) {
                     if (response.success) {
-                        if(formData){
-                            console.log(formData);
+                        if(buttonDataId == 0){
+                            $('#add-todolist-popup').modal('hide');
                         }
-                        $('#add-todolist-popup').modal('hide');
                         $('#exampleModalLabel').text('Success');
                         $('#modal-body-text').text(response.data);
                         $('#modal_html_alert').modal('show');
-                        $('#render-modal-yes-button').on('click', function() {
-                            location.reload();
-                        });
-
+                        if(buttonDataId == 0){
+                            $('#render-modal-yes-button').on('click', function() {
+                                location.reload();
+                            });
+                        }
+                        if(buttonDataId == 1){
+                            this.reset();
+                        }
                     } else {
                         // Set the modal title and message
                         $('#exampleModalLabel').text('Error');
