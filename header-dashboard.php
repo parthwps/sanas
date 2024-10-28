@@ -23,7 +23,7 @@
     </style>
     <?php wp_head(); ?>
 </head>
-<body as <?php if ( is_page_template( 'page-template/myevent.php' ) ) { body_class('inner-page');}else{body_class();} ?>>>
+<body <?php if ( is_page_template( 'page-template/myevent.php' ) ) { body_class('inner-page');}else{body_class();} ?>>>
 <div class="wl-invitation-header user">
     <div class="container-fluid">
         <div class="inner-container">
