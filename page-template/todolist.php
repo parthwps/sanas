@@ -144,7 +144,7 @@ foreach ($grouped_items as $month_year => $items): ?>
                     <td class="todo-nots-text text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['notes']); ?>">
                         <?php echo esc_html($item['notes']); ?>
                     </td>
-                    <td>
+                    <td class="text-nowrap">
                         <?php echo DateTime::createFromFormat('Y-m-d', $item['date'])->format('jS M Y'); ?>
                     </td>
                     <td class="todo-status">
