@@ -5742,8 +5742,7 @@ section.blog-wrapper{
     margin-bottom: 25px;
 }
 .todo-status {
-    display: flex;
-    align-items: center;
+    display: table-cell;
     width: 100%;
     border-bottom: 0;
 }
