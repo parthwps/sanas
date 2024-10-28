@@ -96,11 +96,10 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                     foreach ($todo_items as $item) {
                                         $item_month = date('F', strtotime($item['date']));
                                         $item_year = date('Y', strtotime($item['date']));
-                                        echo "<thead>";
                                         // Display a new month heading if the month changes.
                                         if ($item_month . $item_year !== $current_month) {
                                             $current_month = $item_month . $item_year;
-                                            echo '<tr><th class="todo-subhead text-align-start" colspan="8">';
+                                            echo '<thead><tr><th class="todo-subhead text-align-start" colspan="8">';
                                             echo '<h4>' . $item_month . '<span>' . $item_year . '</span></h4>';
                                             echo '</th></tr>';
                                             
@@ -113,10 +112,9 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                                 <th>Date</th>
                                                 <th>Status</th>
                                                 <th class="actions">Actions</th>
-                                            </tr>';
+                                            </tr></thead>';
                                         }
-                                        echo "</thead>
-                                        <tbody>";
+                                        echo "<tbody>";
                                         // <th class="todo-reminder">Set Reminder</th>
                                         // Display each todo item.
                                         echo '<tr ';
@@ -152,11 +150,10 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                                     <i class="fa-regular fa-trash-can"></i>
                                                 </a>
                                               </td>';
-                                        echo '</tr>';
+                                        echo '</tr></tbody>';
                                     }
                                 }
                                 ?>
-                            </tbody>
                         </table>
                     </div>
                 </div>
