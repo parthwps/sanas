@@ -145,7 +145,7 @@ get_sidebar('dashboard');
                   </div>
                   <div class="col-lg-12 col-sm-12">
                     <label>Notes</label>
-                    <textarea name="notes" class="form-control"></textarea>
+                    <textarea name="notes" maxlength="250" class="form-control"></textarea>
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
@@ -214,7 +214,7 @@ get_sidebar('dashboard');
                   </div> 
                   <div class="col-lg-12 col-sm-12">
                     <label>Notes</label>
-                    <textarea name="notes" id="edit-vendor-notes" class="form-control"></textarea>
+                    <textarea name="notes" id="edit-vendor-notes" maxlength="250" class="form-control"></textarea>
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
