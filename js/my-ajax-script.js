@@ -449,25 +449,49 @@ if (window.location.pathname === '/my-vendors/') {
             });
         });
 
-        jQuery('.delete').on('click', function() {
-            var vendorId = jQuery(this).data('id');
-            if (confirm('Do you want to delete this entry?')) {
-                $.ajax({
-                    type: 'POST',
-                    url: ajax_object.ajax_url,
-                        data: { id: vendorId, action: 'delete_my_vendor_item' },
-                    success: function(response) {
-                        if (response.success) {
-                            alert(response.data);
-                            location.reload();
-                        } else {
-                            alert(response.data);
-                        }
-                    }
-                });
-            }
+        // Function to show the modal
+        function show_alert_message2(title, message) {
+            $('#exampleConfirmModalLabel').text(title);
+            $('#confirm_modal-body-text').text(message);
+            $('#confirm_modal_html_alert').modal('show');
+        }
+        
+        // When "Yes" button is clicked
+        $('#modal-yes-button').on('click', function () {
+            // Trigger the removal process
+            proceedWithRemoval();
+            $('#confirm_modal_html_alert').modal('hide');
         });
-    });
+        
+        // Function to handle the AJAX call for removal
+        function proceedWithRemoval() {
+            var vendorId = currentVendorId;
+        
+            $.ajax({
+                type: 'POST',
+                url: ajax_object.ajax_url,
+                data: { id: vendorId, action: 'delete_my_vendor_item' },
+                success: function(response) {   
+                    if (response.success) {
+                        location.reload();
+                    } else {
+                        alert(response.data);  
+                    }
+                }
+            });
+        }
+        
+        // Keep track of the vendor ID for the current action
+        var currentVendorId;
+        
+        // Click handler for the delete icon
+        $(".delete").on("click", function (e) {
+            e.preventDefault();
+            currentVendorId = $(this).data("id");
+        
+            show_alert_message2('Delete Vendor', 'Do you want to delete this entry?');
+        });
+    }); 
 }
 
 if (window.location.pathname === '/budget/') {
