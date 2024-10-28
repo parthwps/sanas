@@ -3877,6 +3877,10 @@ div.dt-container select.dt-input {
     margin-top: 20px;
 }
 
+.dt-column-order {
+    display: none !important;
+}
+
 .flip-container {
     perspective:1000 ;
     -webkit-perspective: 1000;
