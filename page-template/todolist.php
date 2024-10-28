@@ -89,7 +89,7 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
             <div class="inner-box3">
                 <div class="table-box upcoming-tasks">
                     <div class="table-responsive m-0">
-                        <table class="table">
+                        <table class="table" id="todo-table">
                             <tbody>
                                 <?php
                                 if ($todo_items) {
