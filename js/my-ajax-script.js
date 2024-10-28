@@ -167,8 +167,8 @@ if (window.location.pathname === '/vendors-list/') {
                         // Show the modal
                         $('#modal_html_alert').modal('show');
 
-                        // When "Yes" button is clicked 
-                        $('#render-modal-yes-button').on('click', function () {
+                        // Handle the click event on the "Yes" button in the modal
+                        $('#render-modal-yes-button').on('click', function() {
                             location.reload();
                         });
 
@@ -177,7 +177,8 @@ if (window.location.pathname === '/vendors-list/') {
                             $('#add-vendor-form')[0].reset();
                             // Open the form again (assuming it's in a modal)
                             $('#add-vendor-popup').modal('show');
-                        } else {
+                        } 
+                        else {
                             location.reload();
                         }
                     } else {
