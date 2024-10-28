@@ -6365,5 +6365,5 @@ th.todo-subhead h4 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 100px;
+    max-width: 200px;
 }
