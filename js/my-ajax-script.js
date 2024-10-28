@@ -283,7 +283,6 @@ if (window.location.pathname === '/vendors-list/') {
                         // Show the modal alert
                         $('#modal_html_alert').modal('show');
                         $('#modal-body-text').text(response.data);
-                        location.reload();
                     } else {
                         // Show the modal alert
                         $('#modal_html_alert').modal('show');
