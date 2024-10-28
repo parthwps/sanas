@@ -989,14 +989,14 @@ function render_modal_html_alert() {
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title fs-5" id="exampleModalLabel"></h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" id="render-modal-yes-button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <p id="modal-body-text"></p>
                 </div>
-                <div class="modal-footer">
+                <!-- <div class="modal-footer">
                     <button type="button" class="btn btn-dark" id="render-modal-yes-button">Yes</button>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
