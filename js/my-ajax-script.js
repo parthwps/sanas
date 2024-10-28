@@ -260,6 +260,11 @@ if (window.location.pathname === '/vendors-list/') {
                     $('#modal-body-text').text('Please select at least one vendor to move to the "My Vendors" page.');
                     // Show the modal
                     $('#modal_html_alert').modal('show');
+
+                    // Handle the click event on the "Yes" button in the modal
+                    $('#render-modal-yes-button').on('click', function() {
+                        $('#modal_html_alert').modal('hide');
+                    });
                 } else {
                     $.ajax({
                         type: 'POST',
@@ -286,6 +291,11 @@ if (window.location.pathname === '/vendors-list/') {
                                 $('#modal-body-text').text(response.data);
                                 // Show the modal
                                 $('#modal_html_alert').modal('show');
+
+                                // Handle the click event on the "Yes" button in the modal
+                                $('#render-modal-yes-button').on('click', function() {
+                                    $('#modal_html_alert').modal('hide');
+                                });
                             }
                         }
                     });
