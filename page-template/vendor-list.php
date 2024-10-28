@@ -231,8 +231,7 @@ get_sidebar('dashboard');
     </div>
   </div>
 
-
+<?php render_confirm_modal_html_alert(); ?>
 <?php
 get_footer('dashboard');
-render_confirm_modal_html_alert();
-?>
+
