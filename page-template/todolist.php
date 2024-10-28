@@ -100,8 +100,6 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                         if ($item_month . $item_year !== $current_month) {
                                             $current_month = $item_month . $item_year;
                                             echo '<thead>';
-                                            
-                                            // Display the header row for the table.
                                             echo '<tr class="todo-check-title">
                                                 <th class="check">Mark</th>
                                                 <th>Category</th>
