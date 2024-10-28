@@ -110,7 +110,7 @@ foreach ($todo_items as $item) {
 // Generate tables for each month
 foreach ($grouped_items as $month_year => $items): ?>
     <h3><?php echo $month_year; ?></h3>
-    <table class="table" id="todo-table-<?php echo str_replace(' ', '-', $month_year); ?>">
+    <table class="table todo-table" id="todo-table-<?php echo str_replace(' ', '-', $month_year); ?>">
         <thead>
             <tr class="todo-check-title">
                 <th class="check">Mark</th>
