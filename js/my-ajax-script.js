@@ -90,7 +90,9 @@ jQuery(document).ready(function($) {
                 data: { id: todoId, action: 'delete_todo_item' },
                 success: function(response) {
                     if (response.success) {
-                        alert(response.data);
+                        // Show the modal alert
+                        $('#modal_html_alert').modal('show');
+                        $('#modal-body-text').text(response.data);
                         location.reload();
                     } else {
                         alert(response.data);
@@ -478,3 +480,4 @@ if (window.location.pathname === '/my-favorites/') {
         });
     });
 }
+
