@@ -6390,14 +6390,16 @@ th.todo-subhead h4 {
     max-width: 150px !important;
 }
 .profile-firstc{
-    height: 42px;
-    width: 42px;
+    width: 100%;
+    aspect-ratio: 1;
     background: #511f1b;
     color: #fff;
     font-size: 24px;
-    line-height: 42px;
     text-align: center;
     border-radius: 50%;
     cursor: pointer;
     font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
