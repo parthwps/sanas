@@ -40,6 +40,13 @@ get_sidebar('dashboard');
                 <div class="inner-box3">
                   <div class="table-box upcoming-tasks">
                     <div class="table-responsive m-0">
+                                                              <!-- // $item_month = date('F', strtotime($item['date']));
+                                        // $item_year = date('Y', strtotime($item['date']));
+                                        // // Display a new month heading if the month changes.
+                                        // if ($item_month . $item_year !== $current_month) {
+                                        //     $current_month = $item_month . $item_year;
+
+                                        // } -->
                       <table class="table" id="vendor-table">
                         <thead>
                         <tr class="todo-check-title">
