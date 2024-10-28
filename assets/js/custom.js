@@ -432,7 +432,7 @@
         $('#guest-contact-list').DataTable();
         $('#todo-table').DataTable({
             columnDefs: [
-                { orderable: true, targets: [0] }
+                { orderable: true, targets: [2] }
             ]
         });
     }
