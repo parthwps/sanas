@@ -47,6 +47,9 @@ get_sidebar('dashboard');
                                         //     $current_month = $item_month . $item_year;
 
                                         // } -->
+                                        <!-- <tr><th class="todo-subhead text-align-start" colspan="7">';
+                                            echo '<h4>' . $item_month . '<span>' . $item_year . '</span></h4>';
+                                            echo '</th></tr> -->
                       <table class="table" id="vendor-table">
                         <thead>
                         <tr class="todo-check-title">
