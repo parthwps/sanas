@@ -360,10 +360,29 @@ if (window.location.pathname === '/my-vendors/') {
                 data: formData + '&action=add_my_vendor_item',
                 success: function(response) {
                     if (response.success) {
-                        alert(response.data);
-                        location.reload();
+                        // Hide add-vendor-popup
+                        $('#add-todolist-popup').modal('hide');
+                        // Set the modal title and message
+                        $('#exampleModalLabel').text('Success');
+                        $('#modal-body-text').text(response.data);
+                        // Show the modal
+                        $('#modal_html_alert').modal('show');
+
+                        // Handle the click event on the "Yes" button in the modal
+                        $('#render-modal-yes-button').on('click', function() {
+                            location.reload();
+                        });
                     } else {
-                        alert(response.data);
+                        // Set the modal title and message
+                        $('#exampleModalLabel').text('Error');
+                        $('#modal-body-text').text(response.data);
+                        // Show the modal
+                        $('#modal_html_alert').modal('show');
+
+                        // Handle the click event on the "Yes" button in the modal
+                        $('#render-modal-yes-button').on('click', function() {
+                            $('#modal_html_alert').modal('hide');
+                        });
                     }
                 }
             });
@@ -402,10 +421,29 @@ if (window.location.pathname === '/my-vendors/') {
                 data: formData + '&action=edit_my_vendor_item',
                 success: function(response) {
                     if (response.success) {
-                        alert(response.data);
-                        location.reload();
+                        // Hide add-vendor-popup
+                        $('#edit-todolist-popup').modal('hide');
+                        // Set the modal title and message
+                        $('#exampleModalLabel').text('Success');
+                        $('#modal-body-text').text(response.data);
+                        // Show the modal
+                        $('#modal_html_alert').modal('show');
+
+                        // Handle the click event on the "Yes" button in the modal
+                        $('#render-modal-yes-button').on('click', function() {
+                            location.reload();
+                        });
                     } else {
-                        alert(response.data);
+                        // Set the modal title and message
+                        $('#exampleModalLabel').text('Error');
+                        $('#modal-body-text').text(response.data);
+                        // Show the modal
+                        $('#modal_html_alert').modal('show');
+
+                        // Handle the click event on the "Yes" button in the modal
+                        $('#render-modal-yes-button').on('click', function() {
+                            $('#modal_html_alert').modal('hide');
+                        });
                     }
                 }
             });
