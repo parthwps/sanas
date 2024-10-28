@@ -135,13 +135,13 @@ foreach ($grouped_items as $month_year => $items): ?>
                             <label for="t-c-<?php echo $item['id']; ?>"><span class="icon fas fa-check"></span></label>
                         </div>
                     </td>
-                    <td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['category']); ?>">
+                    <td class="todo-nots-text text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['category']); ?>">
                         <?php echo esc_html($item['category']); ?>
                     </td>
-                    <td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['title']); ?>">
+                    <td class="todo-nots-text text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['title']); ?>">
                         <?php echo esc_html($item['title']); ?>
                     </td>
-                    <td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['notes']); ?>">
+                    <td class="todo-nots-text text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['notes']); ?>">
                         <?php echo esc_html($item['notes']); ?>
                     </td>
                     <td>
