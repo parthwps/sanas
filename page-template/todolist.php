@@ -109,7 +109,7 @@ foreach ($todo_items as $item) {
 
 // Generate tables for each month
 foreach ($grouped_items as $month_year => $items): ?>
-    <table>
+    <table class="mb-0">
     <tr><th class="todo-subhead text-align-start" colspan="7">
     <h4><span><?php echo $month_year; ?></span></h4>
     </th></tr>
