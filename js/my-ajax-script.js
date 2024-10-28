@@ -254,7 +254,12 @@ if (window.location.pathname === '/vendors-list/') {
                 }).get();
 
                 if (selectedVendors.length === 0) {
-                    alert('Please select at least one vendor to move to the "My Vendors" page.');
+                    // alert('Please select at least one vendor to move to the "My Vendors" page.');
+                    // Set the modal title and message
+                    $('#exampleModalLabel').text('Error');
+                    $('#modal-body-text').text('Please select at least one vendor to move to the "My Vendors" page.');
+                    // Show the modal
+                    $('#modal_html_alert').modal('show');
                 } else {
                     $.ajax({
                         type: 'POST',
@@ -265,10 +270,22 @@ if (window.location.pathname === '/vendors-list/') {
                         },
                         success: function(response) {
                             if (response.success) {
-                                alert(response.data);
-                                location.reload();
+                                // Set the modal title and message
+                                $('#exampleModalLabel').text('Success');
+                                $('#modal-body-text').text(response.data);
+                                // Show the modal
+                                $('#modal_html_alert').modal('show');
+
+                                // Handle the click event on the "Yes" button in the modal
+                                $('#render-modal-yes-button').on('click', function() {
+                                    location.reload();
+                                });
                             } else {
-                                alert(response.data);
+                                // Set the modal title and message
+                                $('#exampleModalLabel').text('Error');
+                                $('#modal-body-text').text(response.data);
+                                // Show the modal
+                                $('#modal_html_alert').modal('show');
                             }
                         }
                     });
