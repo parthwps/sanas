@@ -3161,6 +3161,9 @@ section.wl-main-canvas .card-canvas .col-md-6:nth-child(2) .preview-img {
     text-transform: uppercase;
     margin: 0px 0px;
 }
+table.dataTable{
+    width: 100% !important;
+}
 #vendor-table_wrapper .table th,
 .guests-box .table-box .table th,
 table.dataTable>thead>tr>th {
