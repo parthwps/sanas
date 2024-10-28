@@ -6173,22 +6173,22 @@ button#add_new_group_button {
 }
 
 /*new Css 06/08/24*/
-#modal_html_alert .modal-dialog{
+#confirm_modal_html_alert .modal-dialog, #modal_html_alert .modal-dialog{
     transform: translate(0, 280px)!important;
     border-radius: 12px;
     overflow: hidden;
     margin: auto;
 }
-#modal_html_alert .modal-header {
+#confirm_modal_html_alert .modal-header, #modal_html_alert .modal-header {
     border: none;
     padding: 25px;
 }
 
-#modal_html_alert  .modal-body {
+#confirm_modal_html_alert .modal-body, #modal_html_alert  .modal-body {
     padding: 25px;
     padding-top: 0;
 }
-#modal_html_alert  .modal-dialog {
+#confirm_modal_html_alert .modal-dialog, #modal_html_alert  .modal-dialog {
     max-width: 550px;
 }
 .display-none {
