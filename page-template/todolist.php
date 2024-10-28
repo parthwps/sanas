@@ -80,16 +80,30 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
 <div class="progress">
     <div id="todo_progressbar" class="progress-bar" role="progressbar" style="width: <?php echo $percent_count; ?>%"></div>
 </div>
-
             </div>
-          </div>
-          <div class="todo-box">
+        </div>
+    <div class="todo-box">
     <div class="row">
         <div class="tasks-col to-do-list-table d-table-block col-xl-12 col-lg-12 col-md-12 col-sm-12">
             <div class="inner-box3">
                 <div class="table-box upcoming-tasks">
                     <div class="table-responsive m-0">
-                    <table class="table" id="todo-table">
+                        <?php
+                        $vendor_items = get_vendor_list_items();
+                        ?>
+                        <?php if ($todo_items): ?>
+                            <?php foreach ($todo_items as $item): ?>
+<?php
+                                            $item_month = date('F', strtotime($item['date']));
+                                        $item_year = date('Y', strtotime($item['date']));
+                                        // Display a new month heading if the month changes.
+                                        if ($item_month . $item_year !== $current_month) {
+                                            $current_month = $item_month . $item_year;
+                                        }
+                                        echo $current_month;
+                                        ?>
+
+                        <table class="table" id="todo-table">
                             <thead><tr class="todo-check-title">
                                 <th class="check">Mark</th>
                                 <th>Category</th>
@@ -100,11 +114,7 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                 <th class="actions">Actions</th>
                             </tr></thead>
                       <tbody>
-                        <?php
-                        $vendor_items = get_vendor_list_items();
-                        ?>
-                        <?php if ($todo_items): ?>
-                            <?php foreach ($todo_items as $item): ?>
+                        
                                 <tr <?php echo ($item['completed'] == 1) ? 'class="text-decoration-line-through pe-none"' : ''; ?>>
                                     <td class="check pe-auto">
                                         <div class="input-box">
@@ -140,11 +150,10 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                         </a>
                                     </td>
                                 </tr>
-
-                            <?php endforeach; ?>
-                        <?php endif; ?>
                       </tbody>
                       </table>
+                      <?php endforeach; ?>
+                    <?php endif; ?>
                     </div>
                 </div>
             </div>
