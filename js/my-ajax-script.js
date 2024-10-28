@@ -280,13 +280,9 @@ if (window.location.pathname === '/vendors-list/') {
                 data: { id: vendorId, action: 'delete_vendor_item' },
                 success: function(response) {
                     if (response.success) {
-                        // Show the modal alert
-                        $('#modal_html_alert').modal('show');
-                        $('#modal-body-text').text(response.data);
+                        location.reload();
                     } else {
-                        // Show the modal alert
-                        $('#modal_html_alert').modal('show');
-                        $('#modal-body-text').text(response.data);
+                        alert(response.data);  
                     }
                 }
             });
