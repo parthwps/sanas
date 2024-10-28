@@ -5700,10 +5700,12 @@ section.wedding-section {
     background-color: #dc587f;
 }
 
-.todo-list .table>thead>tr>th, .vendor .table>thead>tr>th{
+.vendor .table>thead>tr>th{
     width: auto;
 }
-
+.todo-list .table>thead>tr:first-child>th{
+    width: 50px;
+}
 .budget-man-box .cat-col ul li .ttl>i {
     margin-right: 5px;
 }
