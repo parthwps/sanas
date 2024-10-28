@@ -14,14 +14,15 @@
 */
 get_header();
 get_sidebar('dashboard');
-?>
 
-<?php
-  // Redirect non-logged-in users
 if (!is_user_logged_in()) {
     wp_redirect(home_url());
     exit;
 }
+global $current_user;    
+wp_get_current_user();
+$userID = $current_user->ID;
+$first_char = substr($current_user->user_firstname, 0, 1);
 
 // Fetch user data
 $current_user = wp_get_current_user();
