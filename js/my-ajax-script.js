@@ -402,3 +402,54 @@ if (window.location.pathname === '/budget/') {
         });
     });
 }
+
+if (window.location.pathname === '/wishlist/') {
+    jQuery(document).ready(function ($) {
+        // Function to show the modal
+        function show_alert_message2(title, message) {
+            $('#exampleModalLabel').text(title);
+            $('#modal-body-text').text(message);
+            $('#modal_html_alert').modal('show');
+        }
+
+        // When "Yes" button is clicked
+        $('#modal-yes-button').on('click', function () {
+            // Trigger the removal process
+            proceedWithRemoval();
+            $('#modal_html_alert').modal('hide');
+        });
+
+        // Function to handle the AJAX call for removal
+        function proceedWithRemoval() {
+            var $icon = $('.wishlist-delete-icon[data-card-id="' + currentCardId + '"]');
+
+            $.ajax({
+                url: sanas_ajax_object.ajax_url,
+                type: "POST",
+                data: {
+                    action: "remove_from_wishlist",
+                    card_id: currentCardId,
+                    security: sanas_ajax_object.security,
+                },
+                success: function (response) {
+                    if (response.success) {
+                        location.reload();
+                    } else {
+                        console.log("Something went wrong. Please try again.");
+                    }
+                },
+            });
+        }
+
+        // Keep track of the card ID for the current action
+        var currentCardId;
+
+        // Click handler for the delete icon
+        $(".wishlist-delete-icon").on("click", function (e) {
+            e.preventDefault();
+            currentCardId = $(this).data("card-id");
+
+            show_alert_message2('Remove from wishlist', 'Do you want to remove this card from My Favorites?');
+        });
+    });
+}

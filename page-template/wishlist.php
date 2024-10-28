@@ -131,24 +131,8 @@ if (!empty($wishlist_items)) {
 
     </div>
   </div>
-  <div class="modal fade" id="modal_html_alert" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title fs-5" id="exampleModalLabel"></h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p id="modal-body-text"></p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">No</button>
-                <button type="button" class="btn btn-dark" id="modal-yes-button">Yes</button>
-            </div>
-        </div>
-    </div>
-</div>
-  <script>
+  <?php render_modal_html_alert(); ?>
+  <!-- <script>
     document.addEventListener('DOMContentLoaded', function() {
     const categoryLinks = document.querySelectorAll('.category-link');
     const wishlistBoxes = document.querySelectorAll('.wishlist-box');
@@ -175,33 +159,34 @@ if (!empty($wishlist_items)) {
     });
 });
 
-// jQuery(document).ready(function ($) {
-//   jQuery(".wishlist-delete-icon").on("click", function (e) {
-//     show_alert_message2('Remove from wishlist', 'Do you want to this card from My Favorites?','yes');
-//     return;
-//     e.preventDefault();
-//     var $icon = $(this);
-//     var cardId = $icon.data("card-id");
+jQuery(document).ready(function ($) {
+  jQuery(".wishlist-delete-icon").on("click", function (e) {
+    show_alert_message2('Remove from wishlist', 'Do you want to this card from My Favorites?','yes');
+    return;
+    e.preventDefault();
+    var $icon = $(this);
+    var cardId = $icon.data("card-id");
 
-//     $.ajax({
-//       url: sanas_ajax_object.ajax_url,
-//       type: "POST",
-//       data: {
-//         action: "remove_from_wishlist",
-//         card_id: cardId,
-//         security: sanas_ajax_object.security,
-//       },
-//       success: function (response) {
-//         if (response.success) {
-//           location.reload();
-//           // $icon.closest(".wishlist-box").remove();
-//         } else {
-//           console.log("Something went wrong. Please try again.");
-//         }
-//       },
-//     });
-//   });
-// });
+    $.ajax({
+      url: sanas_ajax_object.ajax_url,
+      type: "POST",
+      data: {
+        action: "remove_from_wishlist",
+        card_id: cardId,
+        security: sanas_ajax_object.security,
+      },
+      success: function (response) {
+        if (response.success) {
+          location.reload();
+          // $icon.closest(".wishlist-box").remove();
+        } else {
+          console.log("Something went wrong. Please try again.");
+        }
+      },
+    });
+  });
+});
+
 jQuery(document).ready(function ($) {
     // Function to show the modal
     function show_alert_message2(title, message) {
@@ -252,6 +237,6 @@ jQuery(document).ready(function ($) {
 });
 
 
-    </script>
+    </script> -->
 <?php
 get_footer('dashboard');
