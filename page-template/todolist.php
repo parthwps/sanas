@@ -130,7 +130,7 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                         </div>
                                       </td>';
                                         echo '<td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="' . esc_html($item['category']) . '">' . esc_html($item['category']) . '</td>';
-                                        echo '<td class="todo-title" data-toggle="tooltip" data-bs-original-title="' . esc_html($item['title']) . '">' . esc_html($item['title']) . '</td>';
+                                        echo '<td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="' . esc_html($item['title']) . '">' . esc_html($item['title']) . '</td>';
                                         echo '<td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="' . esc_html($item['notes']) . '">' . esc_html($item['notes']) . '</td>';
                                         echo '<td>' . date('d/m/Y', strtotime($item['date'])) . '</td>';
                                         // echo '<td><i class="fa-solid fa-calendar-days"></i></td>';
