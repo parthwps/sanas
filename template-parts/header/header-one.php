@@ -21,11 +21,6 @@ if(is_page_template( 'page-template/myevent.php')
 
  global $current_user;    
   wp_get_current_user();
-  if ( ! is_user_logged_in() ) {
-    echo "Good";
-    wp_redirect( home_url() );
-    exit;
-}
   $userID = $current_user->ID;
   $first_char = substr($current_user->user_firstname, 0, 1);
 ?>
