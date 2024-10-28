@@ -446,7 +446,7 @@ if (window.location.pathname === '/my-vendors/') {
                             });
                         }
                         if(buttonDataId == 1){
-                            $(this).find('input, textarea, select').val('');
+                            jQuery('#add-my-vendor-form').find('input, textarea, select').val('');
                         }
                     } else {
                         // Set the modal title and message
