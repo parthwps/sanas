@@ -92,16 +92,25 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                         $vendor_items = get_vendor_list_items();
                         ?>
                         <?php if ($todo_items): ?>
+                            <?php
+                            $current_month = ''; 
+                            $previous_month = ''; 
+                            ?>
                             <?php foreach ($todo_items as $item): ?>
-<?php
-                                            $item_month = date('F', strtotime($item['date']));
+                                <?php
+                                        $item_month = date('F', strtotime($item['date']));
                                         $item_year = date('Y', strtotime($item['date']));
-                                        // Display a new month heading if the month changes.
-                                        if ($item_month . $item_year !== $current_month) {
-                                            $current_month = $item_month . $item_year;
+                                        $current_item_month_year = $item_month . $item_year;
+                                    
+                                        if ($current_item_month_year !== $current_month) {
+                                            if (!empty($current_month)) {
+                                                $previous_month = $current_month; 
+                                            }
+                                            $current_month = $current_item_month_year; 
                                         }
-                                        echo $current_month;
-                                        ?>
+                                        echo "Current Month: " . $current_month . "<br>";
+                                        echo "Previous Month: " . $previous_month . "<br>";
+                                ?>
 
                         <table class="table" id="todo-table">
                             <thead><tr class="todo-check-title">
