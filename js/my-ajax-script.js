@@ -162,7 +162,7 @@ if (window.location.pathname === '/vendors-list/') {
                 success: function(response) {
                     if (response.success) {
                         // Hide add-vendor-popup
-                        $('#add-vendor-popup').modal('hide');
+                        $('#add-todolist-popup').modal('hide');
                         // Set the modal title and message
                         $('#exampleModalLabel').text('Success');
                         $('#modal-body-text').text(response.data);
