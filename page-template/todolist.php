@@ -90,7 +90,7 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                 <div class="table-box upcoming-tasks">
                     <div class="table-responsive m-0">
                         <table class="table" id="todo-table">
-                            <tbody>
+                            <thead>
                                 <?php
                                 if ($todo_items) {
                                     $current_month = '';
@@ -101,9 +101,9 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                         // Display a new month heading if the month changes.
                                         if ($item_month . $item_year !== $current_month) {
                                             $current_month = $item_month . $item_year;
-                                            echo '<tr><td class="todo-subhead text-align-start" colspan="8">';
+                                            echo '<tr><th class="todo-subhead text-align-start" colspan="8">';
                                             echo '<h4>' . $item_month . '<span>' . $item_year . '</span></h4>';
-                                            echo '</td></tr>';
+                                            echo '</th></tr>';
                                             
                                             // Display the header row for the table.
                                             echo '<tr class="todo-check-title">
@@ -116,6 +116,8 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                                 <th class="actions">Actions</th>
                                             </tr>';
                                         }
+                                        echo "</thead>
+                                        <tbody>";
                                         // <th class="todo-reminder">Set Reminder</th>
                                         // Display each todo item.
                                         echo '<tr ';
