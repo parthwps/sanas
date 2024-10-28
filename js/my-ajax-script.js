@@ -119,23 +119,57 @@ jQuery(document).ready(function($) {
     });
   });
 
-    jQuery('.delete').on('click', function() {
-        var todoId = jQuery(this).data('id');
-        if (confirm('Are you sure you want to delete this To-Do item?')) {
-            $.ajax({
-                type: 'POST',
-                url: ajax_object.ajax_url,
-                data: { id: todoId, action: 'delete_todo_item' },
-                success: function(response) {
-                    if (response.success) {
-                        alert(response.data);
-                        location.reload();
-                    } else {
-                        alert(response.data);
-                    }
+
+    // Function to show the modal
+    function show_alert_message2(title, message) {
+        $('#exampleConfirmModalLabel').text(title);
+        $('#confirm_modal-body-text').text(message);
+        $('#confirm_modal_html_alert').modal('show');
+    }
+
+    // When "Yes" button is clicked
+    $('#modal-yes-button').on('click', function () {
+        // Trigger the removal process
+        proceedWithRemoval();
+        $('#confirm_modal_html_alert').modal('hide');
+    });
+
+    // Function to handle the AJAX call for removal
+    function proceedWithRemoval() {
+        var todoId = currentTodoId;
+
+        $.ajax({
+            type: 'POST',
+            url: ajax_object.ajax_url,
+            data: { id: todoId, action: 'delete_todo_item' },
+            success: function(response) {
+                if (response.success) {
+                    location.reload();
+                } else {
+                    // Set the modal title and message
+                    $('#exampleModalLabel').text('Error');
+                    $('#modal-body-text').text(response.data);
+                    // Show the modal
+                    $('#modal_html_alert').modal('show');
+
+                    // Handle the click event on the "Yes" button in the modal
+                    $('#render-modal-yes-button').on('click', function() {
+                        $('#modal_html_alert').modal('hide');
+                    });
                 }
-            });
-        }
+            }
+        });
+    }
+
+    // Keep track of the todo ID for the current action
+    var currentTodoId;
+
+    // Click handler for the delete icon
+    $(".delete").on("click", function (e) {
+        e.preventDefault();
+        currentTodoId = $(this).data("id");
+
+        show_alert_message2('Delete To-Do Item', 'Are you sure you want to delete this To-Do item?');
     });
     
     jQuery(".status-dropdown").on("change", function () {
