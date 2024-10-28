@@ -8,11 +8,6 @@
  *
  * @package sanas
  */
-if ( ! is_user_logged_in() ) {
-    echo "Good";
-    wp_redirect( home_url() );
-    exit;
-}
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -28,7 +23,7 @@ if ( ! is_user_logged_in() ) {
     </style>
     <?php wp_head(); ?>
 </head>
-<body <?php if ( is_page_template( 'page-template/myevent.php' ) ) { body_class('inner-page');}else{body_class();} ?>>>
+<body as <?php if ( is_page_template( 'page-template/myevent.php' ) ) { body_class('inner-page');}else{body_class();} ?>>>
 <div class="wl-invitation-header user">
     <div class="container-fluid">
         <div class="inner-container">
