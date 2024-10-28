@@ -11,6 +11,7 @@
 wp_footer(); 
 do_action('sanas_get_login');
 sanas_render_modal_html_alert();
+render_modal_html_alert();
 ?>
 <footer>
       <div class="container-xl container-fluid">
