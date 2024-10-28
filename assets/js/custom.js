@@ -430,7 +430,7 @@
         $('#guest-list-Table').DataTable();
         $('#vendor-table').DataTable();
         $('#guest-contact-list').DataTable();
-        $('#todo-table').DataTable({
+        $('.todo-table').DataTable({
             searching: false,
             paging: false,
             columnDefs: [
