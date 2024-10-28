@@ -99,9 +99,7 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                         // Display a new month heading if the month changes.
                                         if ($item_month . $item_year !== $current_month) {
                                             $current_month = $item_month . $item_year;
-                                            echo '<thead><tr><th class="todo-subhead text-align-start" colspan="7">';
-                                            echo '<h4>' . $item_month . '<span>' . $item_year . '</span></h4>';
-                                            echo '</th></tr>';
+                                            echo '<thead>';
                                             
                                             // Display the header row for the table.
                                             echo '<tr class="todo-check-title">
