@@ -430,7 +430,11 @@
         $('#guest-list-Table').DataTable();
         $('#vendor-table').DataTable();
         $('#guest-contact-list').DataTable();
-        $('#todo-table').DataTable();
+        $('#todo-table').DataTable({
+            columnDefs: [
+                { orderable: false, targets: [0, 2] }
+            ]
+        });
     }
     if ($('.registry').length) {
         $('#program-time1').on('click', '.deletebtn', function () {
