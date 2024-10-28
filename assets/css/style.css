@@ -5703,10 +5703,10 @@ section.wedding-section {
 .vendor .table>thead>tr>th{
     width: auto;
 }
-.todo-list .table>thead>tr:first-child>th{
+.todo-list .table>thead>tr>th:first-child{
     max-width: 80px;
 }
-.todo-list .table>thead>tr:last-child>th{
+.todo-list .table>thead>tr>th:last-child{
     max-width: 120px;
 }
 .budget-man-box .cat-col ul li .ttl>i {
