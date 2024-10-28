@@ -161,6 +161,8 @@ if (window.location.pathname === '/vendors-list/') {
                 data: formData + '&action=add_vendor_item',
                 success: function(response) {
                     if (response.success) {
+                        // Hide add-vendor-popup
+                        $('#add-vendor-popup').modal('hide');
                         // Set the modal title and message
                         $('#exampleModalLabel').text('Success');
                         $('#modal-body-text').text(response.data);
@@ -177,9 +179,6 @@ if (window.location.pathname === '/vendors-list/') {
                             $('#add-vendor-form')[0].reset();
                             // Open the form again (assuming it's in a modal)
                             $('#add-vendor-popup').modal('show');
-                        } 
-                        else {
-                            location.reload();
                         }
                     } else {
                         alert(response.data);
