@@ -6347,7 +6347,7 @@ td i.fa-solid.fa-calendar-days {
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 8px;
-    max-width: 200px;
+    max-width: 200px !important;
 }
 .attend-info .lower-content h4, .attend-info .lower-content p {
     font-size: 14px;
