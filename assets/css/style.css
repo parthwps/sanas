@@ -5745,6 +5745,10 @@ section.blog-wrapper{
     display: table-cell;
     border-bottom: 0;
 }
+.title-box .todo-status{
+    width: 100%;
+    display: flex;
+}
 td.todo-status {
     min-height: 53px;
     justify-content: center;
