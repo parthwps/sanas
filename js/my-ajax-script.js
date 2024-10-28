@@ -296,22 +296,22 @@ if (window.location.pathname === '/vendors-list/') {
                 type: 'POST',
                 url: ajax_object.ajax_url,
                 data: formData + '&action=edit_vendor_item',
-                // success: function(response) {
-                //     if (response.success) {
-                //         // Hide add-vendor-popup
-                //         $('#edit-todolist-popup').modal('hide');
-                //         // Set the modal title and message
-                //         $('#exampleModalLabel').text('Success');
-                //         $('#modal-body-text').text(response.data);
-                //         // Show the modal
-                //         $('#modal_html_alert').modal('show');
-                //         $('#render-modal-yes-button').on('click', function() {
-                //             location.reload();
-                //         });
-                //     } else {
-                //         alert(response.data);
-                //     }
-                // }
+                success: function(response) {
+                    if (response.success) {
+                        // Hide add-vendor-popup
+                        $('#edit-todolist-popup').modal('hide');
+                        // Set the modal title and message
+                        $('#exampleModalLabel').text('Success');
+                        $('#modal-body-text').text(response.data);
+                        // Show the modal
+                        $('#modal_html_alert').modal('show');
+                        $('#render-modal-yes-button').on('click', function() {
+                            location.reload();
+                        });
+                    } else {
+                        alert(response.data);
+                    }
+                }
             });
         });
 
@@ -430,18 +430,17 @@ if (window.location.pathname === '/my-vendors/') {
                 data: formData + '&action=add_my_vendor_item',
                 success: function(response) {
                     if (response.success) {
-                        // Hide add-vendor-popup
+                        if(formData){
+                            console.log(formData);
+                        }
                         $('#add-todolist-popup').modal('hide');
-                        // Set the modal title and message
                         $('#exampleModalLabel').text('Success');
                         $('#modal-body-text').text(response.data);
-                        // Show the modal
                         $('#modal_html_alert').modal('show');
-
-                        // Handle the click event on the "Yes" button in the modal
                         $('#render-modal-yes-button').on('click', function() {
                             location.reload();
                         });
+
                     } else {
                         // Set the modal title and message
                         $('#exampleModalLabel').text('Error');
