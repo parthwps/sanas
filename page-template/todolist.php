@@ -93,6 +93,16 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                 <?php
                                 if ($todo_items) {
                                     $current_month = '';
+                                    echo '<thead>';
+                                    echo '<tr class="todo-check-title">
+                                        <th class="check">Mark</th>
+                                        <th>Category</th>
+                                        <th>Task</th>
+                                        <th>Notes</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th class="actions">Actions</th>
+                                    </tr></thead>';
                                     foreach ($todo_items as $item) {
                                         // $item_month = date('F', strtotime($item['date']));
                                         // $item_year = date('Y', strtotime($item['date']));
@@ -101,16 +111,6 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                         //     $current_month = $item_month . $item_year;
 
                                         // }
-                                        echo '<thead>';
-                                        echo '<tr class="todo-check-title">
-                                            <th class="check">Mark</th>
-                                            <th>Category</th>
-                                            <th>Task</th>
-                                            <th>Notes</th>
-                                            <th>Date</th>
-                                            <th>Status</th>
-                                            <th class="actions">Actions</th>
-                                        </tr></thead>';
                                         echo "<tbody>";
                                         echo '<tr ';
                                         if($item['completed'] == 1){
