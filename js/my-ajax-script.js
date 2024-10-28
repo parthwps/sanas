@@ -161,7 +161,17 @@ if (window.location.pathname === '/vendors-list/') {
                 data: formData + '&action=add_vendor_item',
                 success: function(response) {
                     if (response.success) {
-                        alert(response.data);
+                        // Set the modal title and message
+                        $('#exampleModalLabel').text('Success');
+                        $('#modal-body-text').text(response.data);
+                        // Show the modal
+                        $('#modal_html_alert').modal('show');
+
+                        // When "Yes" button is clicked 
+                        $('#render-modal-yes-button').on('click', function () {
+                            location.reload();
+                        });
+
                         if (addAnother) {
                             // Clear form fields
                             $('#add-vendor-form')[0].reset();

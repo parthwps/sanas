@@ -995,7 +995,7 @@ function render_modal_html_alert() {
                     <p id="modal-body-text"></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-dark" id="modal-yes-button">Yes</button>
+                    <button type="button" class="btn btn-dark" id="render-modal-yes-button">Yes</button>
                 </div>
             </div>
         </div>
