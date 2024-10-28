@@ -89,7 +89,7 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
             <div class="inner-box3">
                 <div class="table-box upcoming-tasks">
                     <div class="table-responsive m-0">
-                        <table class="table" id="todo-table">
+                        <table class="table">
                             <tbody>
                                 <?php
                                 if ($todo_items) {
@@ -101,7 +101,7 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                         // Display a new month heading if the month changes.
                                         if ($item_month . $item_year !== $current_month) {
                                             $current_month = $item_month . $item_year;
-                                            echo '<tr><td class="todo-subhead text-align-start" colspan="8">';
+                                            echo '<tr id="todo-table"><td class="todo-subhead text-align-start" colspan="8">';
                                             echo '<h4>' . $item_month . '<span>' . $item_year . '</span></h4>';
                                             echo '</td></tr>';
                                             
