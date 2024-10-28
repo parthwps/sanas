@@ -5743,7 +5743,6 @@ section.blog-wrapper{
 }
 .todo-status {
     display: table-cell;
-    width: 100%;
     border-bottom: 0;
 }
 td.todo-status {
