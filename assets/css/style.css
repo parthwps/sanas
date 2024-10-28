@@ -5703,7 +5703,7 @@ section.wedding-section {
 .vendor .table>thead>tr>th{
     width: auto;
 }
-.todo-list .table>thead>tr>th:first-child{
+.todo-list .table>thead>tr>th{
     max-width: 140px;
 }
 .todo-list .table>thead>tr>th:first-child{
