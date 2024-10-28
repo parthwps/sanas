@@ -89,7 +89,7 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
             <div class="inner-box3">
                 <div class="table-box upcoming-tasks">
                     <div class="table-responsive m-0">
-                        <table class="table" id="todo-table">
+                    <table class="table" id="todo-table">
                             <thead><tr class="todo-check-title">
                                 <th class="check">Mark</th>
                                 <th>Category</th>
@@ -99,46 +99,52 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                 <th>Status</th>
                                 <th class="actions">Actions</th>
                             </tr></thead>
-                                <?php
-                                if ($todo_items) {
-                                    $current_month = '';
-                                    foreach ($todo_items as $item) {
-                                        echo "<tbody>";
-                                        echo '<tr ';
-                                        if($item['completed'] == 1){echo 'class="text-decoration-line-through pe-none"';}
-                                        echo '>';
-                                        echo '<td class="check pe-auto">
+                      <tbody>
+                        <?php
+                        $vendor_items = get_vendor_list_items();
+                        ?>
+                        <?php if ($todo_items): ?>
+                            <?php foreach ($todo_items as $item): ?>
+                                <tr <?php echo ($item['completed'] == 1) ? 'class="text-decoration-line-through pe-none"' : ''; ?>>
+                                    <td class="check pe-auto">
                                         <div class="input-box">
-                                            <input type="checkbox" class="checkSingle" name="field-name" id="t-c-' . $item['id'] . '" ' . ($item['completed'] == 1 ? 'checked' : '') . '>
-                                            <label for="t-c-' . $item['id'] . '"><span class="icon fas fa-check"></span></label>
+                                            <input type="checkbox" class="checkSingle" name="field-name" id="t-c-<?php echo $item['id']; ?>" <?php echo ($item['completed'] == 1) ? 'checked' : ''; ?>>
+                                            <label for="t-c-<?php echo $item['id']; ?>"><span class="icon fas fa-check"></span></label>
                                         </div>
-                                      </td>';
-                                        echo '<td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="' . esc_html($item['category']) . '">' . esc_html($item['category']) . '</td>';
-                                        echo '<td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="' . esc_html($item['title']) . '">' . esc_html($item['title']) . '</td>';
-                                        echo '<td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="' . esc_html($item['notes']) . '">' . esc_html($item['notes']) . '</td>';
-                                        echo '<td>' . DateTime::createFromFormat('Y-m-d', $item['date'])->format('jS M Y') . '</td>';
-                                        echo '<td class="todo-status">
-                                              <select class="status-dropdown" data-id="' . $item['id'] . '">
-                                                  <option value="Yet To Start"' . selected($item['status'], 'Yet To Start', false) . '>Yet To Start</option>
-                                                  <option value="In Progress"' . selected($item['status'], 'In Progress', false) . '>In Progress</option>
-                                                  <option value="Completed"' . selected($item['status'], 'Completed', false) . '>Completed</option>
-                                              </select>
-                                            </td>';
+                                    </td>
+                                    <td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['category']); ?>">
+                                        <?php echo esc_html($item['category']); ?>
+                                    </td>
+                                    <td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['title']); ?>">
+                                        <?php echo esc_html($item['title']); ?>
+                                    </td>
+                                    <td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['notes']); ?>">
+                                        <?php echo esc_html($item['notes']); ?>
+                                    </td>
+                                    <td>
+                                        <?php echo DateTime::createFromFormat('Y-m-d', $item['date'])->format('jS M Y'); ?>
+                                    </td>
+                                    <td class="todo-status">
+                                        <select class="status-dropdown" data-id="<?php echo $item['id']; ?>">
+                                            <option value="Yet To Start" <?php echo selected($item['status'], 'Yet To Start', false); ?>>Yet To Start</option>
+                                            <option value="In Progress" <?php echo selected($item['status'], 'In Progress', false); ?>>In Progress</option>
+                                            <option value="Completed" <?php echo selected($item['status'], 'Completed', false); ?>>Completed</option>
+                                        </select>
+                                    </td>
+                                    <td class="actions">
+                                        <a href="#" class="edit theme-btn" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup" data-id="<?php echo $item['id']; ?>">
+                                            <i class="fa-solid fa-pen"></i>
+                                        </a>
+                                        <a href="#" class="delete theme-btn" data-id="<?php echo $item['id']; ?>">
+                                            <i class="fa-regular fa-trash-can"></i>
+                                        </a>
+                                    </td>
+                                </tr>
 
-                                        // echo '<td class="todo-status"><span class="stat ' . ($item['status'] == 'Completed' ? 'yes' : 'no') . '">' . esc_html($item['status']) . '</span></td>';
-                                        echo '<td class="actions">
-                                                <a href="#" class="edit theme-btn" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup" data-id="' . $item['id'] . '">
-                                                    <i class="fa-solid fa-pen"></i>
-                                                </a>
-                                                <a href="#" class="delete theme-btn" data-id="' . $item['id'] . '">
-                                                    <i class="fa-regular fa-trash-can"></i>
-                                                </a>
-                                              </td>';
-                                        echo '</tr></tbody>';
-                                    }
-                                }
-                                ?>
-                        </table>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                      </tbody>
+                      </table>
                     </div>
                 </div>
             </div>
