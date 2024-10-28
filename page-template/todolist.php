@@ -163,6 +163,8 @@ foreach ($grouped_items as $month_year => $items): ?>
         </tbody>
     </table>
     <script>
+        (function ($) {
+            "use strict";
         if ($('.table-responsive').length) {
         $('#todo-table-<?php echo str_replace(' ', '-', $month_year); ?>').DataTable({
             searching: false,
@@ -171,7 +173,8 @@ foreach ($grouped_items as $month_year => $items): ?>
                 { orderable: false, targets: [0, 1, 3, 4, 5, 6] },
             ]
         });
-    }
+        }
+        });
         </script>
 <?php endforeach; ?>
 
