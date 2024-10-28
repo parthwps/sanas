@@ -50,7 +50,7 @@ function sanas_css()
     wp_enqueue_style('preview-style', get_template_directory_uri() . '/assets/css/preview.css', array(), SANAS_VERSION);     
   }
   wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/css/style.css', array(), SANAS_VERSION);
-  wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/css/style2.css', array(), SANAS_VERSION);
+  wp_enqueue_style('theme-secondary-style', get_template_directory_uri() . '/assets/css/style2.css', array(), SANAS_VERSION);
   wp_enqueue_style('theme-responsive-style', get_template_directory_uri() . '/assets/css/responsive.css', array(), SANAS_VERSION);
 
 }
