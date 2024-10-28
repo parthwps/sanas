@@ -428,13 +428,13 @@
     if ($('.table-responsive').length) {
         $('#budget-expense').DataTable();
         $('#guest-list-Table').DataTable();
-        $('#vendor-table').DataTable({
+        $('#vendor-table').DataTable();
+        $('#guest-contact-list').DataTable();
+        $('#todo-table').DataTable({
             columnDefs: [
                 { orderable: false, targets: [0, 2] }
             ]
         });
-        $('#guest-contact-list').DataTable();
-        $('#todo-table').DataTable();
     }
     if ($('.registry').length) {
         $('#program-time1').on('click', '.deletebtn', function () {
