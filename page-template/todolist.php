@@ -277,6 +277,7 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
         </div>
     </div>
 </div>
-
+<?php render_confirm_modal_html_alert(); ?>
+<?php render_modal_html_alert(); ?>
 <?php
 get_footer('dashboard');
