@@ -132,7 +132,7 @@ if (!empty($wishlist_items)) {
     </div>
   </div>
   <?php render_modal_html_alert(); ?>
-  <!-- <script>
+  <script>
     document.addEventListener('DOMContentLoaded', function() {
     const categoryLinks = document.querySelectorAll('.category-link');
     const wishlistBoxes = document.querySelectorAll('.wishlist-box');
@@ -159,34 +159,33 @@ if (!empty($wishlist_items)) {
     });
 });
 
-jQuery(document).ready(function ($) {
-  jQuery(".wishlist-delete-icon").on("click", function (e) {
-    show_alert_message2('Remove from wishlist', 'Do you want to this card from My Favorites?','yes');
-    return;
-    e.preventDefault();
-    var $icon = $(this);
-    var cardId = $icon.data("card-id");
+// jQuery(document).ready(function ($) {
+//   jQuery(".wishlist-delete-icon").on("click", function (e) {
+//     show_alert_message2('Remove from wishlist', 'Do you want to this card from My Favorites?','yes');
+//     return;
+//     e.preventDefault();
+//     var $icon = $(this);
+//     var cardId = $icon.data("card-id");
 
-    $.ajax({
-      url: sanas_ajax_object.ajax_url,
-      type: "POST",
-      data: {
-        action: "remove_from_wishlist",
-        card_id: cardId,
-        security: sanas_ajax_object.security,
-      },
-      success: function (response) {
-        if (response.success) {
-          location.reload();
-          // $icon.closest(".wishlist-box").remove();
-        } else {
-          console.log("Something went wrong. Please try again.");
-        }
-      },
-    });
-  });
-});
-
+//     $.ajax({
+//       url: sanas_ajax_object.ajax_url,
+//       type: "POST",
+//       data: {
+//         action: "remove_from_wishlist",
+//         card_id: cardId,
+//         security: sanas_ajax_object.security,
+//       },
+//       success: function (response) {
+//         if (response.success) {
+//           location.reload();
+//           // $icon.closest(".wishlist-box").remove();
+//         } else {
+//           console.log("Something went wrong. Please try again.");
+//         }
+//       },
+//     });
+//   });
+// });
 jQuery(document).ready(function ($) {
     // Function to show the modal
     function show_alert_message2(title, message) {
@@ -237,6 +236,6 @@ jQuery(document).ready(function ($) {
 });
 
 
-    </script> -->
+    </script>
 <?php
 get_footer('dashboard');
