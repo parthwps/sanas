@@ -111,7 +111,7 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                                 <th>Category</th>
                                                 <th>Task</th>
                                                 <th>Notes</th>
-                                                <th>Date123</th>
+                                                <th>Date</th>
                                                 <th>Status</th>
                                                 <th class="actions">Actions</th>
                                             </tr>';
@@ -132,7 +132,7 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                         echo '<td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="' . esc_html($item['category']) . '">' . esc_html($item['category']) . '</td>';
                                         echo '<td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="' . esc_html($item['title']) . '">' . esc_html($item['title']) . '</td>';
                                         echo '<td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="' . esc_html($item['notes']) . '">' . esc_html($item['notes']) . '</td>';
-                                        echo '<td>' . date('d/m/Y', strtotime($item['date'])) . '</td>';
+                                        echo '<td>' . DateTime::createFromFormat('Y-m-d', $item['date'])->format('jS M Y') . '</td>';
                                         // echo '<td><i class="fa-solid fa-calendar-days"></i></td>';
                                         echo '<td class="todo-status">
                                               <select class="status-dropdown" data-id="' . $item['id'] . '">
