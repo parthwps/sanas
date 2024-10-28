@@ -114,6 +114,8 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                                 <th>Date</th>
                                                 <th>Status</th>
                                                 <th class="actions">Actions</th>
+                                                <th>Status</th>
+                                                <th class="actions">Actions</th>
                                             </tr>';
                                         }
                                         // <th class="todo-reminder">Set Reminder</th>
@@ -151,6 +153,8 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                                     <i class="fa-regular fa-trash-can"></i>
                                                 </a>
                                               </td>';
+                                        echo '<td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="">test</td>';
+                                        echo '<td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="">test</td>';
                                         echo '</tr>';
                                     }
                                 }
