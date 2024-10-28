@@ -103,6 +103,7 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                         $current_item_month_year = $item_month . $item_year;
                                     
                                             $previous_month = $current_month;
+                                            $current_month = $current_item_month_year; 
                                         echo "Current Month: " . $current_month . "<br>";
                                         echo "Previous Month: " . $previous_month . "<br>";
                                 ?>
