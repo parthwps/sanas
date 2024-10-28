@@ -114,8 +114,6 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                                 <th>Date</th>
                                                 <th>Status</th>
                                                 <th class="actions">Actions</th>
-                                                <th>Status</th>
-                                                <th class="actions">Actions</th>
                                             </tr>';
                                         }
                                         // <th class="todo-reminder">Set Reminder</th>
@@ -153,8 +151,6 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                                     <i class="fa-regular fa-trash-can"></i>
                                                 </a>
                                               </td>';
-                                        echo '<td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="">test</td>';
-                                        echo '<td class="todo-nots-text" data-toggle="tooltip" data-bs-original-title="">test</td>';
                                         echo '</tr>';
                                     }
                                 }
@@ -265,7 +261,7 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                 </div> -->
                                 <div class="form-group col-lg-12 col-sm-12">
                                     <label>Notes</label>
-                                    <textarea name="notes" id="edit-todo-notes" maxlength="250" class="form-control" placeholder="Notes"></textarea>
+                                    <textarea name="notes" id="edit-todo-notes" class="form-control" placeholder="Notes"></textarea>
                                 </div>
                                 <div class="form-group col-lg-12 col-sm-12">
                                     <div class="links-box">
