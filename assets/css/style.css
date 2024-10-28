@@ -5704,10 +5704,10 @@ section.wedding-section {
     width: auto;
 }
 .todo-list .table>thead>tr:first-child>th{
-    min-width: 80px;
+    max-width: 80px;
 }
 .todo-list .table>thead>tr:last-child>th{
-    min-width: 80px;
+    max-width: 120px;
 }
 .budget-man-box .cat-col ul li .ttl>i {
     margin-right: 5px;
