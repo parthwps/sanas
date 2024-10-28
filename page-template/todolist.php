@@ -111,7 +111,7 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                                 <th>Category</th>
                                                 <th>Task</th>
                                                 <th>Notes</th>
-                                                <th>Date</th>
+                                                <th>Date123</th>
                                                 <th>Status</th>
                                                 <th class="actions">Actions</th>
                                             </tr>';
