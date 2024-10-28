@@ -225,25 +225,6 @@ if (window.location.pathname === '/vendors-list/') {
             });
         });
 
-        jQuery('.delete').on('click', function() {
-            var vendorId = jQuery(this).data('id');
-            if (confirm('Are you sure you want to delete this Vendor item?')) {
-                $.ajax({
-                    type: 'POST',
-                    url: ajax_object.ajax_url,
-                        data: { id: vendorId, action: 'delete_vendor_item' },
-                    success: function(response) {
-                        if (response.success) {
-                            alert(response.data);
-                            location.reload();
-                        } else {
-                            alert(response.data);
-                        }
-                    }
-                });
-            }
-        });
-
         jQuery(document).ready(function($) {
             // Move to My Vendors List button click
             $('.add-link-btn').on('click', function(e) {
@@ -273,6 +254,50 @@ if (window.location.pathname === '/vendors-list/') {
                     });
                 }
             });
+        });
+
+        // Function to show the modal
+        function show_alert_message2(title, message) {
+            $('#exampleModalLabel').text(title);
+            $('#modal-body-text').text(message);
+            $('#modal_html_alert').modal('show');
+        }
+
+        // When "Yes" button is clicked
+        $('#modal-yes-button').on('click', function () {
+            // Trigger the removal process
+            proceedWithRemoval();
+            $('#modal_html_alert').modal('hide');
+        });
+
+        // Function to handle the AJAX call for removal
+        function proceedWithRemoval() {
+            var vendorId = currentVendorId;
+
+            $.ajax({
+                type: 'POST',
+                url: ajax_object.ajax_url,
+                data: { id: vendorId, action: 'delete_vendor_item' },
+                success: function(response) {
+                    if (response.success) {
+                        alert(response.data);
+                        location.reload();
+                    } else {
+                        alert(response.data);
+                    }
+                }
+            });
+        }
+
+        // Keep track of the vendor ID for the current action
+        var currentVendorId;
+
+        // Click handler for the delete icon
+        $(".delete").on("click", function (e) {
+            e.preventDefault();
+            currentVendorId = $(this).data("id");
+
+            show_alert_message2('Delete Vendor', 'Are you sure you want to delete this vendor?');
         });
     });
 }

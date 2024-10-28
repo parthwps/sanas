@@ -234,3 +234,5 @@ get_sidebar('dashboard');
 
 <?php
 get_footer('dashboard');
+render_confirm_modal_html_alert();
+?>
