@@ -116,7 +116,7 @@ get_sidebar('dashboard');
                                 <th>Notes</th>
                                 <th class="text-single-line">Social Madia Profile</th>
                                 <th>Pricing</th>
-                                <th>Actions</th>
+                                <th class="actions">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
