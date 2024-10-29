@@ -199,9 +199,9 @@ jQuery(document).ready(function($) {
                     if(status == "Completed"){
                         console.log(percentcount);
                         console.log(percent);
-                        jQuery('#todo_progressbar').css('width', jQuery('#todo_progressbar').css('width') + percent + '%'); 
+                        jQuery('#todo_progressbar').css('width', percent + percentcount + '%'); 
                     }else{
-                        jQuery('#todo_progressbar').css('width', jQuery('#todo_progressbar').css('width') - percent + '%'); 
+                        jQuery('#todo_progressbar').css('width', percent - percentcount + '%'); 
                     }
                 } else {
                     // console.log("Error: " + response.data);
