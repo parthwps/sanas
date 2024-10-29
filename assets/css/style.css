@@ -6400,7 +6400,7 @@ th.todo-subhead h4 {
     }
 } */
 
-@media (max-width: 2160px) {
+@media (min-width: 2160px) {
     .vendor-list-table-container{
         overflow-x: auto;
         max-width: 100%;
