@@ -6428,9 +6428,14 @@ th.todo-subhead h4 {
     width: 100px;
 }
 
-.vendor-list-table td:first-child, .vendor-list-table td:last-child, .vendor-list-table th:first-child, .vendor-list-table th:last-child{
+.vendor-list-table td:first-child, .vendor-list-table th:first-child{
     max-width: 50px;
     width: 50px;
+}
+
+.vendor-list-table td:last-child, .vendor-list-table th:last-child{
+    max-width: 100px;
+    width: 100px;
 }
 
 /* @media (max-width: 748px) {
