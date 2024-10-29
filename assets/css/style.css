@@ -5764,7 +5764,6 @@ section.blog-wrapper{
 }
 td.todo-status {
     min-height: 53px;
-    justify-content: center;
 }
 .table>:not(caption)>*>*{
     border-bottom-width: 0px;

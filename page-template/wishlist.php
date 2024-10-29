@@ -132,6 +132,33 @@ if (!empty($wishlist_items)) {
     </div>
   </div>
   <?php render_confirm_modal_html_alert(); ?>
+  <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const categoryLinks = document.querySelectorAll('.category-link');
+    const wishlistBoxes = document.querySelectorAll('.wishlist-box');
+
+    categoryLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const selectedCategory = this.getAttribute('data-category');
+            if (!selectedCategory) {
+                wishlistBoxes.forEach(box => {
+                    box.style.display = 'block';
+                });
+                return;
+            }
+            wishlistBoxes.forEach(box => {
+                const boxCategories = box.getAttribute('data-category').split(',');
+                if (boxCategories.includes(selectedCategory)) {
+                    box.style.display = 'block';
+                } else {
+                    box.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+    </script>
   <!-- <script>
     document.addEventListener('DOMContentLoaded', function() {
     const categoryLinks = document.querySelectorAll('.category-link');
