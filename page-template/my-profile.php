@@ -155,29 +155,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class=" col-lg-6 col-md-6 col-sm-12">
                           <div class="form-group">
                           <label>Facebook</label>
-                          <input type="text" class="form-control" value="<?php echo esc_url($facebook); ?>" placeholder="https://www.facebook.com/"
-                            required="">
+                          <input type="text" class="form-control" value="<?php echo esc_url($facebook); ?>" placeholder="https://www.facebook.com/">
                           </div>
                         </div>
                         <div class=" col-lg-6 col-md-6 col-sm-12">
                           <div class="form-group">
                           <label>Twitter</label>
-                          <input type="text" class="form-control" value="<?php echo esc_url($twitter); ?>" placeholder="https://x.com/"
-                            required="">
+                          <input type="text" class="form-control" value="<?php echo esc_url($twitter); ?>" placeholder="https://x.com/">
                           </div>
                         </div>
                         <div class=" col-lg-6 col-md-6 col-sm-12">
                           <div class="form-group">
                           <label>Instagram</label>
-                          <input type="text" class="form-control" value="<?php echo esc_url($instagram); ?>" placeholder="https://www.instagram.com/"
-                            required="">
+                          <input type="text" class="form-control" value="<?php echo esc_url($instagram); ?>" placeholder="https://www.instagram.com/">
                           </div>
                         </div>
                         <div class=" col-lg-6 col-md-6 col-sm-12">
                           <div class="form-group">
                           <label>Youtube</label>
-                          <input type="text" class="form-control" value="<?php echo esc_url($youtube); ?>" placeholder="https://www.youtube.com/"
-                            required="">
+                          <input type="text" class="form-control" value="<?php echo esc_url($youtube); ?>" placeholder="https://www.youtube.com/">
                           </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
