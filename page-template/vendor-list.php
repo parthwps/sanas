@@ -39,7 +39,7 @@ get_sidebar('dashboard');
               <div class="to-do-list-table d-table-block col-xl-12 col-lg-12 col-md-12 col-sm-12">
                 <div class="inner-box3">
                   <div class="table-box upcoming-tasks">
-                    <div class="table-responsive m-0">
+                    <div class="vendor-table table-responsive m-0">
                       <!-- <table class="table vendor-list-table">
                         <thead>
                         <tr class="todo-check-title">

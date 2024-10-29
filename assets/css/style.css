@@ -6377,6 +6377,15 @@ th.todo-subhead h4 {
     color: #744F30;
 }
 
+.table-box .vendor-table td {
+    line-height: 15px;
+    color: var(--snas-text-black);
+    font-size: 14px;
+    font-weight: 400;
+    padding: 10px 10px;
+    vertical-align: middle;
+}
+
 .vendor-list-table{
     width: 100%;
     table-layout: fixed;
