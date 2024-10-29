@@ -111,11 +111,11 @@ jQuery(document).ready(function($) {
             if (completed) {
                 $tr.addClass("text-decoration-line-through");
                 $tr.addClass("pe-none");
-                jQuery('#todo_progressbar').css('width', jQuery('#todo_progressbar').css('width') + percent + '%');
+                jQuery('#todo_progressbar').css('width', percent + '%');
             } else {
                 $tr.removeClass("text-decoration-line-through");
                 $tr.removeClass("pe-none");
-                jQuery('#todo_progressbar').css('width', jQuery('#todo_progressbar').css('width') - percent + '%');
+                jQuery('#todo_progressbar').css('width', percent + '%');
             }
         } else {
           console.log("Something went wrong: " + response.data);
