@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('add-todo-date').value = today.toISOString().split('T')[0];
   });
 jQuery(document).ready(function($) {
-    // Add To-Do Item
     jQuery('#add-todo-form').submit(function(e) {
         e.preventDefault();
         var formData = $(this).serialize();
@@ -20,26 +19,18 @@ jQuery(document).ready(function($) {
             data: formData + '&action=add_todo_item',
             success: function(response) {
                 if (response.success) {
-                    // Hide add-todolist-popup
                     $('#add-todolist-popup').modal('hide');
-                    // Set the modal title and message
                     $('#exampleModalLabel').text('Success');
                     $('#modal-body-text').text(response.data);
-                    // Show the modal
                     $('#modal_html_alert').modal('show');
-
-                    // Handle the click event on the "Yes" button in the modal
+                    recalculate_task();
                     $('#render-modal-yes-button').on('click', function() {
                         location.reload();
                     });
                 } else {
-                    // Set the modal title and message
                     $('#exampleModalLabel').text('Error');
                     $('#modal-body-text').text(response.data);
-                    // Show the modal
                     $('#modal_html_alert').modal('show');
-
-                    // Handle the click event on the "Yes" button in the modal
                     $('#render-modal-yes-button').on('click', function() {
                         $('#modal_html_alert').modal('hide');
                     });
@@ -169,7 +160,14 @@ var completedDropdowns = jQuery('.todo-list .status-dropdown').filter(function()
 }).length;
 return { total: totalDropdowns, completed: completedDropdowns };
 }
-
+function recalculate_task(){
+    var counts = countDropdowns();
+    var countmultiple = 100 / counts.total;
+    var percent = countmultiple * counts.completed;
+    jQuery('.tast-count-com').text(counts.completed);
+    jQuery('.tast-count-total').text(counts.total);
+    jQuery('#todo_progressbar').css('width', percent + '%');
+}
     jQuery(".status-dropdown").on("change", function () {
         var status = jQuery(this).val();
         var id = jQuery(this).data("id");
@@ -185,27 +183,7 @@ return { total: totalDropdowns, completed: completedDropdowns };
             },
             success: function (response) {
                 if (response.success) {
-                    // console.log(response.data);
-                    // console.log(status);
-                    // var count = jQuery('#todo_progressbar').data('count');
-                    // var percent = jQuery('#todo_progressbar').data('percent');
-                    // var percentcount = 100 / count;
-
-                    var counts = countDropdowns();
-                    var countmultiple = 100 / counts.total;
-                    var percent = countmultiple * counts.completed;
-                    jQuery('.tast-count-com').text(counts.completed);
-                    jQuery('.tast-count-total').text(counts.total);
-                    jQuery('#todo_progressbar').css('width', percent + '%');
-                    // if(status == "Completed"){
-                    //     console.log(percentcount);
-                    //     console.log(percent);
-                    //     jQuery('#todo_progressbar').css('width', percent + percentcount + '%'); 
-                    //     jQuery('#todo_progressbar').data('percent', percent + percentcount);
-                    // }else{
-                    //     jQuery('#todo_progressbar').css('width', percent - percentcount + '%'); 
-                    //     jQuery('#todo_progressbar').data('percent', percent - percentcount);
-                    // }
+                    recalculate_task();
                 } else {
                     // console.log("Error: " + response.data);
                 }
