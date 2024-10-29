@@ -40,7 +40,7 @@ get_sidebar('dashboard');
                     <div class="vendor-table table-responsive m-0">
                       <table class="vendor-list-table" id="vendor-table">
                         <thead>
-                        <tr class="todo-check-title">
+                        <tr>
                           <th> <input type="checkbox" name="allCheck" id="all-select-chechbox"> </th>
                           <th>Category</th>
                           <th>Name</th>
