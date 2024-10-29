@@ -104,13 +104,17 @@ jQuery(document).ready(function($) {
       success: function (response) {
         if (response.success) {
           console.log(response.data);
+          var count = $('#todo_progressbar').data('count');
+          var percent = 100 / count;          
           var $tr = $checkbox.closest("tr");
             if (completed) {
                 $tr.addClass("text-decoration-line-through");
                 $tr.addClass("pe-none");
+                $('#todo_progressbar').css('width', $('#todo_progressbar').css('width') + percent + '%');
             } else {
                 $tr.removeClass("text-decoration-line-through");
                 $tr.removeClass("pe-none");
+                $('#todo_progressbar').css('width', $('#todo_progressbar').css('width') - percent + '%');
             }
         } else {
           console.log("Something went wrong: " + response.data);
