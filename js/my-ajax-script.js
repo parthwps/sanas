@@ -103,34 +103,13 @@ jQuery(document).ready(function($) {
       },
       success: function (response) {
         if (response.success) {
-            var counts = countDropdowns();
-            counts.completed
-          var countmultiple = 100 / counts.total;
-          var percent = countmultiple * counts.completed;
-          var $tr = $checkbox.closest("tr");
-            if (completed) {
-                $tr.addClass("text-decoration-line-through");
-                $tr.addClass("pe-none");
-                jQuery('#todo_progressbar').css('width', percent + '%');
-            } else {
-                $tr.removeClass("text-decoration-line-through");
-                $tr.removeClass("pe-none");
-                jQuery('#todo_progressbar').css('width', percent + '%');
-            }
+            //
         } else {
           console.log("Something went wrong: " + response.data);
         }
       }
     });
   });
-
-  function countDropdowns() {
-    var totalDropdowns = jQuery('.todo-list .status-dropdown').length;
-    var completedDropdowns = jQuery('.todo-list .status-dropdown').filter(function() {
-        return jQuery(this).val() === 'Completed';
-    }).length;
-    return { total: totalDropdowns, completed: completedDropdowns };
-}
    // Function to show the modal
     function show_alert_message2(title, message) {
         $('#exampleConfirmModalLabel').text(title);
@@ -183,6 +162,14 @@ jQuery(document).ready(function($) {
         show_alert_message2('Delete Task', 'Do you want to delete this task?');
     });
     
+function countDropdowns() {
+var totalDropdowns = jQuery('.todo-list .status-dropdown').length;
+var completedDropdowns = jQuery('.todo-list .status-dropdown').filter(function() {
+  return jQuery(this).val() === 'Completed';
+}).length;
+return { total: totalDropdowns, completed: completedDropdowns };
+}
+
     jQuery(".status-dropdown").on("change", function () {
         var status = jQuery(this).val();
         var id = jQuery(this).data("id");
@@ -199,19 +186,24 @@ jQuery(document).ready(function($) {
             success: function (response) {
                 if (response.success) {
                     // console.log(response.data);
-                    console.log(status);
-                    var count = jQuery('#todo_progressbar').data('count');
-                    var percent = jQuery('#todo_progressbar').data('percent');
-                    var percentcount = 100 / count;
-                    if(status == "Completed"){
-                        console.log(percentcount);
-                        console.log(percent);
-                        jQuery('#todo_progressbar').css('width', percent + percentcount + '%'); 
-                        jQuery('#todo_progressbar').data('percent', percent + percentcount);
-                    }else{
-                        jQuery('#todo_progressbar').css('width', percent - percentcount + '%'); 
-                        jQuery('#todo_progressbar').data('percent', percent - percentcount);
-                    }
+                    // console.log(status);
+                    // var count = jQuery('#todo_progressbar').data('count');
+                    // var percent = jQuery('#todo_progressbar').data('percent');
+                    // var percentcount = 100 / count;
+
+                    var counts = countDropdowns();
+                    var countmultiple = 100 / counts.total;
+                    var percent = countmultiple * counts.completed;
+                    jQuery('#todo_progressbar').css('width', percent + '%');
+                    // if(status == "Completed"){
+                    //     console.log(percentcount);
+                    //     console.log(percent);
+                    //     jQuery('#todo_progressbar').css('width', percent + percentcount + '%'); 
+                    //     jQuery('#todo_progressbar').data('percent', percent + percentcount);
+                    // }else{
+                    //     jQuery('#todo_progressbar').css('width', percent - percentcount + '%'); 
+                    //     jQuery('#todo_progressbar').data('percent', percent - percentcount);
+                    // }
                 } else {
                     // console.log("Error: " + response.data);
                 }
