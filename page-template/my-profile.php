@@ -74,7 +74,7 @@ $youtube = get_user_meta($user_id, 'youtube', true);
             <div class="guests-box tabs-content">
               <div class="tab active-tab" id="tab-11">
                 <div class="form-block">
-                  <form method="post" action="#" name="profile-update">
+                  <form method="post" action="#" class="profile-update">
                     <div class="form-box">
                       <div class="row">
                         <div class=" col-lg-6 col-sm-12">
