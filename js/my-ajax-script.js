@@ -268,7 +268,7 @@ if (window.location.pathname === '/vendors-list/') {
         jQuery('#add-vendor-form').submit(function(e) {
             e.preventDefault();
             var formData = $(this).serialize();
-            var addAnother = $(e.originalEvent.submitter).attr('id') === 'add-another-vendor';
+            var addAnother = $(e.originalEvent.submitter).attr('id') === 'add-new-vendor';
             
             $.ajax({
                 type: 'POST',
