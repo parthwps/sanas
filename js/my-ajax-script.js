@@ -221,6 +221,49 @@ jQuery(document).ready(function($) {
 
 if (window.location.pathname === '/vendors-list/') {
     jQuery(document).ready(function($) {
+        // Function to fetch and update the vendor list
+        function updateVendorList() {
+            $.ajax({
+                type: 'POST',
+                url: ajax_object.ajax_url,
+                data: { action: 'get_vendor_list_items' },
+                success: function(response) {
+                    if (response.success) {
+                        // Clear the current vendor list
+                        $('#vendor-table tbody').empty();
+
+                        // Append the new vendor items
+                        response.data.forEach(function(vendor) {
+                            $('#vendor-table tbody').append(`
+                                <tr>
+                                    <td><input type="checkbox" class="checkSingle"></td>
+                                    <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="${vendor.category}">${vendor.category}</td>
+                                    <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="${vendor.name}">${vendor.name}</td>
+                                    <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="${vendor.email}">${vendor.email}</td>
+                                    <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="${vendor.phone}">${vendor.phone}</td>
+                                    <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="${vendor.notes}">${vendor.notes}</td>
+                                    <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="${vendor.social_media_profile}">${vendor.social_media_profile}</td>
+                                    <td>$${vendor.pricing}</td>
+                                    <td class="actions">
+                                        <a href="#" class="edit theme-btn" data-id="${vendor.id}" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup">
+                                            <i class="fa-solid fa-pen"></i>
+                                        </a>
+                                        <a href="#" class="delete theme-btn" data-id="${vendor.id}">
+                                            <i class="fa-regular fa-trash-can"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            `);
+                        });
+
+                        // Reinitialize tooltips
+                        const tooltipTriggerList = document.querySelectorAll('[data-toggle="tooltip"]');
+                        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+                    }
+                }
+            });
+        }
+
         // Add Vendor Item
         jQuery('#add-vendor-form').submit(function(e) {
             e.preventDefault();
@@ -247,6 +290,7 @@ if (window.location.pathname === '/vendors-list/') {
                         });
 
                         if (addAnother) {
+                            updateVendorList();
                             // Clear form fields
                             $('#add-vendor-form')[0].reset();
                             // Open the form again (assuming it's in a modal)
