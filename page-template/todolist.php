@@ -128,19 +128,19 @@ foreach ($grouped_items as $month_year => $items): ?>
         <tbody>
             <?php foreach ($items as $item): ?>
                 <tr <?php echo ($item['completed'] == 1) ? 'class="text-decoration-line-through pe-none"' : ''; ?>>
-                    <td class="todo-nots-text text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['category']); ?>">
+                    <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['category']); ?>">
                         <?php echo esc_html($item['category']); ?>
                     </td>
-                    <td class="todo-nots-text text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['title']); ?>">
+                    <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['title']); ?>">
                         <?php echo esc_html($item['title']); ?>
                     </td>
-                    <td class="todo-nots-text text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['notes']); ?>">
+                    <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['notes']); ?>">
                         <?php echo esc_html($item['notes']); ?>
                     </td>
-                    <td class="text-nowrap">
+                    <td class="text-single-line text-nowrap">
                         <?php echo DateTime::createFromFormat('Y-m-d', $item['date'])->format('jS M Y'); ?>
                     </td>
-                    <td class="todo-status">
+                    <td>
                         <select class="status-dropdown" data-id="<?php echo $item['id']; ?>">
                             <option value="Yet To Start" <?php echo selected($item['status'], 'Yet To Start', false); ?>>Yet To Start</option>
                             <option value="In Progress" <?php echo selected($item['status'], 'In Progress', false); ?>>In Progress</option>
