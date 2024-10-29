@@ -194,6 +194,8 @@ return { total: totalDropdowns, completed: completedDropdowns };
                     var counts = countDropdowns();
                     var countmultiple = 100 / counts.total;
                     var percent = countmultiple * counts.completed;
+                    jQuery('.tast-count-com').text(counts.completed);
+                    jQuery('.tast-count-total').text(counts.total);
                     jQuery('#todo_progressbar').css('width', percent + '%');
                     // if(status == "Completed"){
                     //     console.log(percentcount);
