@@ -6378,19 +6378,19 @@ th.todo-subhead h4 {
 }
 
 .vendor-list-table{
-    width: 100% !important;
-    table-layout: fixed !important;
+    width: 100%;
+    table-layout: fixed;
 }
 
 .vendor-list-table td, .vendor-list-table th{
-    text-align: left !important;
-    padding: 10px !important;
-    min-width: 100px !important;
+    text-align: left;
+    padding: 10px;
+    min-width: 100px;
 }
 
 .vendor-list-table td:first-child, .vendor-list-table td:last-child, .vendor-list-table th:first-child, .vendor-list-table th:last-child{
-    max-width: 50px !important;
-    width: 50px !important;
+    max-width: 50px;
+    width: 50px;
 }
 
 /* @media (max-width: 748px) {
