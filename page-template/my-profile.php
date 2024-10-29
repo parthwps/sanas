@@ -3,13 +3,6 @@
     Template Name: My Profile    
     * The template for displaying all pages
     *
-    * This is the template that displays all pages by default.
-    * Please note that this is the WordPress construct of pages
-    * and that other 'pages' on your WordPress site may use a
-    * different template.
-    *
-    * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
-    *
     * @package sanas
 */
 get_header();
@@ -70,7 +63,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         update_user_meta($user_id, 'instagram', esc_url_raw($_POST['instagram']));
         update_user_meta($user_id, 'youtube', esc_url_raw($_POST['youtube']));
     }
-}?>
+
+    if (isset($_POST['change_password'])) {
+        // Handle password change
+        $current_password = $_POST['current_password'];
+        $new_password = $_POST['new_password'];
+        $confirm_password = $_POST['confirm_password'];
+
+        // Verify the current password
+        if (!wp_check_password($current_password, $current_user->user_pass, $user_id)) {
+            echo '<p class="error">Current password is incorrect.</p>';
+        } elseif ($new_password !== $confirm_password) {
+            echo '<p class="error">New passwords do not match.</p>';
+        } elseif (strlen($new_password) < 6) {
+            echo '<p class="error">New password must be at least 6 characters long.</p>';
+        } else {
+            // Update the password
+            wp_set_password($new_password, $user_id);
+            echo '<p class="success">Password changed successfully.</p>';
+            // Optionally, log the user back in after the password change
+            wp_set_current_user($user_id);
+            wp_set_auth_cookie($user_id);
+        }
+    }
+}
+?>
 <div class="wl-dashboard-wrapper dashboard">
     <div class="container-fluid wl-dashboard-content">
       <div class="my-profile profile-form">
