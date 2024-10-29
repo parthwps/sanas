@@ -57,8 +57,31 @@ get_sidebar('dashboard');
                       <tbody>
                         <?php
                         $vendor_items = get_vendor_list_items();
-                        ?>
-                        <?php if ($vendor_items): ?>
+                        
+                        if (empty($vendor_items)) {
+                            global $wpdb;
+                            $current_user_id = get_current_user_id();
+                            
+                            // Insert sample data
+                            $wpdb->insert(
+                                $wpdb->prefix . 'vendor_list',
+                                array(
+                                    'user_id' => $current_user_id,
+                                    'category' => 'DJ/VJ',
+                                    'name' => 'John Smith',
+                                    'email' => 'john@example.com', 
+                                    'phone' => '123-456-7890',
+                                    'notes' => 'Professional DJ with 10 years experience',
+                                    'social_media_profile' => '@johnsmith',
+                                    'pricing' => 500.00
+                                )
+                            );
+                            
+                            // Refresh vendor items after insert
+                            $vendor_items = get_vendor_list_items();
+                        }
+                        
+                        if ($vendor_items): ?>
                             <?php foreach ($vendor_items as $vendor): ?>
                                 <tr>
                                     <td><input type="checkbox" class="checkSingle"></td>
