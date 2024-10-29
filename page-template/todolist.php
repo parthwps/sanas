@@ -116,7 +116,7 @@ foreach ($grouped_items as $month_year => $items): ?>
     </table>
     <table class="vendor-list-table todo-list-table todo-table" id="todo-table-<?php echo str_replace(' ', '-', $month_year); ?>">
         <thead>
-            <tr>
+            <tr class="todo-check-title">
                 <th>Category</th>
                 <th>Task</th>
                 <th>Notes</th>
