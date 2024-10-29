@@ -3,6 +3,13 @@
     Template Name: My Profile    
     * The template for displaying all pages
     *
+    * This is the template that displays all pages by default.
+    * Please note that this is the WordPress construct of pages
+    * and that other 'pages' on your WordPress site may use a
+    * different template.
+    *
+    * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+    *
     * @package sanas
 */
 get_header();
@@ -30,63 +37,6 @@ $twitter = get_user_meta($user_id, 'twitter', true);
 $instagram = get_user_meta($user_id, 'instagram', true);
 $youtube = get_user_meta($user_id, 'youtube', true);
 
-// Handle form submissions
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['update_profile'])) {
-        // Update user details
-        update_user_meta($user_id, 'first_name', sanitize_text_field($_POST['first_name']));
-        update_user_meta($user_id, 'last_name', sanitize_text_field($_POST['last_name']));
-        wp_update_user([
-            'ID' => $user_id,
-            'user_email' => sanitize_email($_POST['email']),
-        ]);
-        update_user_meta($user_id, 'phone_number', sanitize_text_field($_POST['phone']));
-        update_user_meta($user_id, 'description', sanitize_textarea_field($_POST['about']));
-    }
-
-    if (isset($_POST['update_image']) && !empty($_FILES['profile_image']['name'])) {
-        // Handle profile image upload
-        require_once(ABSPATH . 'wp-admin/includes/file.php');
-        $uploadedfile = $_FILES['profile_image'];
-        $upload_overrides = array('test_form' => false);
-        $movefile = wp_handle_upload($uploadedfile, $upload_overrides);
-        
-        if ($movefile && !isset($movefile['error'])) {
-            update_user_meta($user_id, 'profile_image', $movefile['url']);
-        }
-    }
-
-    if (isset($_POST['update_social'])) {
-        // Update social media links
-        update_user_meta($user_id, 'facebook', esc_url_raw($_POST['facebook']));
-        update_user_meta($user_id, 'twitter', esc_url_raw($_POST['twitter']));
-        update_user_meta($user_id, 'instagram', esc_url_raw($_POST['instagram']));
-        update_user_meta($user_id, 'youtube', esc_url_raw($_POST['youtube']));
-    }
-
-    if (isset($_POST['change_password'])) {
-        // Handle password change
-        $current_password = $_POST['current_password'];
-        $new_password = $_POST['new_password'];
-        $confirm_password = $_POST['confirm_password'];
-
-        // Verify the current password
-        if (!wp_check_password($current_password, $current_user->user_pass, $user_id)) {
-            echo '<p class="error">Current password is incorrect.</p>';
-        } elseif ($new_password !== $confirm_password) {
-            echo '<p class="error">New passwords do not match.</p>';
-        } elseif (strlen($new_password) < 6) {
-            echo '<p class="error">New password must be at least 6 characters long.</p>';
-        } else {
-            // Update the password
-            wp_set_password($new_password, $user_id);
-            echo '<p class="success">Password changed successfully.</p>';
-            // Optionally, log the user back in after the password change
-            wp_set_current_user($user_id);
-            wp_set_auth_cookie($user_id);
-        }
-    }
-}
 ?>
 <div class="wl-dashboard-wrapper dashboard">
     <div class="container-fluid wl-dashboard-content">
@@ -268,7 +218,70 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   </div>
 
 
+<script>
+  jQuery(document).ready(function ($) {
+    // Update Profile
+    $('form.profile-update').on('submit', function (e) {
+        e.preventDefault();
+        var data = {
+            action: 'update_profile',
+            first_name: $('input[name="first_name"]').val(),
+            last_name: $('input[name="last_name"]').val(),
+            email: $('input[name="email"]').val(),
+            phone: $('input[name="phone"]').val(),
+            about: $('textarea[name="about"]').val(),
+        };
 
+        $.post(ajax_obj.ajax_url, data, function (response) {
+            alert(response.success ? 'Profile updated successfully!' : response.data);
+        });
+    });
+
+    // Update Social Media Links
+    $('form.social-update').on('submit', function (e) {
+        e.preventDefault();
+        var data = {
+            action: 'update_profile',
+            facebook: $('input[name="facebook"]').val(),
+            twitter: $('input[name="twitter"]').val(),
+            instagram: $('input[name="instagram"]').val(),
+            youtube: $('input[name="youtube"]').val(),
+        };
+
+        $.post(ajax_obj.ajax_url, data, function (response) {
+            alert(response.success ? 'Social links updated successfully!' : response.data);
+        });
+    });
+
+    // Change Password
+    $('form.change-password').on('submit', function (e) {
+        e.preventDefault();
+        var data = {
+            action: 'change_password',
+            current_password: $('input[name="current_password"]').val(),
+            new_password: $('input[name="new_password"]').val(),
+        };
+
+        $.post(ajax_obj.ajax_url, data, function (response) {
+            alert(response.success ? 'Password updated successfully!' : response.data);
+        });
+    });
+
+    // Delete Account
+    $('.delete-account-btn').on('click', function () {
+        if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
+            $.post(ajax_obj.ajax_url, { action: 'delete_account' }, function (response) {
+                if (response.success) {
+                    alert('Account deleted successfully!');
+                    window.location.href = ajax_obj.home_url; // Redirect to homepage or login
+                } else {
+                    alert('Error deleting account');
+                }
+            });
+        }
+    });
+});
+</script>
 
 
 

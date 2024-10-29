@@ -1054,3 +1054,64 @@ function render_modal_html_alert() {
     </div>
     <?php
 }
+
+
+
+// Handle profile update
+add_action('wp_ajax_update_profile', 'update_profile_callback');
+add_action('wp_ajax_nopriv_update_profile', 'update_profile_callback');
+
+function update_profile_callback() {
+    $user_id = get_current_user_id();
+    if ($user_id) {
+        // Update user meta
+        if (isset($_POST['first_name'])) {
+            update_user_meta($user_id, 'first_name', sanitize_text_field($_POST['first_name']));
+            update_user_meta($user_id, 'last_name', sanitize_text_field($_POST['last_name']));
+            wp_update_user(['ID' => $user_id, 'user_email' => sanitize_email($_POST['email'])]);
+            update_user_meta($user_id, 'phone_number', sanitize_text_field($_POST['phone']));
+            update_user_meta($user_id, 'description', sanitize_textarea_field($_POST['about']));
+        }
+
+        // Update social media links
+        if (isset($_POST['facebook'])) {
+            update_user_meta($user_id, 'facebook', esc_url_raw($_POST['facebook']));
+            update_user_meta($user_id, 'twitter', esc_url_raw($_POST['twitter']));
+            update_user_meta($user_id, 'instagram', esc_url_raw($_POST['instagram']));
+            update_user_meta($user_id, 'youtube', esc_url_raw($_POST['youtube']));
+        }
+
+        // Send success response
+        wp_send_json_success('Profile updated successfully!');
+    } else {
+        wp_send_json_error('User not logged in');
+    }
+    wp_die();
+}
+
+// Handle password update
+add_action('wp_ajax_change_password', 'change_password_callback');
+function change_password_callback() {
+    $user_id = get_current_user_id();
+    if ($user_id && isset($_POST['current_password'], $_POST['new_password'])) {
+        $user = get_user_by('id', $user_id);
+        if (wp_check_password($_POST['current_password'], $user->data->user_pass, $user_id)) {
+            wp_set_password($_POST['new_password'], $user_id);
+            wp_send_json_success('Password updated successfully!');
+        } else {
+            wp_send_json_error('Current password is incorrect');
+        }
+    }
+    wp_die();
+}
+
+// Handle account deletion
+add_action('wp_ajax_delete_account', 'delete_account_callback');
+function delete_account_callback() {
+    $user_id = get_current_user_id();
+    if ($user_id) {
+        wp_delete_user($user_id);
+        wp_send_json_success('Account deleted successfully!');
+    }
+    wp_die();
+}
