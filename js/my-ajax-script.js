@@ -436,16 +436,20 @@ if (window.location.pathname === '/my-vendors/') {
                     if (response.success) {
                         if(buttonDataId == 0){
                             $('#add-todolist-popup').modal('hide');
-                        }
-                        $('#exampleModalLabel').text('Success');
-                        $('#modal-body-text').text(response.data);
-                        $('#modal_html_alert').modal('show');
-                        if(buttonDataId == 0){
+                            $('#exampleModalLabel').text('Success');
+                            $('#modal-body-text').text(response.data);
+                            $('#modal_html_alert').modal('show');
                             $('#render-modal-yes-button').on('click', function() {
                                 location.reload();
                             });
                         }
                         if(buttonDataId == 1){
+                            jQuery('#add-my-vendor-form').append('<p id="temporary-message">' + response.data + '</p>');
+                            setTimeout(function() {
+                                jQuery('#temporary-message').fadeOut(500, function() {
+                                    jQuery(this).remove();
+                                });
+                            }, 3000);
                             jQuery('#add-my-vendor-form').find('input, textarea, select').val('');
                         }
                     } else {
