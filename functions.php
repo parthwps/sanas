@@ -725,7 +725,33 @@ function add_my_vendor_item() {
     );
 
     if ($wpdb->insert_id) {
-        wp_send_json_success('My Vendor item added successfully.');
+        // Fetch the updated list of vendors
+        $my_vendor_items = get_my_vendor_list_items();
+        ob_start();
+        foreach ($my_vendor_items as $my_vendor) {
+            ?>  
+            <tr>
+                <td><input type="checkbox"></td>
+                <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['category']); ?>"><?php echo esc_html($my_vendor['category']); ?></td>
+                <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['name']); ?>"><?php echo esc_html($my_vendor['name']); ?></td>
+                <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['email']); ?>"><?php echo esc_html($my_vendor['email']); ?></td>
+                <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['phone']); ?>"><?php echo esc_html($my_vendor['phone']); ?></td>
+                <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['notes']); ?>"><?php echo esc_html($my_vendor['notes']); ?></td>
+                <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['social_media_profile']); ?>"><?php echo esc_html($my_vendor['social_media_profile']); ?></td>
+                <td>$<?php echo esc_html($my_vendor['pricing']); ?></td>
+                <td class="actions">
+                    <a href="#" class="edit theme-btn" data-id="<?php echo esc_attr($my_vendor['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup">
+                        <i class="fa-solid fa-pen"></i>
+                    </a>
+                    <a href="#" class="delete theme-btn" data-id="<?php echo esc_attr($my_vendor['id']); ?>">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </a>
+                </td>
+            </tr>
+            <?php
+        }
+        $my_vendor_list_html = ob_get_clean();
+        wp_send_json_success($my_vendor_list_html);
     } else {
         wp_send_json_error('Failed to add my vendor item.');
     }

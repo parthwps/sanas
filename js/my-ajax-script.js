@@ -447,13 +447,12 @@ if (window.location.pathname === '/my-vendors/') {
                             });
                         }
                         if(buttonDataId == 1){
-                            jQuery('#add-my-vendor-form').append('<p id="temporary-message">' + response.data + '</p>');
-                            setTimeout(function() {
-                                jQuery('#temporary-message').fadeOut(500, function() {
-                                    jQuery(this).remove();
-                                });
-                            }, 3000);
-                            jQuery('#add-my-vendor-form').find('input, textarea, select').val('');
+                            // Update the vendor table with the new data
+                            $('#vendor-table tbody').html(response.data);
+                            // Clear form fields
+                            $('#add-my-vendor-form')[0].reset();
+                            // Open the form again (assuming it's in a modal)
+                            $('#add-todolist-popup').modal('show');
                         }
                     } else {
                         // Set the modal title and message
