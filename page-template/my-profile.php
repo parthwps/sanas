@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class=" col-lg-6 col-sm-12">
                           <div class="form-group">
                             <label>Last Name</label>
-                            <input type="text" class="form-control" value="<?php echo esc_attr($last_name); ?>" name="last_name" placeholder="" required="">
+                            <input type="text" class="form-control" value="<?php echo esc_attr($last_name); ?>" name="last_name" placeholder="">
                           </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
@@ -131,7 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class="col-lg-6 col-sm-12">
                           <div class="form-group">
                             <label> Phone Number</label>
-                            <input type="text" class="form-control" name="phone" value="<?php echo esc_attr($phone); ?>" placeholder="" required="">
+                            <input type="text" class="form-control" name="phone" value="<?php echo esc_attr($phone); ?>" placeholder="">
                           </div>
                         </div>
                         <div class="form-group col-lg-12 col-sm-12">
