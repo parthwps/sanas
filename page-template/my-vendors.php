@@ -37,8 +37,8 @@ get_sidebar('dashboard');
               <div class="to-do-list-table d-table-block col-xl-12 col-lg-12 col-md-12 col-sm-12">
                 <div class="inner-box3">
                   <div class="table-box upcoming-tasks">
-                    <div class="table-responsive m-0">
-                      <table class="vendor-table" id="vendor-table">
+                    <div class="vendor-table table-responsive m-0">
+                      <table class="vendor-list-table" id="vendor-table">
                         <thead>
                         <tr class="todo-check-title">
                           <th> <input type="checkbox" name="allCheck" id="all-select-chechbox"> </th>
