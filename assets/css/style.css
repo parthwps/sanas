@@ -6378,8 +6378,8 @@ th.todo-subhead h4 {
 }
 
 .vendor-list-table-container{
-    overflow-x: auto;
-    width: 100%;
+    overflow-x: auto !important;
+    width: 100% !important;
 }
 
 .vendor-list-table{
