@@ -428,16 +428,16 @@
     if ($('.table-responsive').length) {
         $('#budget-expense').DataTable();
         $('#guest-list-Table').DataTable();
-        $('#vendor-table').DataTable({
-            searching: false,
-            paging: false,
-            columnDefs: [
-                { orderable: false, targets: [0, 2, 3, 4, 5] },
-            ],
-            language: {
-                info: ""
-            }
-        });
+        // $('#vendor-table').DataTable({
+        //     searching: false,
+        //     paging: false,
+        //     columnDefs: [
+        //         { orderable: false, targets: [0, 2, 3, 4, 5] },
+        //     ],
+        //     language: {
+        //         info: ""
+        //     }
+        // });
         $('#guest-contact-list').DataTable();
         $('.todo-table').DataTable({
             searching: false,
