@@ -196,6 +196,7 @@ jQuery(document).ready(function($) {
                     var count = jQuery('#todo_progressbar').data('count');
                     var percent = 100 / count;
                     if(status == "Completed"){
+                        console.log(jQuery('#todo_progressbar').css('width'));
                         jQuery('#todo_progressbar').css('width', jQuery('#todo_progressbar').css('width') + percent + '%'); 
                     }else{
                         jQuery('#todo_progressbar').css('width', jQuery('#todo_progressbar').css('width') - percent + '%'); 
