@@ -6384,7 +6384,6 @@ th.todo-subhead h4 {
 
 .vendor-list-table td, th{
     text-align: left;
-    border: 1px solid;
     padding: 10px;
     min-width: 100px;
 }
