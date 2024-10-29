@@ -246,7 +246,7 @@ if (window.location.pathname === '/vendors-list/') {
                             $('#add-todolist-popup').modal('hide');
                             // Set the modal title and message
                             $('#exampleModalLabel').text('Success');
-                            $('#modal-body-text').text(response.data);
+                            $('#modal-body-text').text('Vendor item added successfully.');
                             // Show the modal
                             $('#modal_html_alert').modal('show');
 
