@@ -87,7 +87,7 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
         <div class="tasks-col to-do-list-table d-table-block col-xl-12 col-lg-12 col-md-12 col-sm-12">
             <div class="inner-box3">
                 <div class="table-box upcoming-tasks">
-                    <div class="table-responsive m-0">
+                    <div class="vendor-table table-responsive m-0">
                         <?php
                         $vendor_items = get_vendor_list_items();
                         ?>
@@ -114,9 +114,9 @@ foreach ($grouped_items as $month_year => $items): ?>
     <h4><span><?php echo $month_year; ?></span></h4>
     </th></tr>
     </table>
-    <table class="table todo-table" id="todo-table-<?php echo str_replace(' ', '-', $month_year); ?>">
+    <table class="vendor-list-table todo-table" id="todo-table-<?php echo str_replace(' ', '-', $month_year); ?>">
         <thead>
-            <tr class="todo-check-title">
+            <tr>
                 <th>Category</th>
                 <th>Task</th>
                 <th>Notes</th>
