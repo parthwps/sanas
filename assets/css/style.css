@@ -4373,11 +4373,6 @@ table.dataTable thead>tr>td.dt-orderable-desc:hover {
     opacity: 1;
 }
 
-
-.todo-list .table tr th,
-.todo-list .table tr td{
-    text-align: center;
-}
 .vendor .table tr th,
 .vendor .table tr td{
     text-align: left;
