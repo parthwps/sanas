@@ -6387,7 +6387,7 @@ th.todo-subhead h4 {
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
-    max-width: 150px !important;
+    max-width: 120px !important;
 }
 .profile-firstc{
     width: 100%;
