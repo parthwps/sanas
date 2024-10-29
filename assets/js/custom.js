@@ -428,7 +428,11 @@
     if ($('.table-responsive').length) {
         $('#budget-expense').DataTable();
         $('#guest-list-Table').DataTable();
-        $('#vendor-table').DataTable();
+        $('#vendor-table').DataTable({
+            columnDefs: [
+                { orderable: false, targets: [0, 2, 3, 4, 5, 6, 8] },
+            ]
+        });
         $('#guest-contact-list').DataTable();
         $('.todo-table').DataTable({
             searching: false,
