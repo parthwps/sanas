@@ -200,8 +200,10 @@ jQuery(document).ready(function($) {
                         console.log(percentcount);
                         console.log(percent);
                         jQuery('#todo_progressbar').css('width', percent + percentcount + '%'); 
+                        jQuery('#todo_progressbar').data('percent', percent + percentcount);
                     }else{
                         jQuery('#todo_progressbar').css('width', percent - percentcount + '%'); 
+                        jQuery('#todo_progressbar').data('percent', percent - percentcount);
                     }
                 } else {
                     // console.log("Error: " + response.data);
