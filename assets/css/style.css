@@ -6378,26 +6378,26 @@ th.todo-subhead h4 {
 }
 
 .vendor-list-table{
-    width: 100%;
-    table-layout: fixed;
+    width: 100% !important;
+    table-layout: fixed !important;
 }
 
-.vendor-list-table td, th{
-    text-align: left;
-    padding: 10px;
-    min-width: 100px;
+.vendor-list-table td, .vendor-list-table th{
+    text-align: left !important;
+    padding: 10px !important;
+    min-width: 100px !important;
 }
 
 .vendor-list-table td:first-child, .vendor-list-table td:last-child, .vendor-list-table th:first-child, .vendor-list-table th:last-child{
-    max-width: 50px;
-    width: 50px;
+    max-width: 50px !important;
+    width: 50px !important;
 }
 
-@media (max-width: 748px) {
+/* @media (max-width: 748px) {
     .vendor-list-table td:nth-child(3), .vendor-list-table td:nth-child(4), .vendor-list-table th:nth-child(3), .vendor-list-table th:nth-child(4) {
-        display: none;
+        display: none !important;
     }
-}
+} */
 
 .text-single-line{
     white-space: nowrap !important;
