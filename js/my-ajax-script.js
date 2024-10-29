@@ -693,7 +693,7 @@ jQuery(document).ready(function ($) {
             about: $('form.profile-update textarea[name="about"]').val(),
         };
 
-        $.post(ajax_obj.ajax_url, data, function (response) {
+        $.post(ajax_object.ajax_url, data, function (response) {
             alert(response.success ? 'Profile updated successfully!' : response.data);
         });
     });
@@ -709,7 +709,7 @@ jQuery(document).ready(function ($) {
             youtube: $('form.social-update input[name="youtube"]').val(),
         };
 
-        $.post(ajax_obj.ajax_url, data, function (response) {
+        $.post(ajax_object.ajax_url, data, function (response) {
             alert(response.success ? 'Social links updated successfully!' : response.data);
         });
     });
@@ -723,7 +723,7 @@ jQuery(document).ready(function ($) {
             new_password: $('form.change-password input[name="new_password"]').val(),
         };
 
-        $.post(ajax_obj.ajax_url, data, function (response) {
+        $.post(ajax_object.ajax_url, data, function (response) {
             alert(response.success ? 'Password updated successfully!' : response.data);
         });
     });
@@ -731,10 +731,10 @@ jQuery(document).ready(function ($) {
     // Delete Account
     $('.delete-account-btn').on('click', function () {
         if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
-            $.post(ajax_obj.ajax_url, { action: 'delete_account' }, function (response) {
+            $.post(ajax_object.ajax_url, { action: 'delete_account' }, function (response) {
                 if (response.success) {
                     alert('Account deleted successfully!');
-                    window.location.href = ajax_obj.home_url; // Redirect to homepage or login
+                    window.location.href = ajax_object.home_url; // Redirect to homepage or login
                 } else {
                     alert('Error deleting account');
                 }
