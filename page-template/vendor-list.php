@@ -157,7 +157,7 @@ get_sidebar('dashboard');
                                     <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($vendor['notes']); ?>"><?php echo esc_html($vendor['notes']); ?></td>
                                     <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($vendor['social_media_profile']); ?>"><?php echo esc_html($vendor['social_media_profile']); ?></td>
                                     <td>$<?php echo esc_html($vendor['pricing']); ?></td>
-                                    <td>
+                                    <td class="actions">
                                         <a href="#" class="edit theme-btn" data-id="<?php echo esc_attr($vendor['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup">
                                             <i class="fa-solid fa-pen"></i>
                                         </a>
