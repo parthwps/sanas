@@ -105,7 +105,7 @@ get_sidebar('dashboard');
                         <?php endif; ?>
                       </tbody>
                       </table>
-                      <table class="vendor-list-table" id="vendor-table">
+                      <!-- <table class="vendor-list-table" id="vendor-table">
                         <thead>
                             <tr>
                                 <th><input type="checkbox" name="allCheck" id="all-select-chechbox"></th>
@@ -169,7 +169,7 @@ get_sidebar('dashboard');
                             <?php endforeach; ?>
                         <?php endif; ?>
                         </tbody>
-                      </table>
+                      </table> -->
                     </div>
                   </div>
                 </div>
