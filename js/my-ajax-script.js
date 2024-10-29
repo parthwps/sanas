@@ -103,9 +103,10 @@ jQuery(document).ready(function($) {
       },
       success: function (response) {
         if (response.success) {
-        console.log(response.data);
-          var count = jQuery('#todo_progressbar').data('count');
-          var percent = 100 / count;          
+            var counts = countDropdowns();
+            counts.completed
+          var countmultiple = 100 / counts.total;
+          var percent = countmultiple * counts.completed;
           var $tr = $checkbox.closest("tr");
             if (completed) {
                 $tr.addClass("text-decoration-line-through");
@@ -123,8 +124,14 @@ jQuery(document).ready(function($) {
     });
   });
 
-
-    // Function to show the modal
+  function countDropdowns() {
+    var totalDropdowns = jQuery('.todo-list .status-dropdown').length;
+    var completedDropdowns = jQuery('.todo-list .status-dropdown').filter(function() {
+        return jQuery(this).val() === 'Completed';
+    }).length;
+    return { total: totalDropdowns, completed: completedDropdowns };
+}
+   // Function to show the modal
     function show_alert_message2(title, message) {
         $('#exampleConfirmModalLabel').text(title);
         $('#confirm_modal-body-text').text(message);
