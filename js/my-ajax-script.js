@@ -195,7 +195,11 @@ jQuery(document).ready(function($) {
                     console.log(status);
                     var count = jQuery('#todo_progressbar').data('count');
                     var percent = 100 / count;
-                    jQuery('#todo_progressbar').css('width', jQuery('#todo_progressbar').css('width') + percent + '%'); 
+                    if(status == 1){
+                        jQuery('#todo_progressbar').css('width', jQuery('#todo_progressbar').css('width') + percent + '%'); 
+                    }else{
+                        jQuery('#todo_progressbar').css('width', jQuery('#todo_progressbar').css('width') - percent + '%'); 
+                    }
                 } else {
                     // console.log("Error: " + response.data);
                 }
