@@ -430,7 +430,7 @@
         $('#guest-list-Table').DataTable();
         $('#vendor-table').DataTable({
             columnDefs: [
-                { orderable: true, targets: [1, 7, 8] },
+                { orderable: true, targets: [1] },
             ]
         });
         $('#guest-contact-list').DataTable();
