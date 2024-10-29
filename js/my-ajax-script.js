@@ -239,7 +239,6 @@ if (window.location.pathname === '/vendors-list/') {
                             $('#add-vendor-form')[0].reset();
                             // Open the form again (assuming it's in a modal)
                             $('#add-vendor-popup').modal('show');
-                            updateVendorList();
                         } else {
                             // Hide add-vendor-popup
                             $('#add-todolist-popup').modal('hide');
