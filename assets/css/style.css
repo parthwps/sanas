@@ -6440,9 +6440,9 @@ th.todo-subhead h4 {
     width: 100px !important;
 }
 
-.vendor-list-table td:last-child, .vendor-list-table th:last-child{
-    max-width: 100px;
-    width: 100px;
+.todo-list-table td:last-child, .todo-list-table th:last-child{
+    max-width: 80px !important;
+    width: 80px !important;
 }
 
 /* @media (max-width: 748px) {
