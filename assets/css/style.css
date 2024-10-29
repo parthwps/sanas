@@ -6386,6 +6386,7 @@ th.todo-subhead h4 {
     text-align: left;
     padding: 10px;
     min-width: 100px;
+    width: 100px;
 }
 
 .vendor-list-table td:first-child, .vendor-list-table td:last-child, .vendor-list-table th:first-child, .vendor-list-table th:last-child{
