@@ -6377,6 +6377,8 @@ th.todo-subhead h4 {
     color: #744F30;
 }
 
+/* Vendor List Table - prem */
+
 .table-box .vendor-table td {
     line-height: 15px;
     color: var(--snas-text-black);
@@ -6395,6 +6397,23 @@ th.todo-subhead h4 {
     font-size: 16px;
     text-transform: capitalize;
     vertical-align: middle;
+}
+
+.vendor-table a.edit,
+.vendor-table a.delete {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 32px;
+    font-size: 20px;
+    height: 32px;
+    line-height: 24px;
+    padding: 4px 2px;
+    margin: 0 1px;
+    text-align: center;
+    color: #475467;
+    border-radius: 50%;
+    transition: all 0.15s ease;
 }
 
 .vendor-list-table{
