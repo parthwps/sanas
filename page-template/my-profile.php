@@ -136,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </div>
                         <div class="form-group col-lg-12 col-sm-12">
                           <label>About me</label>
-                          <textarea placeholder="About your self" name="about" rows="5" cols="33"><?php echo esc_html($about); ?></textarea>
+                          <textarea placeholder="Dream big. Think different. Do great!" name="about" rows="5" cols="33"><?php echo esc_html($about); ?></textarea>
                         </div>
                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                           <button type="submit" name="update_profile" class="dashbord-btn">Save
