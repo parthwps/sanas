@@ -47,7 +47,7 @@ get_sidebar('dashboard');
                           <th>Email</th>
                           <th>Ph#</th>
                           <th>Notes</th>
-                          <th>Social Madia Profile</th>
+                          <th class="text-single-line" data-toggle="tooltip" data-bs-original-title="Social Madia Profile">Social Madia Profile</th>
                           <th>Pricing</th>
                           <th class="actions">Actions</th>
                         </tr>
