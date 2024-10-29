@@ -106,21 +106,21 @@ get_sidebar('dashboard');
                       </tbody>
                       </table>
                       <table class="vendor-list-table">
-        <thead>
-            <tr>
-                <th>Test 1</th>
-                <th>Test 2</th>
-                <th>Test 3</th>
-                <th>Test 4</th>
-                <th>Test 5</th>
-                <th>Test 6</th>
-                <th>Test 7</th>
-                <th>Test 8</th>
-                <th>Test 9</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" name="allCheck" id="all-select-chechbox"></th>
+                                <th>Category</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Ph#</th>
+                                <th>Notes</th>
+                                <th>Social Madia Profile</th>
+                                <th>Pricing</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
                         $vendor_items = get_vendor_list_items();
                         
                         if (empty($vendor_items)) {
@@ -168,8 +168,8 @@ get_sidebar('dashboard');
                                 </tr>
                             <?php endforeach; ?>
                         <?php endif; ?>
-        </tbody>
-    </table>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
