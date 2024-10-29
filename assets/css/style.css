@@ -6377,6 +6377,11 @@ th.todo-subhead h4 {
     color: #744F30;
 }
 
+.vendor-list-table-container{
+    overflow-x: auto;
+    width: 100%;
+}
+
 .vendor-list-table{
     width: 100%;
     table-layout: fixed;
