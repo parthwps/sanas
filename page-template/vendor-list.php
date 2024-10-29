@@ -105,6 +105,32 @@ get_sidebar('dashboard');
                         <?php endif; ?>
                       </tbody>
                       </table>
+                      <table class="vendor-list-table">
+        <thead>
+            <tr>
+                <th>Test 1</th>
+                <th>Test 2</th>
+                <th>Test 3</th>
+                <th>Test 4</th>
+                <th>Test 5</th>
+                <th>Test 6</th>
+                <th>Test 7</th>
+                <th>Test 8</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-single-line">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
+                <td class="text-single-line">Test2 Test2Test2Test2 Test2 Test2Test2</td>
+                <td class="text-single-line">Test2</td>
+                <td class="text-single-line">Test2aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
+                <td class="text-single-line">Test2</td>
+                <td class="text-single-line">Test2</td>
+                <td class="text-single-line">Test2</td>
+                <td class="text-single-line">Test2</td>
+            </tr>
+        </tbody>
+    </table>
                     </div>
                   </div>
                 </div>
