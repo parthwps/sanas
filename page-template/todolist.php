@@ -117,7 +117,6 @@ foreach ($grouped_items as $month_year => $items): ?>
     <table class="table todo-table" id="todo-table-<?php echo str_replace(' ', '-', $month_year); ?>">
         <thead>
             <tr class="todo-check-title">
-                <th class="check">Mark</th>
                 <th>Category</th>
                 <th>Task</th>
                 <th>Notes</th>
@@ -129,12 +128,6 @@ foreach ($grouped_items as $month_year => $items): ?>
         <tbody>
             <?php foreach ($items as $item): ?>
                 <tr <?php echo ($item['completed'] == 1) ? 'class="text-decoration-line-through pe-none"' : ''; ?>>
-                    <td class="check pe-auto">
-                        <div class="input-box">
-                            <input type="checkbox" class="checkSingle" name="field-name" id="t-c-<?php echo $item['id']; ?>" <?php echo ($item['completed'] == 1) ? 'checked' : ''; ?>>
-                            <label for="t-c-<?php echo $item['id']; ?>"><span class="icon fas fa-check"></span></label>
-                        </div>
-                    </td>
                     <td class="todo-nots-text text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['category']); ?>">
                         <?php echo esc_html($item['category']); ?>
                     </td>
