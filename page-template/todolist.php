@@ -78,7 +78,7 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
 ?>
 <p>You have completed <?php echo $completed_count; ?> out of <?php echo $total_count; ?> tasks</p>
 <div class="progress">
-    <div id="todo_progressbar" class="progress-bar" role="progressbar" data-count="<?php echo $total_count; ?>" style="width: <?php echo $percent_count; ?>%"></div>
+    <div id="todo_progressbar" class="progress-bar" role="progressbar" data-percent="<?php echo $percent_count; ?>" data-count="<?php echo $total_count; ?>" style="width: <?php echo $percent_count; ?>%"></div>
 </div>
             </div>
         </div>
