@@ -678,3 +678,67 @@ if (window.location.pathname === '/my-favorites/') {
         });
     });
 }
+
+
+jQuery(document).ready(function ($) {
+    // Update Profile
+    $('form.profile-update').on('submit', function (e) {
+        e.preventDefault();
+        var data = {
+            action: 'update_profile',
+            first_name: $('form.profile-update input[name="first_name"]').val(),
+            last_name: $('form.profile-update input[name="last_name"]').val(),
+            email: $('form.profile-update input[name="email"]').val(),
+            phone: $('form.profile-update input[name="phone"]').val(),
+            about: $('form.profile-update textarea[name="about"]').val(),
+        };
+
+        $.post(ajax_obj.ajax_url, data, function (response) {
+            alert(response.success ? 'Profile updated successfully!' : response.data);
+        });
+    });
+
+    // Update Social Media Links
+    $('form.social-update').on('submit', function (e) {
+        e.preventDefault();
+        var data = {
+            action: 'update_profile',
+            facebook: $('form.social-update input[name="facebook"]').val(),
+            twitter: $('form.social-update input[name="twitter"]').val(),
+            instagram: $('form.social-update input[name="instagram"]').val(),
+            youtube: $('form.social-update input[name="youtube"]').val(),
+        };
+
+        $.post(ajax_obj.ajax_url, data, function (response) {
+            alert(response.success ? 'Social links updated successfully!' : response.data);
+        });
+    });
+
+    // Change Password
+    $('form.change-password').on('submit', function (e) {
+        e.preventDefault();
+        var data = {
+            action: 'change_password',
+            current_password: $('form.change-password input[name="current_password"]').val(),
+            new_password: $('form.change-password input[name="new_password"]').val(),
+        };
+
+        $.post(ajax_obj.ajax_url, data, function (response) {
+            alert(response.success ? 'Password updated successfully!' : response.data);
+        });
+    });
+
+    // Delete Account
+    $('.delete-account-btn').on('click', function () {
+        if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
+            $.post(ajax_obj.ajax_url, { action: 'delete_account' }, function (response) {
+                if (response.success) {
+                    alert('Account deleted successfully!');
+                    window.location.href = ajax_obj.home_url; // Redirect to homepage or login
+                } else {
+                    alert('Error deleting account');
+                }
+            });
+        }
+    });
+});
