@@ -6400,6 +6400,13 @@ th.todo-subhead h4 {
     }
 } */
 
+@media (max-width: 2160px) {
+    .vendor-list-table-container{
+        overflow-x: auto;
+        max-width: 100%;
+    }
+}
+
 .text-single-line{
     white-space: nowrap !important;
     overflow: hidden !important;
