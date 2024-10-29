@@ -235,10 +235,12 @@ if (window.location.pathname === '/vendors-list/') {
                 success: function(response) {
                     if (response.success) {
                         if (addAnother) {
+                            // Update the vendor table with the new data
+                            $('#vendor-table tbody').html(response.data);
                             // Clear form fields
                             $('#add-vendor-form')[0].reset();
                             // Open the form again (assuming it's in a modal)
-                            $('#add-vendor-popup').modal('show');
+                            $('#add-todolist-popup').modal('show');
                         } else {
                             // Hide add-vendor-popup
                             $('#add-todolist-popup').modal('hide');
