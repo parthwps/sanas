@@ -225,11 +225,11 @@ $youtube = get_user_meta($user_id, 'youtube', true);
         e.preventDefault();
         var data = {
             action: 'update_profile',
-            first_name: $('input[name="first_name"]').val(),
-            last_name: $('input[name="last_name"]').val(),
-            email: $('input[name="email"]').val(),
-            phone: $('input[name="phone"]').val(),
-            about: $('textarea[name="about"]').val(),
+            first_name: $('form.profile-update input[name="first_name"]').val(),
+            last_name: $('form.profile-update input[name="last_name"]').val(),
+            email: $('form.profile-update input[name="email"]').val(),
+            phone: $('form.profile-update input[name="phone"]').val(),
+            about: $('form.profile-update textarea[name="about"]').val(),
         };
 
         $.post(ajax_obj.ajax_url, data, function (response) {
@@ -242,10 +242,10 @@ $youtube = get_user_meta($user_id, 'youtube', true);
         e.preventDefault();
         var data = {
             action: 'update_profile',
-            facebook: $('input[name="facebook"]').val(),
-            twitter: $('input[name="twitter"]').val(),
-            instagram: $('input[name="instagram"]').val(),
-            youtube: $('input[name="youtube"]').val(),
+            facebook: $('form.social-update input[name="facebook"]').val(),
+            twitter: $('form.social-update input[name="twitter"]').val(),
+            instagram: $('form.social-update input[name="instagram"]').val(),
+            youtube: $('form.social-update input[name="youtube"]').val(),
         };
 
         $.post(ajax_obj.ajax_url, data, function (response) {
@@ -258,8 +258,8 @@ $youtube = get_user_meta($user_id, 'youtube', true);
         e.preventDefault();
         var data = {
             action: 'change_password',
-            current_password: $('input[name="current_password"]').val(),
-            new_password: $('input[name="new_password"]').val(),
+            current_password: $('form.change-password input[name="current_password"]').val(),
+            new_password: $('form.change-password input[name="new_password"]').val(),
         };
 
         $.post(ajax_obj.ajax_url, data, function (response) {
