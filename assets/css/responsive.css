@@ -153,9 +153,6 @@
     #vendor-table_wrapper table.dataTable thead>tr>th:nth-child(3), #vendor-table_wrapper table.dataTable tbody>tr>td:nth-child(3){
         display: none;
     }
-    #vendor-table_wrapper .table th {
-        width: 20%;
-    }
     .card-img img {
         max-width: 140px;
     }
