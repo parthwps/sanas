@@ -447,6 +447,13 @@ if (window.location.pathname === '/my-vendors/') {
                             });
                         }
                         if(buttonDataId == 1){
+                            // add temporary message
+                            jQuery('#add-my-vendor-form').append('<p id="temporary-message">Vendor item added successfully.</p>');
+                            setTimeout(function() {
+                                jQuery('#temporary-message').fadeOut(500, function() {
+                                    jQuery(this).remove();
+                                });
+                            }, 3000);
                             // Update the vendor table with the new data
                             $('#vendor-table tbody').html(response.data);
                             // Clear form fields
