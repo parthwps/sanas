@@ -6376,11 +6376,35 @@ th.todo-subhead h4 {
     margin-bottom: 0;
     color: #744F30;
 }
+
+.vendor-list-table{
+    width: 100%;
+    table-layout: fixed;
+}
+
+.vendor-list-table td, th{
+    text-align: left;
+    border: 1px solid;
+    padding: 10px;
+    min-width: 100px;
+}
+
+.vendor-list-table td:first-child, .vendor-list-table td:last-child, .vendor-list-table th:first-child, .vendor-list-table th:last-child{
+    max-width: 50px;
+    width: 50px;
+}
+
+@media (max-width: 748px) {
+    .vendor-list-table td:nth-child(3), .vendor-list-table td:nth-child(4), .vendor-list-table th:nth-child(3), .vendor-list-table th:nth-child(4) {
+        display: none;
+    }
+}
+
 .text-single-line{
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
-    max-width: 120px !important;
+    /* max-width: 120px !important; */
 }
 .profile-firstc{
     width: 100%;
