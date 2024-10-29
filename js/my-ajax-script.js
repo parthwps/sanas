@@ -277,11 +277,21 @@ if (window.location.pathname === '/vendors-list/') {
                 success: function(response) {
                     if (response.success) {
                         if (addAnother) {
-                            updateVendorList();
+                            // set the modal title and message
+                            $('#exampleModalLabel').text('Success');
+                            $('#modal-body-text').text(response.data);
+                            // Show the modal
+                            $('#modal_html_alert').modal('show');
+                            
+                            // Handle the click event on the "Yes" button in the modal
+                            $('#render-modal-yes-button').on('click', function() {
+                                $('#modal_html_alert').modal('hide');
+                            });
                             // Clear form fields
                             $('#add-vendor-form')[0].reset();
                             // Open the form again (assuming it's in a modal)
                             $('#add-vendor-popup').modal('show');
+                            updateVendorList();
                         } else {
                             // Hide add-vendor-popup
                             $('#add-todolist-popup').modal('hide');
