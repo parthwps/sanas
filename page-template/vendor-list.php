@@ -40,7 +40,7 @@ get_sidebar('dashboard');
                 <div class="inner-box3">
                   <div class="table-box upcoming-tasks">
                     <div class="table-responsive m-0">
-                      <table class="table vendor-list-table">
+                      <!-- <table class="table vendor-list-table">
                         <thead>
                         <tr class="todo-check-title">
                           <th><input type="checkbox" name="allCheck" id="all-select-chechbox"></th>
@@ -104,7 +104,7 @@ get_sidebar('dashboard');
                             <?php endforeach; ?>
                         <?php endif; ?>
                       </tbody>
-                      </table>
+                      </table> -->
                       <table class="vendor-list-table" id="vendor-table">
                         <thead>
                             <tr>
