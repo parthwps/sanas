@@ -447,7 +447,7 @@ if (window.location.pathname === '/my-vendors/') {
                         if(buttonDataId == 0){
                             $('#add-todolist-popup').modal('hide');
                             $('#exampleModalLabel').text('Success');
-                            $('#modal-body-text').text(response.data);
+                            $('#modal-body-text').text('Vendor item added successfully.');
                             $('#modal_html_alert').modal('show');
                             $('#render-modal-yes-button').on('click', function() {
                                 location.reload();
