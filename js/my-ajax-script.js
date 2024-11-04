@@ -694,7 +694,7 @@ jQuery(document).ready(function ($) {
         };
 
         $.post(ajax_object.ajax_url, data, function (response) {
-            jQuery(".profile-info-title").text($('form.profile-update input[name="first_name"]').val() + ' ' + $('form.profile-update input[name="last_name"]').val());
+            jQuery(".profile-info-title h4").text($('form.profile-update input[name="first_name"]').val() + ' ' + $('form.profile-update input[name="last_name"]').val());
             jQuery(".profile-info-text").text($('form.profile-update textarea[name="about"]').val());
             jQuery("#tab-11 .form-box").append(response.success ? 'Profile updated successfully!' : response.data);
         });
