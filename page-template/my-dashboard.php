@@ -96,7 +96,7 @@ $completed_count = $wpdb->get_var(
       $get_event = $wpdb->get_results(
           $wpdb->prepare(
               "SELECT * FROM {$wpdb->prefix}sanas_card_event WHERE event_user = %d ORDER BY event_no DESC LIMIT 1",
-              $userID
+              $current_user_id
           )
       );
       print_r($get_event);
