@@ -224,7 +224,7 @@ $completed_count = $wpdb->get_var(
                           <table class="vendor-list-table" id="vendor-table">
                             <thead>
                             <tr>
-                              <th> <input type="checkbox" name="allCheck" id="all-select-chechbox"> </th>
+                              <th><input type="checkbox" name="allCheck" id="all-select-chechbox"> </th>
                               <th>Category</th>
                               <th>Name</th>
                               <th>Email</th>
@@ -468,7 +468,7 @@ $completed_count = $wpdb->get_var(
 
 <?php render_confirm_modal_html_alert(); ?>
 <?php render_modal_html_alert(); ?>
-  <div class="modal fade def-popup add-todolist-popup" id="edit-todolist-popup" tabindex="-1" role="dialog"
+  <!-- <div class="modal fade def-popup add-todolist-popup" id="edit-todolist-popup" tabindex="-1" role="dialog"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -519,7 +519,7 @@ $completed_count = $wpdb->get_var(
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
 
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
