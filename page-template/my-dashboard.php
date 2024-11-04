@@ -631,58 +631,6 @@ $completed_count = $wpdb->get_var(
 
 <?php render_confirm_modal_html_alert(); ?>
 <?php render_modal_html_alert(); ?>
-  <!-- <div class="modal fade def-popup add-todolist-popup" id="edit-todolist-popup" tabindex="-1" role="dialog"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="modal-header">
-            <h4 class="modal-title">Edit Todolist</h4>
-            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-              <span class="cross"></span>
-            </button>
-          </div>
-          <div class="content-box">
-            <form method="post" action="#">
-              <div class="form-content">
-                <div class="row">
-                  <div class=" col-lg-6 col-sm-12">
-                    <div class="form-group">
-                      <label>Title</label>
-                      <input type="text" class="form-control" placeholder="Title" required="">
-                    </div>
-                  </div>
-                  <div class=" col-lg-6 col-sm-12">
-                    <div class="form-group">
-                      <label>Date</label>
-                      <input type="date" class="form-control" required="">
-                    </div>
-                  </div>
-                  <div class="form-group col-lg-12 col-sm-12">
-                    <label>Category*</label>
-                    <input type="text" class="form-control" required="">
-                  </div>
-                  <div class="form-group col-lg-12 col-sm-12">
-                    <label>Description</label>
-                    <textarea class="form-control" placeholder="Description" required=""></textarea>
-                  </div>
-                  <div class="form-group col-lg-12 col-sm-12">
-                    <label>Note</label>
-                    <textarea class="form-control" placeholder="Note" required=""></textarea>
-                  </div>
-                  <div class="form-group col-lg-12 col-sm-12">
-                    <div class="links-box">
-                      <button type="submit" class="dashbord-btn">Save</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
 
 
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
