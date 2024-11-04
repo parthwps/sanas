@@ -192,7 +192,7 @@ function recalculate_task(){
     });
 
     // Get To-Do Item for Editing
-    jQuery('.edit').on('click', function() {
+    jQuery('.edit-todo').on('click', function() {
         var todoId = jQuery(this).data('id');
         $.ajax({
             type: 'POST',
