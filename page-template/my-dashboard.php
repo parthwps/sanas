@@ -15,7 +15,24 @@
 get_header();
 get_sidebar('dashboard');
 ?>
+<?php
+global $wpdb;
+$current_user_id = get_current_user_id();
+$wishlist_count = $wpdb->get_var(
+    $wpdb->prepare(
+        "SELECT COUNT(*) FROM {$wpdb->prefix}sanas_wishlist WHERE user_id = %d",
+        $current_user_id
+    )
+);
+$completed_count = $wpdb->get_var(
+    $wpdb->prepare(
+        "SELECT COUNT(*) FROM {$wpdb->prefix}todo_list WHERE user_id = %d AND status = %s",
+        get_current_user_id(),
+        'Completed'
+    )
+);
 
+?>
 
   <div class="wl-dashboard-wrapper dashboard">
     <div class="container-fluid wl-dashboard-content">
@@ -34,9 +51,9 @@ get_sidebar('dashboard');
                 <h4 class="text-muted">Completed Tasks</h4>
                 <div class="icon"><i class="fa-solid fa-list"></i></div>
                 <div class="count">
-                  <span>2</span>
+                  <span><?php echo $completed_count; ?></span>
                 </div>
-                <div class="link"><a href="todo-list.html">View Details</a></div>
+                <div class="link"><a href="/to-do-list/">View Details</a></div>
               </div>
             </div>
           </div>
@@ -48,19 +65,19 @@ get_sidebar('dashboard');
                 <div class="count">
                   <span>$76,822</span>
                 </div>
-                <div class="link"><a href="budget.html">View Details</a></div>
+                <div class="link"><a href="/budget/">View Details</a></div>
               </div>
             </div>
           </div>
           <div class="card-block col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
             <div class="card border-top-primary wishlist h-100">
               <div class="card-body">
-                <h4 class="text-muted">Wishlist</h4>
+                <h4 class="text-muted">My Favorites</h4>
                 <div class="icon"><i class="fa fa-heart"></i></div>
                 <div class="count">
-                  <span>3</span>
+                  <span><?php echo $wishlist_count; ?></span>
                 </div>
-                <div class="link"><a href="whishlist.html">View Details</a></div>
+                <div class="link"><a href="/my-favorites/">View Details</a></div>
               </div>
             </div>
           </div>
