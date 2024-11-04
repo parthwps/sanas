@@ -42,7 +42,12 @@ function sanas_css()
         wp_enqueue_style('datatables', get_template_directory_uri() . '/assets/css/datatables.min.css', array(), SANAS_VERSION);
     }        
   }
-  if(is_page_template('page-template/todolist.php') || is_page_template('page-template/my-vendors.php') || is_page_template('page-template/vendor-list.php') || is_page_template('page-template/mycontact.php') || is_page_template('page-template/budget.php')){
+  if(is_page_template('page-template/todolist.php') ||
+  is_page_template('page-template/my-vendors.php') ||
+  is_page_template('page-template/vendor-list.php') ||
+  is_page_template('page-template/my-contact.php') ||
+  is_page_template('page-template/my-dashboard.php') ||
+  is_page_template('page-template/budget.php')){
     wp_enqueue_style('datatables', get_template_directory_uri() . '/assets/css/datatables.min.css', array(), SANAS_VERSION);
   }
   if(is_page_template('page-template/guest-preview.php'))

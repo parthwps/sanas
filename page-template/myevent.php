@@ -45,7 +45,7 @@ get_sidebar('dashboard');
         } else {
             $perma = "/";
         }
-        $current_url = " http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+        $current_url = " https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
         // Parse the query string from the URL
         $query_string = parse_url($current_url, PHP_URL_QUERY);
         // Parse the query string into an associative array
