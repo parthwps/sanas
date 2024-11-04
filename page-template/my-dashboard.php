@@ -92,6 +92,29 @@ $completed_count = $wpdb->get_var(
           </div>
         </div>
       </div>
+      <?php 
+      if (is_user_logged_in()) {
+        global $current_user, $post, $wpdb;
+        wp_get_current_user();
+        $userID = $current_user->ID;
+        $sanas_card_event = $wpdb->prefix . "sanas_card_event";
+        $guest_details_info_table = $wpdb->prefix . "guest_details_info";
+        
+        // Query to get only the latest event for the logged-in user
+        $get_event = $wpdb->get_results(
+            $wpdb->prepare(
+                "SELECT * FROM $sanas_card_event WHERE event_user = %d ORDER BY event_no DESC LIMIT 1",
+                $userID
+            )
+        );
+    
+        if (!empty($get_event)) {
+            $event = $get_event[0]; // Retrieve the latest event
+            // You can access the event details here, e.g., $event->event_no, $event->event_card_id, etc.
+        }
+    }
+    
+      ?>
       <div class="row">
         <div class="attend-info col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
           <div class="inner">
