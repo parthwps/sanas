@@ -272,6 +272,28 @@ $completed_count = $wpdb->get_var(
             </div>
           </div>
         </div>
+        <?php
+        $todo_items = get_todo_list_items();
+
+        // Check if there are no items
+        if (empty($todo_items)) {
+            // Insert a default entry
+            global $wpdb;
+            $wpdb->insert(
+                $wpdb->prefix . 'todo_list',
+                array(
+                    'title' => 'Photography',
+                    'date' => current_time('mysql'),
+                    'category' => 'General',
+                    'notes' => 'photography for the wedding',
+                    'user_id' => get_current_user_id(),
+                    'status' => 'Yet To Start',
+                    'completed' => 0
+                )
+            );
+        
+        }
+        ?>
         <div class="wed-cat-info todo-list col-12">
           <div class="inner">
             <h5 class="pageheader-title mb-3">To Do List</h5>
