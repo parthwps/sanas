@@ -424,9 +424,8 @@ if (window.location.pathname === '/vendors-list/') {
     });
 }
 
-if (window.location.pathname === '/my-vendors/') {
+if (window.location.pathname === '/my-vendors/' || window.location.pathname === '/my-dashboard/') {
     jQuery(document).ready(function($) {
-
         let buttonDataId;
         jQuery('#add-my-vendor-form button[type="submit"]').click(function() {
             buttonDataId = jQuery(this).data('id');
