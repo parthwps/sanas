@@ -99,6 +99,7 @@ $completed_count = $wpdb->get_var(
               $current_user_id
           )
       );
+      print_r($get_event);
       if ($get_event) {
           $event_front_card_preview = $get_event[0]->event_front_card_preview;
           $event_back_card_preview = $get_event[0]->event_back_card_preview;
