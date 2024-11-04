@@ -104,9 +104,15 @@ $completed_count = $wpdb->get_var(
           $event_front_card_preview = $get_event[0]->event_front_card_preview;
           $event_back_card_preview = $get_event[0]->event_back_card_preview;
           $event_card_id = $get_event[0]->event_card_id;
-        $event_rsvp_id = $get_event[0]->event_rsvp_id;
+          $event_rsvp_id = $get_event[0]->event_rsvp_id;
           $eventDate= esc_html(get_post_meta($event_rsvp_id, 'event_date', true));
           $eventtitle= esc_html(get_post_meta($event_rsvp_id, 'event_name', true));
+          $formattedDate = '';
+          if(!empty($eventDate))
+          {
+            $date = new DateTime($eventDate);
+            $formattedDate = $date->format('F jS, Y');          
+          }
       }
       ?>
       <div class="row">
@@ -131,7 +137,7 @@ $completed_count = $wpdb->get_var(
               </a>
               <div class="lower-content ps-0 pe-0">
                 <h4><?php echo $eventtitle; ?></h4>
-                <p class="m-0">Date: <?php echo $eventdate; ?></p>
+                <p class="m-0">Date: <?php echo $formattedDate ?></p>
               </div>
             </div>
           </div>
