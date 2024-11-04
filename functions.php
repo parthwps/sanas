@@ -337,8 +337,6 @@ function get_todo_list_items() {
 
 add_action('wp_enqueue_scripts', function() {
     wp_enqueue_script('my-ajax-script', get_template_directory_uri() . '/js/my-ajax-script.js', array('jquery'), null, true);
-    
-    // Localize the script with AJAX URL and nonce
     wp_localize_script('my-ajax-script', 'ajax_object', array(
         'ajax_url' => admin_url('admin-ajax.php'),
         'nonce' => wp_create_nonce('profile_nonce') // Ensure to create a nonce
