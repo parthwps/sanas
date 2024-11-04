@@ -522,6 +522,113 @@ $completed_count = $wpdb->get_var(
     </div>
   </div>
 
+  <!-- Add To-Do Modal -->
+<div class="modal fade def-popup add-todolist-popup" id="add-todolist-popup" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Task</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span class="cross"></span>
+                    </button>
+                </div>
+                <div class="content-box">
+                    <form id="add-todo-form" method="post" action="#">
+                        <div class="form-content">
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Task*</label>
+                                        <input type="text" name="title" class="form-control" placeholder="Task" required="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Date</label>
+                                        <input type="date" name="date" id="add-todo-date" class="form-control" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-12 col-sm-12">
+                                    <label>Category*</label>
+                                    <input type="text" name="category" class="form-control" required="">
+                                </div>
+                                <!-- <div class="form-group col-lg-12 col-sm-12">
+                                    <label>Description</label>
+                                    <textarea name="description" class="form-control" placeholder="Description" required=""></textarea>
+                                </div> -->
+                                <div class="form-group col-lg-12 col-sm-12">
+                                    <label>Notes</label>
+                                    <textarea name="notes" class="form-control" maxlength="250" placeholder="Notes"></textarea>
+                                </div>
+                                <div class="form-group col-lg-12 col-sm-12">
+                                    <div class="links-box">
+                                        <button type="submit" class="dashbord-btn">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit To-Do Modal -->
+<div class="modal fade def-popup add-todolist-popup" id="edit-todolist-popup" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Task</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span class="cross"></span>
+                    </button>
+                </div>
+                <div class="content-box">
+                    <form id="edit-todo-form" method="post" action="#">
+                        <div class="form-content">
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Task*</label>
+                                        <input type="text" name="title" id="edit-todo-title" class="form-control" placeholder="Task" required="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Date</label>
+                                        <input type="date" name="date" id="edit-todo-date" class="form-control" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-12 col-sm-12">
+                                    <label>Category*</label>
+                                    <input type="text" name="category" id="edit-todo-category" class="form-control" required="">
+                                </div>
+                                <!-- <div class="form-group col-lg-12 col-sm-12">
+                                    <label>Description</label>
+                                    <textarea name="description" id="edit-todo-description" class="form-control" placeholder="Description" required=""></textarea>
+                                </div> -->
+                                <div class="form-group col-lg-12 col-sm-12">
+                                    <label>Notes</label>
+                                    <textarea name="notes" id="edit-todo-notes" class="form-control" placeholder="Notes"></textarea>
+                                </div>
+                                <div class="form-group col-lg-12 col-sm-12">
+                                    <div class="links-box">
+                                        <input type="hidden" name="id" id="edit-todo-id">
+                                        <button type="submit" class="dashbord-btn">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <?php render_confirm_modal_html_alert(); ?>
 <?php render_modal_html_alert(); ?>
   <!-- <div class="modal fade def-popup add-todolist-popup" id="edit-todolist-popup" tabindex="-1" role="dialog"
