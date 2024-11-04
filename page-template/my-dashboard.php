@@ -115,7 +115,7 @@ $completed_count = $wpdb->get_var(
       }
       ?>
       <div class="row">
-        <?php if ($get_event) {?>
+        <?php if (!$get_event) {?>
         <div class="attend-info col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
           <div class="inner">
             <div class="event-title-2">
