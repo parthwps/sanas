@@ -481,7 +481,8 @@ if (window.location.pathname === '/my-vendors/') {
         });
 
         // Get My Vendor Item for Editing
-        jQuery('.edit').on('click', function() {
+        jQuery('.edit-myvendor').on('click', function() {
+            console.log('edit');
             var vendorId = jQuery(this).data('id');
             $.ajax({
                 type: 'POST',
