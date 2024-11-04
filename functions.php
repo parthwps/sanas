@@ -840,10 +840,9 @@ function delete_my_vendor_item() {
     $current_user_id = get_current_user_id();
     $id = intval($_POST['id']);
 
-    // Delete the to-do item for the current user
     $result = $wpdb->delete(
-        $wpdb->prefix . 'my_vendor_list', // Change to your actual table name
-        array('id' => $id, 'user_id' => $current_user_id) // Ensure the current user can only delete their own items
+        $wpdb->prefix . 'my_vendor_list',
+        array('id' => $id, 'user_id' => $current_user_id)
     );
 
     if ($result) {
