@@ -208,6 +208,9 @@ $completed_count = $wpdb->get_var(
           <div class="vendor">
             <div class="inner">
               <div class="todo-search-add-link justify-content-end">
+                  <div class="title">
+                    <h4>My Vendors</h4>
+                  </div>
                 <div class="add-link">
                     <a href="#" class="" data-bs-toggle="modal" data-bs-target="#add-todolist-popup"> Add Vendor</a>
                 </div>
