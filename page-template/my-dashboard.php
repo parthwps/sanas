@@ -383,77 +383,75 @@ $completed_count = $wpdb->get_var(
   </div>
   <!-- <div class="d-table-block couple-dashboard-table wed-cat-info col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
   </div> -->
-  <div class="modal fade def-popup add-todolist-popup" id="add-vendor-popup" tabindex="-1" role="dialog"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="modal-header">
-            <h4 class="modal-title">Add Vendor</h4>
-            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-              <span class="cross"></span>
-            </button>
-          </div>
-          <div class="content-box">
-            <form method="post" action="#" id="add-my-vendor-form">
-              <div class="form-content">
-                <div class="row">
-                  <div class="col-lg-6 col-sm-12">
-                    <div class="form-group">
-                      <label>Category*</label>
-                      <input type="text" class="form-control" name="category" required="">
-                    </div>
+<div class="modal fade def-popup" id="add-vendor-popup" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-header">
+          <h4 class="modal-title">Add Vendor</h4>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span class="cross"></span>
+          </button>
+        </div>
+        <div class="content-box">
+          <form method="post" action="#" id="add-my-vendor-form">
+            <div class="form-content">
+              <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label>Category*</label>
+                    <input type="text" class="form-control" name="category" required="">
                   </div>
-                  <div class="col-lg-6 col-sm-12">
-                    <div class="form-group">
-                      <label>Name*</label>
-                      <input type="text" class="form-control" name="name" required="">
-                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label>Name*</label>
+                    <input type="text" class="form-control" name="name" required="">
                   </div>
-                  <div class="col-lg-6 col-sm-12">
-                    <div class="form-group">
-                      <label>Email</label>
-                      <input type="email" class="form-control" name="email">
-                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" name="email">
                   </div>
-                  <div class="col-lg-6 col-sm-12">
-                    <div class="form-group">
-                      <label>Phone</label>
-                      <input type="number" class="form-control" name="phone">
-                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label>Phone</label>
+                    <input type="number" class="form-control" name="phone">
                   </div>
-                  <div class="col-lg-12 col-sm-12">
-                    <div class="form-group">
-                      <label> Social Madia Profile</label>
-                      <input type="text" class="form-control" name="social_media_profile">
-                    </div>
+                </div>
+                <div class="col-lg-12 col-sm-12">
+                  <div class="form-group">
+                    <label> Social Madia Profile</label>
+                    <input type="text" class="form-control" name="social_media_profile">
                   </div>
-                  <div class="col-lg-12 col-sm-12">
-                    <div class="form-group">
-                      <label>Pricing</label>
-                      <input type="number" class="form-control" name="pricing">
-                    </div>
+                </div>
+                <div class="col-lg-12 col-sm-12">
+                  <div class="form-group">
+                    <label>Pricing</label>
+                    <input type="number" class="form-control" name="pricing">
                   </div>
-                  <div class="col-lg-12 col-sm-12">
-                    <label>Notes</label>
-                    <textarea class="form-control" name="notes" maxlength="250"></textarea>
-                  </div>
-                  <div class="form-group col-lg-12 col-sm-12">
-                    <div class="links-box">
-                      <button type="submit" data-id="0" class="dashbord-btn">Save</button>
-                      <button type="submit" data-id="1" class="dashbord-btn">Save and Add Another Vendor</button>
-                    </div>
+                </div>
+                <div class="col-lg-12 col-sm-12">
+                  <label>Notes</label>
+                  <textarea class="form-control" name="notes" maxlength="250"></textarea>
+                </div>
+                <div class="form-group col-lg-12 col-sm-12">
+                  <div class="links-box">
+                    <button type="submit" data-id="0" class="dashbord-btn">Save</button>
+                    <button type="submit" data-id="1" class="dashbord-btn">Save and Add Another Vendor</button>
                   </div>
                 </div>
               </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
-  <div class="modal fade def-popup" id="edit-vendor-popup" tabindex="-1" role="dialog"
-    aria-hidden="true">
+</div>
+<div class="modal fade def-popup" id="edit-vendor-popup" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-body">
@@ -520,61 +518,7 @@ $completed_count = $wpdb->get_var(
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Add To-Do Modal -->
-<div class="modal fade def-popup" id="add-todolist-popup" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="modal-header">
-                    <h4 class="modal-title">Add Task</h4>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <span class="cross"></span>
-                    </button>
-                </div>
-                <div class="content-box">
-                    <form id="add-todo-form" method="post" action="#">
-                        <div class="form-content">
-                            <div class="row">
-                                <div class="col-lg-6 col-sm-12">
-                                    <div class="form-group">
-                                        <label>Task*</label>
-                                        <input type="text" name="title" class="form-control" placeholder="Task" required="">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-sm-12">
-                                    <div class="form-group">
-                                        <label>Date</label>
-                                        <input type="date" name="date" id="add-todo-date" class="form-control" required="">
-                                    </div>
-                                </div>
-                                <div class="form-group col-lg-12 col-sm-12">
-                                    <label>Category*</label>
-                                    <input type="text" name="category" class="form-control" required="">
-                                </div>
-                                <!-- <div class="form-group col-lg-12 col-sm-12">
-                                    <label>Description</label>
-                                    <textarea name="description" class="form-control" placeholder="Description" required=""></textarea>
-                                </div> -->
-                                <div class="form-group col-lg-12 col-sm-12">
-                                    <label>Notes</label>
-                                    <textarea name="notes" class="form-control" maxlength="250" placeholder="Notes"></textarea>
-                                </div>
-                                <div class="form-group col-lg-12 col-sm-12">
-                                    <div class="links-box">
-                                        <button type="submit" class="dashbord-btn">Save</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
-
 <!-- Edit To-Do Modal -->
 <div class="modal fade def-popup" id="edit-todolist-popup" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
