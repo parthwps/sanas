@@ -103,7 +103,7 @@ if (!empty($wishlist_items)) {
                         </div>
                     </a>
                     <div class="lower-content">
-                        <h4><?php echo esc_html(get_the_title($card_post->ID)); ?></h4>
+                        <h4 class="text-capitalize"><?php echo esc_html(get_the_title($card_post->ID)); ?></h4>
                         <div class="delete-icon wishlist-delete-icon" data-card-id="<?php echo $card_id; ?>">
                             <i class="fa fa-trash"></i>
                         </div>

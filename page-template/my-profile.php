@@ -49,9 +49,9 @@ $youtube = get_user_meta($user_id, 'youtube', true);
             </div>
             <div class="profile-info">
               <div class="profile-info-title">
-                <h4><?php echo esc_html($first_name . ' ' . $last_name); ?></h4>
+                <h4 class="text-capitalize"><?php echo esc_html($first_name . ' ' . $last_name); ?></h4>
               </div>
-              <p class="profile-info-text">
+              <p class="profile-info-text text-capitalize">
                 <?php if($about == ""){echo "Dream big. Think different. Do great!";}else{echo esc_html($about);} ?></p>
               <div class="profile-action">
                 <h4 class="">Active</h4>
