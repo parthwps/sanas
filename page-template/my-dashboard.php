@@ -165,6 +165,7 @@ $completed_count = $wpdb->get_var(
                   <h4>Ad content here</h4>
                 </div>
               </div>
+            </div>
           </div>
         <?php }?>
         <div class="wed-cat-info col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
