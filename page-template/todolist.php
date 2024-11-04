@@ -148,7 +148,7 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                                 </select>
                                             </td>
                                             <td class="actions">
-                                                <a href="#" class="edit-todo theme-btn" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup" data-id="<?php echo $item['id']; ?>">
+                                                <a href="#" class="edit edit-todo theme-btn" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup" data-id="<?php echo $item['id']; ?>">
                                                     <i class="fa-solid fa-pen"></i>
                                                 </a>
                                                 <a href="#" class="delete theme-btn" data-id="<?php echo $item['id']; ?>">
