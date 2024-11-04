@@ -9,7 +9,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link <?php if (is_page('dashbord')) echo 'active'; ?>" href="<?php echo home_url('/dashbord/'); ?>">
+                        <a class="nav-link <?php if (is_page('my-dashboard')) echo 'active'; ?>" href="<?php echo home_url('/my-dashboard/'); ?>">
                             <i class="fa-solid fa-house"></i>
                             Dashboard
                         </a>
@@ -21,7 +21,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php if (is_page('my-contacts')) echo 'active'; ?>" href="<?php echo home_url('/mycontact/'); ?>">
+                        <a class="nav-link <?php if (is_page('my-contacts')) echo 'active'; ?>" href="<?php echo home_url('/my-contact/'); ?>">
                             <i class="fa-regular fa-address-card"></i>
                             My Contacts
                         </a>
