@@ -103,8 +103,10 @@ $completed_count = $wpdb->get_var(
       if ($get_event) {
           $event_front_card_preview = $get_event[0]->event_front_card_preview;
           $event_back_card_preview = $get_event[0]->event_back_card_preview;
-          $eventtitle = $get_event[0]->event_title;
-          $eventdate = $get_event[0]->event_date;
+          $event_card_id = $get_event[0]->event_card_id;
+        $event_rsvp_id = $get_event[0]->event_rsvp_id;
+          $eventDate= esc_html(get_post_meta($event_rsvp_id, 'event_date', true));
+          $eventtitle= esc_html(get_post_meta($event_rsvp_id, 'event_name', true));
       }
       ?>
       <div class="row">
