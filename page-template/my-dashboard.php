@@ -17,7 +17,7 @@ get_sidebar('dashboard');
 ?>
 
 
-<div class="wl-dashboard-wrapper dashboard">
+  <div class="wl-dashboard-wrapper dashboard">
     <div class="container-fluid wl-dashboard-content">
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -513,6 +513,6 @@ get_sidebar('dashboard');
   </div>
 
 
-
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <?php
 get_footer('dashboard');
