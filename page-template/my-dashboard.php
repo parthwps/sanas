@@ -381,8 +381,8 @@ $completed_count = $wpdb->get_var(
       </div>
     </div>
   </div>
-  <div class="d-table-block couple-dashboard-table wed-cat-info col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-  </div>
+  <!-- <div class="d-table-block couple-dashboard-table wed-cat-info col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+  </div> -->
   <div class="modal fade def-popup add-todolist-popup" id="add-vendor-popup" tabindex="-1" role="dialog"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -523,7 +523,7 @@ $completed_count = $wpdb->get_var(
   </div>
 
   <!-- Add To-Do Modal -->
-<div class="modal fade def-popup add-todolist-popup" id="add-todolist-popup" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade def-popup" id="add-todolist-popup" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body">
