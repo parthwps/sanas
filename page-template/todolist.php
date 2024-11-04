@@ -128,13 +128,13 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                 <tbody>
                                     <?php foreach ($items as $item): ?>
                                         <tr <?php echo ($item['completed'] == 1) ? 'class="text-decoration-line-through pe-none"' : ''; ?>>
-                                            <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['category']); ?>">
+                                            <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['category']); ?>">
                                                 <?php echo esc_html($item['category']); ?>
                                             </td>
-                                            <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['title']); ?>">
+                                            <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['title']); ?>">
                                                 <?php echo esc_html($item['title']); ?>
                                             </td>
-                                            <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['notes']); ?>">
+                                            <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['notes']); ?>">
                                                 <?php echo esc_html($item['notes']); ?>
                                             </td>
                                             <td class="text-single-line text-nowrap">

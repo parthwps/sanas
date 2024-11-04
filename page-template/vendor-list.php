@@ -150,11 +150,11 @@ get_sidebar('dashboard');
                             <?php foreach ($vendor_items as $vendor): ?>
                                 <tr>
                                     <td><input type="checkbox" class="checkSingle"></td>
-                                    <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($vendor['category']); ?>"><?php echo esc_html($vendor['category']); ?></td>
-                                    <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($vendor['name']); ?>"><?php echo esc_html($vendor['name']); ?></td>
+                                    <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($vendor['category']); ?>"><?php echo esc_html($vendor['category']); ?></td>
+                                    <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($vendor['name']); ?>"><?php echo esc_html($vendor['name']); ?></td>
                                     <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($vendor['email']); ?>"><?php echo esc_html($vendor['email']); ?></td>
-                                    <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($vendor['phone']); ?>"><?php echo esc_html($vendor['phone']); ?></td>
-                                    <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($vendor['notes']); ?>"><?php echo esc_html($vendor['notes']); ?></td>
+                                    <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($vendor['phone']); ?>"><?php echo esc_html($vendor['phone']); ?></td>
+                                    <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($vendor['notes']); ?>"><?php echo esc_html($vendor['notes']); ?></td>
                                     <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($vendor['social_media_profile']); ?>"><?php echo esc_html($vendor['social_media_profile']); ?></td>
                                     <td>$<?php echo esc_html($vendor['pricing']); ?></td>
                                     <td class="actions">
