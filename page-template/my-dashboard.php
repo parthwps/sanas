@@ -275,51 +275,85 @@ $completed_count = $wpdb->get_var(
         <div class="wed-cat-info todo-list col-12">
           <div class="inner">
             <h5 class="pageheader-title mb-3">To Do List</h5>
+
             <div class="to-do-table-box table-box upcoming-tasks">
-              <div class="table-responsive m-0">
-                <table class="table">
-                  <tbody>
-                    <tr>
-                      <td class="todo-subhead text-align-start" colspan="8">
-                        <h4>April<span>2024</span></h4>
-                      </td>
-                    </tr>
-                    <tr class="todo-check-title">
-                      <th class="check">
-                        Mark
-                      </th>
-                      <th>Category</th>
-                      <th>Title</th>
-                      <th>Notes</th>
-                      <th>Date</th>
-                      <th class="todo-reminder">Set Reminder</th>
-                      <th>Status</th>
-                      <th class="actions">Actions</th>
-                    </tr>
-                    <tr>
-                      <td class="check">
-                        <div class="input-box"><input type="checkbox" class="checkSingle" name="field-name" id="t-c-1"><label for="t-c-1"><span class="icon fas fa-check"></span></label>
-                        </div>
-                      </td>
-                      <td>Musics</td>
-                      <td class="todo-title">Thank You!</td>
-                      <td class="todo-nots-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, iste! adipisicing elit.</td>
-                      <td>20/08/2024</td>
-                      <td><i class="fa-solid fa-calendar-days"></i></td>
-                      <td class="todo-status"><span class="stat yes">Completed</span></td>
-                      <td class="actions">
-                        <a href="#" class="edit theme-btn" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup">
-                          <i class="fa-solid fa-pen"></i>
-                        </a>
-                        <a href="#" class="delete theme-btn">
-                          <i class="fa-regular fa-trash-can"></i>
-                        </a>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+                    <div class="vendor-table table-responsive m-0">
+                        <?php
+                        $vendor_items = get_vendor_list_items();
+                        ?>
+                        <?php if ($todo_items): ?>
+                        <?php 
+                        $grouped_items = [];
+
+                        foreach ($todo_items as $item) {
+                            $item_month = date('F', strtotime($item['date']));
+                            $item_year = date('Y', strtotime($item['date']));
+                            $current_item_month_year = $item_month . ' ' . $item_year;
+
+                            // Group items by month and year
+                            if (!isset($grouped_items[$current_item_month_year])) {
+                                $grouped_items[$current_item_month_year] = []; // Create an array for each month
+                            }
+                            $grouped_items[$current_item_month_year][] = $item; // Add the item to the respective month
+                        }
+
+                        // Generate tables for each month
+                        foreach ($grouped_items as $month_year => $items): ?>
+                            <table class="mb-0">
+                            <tr><th class="todo-subhead text-align-start" colspan="7">
+                            <h4><span><?php echo $month_year; ?></span></h4>
+                            </th></tr>
+                            </table>
+                            <table class="vendor-list-table todo-list-table todo-table" id="todo-table-<?php echo str_replace(' ', '-', $month_year); ?>">
+                                <thead>
+                                    <tr class="todo-check-title">
+                                        <th>Category</th>
+                                        <th>Task</th>
+                                        <th>Notes</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th class="actions">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($items as $item): ?>
+                                        <tr <?php echo ($item['completed'] == 1) ? 'class="text-decoration-line-through pe-none"' : ''; ?>>
+                                            <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['category']); ?>">
+                                                <?php echo esc_html($item['category']); ?>
+                                            </td>
+                                            <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['title']); ?>">
+                                                <?php echo esc_html($item['title']); ?>
+                                            </td>
+                                            <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['notes']); ?>">
+                                                <?php echo esc_html($item['notes']); ?>
+                                            </td>
+                                            <td class="text-single-line text-nowrap">
+                                                <?php echo DateTime::createFromFormat('Y-m-d', $item['date'])->format('jS M Y'); ?>
+                                            </td>
+                                            <td>
+                                                <select class="status-dropdown" data-id="<?php echo $item['id']; ?>">
+                                                    <option value="Yet To Start" <?php echo selected($item['status'], 'Yet To Start', false); ?>>Yet To Start</option>
+                                                    <option value="In Progress" <?php echo selected($item['status'], 'In Progress', false); ?>>In Progress</option>
+                                                    <option value="Completed" <?php echo selected($item['status'], 'Completed', false); ?>>Completed</option>
+                                                </select>
+                                            </td>
+                                            <td class="actions">
+                                                <a href="#" class="edit theme-btn" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup" data-id="<?php echo $item['id']; ?>">
+                                                    <i class="fa-solid fa-pen"></i>
+                                                </a>
+                                                <a href="#" class="delete theme-btn" data-id="<?php echo $item['id']; ?>">
+                                                    <i class="fa-regular fa-trash-can"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
+                </div>
+
           </div>
         </div>
       </div>

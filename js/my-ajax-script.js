@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 });
 
-if (window.location.pathname === '/to-do-list/') {
+if (window.location.pathname === '/to-do-list/' || window.location.pathname === '/my-dashboard/') {
 document.addEventListener('DOMContentLoaded', () => {
     const today = new Date();
     document.getElementById('edit-todo-date').value = today.toISOString().split('T')[0];
