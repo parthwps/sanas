@@ -56,7 +56,7 @@ if (!empty($wishlist_items)) {
                 </div>
               </div>
             </div>
-            <div class="wishlist-outer col-xl-9 col-lg-9 col-md-8">
+            <div class="wishlist-outer col-xl-9 col-lg-9 col-md-8 pt-3 pb-3">
               
               <div class="wishlist-inner">
                 <div class="row">

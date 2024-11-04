@@ -65,7 +65,7 @@ $youtube = get_user_meta($user_id, 'youtube', true);
               <div class="tabs-box-3">
                 <ul class="tab-buttons">
                   <li class="tab-btn active-btn" data-tab="#tab-11">Profile Details</li>
-                  <li class="tab-btn" data-tab="#tab-14">Social Madia</li>
+                  <!-- <li class="tab-btn" data-tab="#tab-14">Social Madia</li> -->
                   <li class="tab-btn" data-tab="#tab-15">Change Password</li>
                   <li class="tab-btn" data-tab="#tab-16">Account Delete</li>
                 </ul>
