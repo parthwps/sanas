@@ -207,12 +207,12 @@ $completed_count = $wpdb->get_var(
         <div class="wed-cat-info  col-12">
           <div class="vendor">
             <div class="inner">
-              <div class="todo-search-add-link justify-content-end">
+              <div class="todo-search-add-link">
                   <div class="title">
                     <h4>My Vendors</h4>
                   </div>
                 <div class="add-link">
-                    <a href="#" class="" data-bs-toggle="modal" data-bs-target="#add-todolist-popup"> Add Vendor</a>
+                    <a href="#" class="" data-bs-toggle="modal" data-bs-target="#add-vendor-popup"> Add Vendor</a>
                 </div>
               </div>
               <div class="todo-box">
@@ -251,7 +251,7 @@ $completed_count = $wpdb->get_var(
                                         <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['social_media_profile']); ?>"><?php echo esc_html($my_vendor['social_media_profile']); ?></td>
                                         <td>$<?php echo esc_html($my_vendor['pricing']); ?></td>
                                         <td class="actions">
-                                            <a href="#" class="edit theme-btn" data-id="<?php echo esc_attr($my_vendor['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup">
+                                            <a href="#" class="edit theme-btn" data-id="<?php echo esc_attr($my_vendor['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-vendor-popup">
                                                 <i class="fa-solid fa-pen"></i>
                                             </a>
                                             <a href="#" class="delete theme-btn" data-id="<?php echo esc_attr($my_vendor['id']); ?>">
