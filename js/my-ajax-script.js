@@ -288,7 +288,7 @@ if (window.location.pathname === '/vendors-list/') {
                         $('#edit-vendor-notes').val(response.data.notes);
                         $('#edit-vendor-social-media-profile').val(response.data.social_media_profile);
                         $('#edit-vendor-pricing').val(response.data.pricing);
-                        $('#edit-vendor-popup').modal('show');
+                        $('#edit-todolist-popup').modal('show');
                     }
                 }
             });
@@ -497,7 +497,7 @@ if (window.location.pathname === '/my-vendors/' || window.location.pathname === 
                         $('#edit-my-vendor-notes').val(response.data.notes);
                         $('#edit-my-vendor-social-media-profile').val(response.data.social_media_profile);
                         $('#edit-my-vendor-pricing').val(response.data.pricing);
-                        $('#edit-todolist-popup').modal('show');
+                        $('#edit-vendor-popup').modal('show');
                     }
                 }
             });
