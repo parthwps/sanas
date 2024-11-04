@@ -63,7 +63,7 @@ $completed_count = $wpdb->get_var(
                 <h4 class="text-muted">Estimated Budget</h4>
                 <div class="icon"><i class="fa fa-chart-line"></i></div>
                 <div class="count">
-                  <span>$76,822</span>
+                  <span>$0</span>
                 </div>
                 <div class="link"><a href="/budget/">View Details</a></div>
               </div>
@@ -115,6 +115,7 @@ $completed_count = $wpdb->get_var(
       }
       ?>
       <div class="row">
+        <?php if (!$get_event) {?>
         <div class="attend-info col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
           <div class="inner">
             <div class="event-title-2">
@@ -156,6 +157,16 @@ $completed_count = $wpdb->get_var(
             </div>
           </div>
         </div>
+        <?php }else{?>
+          <div class="attend-info col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="inner">
+              <div class="title-box">
+                <div class="title graph">
+                  <h4>Ad content here</h4>
+                </div>
+              </div>
+          </div>
+        <?php }?>
         <div class="wed-cat-info col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
           <div class="inner">
             <div class="title-box">
