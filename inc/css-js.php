@@ -89,7 +89,12 @@ function sanas_js()
           wp_enqueue_script('datatables', get_template_directory_uri() . '/assets/js/datatables.min.js', array('jquery'), SANAS_VERSION,true);
     }
   }  
-  if(is_page_template('page-template/todolist.php') || is_page_template('page-template/my-vendors.php') || is_page_template('page-template/vendor-list.php') || is_page_template('page-template/mycontact.php') || is_page_template('page-template/budget.php')){
+  if(is_page_template('page-template/todolist.php') ||
+  is_page_template('page-template/my-vendors.php') ||
+  is_page_template('page-template/vendor-list.php') ||
+  is_page_template('page-template/my-contact.php') ||
+  is_page_template('page-template/my-dashboard.php') ||
+  is_page_template('page-template/budget.php')){
     wp_enqueue_script('datatables', get_template_directory_uri() . '/assets/js/datatables.min.js', array('jquery'), SANAS_VERSION,true);
   }
   wp_enqueue_script('sanas-custom', get_template_directory_uri() . '/assets/js/custom.js', array('jquery'), SANAS_VERSION,true);
