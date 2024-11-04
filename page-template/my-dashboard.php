@@ -122,7 +122,7 @@ $completed_count = $wpdb->get_var(
               <h4>My Events</h4>
             </div>
             <div class="inner-box">
-              <a href="guest-list.html" class="flip-container" style="background-color:#dc587f;">
+              <a href="/user-dashboard/?dashboard=guestlist&card_id=<?php echo $get_event[0]->event_card_id; ?>&event_id=<?php echo $get_event[0]->event_no; ?>" class="flip-container" style="background-color:#dc587f;">
                 <div class="flipper">
                   <div class="front">
                     <img src="<?php echo $event_front_card_preview; ?>" alt="template">
