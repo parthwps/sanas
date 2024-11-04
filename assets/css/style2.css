@@ -4582,6 +4582,7 @@ table.dataTable thead>tr>td.dt-orderable-desc:hover {
 
 .wed-cat-info .list ul {
     position: relative;
+    padding: 0;
 }
 
 .wed-cat-info .list ul li {
@@ -4603,7 +4604,7 @@ table.dataTable thead>tr>td.dt-orderable-desc:hover {
 
 .wed-cat-info .list ul li .ttl {
     position: relative;
-    min-width: 230px;
+    min-width: 180px;
 }
 
 .wed-cat-info .list ul li .ttl .txt {
