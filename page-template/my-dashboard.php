@@ -110,7 +110,7 @@ $completed_count = $wpdb->get_var(
     
         if (!empty($get_event)) {
             $event = $get_event[0]; // Retrieve the latest event
-            // You can access the event details here, e.g., $event->event_no, $event->event_card_id, etc.
+            echo $event;
         }
     }
     
