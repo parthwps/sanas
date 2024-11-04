@@ -205,7 +205,7 @@ function recalculate_task(){
                     $('#edit-todo-date').val(response.data.date);
                     $('#edit-todo-category').val(response.data.category);
                     $('#edit-todo-notes').val(response.data.notes);
-                    $('#edit-vendor-popup').modal('show');
+                    $('#edit-todolist-popup').modal('show');
                 }
             }
         });
@@ -288,7 +288,7 @@ if (window.location.pathname === '/vendors-list/') {
                         $('#edit-vendor-notes').val(response.data.notes);
                         $('#edit-vendor-social-media-profile').val(response.data.social_media_profile);
                         $('#edit-vendor-pricing').val(response.data.pricing);
-                        $('#edit-todolist-popup').modal('show');
+                        $('#edit-vendor-popup').modal('show');
                     }
                 }
             });
