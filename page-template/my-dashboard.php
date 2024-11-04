@@ -207,13 +207,9 @@ $completed_count = $wpdb->get_var(
         <div class="wed-cat-info  col-12">
           <div class="vendor">
             <div class="inner">
-              <div class="todo-search-add-link">
-                <div class="add-link justify-content-between w-100">
-                  <div class="title">
-                    <h4>My Vendors</h4>
-                  </div>
-                  <a href="#" class="dashbord-btn" data-bs-toggle="modal" data-bs-target="#add-vendor-popup"><i
-                      class="icon-plus"></i> Add Vendor</a>
+              <div class="todo-search-add-link justify-content-end">
+                <div class="add-link">
+                    <a href="#" class="" data-bs-toggle="modal" data-bs-target="#add-todolist-popup"> Add Vendor</a>
                 </div>
               </div>
               <div class="todo-box">
@@ -221,94 +217,48 @@ $completed_count = $wpdb->get_var(
                   <div class="to-do-list-table d-table-block col-xl-12 col-lg-12 col-md-12 col-sm-12">
                     <div class="inner-box3">
                       <div class="table-box upcoming-tasks">
-                        <div class="table-responsive m-0">
-                          <table class="table" id="vendor-table">
+                        <div class="vendor-table table-responsive m-0">
+                          <table class="vendor-list-table" id="vendor-table">
                             <thead>
-                              <tr class="todo-check-title">
-                                <th> <input type="checkbox" name="allCheck" id="all-select-chechbox"> </th>
-                                <th>Category</th>
-                                <th>Name</th>
-                                <th>Ph#</th>
-                                <th>Notes</th>
-                                <th>Social Madia Profile</th>
-                                <th>Pricing</th>
-                                <th class="actions">Actions</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td><input type="checkbox"></td>
-                                <td>Food</td>
-                                <td>Martin</td>
-                                <td>+5721458752</td>
-                                <td>Thank You !</td>
-                                <td>martinfood.com</td>
-                                <td>$1450</td>
-                                <td class="actions">
-                                  <a href="#" class="edit theme-btn" data-bs-toggle="modal"
-                                    data-bs-target="#edit-vendor-popup">
-                                    <i class="fa-solid fa-pen"></i>
-                                  </a>
-                                  <a href="#" class="delete theme-btn">
-                                    <i class="fa-regular fa-trash-can"></i>
-                                  </a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td><input type="checkbox"></td>
-                                <td>Photography</td>
-                                <td>Ethen</td>
-                                <td>+5745783648</td>
-                                <td>Thank You !</td>
-                                <td>EthenPhotography.com</td>
-                                <td>$1840</td>
-                                <td class="actions">
-                                  <a href="#" class="edit theme-btn" data-bs-toggle="modal"
-                                    data-bs-target="#edit-vendor-popup">
-                                    <i class="fa-solid fa-pen"></i>
-                                  </a>
-                                  <a href="#" class="delete theme-btn">
-                                    <i class="fa-regular fa-trash-can"></i>
-                                  </a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td><input type="checkbox"></td>
-                                <td>Musics</td>
-                                <td>jack</td>
-                                <td>+5721458752</td>
-                                <td>Thank You !</td>
-                                <td>jackMusics.com</td>
-                                <td>$2000</td>
-                                <td class="actions">
-                                  <a href="#" class="edit theme-btn" data-bs-toggle="modal"
-                                    data-bs-target="#edit-vendor-popup">
-                                    <i class="fa-solid fa-pen"></i>
-                                  </a>
-                                  <a href="#" class="delete theme-btn">
-                                    <i class="fa-regular fa-trash-can"></i>
-                                  </a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td><input type="checkbox"></td>
-                                <td>Decorations</td>
-                                <td>dhaval</td>
-                                <td>+5721458752</td>
-                                <td>Thank You !</td>
-                                <td>dhavalDecorations.com</td>
-                                <td>$1000</td>
-                                <td class="actions">
-                                  <a href="#" class="edit theme-btn" data-bs-toggle="modal"
-                                    data-bs-target="#edit-vendor-popup">
-                                    <i class="fa-solid fa-pen"></i>
-                                  </a>
-                                  <a href="#" class="delete theme-btn">
-                                    <i class="fa-regular fa-trash-can"></i>
-                                  </a>
-                                </td>
-                              </tr>
-                            </tbody>
+                            <tr>
+                              <th> <input type="checkbox" name="allCheck" id="all-select-chechbox"> </th>
+                              <th>Category</th>
+                              <th>Name</th>
+                              <th>Email</th>
+                              <th>Ph#</th>
+                              <th>Notes</th>
+                              <th class="text-single-line" data-toggle="tooltip" data-bs-original-title="Social Madia Profile">Social Madia Profile</th>
+                              <th>Pricing</th>
+                              <th class="actions">Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          <?php
+                            $my_vendor_items = get_my_vendor_list_items();
+                            ?>
+                            <?php if ($my_vendor_items): ?>
+                                <?php foreach ($my_vendor_items as $my_vendor): ?>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['category']); ?>"><?php echo esc_html($my_vendor['category']); ?></td>
+                                        <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['name']); ?>"><?php echo esc_html($my_vendor['name']); ?></td>
+                                        <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['email']); ?>"><?php echo esc_html($my_vendor['email']); ?></td>
+                                        <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['phone']); ?>"><?php echo esc_html($my_vendor['phone']); ?></td>
+                                        <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['notes']); ?>"><?php echo esc_html($my_vendor['notes']); ?></td>
+                                        <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['social_media_profile']); ?>"><?php echo esc_html($my_vendor['social_media_profile']); ?></td>
+                                        <td>$<?php echo esc_html($my_vendor['pricing']); ?></td>
+                                        <td class="actions">
+                                            <a href="#" class="edit theme-btn" data-id="<?php echo esc_attr($my_vendor['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup">
+                                                <i class="fa-solid fa-pen"></i>
+                                            </a>
+                                            <a href="#" class="delete theme-btn" data-id="<?php echo esc_attr($my_vendor['id']); ?>">
+                                                <i class="fa-regular fa-trash-can"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                          </tbody>
                           </table>
                         </div>
                       </div>
@@ -386,46 +336,53 @@ $completed_count = $wpdb->get_var(
             </button>
           </div>
           <div class="content-box">
-            <form method="post" action="#">
+            <form method="post" action="#" id="add-my-vendor-form">
               <div class="form-content">
                 <div class="row">
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Category*</label>
-                      <input type="text" class="form-control" required="">
+                      <input type="text" class="form-control" name="category" required="">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Name*</label>
-                      <input type="text" class="form-control" required="">
+                      <input type="text" class="form-control" name="name" required="">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
-                      <label>Pricing*</label>
-                      <input type="text" class="form-control" required="">
+                      <label>Email</label>
+                      <input type="email" class="form-control" name="email">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
-                      <label>Phone*</label>
-                      <input type="number" class="form-control" required="">
+                      <label>Phone</label>
+                      <input type="number" class="form-control" name="phone">
                     </div>
                   </div>
                   <div class="col-lg-12 col-sm-12">
                     <div class="form-group">
                       <label> Social Madia Profile</label>
-                      <input type="url" class="form-control">
+                      <input type="text" class="form-control" name="social_media_profile">
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-sm-12">
+                    <div class="form-group">
+                      <label>Pricing</label>
+                      <input type="number" class="form-control" name="pricing">
                     </div>
                   </div>
                   <div class="col-lg-12 col-sm-12">
                     <label>Notes</label>
-                    <textarea class="form-control"></textarea>
+                    <textarea class="form-control" name="notes" maxlength="250"></textarea>
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
-                      <button type="submit" class="dashbord-btn">Save</button>
+                      <button type="submit" data-id="0" class="dashbord-btn">Save</button>
+                      <button type="submit" data-id="1" class="dashbord-btn">Save and Add Another Vendor</button>
                     </div>
                   </div>
                 </div>
@@ -448,45 +405,52 @@ $completed_count = $wpdb->get_var(
             </button>
           </div>
           <div class="content-box">
-            <form method="post" action="#">
+            <form method="post" action="#" id="edit-my-vendor-form">
               <div class="form-content">
                 <div class="row">
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Category</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" name="category" id="edit-my-vendor-category">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Name</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" name="name" id="edit-my-vendor-name">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
-                      <label>Pricing</label>
-                      <input type="text" class="form-control">
+                      <label>Email</label>
+                      <input type="email" class="form-control" name="email" id="edit-my-vendor-email">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Phone</label>
-                      <input type="number" class="form-control">
+                      <input type="number" class="form-control" name="phone" id="edit-my-vendor-phone">
                     </div>
                   </div>
                   <div class="col-lg-12 col-sm-12">
                     <div class="form-group">
-                      <label>Social Madia Profile</label>
-                      <input type="url" class="form-control">
+                      <label> Social Madia Profile</label>
+                      <input type="text" class="form-control" name="social_media_profile" id="edit-my-vendor-social-media-profile">
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-sm-12">
+                    <div class="form-group">
+                      <label>Pricing</label>
+                      <input type="number" class="form-control" name="pricing" id="edit-my-vendor-pricing">
                     </div>
                   </div>
                   <div class="col-lg-12 col-sm-12">
                     <label>Notes</label>
-                    <textarea class="form-control"></textarea>
+                    <textarea class="form-control" name="notes" maxlength="250" id="edit-my-vendor-notes"></textarea>
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
+                      <input type="hidden" name="id" id="edit-my-vendor-id">
                       <button type="submit" class="dashbord-btn">Save</button>
                     </div>
                   </div>
@@ -498,6 +462,9 @@ $completed_count = $wpdb->get_var(
       </div>
     </div>
   </div>
+
+<?php render_confirm_modal_html_alert(); ?>
+<?php render_modal_html_alert(); ?>
   <div class="modal fade def-popup add-todolist-popup" id="edit-todolist-popup" tabindex="-1" role="dialog"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
