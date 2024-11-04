@@ -93,27 +93,19 @@ $completed_count = $wpdb->get_var(
         </div>
       </div>
       <?php 
-      if (is_user_logged_in()) {
-        global $current_user, $post, $wpdb;
-        wp_get_current_user();
-        $userID = $current_user->ID;
-        $sanas_card_event = $wpdb->prefix . "sanas_card_event";
-        $guest_details_info_table = $wpdb->prefix . "guest_details_info";
-        
-        // Query to get only the latest event for the logged-in user
-        $get_event = $wpdb->get_results(
-            $wpdb->prepare(
-                "SELECT * FROM $sanas_card_event WHERE event_user = %d ORDER BY event_no DESC LIMIT 1",
-                $userID
-            )
-        );
-    
-        if (!empty($get_event)) {
-            $event = $get_event[0]; // Retrieve the latest event
-            echo $event;
-        }
-    }
-    
+      $get_event = $wpdb->get_results(
+          $wpdb->prepare(
+              "SELECT * FROM $sanas_card_event WHERE event_user = %d ORDER BY event_no DESC LIMIT 1",
+              $userID
+          )
+      );
+
+      if ($get_event) {
+          $event_front_card_preview = $get_event[0]->event_front_card_preview;
+          $event_back_card_preview = $get_event[0]->event_back_card_preview;
+          $eventtitle = $get_event[0]->event_title;
+          $eventdate = $get_event[0]->event_date;
+      }
       ?>
       <div class="row">
         <div class="attend-info col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -125,19 +117,19 @@ $completed_count = $wpdb->get_var(
               <a href="guest-list.html" class="flip-container" style="background-color:#dc587f;">
                 <div class="flipper">
                   <div class="front">
-                    <img src="assets/template/h-t-f-1.jpg" alt="template">
+                    <img src="<?php echo $event_front_card_preview; ?>" alt="template">
                   </div>
                   <div class="middel-card">
-                    <img src="assets/template/h-t-f-3.png" alt="template">
+                    <img src="<?php echo $event_front_card_preview; ?>" alt="template">
                   </div>
                   <div class="back">
-                    <img src="assets/template/h-t-b-1.jpg" alt="template">
+                    <img src="<?php echo $event_back_card_preview; ?>" alt="template">
                   </div>
                 </div>
               </a>
               <div class="lower-content ps-0 pe-0">
-                <h4>Wedding Invite card</h4>
-                <p class="m-0">Date: 15-08-2024</p>
+                <h4><?php echo $eventtitle; ?></h4>
+                <p class="m-0">Date: <?php echo $eventdate; ?></p>
               </div>
             </div>
           </div>
