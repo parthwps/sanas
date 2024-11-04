@@ -205,7 +205,7 @@ function recalculate_task(){
                     $('#edit-todo-date').val(response.data.date);
                     $('#edit-todo-category').val(response.data.category);
                     $('#edit-todo-notes').val(response.data.notes);
-                    $('#edit-todolist-popup').modal('show');
+                    $('#edit-vendor-popup').modal('show');
                 }
             }
         });
