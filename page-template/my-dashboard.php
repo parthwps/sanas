@@ -452,7 +452,7 @@ $completed_count = $wpdb->get_var(
       </div>
     </div>
   </div>
-  <div class="modal fade def-popup add-todolist-popup" id="edit-vendor-popup" tabindex="-1" role="dialog"
+  <div class="modal fade def-popup add-todolist-popup" id="edit-vendor-popup1" tabindex="-1" role="dialog"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
