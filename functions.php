@@ -337,9 +337,13 @@ function get_todo_list_items() {
 
 add_action('wp_enqueue_scripts', function() {
     wp_enqueue_script('my-ajax-script', get_template_directory_uri() . '/js/my-ajax-script.js', array('jquery'), null, true);
-    wp_localize_script('my-ajax-script', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
+    
+    // Localize the script with AJAX URL and nonce
+    wp_localize_script('my-ajax-script', 'ajax_object', array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'nonce' => wp_create_nonce('profile_nonce') // Ensure to create a nonce
+    ));
 });
-
 // Function to add a to-do item
 add_action('wp_ajax_add_todo_item', 'add_todo_item');
 function add_todo_item() {
@@ -1087,17 +1091,12 @@ function update_profile_callback() {
     }
     wp_die();
 }
-
-// Handle password update
 add_action('wp_ajax_change_password', 'change_password_callback');
 function change_password_callback() {
     check_ajax_referer('profile_nonce', 'nonce');
-
     $user_id = get_current_user_id();
     if ($user_id && isset($_POST['current_password'], $_POST['new_password'])) {
         $user = get_user_by('id', $user_id);
-        
-        // Check if current password is correct
         if (wp_check_password($_POST['current_password'], $user->data->user_pass, $user_id)) {
             wp_set_password($_POST['new_password'], $user_id);
             wp_send_json_success('Password updated successfully!');
@@ -1110,7 +1109,6 @@ function change_password_callback() {
     wp_die();
 }
 
-// Handle account deletion
 add_action('wp_ajax_delete_account', 'delete_account_callback');
 function delete_account_callback() {
     $user_id = get_current_user_id();

@@ -716,19 +716,26 @@ jQuery(document).ready(function ($) {
         });
     });
 
-    // Change Password
-    $('form.change-password').on('submit', function (e) {
-        e.preventDefault();
-        var data = {
-            action: 'change_password',
-            current_password: $('form.change-password input[name="current_password"]').val(),
-            new_password: $('form.change-password input[name="new_password"]').val(),
-        };
+ // Change Password
+$('form.change-password').on('submit', function (e) {
+    e.preventDefault();
 
-        $.post(ajax_object.ajax_url, data, function (response) {
-            alert(response.success ? 'Password updated successfully!' : response.data);
-        });
+    var data = {
+        action: 'change_password',
+        current_password: $('form.change-password input[name="current_password"]').val(),
+        new_password: $('form.change-password input[name="new_password"]').val(),
+        security: ajax_object.change_password_nonce // Nonce for security
+    };
+
+    $.post(ajax_object.ajax_url, data, function (response) {
+        if (response.success) {
+            alert('Password updated successfully!');
+        } else {
+            alert(response.data || 'An error occurred.');
+        }
     });
+});
+
 
     // Delete Account
     $('.delete-account-btn').on('click', function () {
