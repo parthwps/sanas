@@ -251,7 +251,7 @@ $completed_count = $wpdb->get_var(
                                         <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['social_media_profile']); ?>"><?php echo esc_html($my_vendor['social_media_profile']); ?></td>
                                         <td>$<?php echo esc_html($my_vendor['pricing']); ?></td>
                                         <td class="actions">
-                                            <a href="#" class="edit-myvendor theme-btn" data-id="<?php echo esc_attr($my_vendor['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-vendor-popup">
+                                            <a href="#" class="edit edit-myvendor theme-btn" data-id="<?php echo esc_attr($my_vendor['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-vendor-popup">
                                                 <i class="fa-solid fa-pen"></i>
                                             </a>
                                             <a href="#" class="delete theme-btn" data-id="<?php echo esc_attr($my_vendor['id']); ?>">
