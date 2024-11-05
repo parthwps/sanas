@@ -44,11 +44,11 @@ $youtube = get_user_meta($user_id, 'youtube', true);
         <div class="my-profile-box" data-tab="#tab-18">
           <div class="my-profile-details">
             <div class="profile-img">
-            <div class="profile-firstc user-profile-image">
+            <div class="profile-firstc">
               <?php
               $profile_picture = get_user_meta($user_id, 'profile_picture', true);
               if (!empty($profile_picture)) {
-                  echo '<img src="' . esc_url($profile_picture) . '" alt="Profile Picture">';
+                  echo '<img class="user-profile-image" src="' . esc_url($profile_picture) . '" alt="Profile Picture">';
               } else {
                   echo ucfirst($first_char);
               }
