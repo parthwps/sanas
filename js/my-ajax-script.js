@@ -37,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
 if (window.location.pathname === '/budget/') {
     jQuery(document).ready(function($) {
     jQuery('.budget-category-item').on('click', function() {
+        jQuery('.budget-category-item').removeClass('active');
+        jQuery(this).addClass('active');
         var categoryId = jQuery(this).data('id');
     
         $.ajax({
@@ -105,7 +107,7 @@ if (window.location.pathname === '/budget/') {
                     jQuery('#budget-expense tbody').html(rows);
                     jQuery('html, body').animate({
                         scrollTop: jQuery('#budget-expense-box').offset().top
-                    }, 500);
+                    }, 200);
                 } else {
                     alert('No expenses found for this category.');
                     jQuery('#budget-expense tbody').html('<tr><td colspan="8">No expenses to display.</td></tr>');
