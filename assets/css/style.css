@@ -81,7 +81,7 @@ img {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 99;
+    z-index: 9;
     background-color: var(--snas-bg-primary);
     padding: 0 100px;
 }
@@ -97,13 +97,13 @@ img {
     box-shadow: 0 7px 50px 0 rgba(0, 0, 0, .1);
     position: fixed;
     transform: translateY(0);
-    z-index: 999;
+    z-index: 9;
     transition: all 1.5s;
 }
 
 .sticky-header--cloned {
     position: fixed;
-    z-index: 991;
+    z-index: 91;
     top: 0;
     left: 0;
     width: 100%;
@@ -179,7 +179,7 @@ ul.main-menu-list>li>a:hover {
     transform-origin: top center;
     transform: scaleY(0) translateZ(100px);
     transition: opacity 500ms ease, visibility 500ms ease, transform 700ms ease;
-    z-index: 999;
+    z-index: 9;
     padding: 0;
     box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.09);
     transition: all 0.5s;
@@ -895,7 +895,7 @@ footer .btn-secondary {
 
 .mobile-nav-wrapper {
     position: fixed;
-    z-index: 991;
+    z-index: 91;
     top: 0;
     left: 0;
     width: 100vw;
@@ -905,7 +905,7 @@ footer .btn-secondary {
     transform-origin: left center;
     transition: all 0.5s;
     visibility: hidden;
-    z-index: 999999;
+    z-index: 9;
 }
 
 .mobile-nav-wrapper.expanded {
@@ -1110,7 +1110,7 @@ ul.mobile-menu-list .dropdown ul li a {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 99999;
+    z-index: 9;
 }
 
 .wl-invitation-header .inner-colum h3 {
@@ -1783,7 +1783,7 @@ span.color-coustum-piker input[type="color"] {
     visibility: hidden;
     height: 100vh;
     width: 100%;
-    z-index: 999999;
+    z-index: 9;
     transform: translateY(0%);
     background-color: rgba(0, 0, 0, 0.80);
     -webkit-transition: all 500ms ease;
@@ -2715,7 +2715,7 @@ section.wl-main-canvas .card-canvas .col-md-6:nth-child(2) .preview-img {
 
 .modal {
     right: 0 !important;
-    z-index: 99999999999;
+    z-index: 10;
 }
 
 .modal-dialog {
@@ -4031,7 +4031,7 @@ table.dataTable>tbody>tr>td.actions {
 }
 
 .dropdown-menu.show {
-    z-index: 99999;
+    z-index: 9;
 }
 
 table.dataTable.display>tbody>tr:nth-child(odd)>.sorting_1,
