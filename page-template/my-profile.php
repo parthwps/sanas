@@ -48,7 +48,7 @@ $youtube = get_user_meta($user_id, 'youtube', true);
               <?php
               $profile_picture = get_user_meta($user_id, 'profile_picture', true);
               if (!empty($profile_picture)) {
-                  echo '<img class="user-profile-image" src="' . esc_url($profile_picture) . '" alt="Profile Picture">';
+                  echo '<img src="' . esc_url($profile_picture) . '" alt="Profile Picture">';
               } else {
                   echo ucfirst($first_char);
               }

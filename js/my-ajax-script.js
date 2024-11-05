@@ -786,8 +786,7 @@ $('form.change-password').on('submit', function (e) {
         form_data.append('image', file_data);
         form_data.append('action', 'upload_user_profile_image');
 
-        // Show loader
-        $('.profile-firstc').append('<div>Loading...</div>');
+        showPreloader('Uploading image...');
 
         $.ajax({
             url: ajax_object.ajax_url,
@@ -795,26 +794,20 @@ $('form.change-password').on('submit', function (e) {
             contentType: false,
             processData: false,
             data: form_data,
-            beforeSend: function() {
-                // Optionally, make the loader more visually appealing
-                $('.profile-firstc .loader').show();
-            },
             success: function(response) {
+                hidePreloader();
                 if (response.success) {
                     jQuery("#tab-18 .my-profile-box").append('Profile image updated successfully!');
                     // Update all elements with the class 'user-profile-image' with the new image URL
                     $('.user-profile-image').attr('src', response.data.url);
-
-                    // Remove or hide the loader
-                    $('.profile-firstc .loader').remove();
+                    console.log(response.data.url);
                 } else {
                     alert('Failed to upload image: ' + response.data);
-                    $('.profile-firstc .loader').remove(); // Remove or hide the loader
                 }
             },
             error: function() {
+                hidePreloader();
                 alert('Error uploading image.');
-                $('.profile-firstc .loader').remove(); // Remove or hide the loader
             }
         });
     });
