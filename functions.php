@@ -1388,6 +1388,8 @@ function add_default_budget_data_on_user_registration($user_id) {
 add_action('user_register', 'add_default_budget_data_on_user_registration');
 
 
+add_action('wp_ajax_get_budget_expense_by_category', 'get_budget_expense_by_category');
+add_action('wp_ajax_nopriv_get_budget_expense_by_category', 'get_budget_expense_by_category'); // If you want to allow non-logged-in users
 
 function get_budget_expense_by_category() {
     if (isset($_POST['category_id'])) {
