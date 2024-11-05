@@ -219,7 +219,12 @@ get_sidebar('dashboard');
                   </thead>
                   <tbody>
                     <?php
-                    $expenses = get_expense_list($first_category);
+                    if($_GET['category'] != '') {
+                      $expense_category = $_GET['category'];
+                    } else {
+                      $expense_category = $first_category;
+                    }
+                    $expenses = get_expense_list($expense_category);
                     $total_estimated = 0;
                     $total_actual = 0;
                     $total_paid = 0;
