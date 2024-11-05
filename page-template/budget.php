@@ -265,5 +265,7 @@ get_sidebar('dashboard');
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<?php render_confirm_modal_html_alert(); ?>
+<?php render_modal_html_alert(); ?>
 <?php
 get_footer('dashboard');
