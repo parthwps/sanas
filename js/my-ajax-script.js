@@ -42,7 +42,7 @@ if (window.location.pathname === '/budget/') {
         var categoryId = jQuery(this).data('id');
         var categoryText = jQuery(this).find('span.txt').text();
         jQuery('.category_name_box').html(categoryText);
-        var categoryIcon = jQuery(this).find('.ttl').html();
+        var categoryIcon = jQuery(this).find('.ttl i').prop('outerHTML');
         jQuery('#budget-expense-box .icon-box').html(categoryIcon);
     
         $.ajax({
