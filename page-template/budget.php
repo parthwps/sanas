@@ -132,7 +132,7 @@ get_sidebar('dashboard');
                             ?>
                             
                             <li<?php echo $index === 0 ? ' class="active"' : ''; ?>>
-                                <a href="#budget-expense-box" class="budget-category-item" data-id="<?php echo esc_attr($category['id']); ?>">
+                                <a href="javascript:void(0)" class="budget-category-item" data-id="<?php echo esc_attr($category['id']); ?>">
                                     <div class="ttl">
                                         <i class="fa-solid fa-<?php echo !empty($category['icon_class']) ? esc_attr($category['icon_class']) : strtolower(substr($category['category_name'], 0, 1)); ?>"></i>
                                         <span class="txt"><?php echo esc_html($category['category_name']); ?></span>
