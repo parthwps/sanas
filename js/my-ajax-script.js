@@ -774,4 +774,34 @@ $('form.change-password').on('submit', function (e) {
             });
         }
     });
+
+    // Update Profile Picture
+    $('#edit-image-btn').on('click', function() {
+        $('#profile-image-upload').click();
+    });
+
+    $('#profile-image-upload').on('change', function() {
+        var file_data = $('#profile-image-upload').prop('files')[0];
+        var form_data = new FormData();
+        form_data.append('image', file_data);
+        form_data.append('action', 'upload_user_profile_image');
+
+        $.ajax({
+            url: ajax_object.ajax_url,
+            type: 'POST',
+            contentType: false,
+            processData: false,
+            data: form_data,
+            success: function(response) {
+                if (response.success) {
+                    alert('Image uploaded successfully!');
+                } else {
+                    alert('Failed to upload image: ' + response.data);
+                }
+            },
+            error: function() {
+                alert('Error uploading image.');
+            }
+        });
+    });
 });

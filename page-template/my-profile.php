@@ -44,8 +44,9 @@ $youtube = get_user_meta($user_id, 'youtube', true);
         <div class="my-profile-box">
           <div class="my-profile-details">
             <div class="profile-img">
-              <div class="profile-firstc"><?php echo ucfirst($first_char); ?></div> 
-              <button type="button" class="dashbord-btn">Edit Image</button>
+              <div class="profile-firstc"><?php echo ucfirst($first_char); ?></div>
+              <button type="button" class="dashbord-btn" id="edit-image-btn">Edit Image</button>
+              <input type="file" id="profile-image-upload" style="display: none;" accept="image/*">
             </div>
             <div class="profile-info">
               <div class="profile-info-title">
