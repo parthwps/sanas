@@ -453,18 +453,6 @@ get_sidebar('dashboard');
           var randomColors = categories.map(function() {
             return getRandomColor();
           });
-          var legendOptions = {
-            position: 'bottom'  // Position of the legend
-          };
-          if (categories.length > 10) {
-            legendOptions = {
-              show: true,  // Keep the legend shown
-              position: 'bottom',  // Keep the position at the bottom
-              formatter: function(seriesName, opts) {
-                return opts.seriesIndex < 10 ? seriesName : '';  // Hide legend for series beyond the 10th
-              }
-            };
-          }
         var options = {
             series: expenses,
             colors: randomColors,
@@ -474,7 +462,14 @@ get_sidebar('dashboard');
                 type: 'donut',
                 width: 400
             },
-            legend: legendOptions,
+            legend: {
+              show: true,
+              position: 'bottom',
+              formatter: function(seriesName, opts) {
+                // Show legend only for the first 10 series
+                return opts.seriesIndex < 10 ? seriesName : '';
+              }
+            },
             plotOptions: {
                 pie: {
                     donut: {
