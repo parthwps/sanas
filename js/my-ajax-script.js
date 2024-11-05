@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function show_confirm_modal_html_alert() {
         jQuery('#exampleConfirmModalLabel').text('Logout');
         jQuery('#confirm_modal-body-text').text('Are you sure you want to logout?');
-        jQuery('#confirm_modal_html_alert').modal('show');
+        jQuery('.confirm_modal_html_alert').modal('show');
     }
 
     // Logout button event listener
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle "No" button click in the confirmation modal
     jQuery('#modal-no-button').on('click', function () {
-        jQuery('#confirm_modal_html_alert').modal('hide');
+        jQuery('.confirm_modal_html_alert').modal('hide');
     });
 });
 
@@ -46,7 +46,7 @@ jQuery(document).ready(function($) {
                     $('#add-todolist-popup').modal('hide');
                     $('#exampleModalLabel').text('Success');
                     $('#modal-body-text').text(response.data);
-                    $('#modal_html_alert').modal('show');
+                    $('.modal_html_alert').modal('show');
                     recalculate_task();
                     $('#render-modal-yes-button').on('click', function() {
                         location.reload();
@@ -54,9 +54,9 @@ jQuery(document).ready(function($) {
                 } else {
                     $('#exampleModalLabel').text('Error');
                     $('#modal-body-text').text(response.data);
-                    $('#modal_html_alert').modal('show');
+                    $('.modal_html_alert').modal('show');
                     $('#render-modal-yes-button').on('click', function() {
-                        $('#modal_html_alert').modal('hide');
+                        $('.modal_html_alert').modal('hide');
                     });
                 }
             }
@@ -79,7 +79,7 @@ jQuery(document).ready(function($) {
                     $('#exampleModalLabel').text('Success');
                     $('#modal-body-text').text(response.data);
                     // Show the modal
-                    $('#modal_html_alert').modal('show');
+                    $('.modal_html_alert').modal('show');
 
                     // Handle the click event on the "Yes" button in the modal
                     $('#render-modal-yes-button').on('click', function() {
@@ -90,11 +90,11 @@ jQuery(document).ready(function($) {
                     $('#exampleModalLabel').text('Error');
                     $('#modal-body-text').text(response.data);
                     // Show the modal
-                    $('#modal_html_alert').modal('show');
+                    $('.modal_html_alert').modal('show');
 
                     // Handle the click event on the "Yes" button in the modal
                     $('#render-modal-yes-button').on('click', function() {
-                        $('#modal_html_alert').modal('hide');
+                        $('.modal_html_alert').modal('hide');
                     });
                 }
             }
@@ -129,14 +129,14 @@ jQuery(document).ready(function($) {
     function show_alert_message2(title, message) {
         $('#exampleConfirmModalLabel').text(title);
         $('#confirm_modal-body-text').text(message);
-        $('#confirm_modal_html_alert').modal('show');
+        $('.confirm_modal_html_alert').modal('show');
     }
 
     // When "Yes" button is clicked
     $('#modal-yes-button').on('click', function () {
         // Trigger the removal process
         proceedWithRemoval();
-        $('#confirm_modal_html_alert').modal('hide');
+        $('.confirm_modal_html_alert').modal('hide');
     });
 
     // Function to handle the AJAX call for removal
@@ -155,11 +155,11 @@ jQuery(document).ready(function($) {
                     $('#exampleModalLabel').text('Error');
                     $('#modal-body-text').text(response.data);
                     // Show the modal
-                    $('#modal_html_alert').modal('show');
+                    $('.modal_html_alert').modal('show');
 
                     // Handle the click event on the "Yes" button in the modal
                     $('#render-modal-yes-button').on('click', function() {
-                        $('#modal_html_alert').modal('hide');
+                        $('.modal_html_alert').modal('hide');
                     });
                 }
             }
@@ -275,7 +275,7 @@ if (window.location.pathname === '/vendors-list/') {
                             $('#exampleModalLabel').text('Success');
                             $('#modal-body-text').text('Vendor item added successfully.');
                             // Show the modal
-                            $('#modal_html_alert').modal('show');
+                            $('.modal_html_alert').modal('show');
 
                             // Handle the click event on the "Yes" button in the modal
                             $('#render-modal-yes-button').on('click', function() {
@@ -334,7 +334,7 @@ if (window.location.pathname === '/vendors-list/') {
                         $('#exampleModalLabel').text('Success');
                         $('#modal-body-text').text(response.data);
                         // Show the modal
-                        $('#modal_html_alert').modal('show');
+                        $('.modal_html_alert').modal('show');
                         $('#render-modal-yes-button').on('click', function() {
                             location.reload();
                         });
@@ -359,11 +359,11 @@ if (window.location.pathname === '/vendors-list/') {
                     $('#exampleModalLabel').text('Error');
                     $('#modal-body-text').text('Please select at least one vendor to move to the "My Vendors" page.');
                     // Show the modal
-                    $('#modal_html_alert').modal('show');
+                    $('.modal_html_alert').modal('show');
 
                     // Handle the click event on the "Yes" button in the modal
                     $('#render-modal-yes-button').on('click', function() {
-                        $('#modal_html_alert').modal('hide');
+                        $('.modal_html_alert').modal('hide');
                     });
                 } else {
                     $.ajax({
@@ -379,7 +379,7 @@ if (window.location.pathname === '/vendors-list/') {
                                 $('#exampleModalLabel').text('Success');
                                 $('#modal-body-text').text(response.data);
                                 // Show the modal
-                                $('#modal_html_alert').modal('show');
+                                $('.modal_html_alert').modal('show');
 
                                 // Handle the click event on the "Yes" button in the modal
                                 $('#render-modal-yes-button').on('click', function() {
@@ -390,11 +390,11 @@ if (window.location.pathname === '/vendors-list/') {
                                 $('#exampleModalLabel').text('Error');
                                 $('#modal-body-text').text(response.data);
                                 // Show the modal
-                                $('#modal_html_alert').modal('show');
+                                $('.modal_html_alert').modal('show');
 
                                 // Handle the click event on the "Yes" button in the modal
                                 $('#render-modal-yes-button').on('click', function() {
-                                    $('#modal_html_alert').modal('hide');
+                                    $('.modal_html_alert').modal('hide');
                                 });
                             }
                         }
@@ -407,14 +407,14 @@ if (window.location.pathname === '/vendors-list/') {
         function show_alert_message2(title, message) {
             $('#exampleConfirmModalLabel').text(title);
             $('#confirm_modal-body-text').text(message);
-            $('#confirm_modal_html_alert').modal('show');
+            $('.confirm_modal_html_alert').modal('show');
         }
 
         // When "Yes" button is clicked
         $('#modal-yes-button').on('click', function () {
             // Trigger the removal process
             proceedWithRemoval();
-            $('#confirm_modal_html_alert').modal('hide');
+            $('.confirm_modal_html_alert').modal('hide');
         });
 
         // Function to handle the AJAX call for removal
@@ -467,7 +467,7 @@ if (window.location.pathname === '/my-vendors/' || window.location.pathname === 
                             $('#add-todolist-popup').modal('hide');
                             $('#exampleModalLabel').text('Success');
                             $('#modal-body-text').text('Vendor item added successfully.');
-                            $('#modal_html_alert').modal('show');
+                            $('.modal_html_alert').modal('show');
                             $('#render-modal-yes-button').on('click', function() {
                                 location.reload();
                             });
@@ -492,11 +492,11 @@ if (window.location.pathname === '/my-vendors/' || window.location.pathname === 
                         $('#exampleModalLabel').text('Error');
                         $('#modal-body-text').text(response.data);
                         // Show the modal
-                        $('#modal_html_alert').modal('show');
+                        $('.modal_html_alert').modal('show');
 
                         // Handle the click event on the "Yes" button in the modal
                         $('#render-modal-yes-button').on('click', function() {
-                            $('#modal_html_alert').modal('hide');
+                            $('.modal_html_alert').modal('hide');
                         });
                     }
                 }
@@ -543,7 +543,7 @@ if (window.location.pathname === '/my-vendors/' || window.location.pathname === 
                         $('#exampleModalLabel').text('Success');
                         $('#modal-body-text').text(response.data);
                         // Show the modal
-                        $('#modal_html_alert').modal('show');
+                        $('.modal_html_alert').modal('show');
 
                         // Handle the click event on the "Yes" button in the modal
                         $('#render-modal-yes-button').on('click', function() {
@@ -554,11 +554,11 @@ if (window.location.pathname === '/my-vendors/' || window.location.pathname === 
                         $('#exampleModalLabel').text('Error');
                         $('#modal-body-text').text(response.data);
                         // Show the modal
-                        $('#modal_html_alert').modal('show');
+                        $('.modal_html_alert').modal('show');
 
                         // Handle the click event on the "Yes" button in the modal
                         $('#render-modal-yes-button').on('click', function() {
-                            $('#modal_html_alert').modal('hide');
+                            $('.modal_html_alert').modal('hide');
                         });
                     }
                 }
@@ -569,14 +569,14 @@ if (window.location.pathname === '/my-vendors/' || window.location.pathname === 
         function show_alert_message2(title, message) {
             $('#exampleConfirmModalLabel').text(title);
             $('#confirm_modal-body-text').text(message);
-            $('#confirm_modal_html_alert').modal('show');
+            $('.confirm_modal_html_alert').modal('show');
         }
         
         // When "Yes" button is clicked
         $('#modal-yes-button').on('click', function () {
             // Trigger the removal process
             proceedWithRemoval();
-            $('#confirm_modal_html_alert').modal('hide');
+            $('.confirm_modal_html_alert').modal('hide');
         });
         
         // Function to handle the AJAX call for removal
@@ -658,14 +658,14 @@ if (window.location.pathname === '/my-favorites/') {
         function show_alert_message2(title, message) {
             $('#exampleConfirmModalLabel').text(title);
             $('#confirm_modal-body-text').text(message);
-            $('#confirm_modal_html_alert').modal('show');
+            $('.confirm_modal_html_alert').modal('show');
         }
 
         // When "Yes" button is clicked
         $('#modal-yes-button').on('click', function () {
             // Trigger the removal process
             proceedWithRemoval();
-            $('#confirm_modal_html_alert').modal('hide');
+            $('.confirm_modal_html_alert').modal('hide');
         });
 
         // Function to handle the AJAX call for removal
