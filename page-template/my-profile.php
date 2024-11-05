@@ -44,7 +44,7 @@ $youtube = get_user_meta($user_id, 'youtube', true);
         <div class="my-profile-box">
           <div class="my-profile-details">
             <div class="profile-img">
-            <div class="profile-firstc">
+            <div class="profile-firstc user-profile-image">
               <?php
               $profile_picture = get_user_meta($user_id, 'profile_picture', true);
               if (!empty($profile_picture)) {
