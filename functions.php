@@ -1223,23 +1223,39 @@ function add_expense_callback() {
     wp_die(); // this is required to terminate immediately and return a proper response
 }
 
-add_action('wp_ajax_get_expense_list', 'get_expense_list');
 function get_expense_list() {
     global $wpdb;
-    $user_id = get_current_user_id();
+    $user_id = get_current_user_id(); // Assuming you want to fetch expenses for the current logged-in user
     $table_name = $wpdb->prefix . 'budget_expense';
 
-    $expenses = $wpdb->get_results(
+    $results = $wpdb->get_results(
         $wpdb->prepare(
-            "SELECT * FROM $table_name WHERE user_id = %d ORDER BY created_at DESC",
+            "SELECT * FROM $table_name WHERE user_id = %d",
             $user_id
         ),
         ARRAY_A
     );
 
-    if (!empty($expenses)) {
-        wp_send_json_success($expenses);
-    } else {
-        wp_send_json_error('No expenses found.');
+    return $results;
+}
+
+add_action('wp_ajax_get_expenses_ajax', 'get_expenses_ajax_handler');
+function get_expenses_ajax_handler() {
+    $expenses = get_expense_list();
+    ob_start();
+    foreach ($expenses as $item) {
+        echo '<tr>';
+        echo '<td>' . esc_html($item['expense']) . '</td>';
+        echo '<td>' . esc_html($item['vendor_name']) . '</td>';
+        echo '<td>' . esc_html($item['vendor_contact']) . '</td>';
+        echo '<td>' . esc_html($item['estimated_cost']) . '</td>';
+        echo '<td>' . esc_html($item['actual_cost']) . '</td>';
+        echo '<td>' . esc_html($item['paid']) . '</td>';
+        echo '<td>' . esc_html($item['due']) . '</td>';
+        echo '<td>Actions</td>'; // Placeholder for any actions like edit or delete
+        echo '</tr>';
     }
+    $output = ob_get_clean();
+    echo $output;
+    wp_die();
 }

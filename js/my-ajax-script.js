@@ -658,32 +658,8 @@ if (window.location.pathname === '/budget/') {
             });
         });
 
-        // get expense items
-        jQuery('.edit-expense').on('click', function() {
-            var id = $(this).data('id');
-            $.ajax({
-                type: 'POST',
-                url: ajax_object.ajax_url,  
-                data: { id: id, action: 'get_expense_list' },
-                success: function(response) {
-                    if (response.success) {
-                        // Set the modal title and message
-                        $('#edit-category-popup').modal('show');
-                        $('#edit-category-popup .modal-title').text('Edit Category Item');
-                        $('#edit-category-popup .modal-body').html(response.data);
-                    }
-                    else {
-                        // Set the modal title and message
-                        $('#edit-category-popup').modal('show');
-                        $('#edit-category-popup .modal-title').text('Edit Category Item');
-                        $('#edit-category-popup .modal-body').html(response.data);
-                    }
-                }
-            });
-        });
 
-
-                // Function to show the modal
+        // Function to show the modal
         function show_alert_message2(title, message) {
             $('#exampleConfirmModalLabel').text(title);
             $('#confirm_modal-body-text').text(message);
@@ -745,6 +721,21 @@ if (window.location.pathname === '/budget/') {
         //         });
         //     }
         // });
+
+        function loadExpenses() {
+            $.ajax({
+                url: ajax_object.ajax_url,
+                type: 'POST',
+                data: {
+                    action: 'get_expenses_ajax'
+                },
+                success: function(response) {
+                    $('#budget-expense tbody').html(response);
+                }
+            });
+        }
+
+        loadExpenses(); // Call this function on page load or whenever you need to refresh the table
     });
 }
 
