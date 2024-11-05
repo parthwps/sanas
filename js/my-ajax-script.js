@@ -7,28 +7,30 @@ document.addEventListener('DOMContentLoaded', () => {
         jQuery('#exampleConfirmModalLabel').text('Logout');
         jQuery('#confirm_modal-body-text').text('Are you sure you want to logout?');
         jQuery('#confirm_modal_html_alert').modal('show');
-        jQuery('#confirm_modal_html_alert').append('<input type="hidden" class="user-logout">');
     }
 
-    // Logout button event listener
+    // Track if logout button was clicked
+    let logoutBtnClicked = false;
+
+    // Logout button event listener 
     jQuery('.logout-btn').on('click', function(e) {
         e.preventDefault();
+        logoutBtnClicked = true;
         show_confirm_modal_html_alert();
     });
 
-    // Handle "Yes" button click in the confirmation modal 
+    // Handle "Yes" button click in the confirmation modal
     jQuery('#modal-yes-button').on('click', function () {
-        jQuery('.user-logout').on('click');
-    });
-
-    // Handle click on hidden logout field
-    jQuery(document).on('click', '.user-logout', function() {
-        const logoutUrl = jQuery('.logout-btn a').data('logout-url');
-        window.location.href = logoutUrl;
+        if (logoutBtnClicked) {
+            const logoutUrl = jQuery('.logout-btn a').data('logout-url');
+            window.location.href = logoutUrl;
+        }
+        logoutBtnClicked = false;
     });
 
     // Handle "No" button click in the confirmation modal
     jQuery('#modal-no-button').on('click', function () {
+        logoutBtnClicked = false;
         jQuery('#confirm_modal_html_alert').modal('hide');
     });
 });
