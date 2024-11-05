@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 if (window.location.pathname === '/budget/') {
-    
+    jQuery(document).ready(function($) {
     jQuery('.budget-category-item').on('click', function() {
         var categoryId = jQuery(this).data('id');
         console.log(categoryId); // This will log the clicked category ID
@@ -118,7 +118,7 @@ if (window.location.pathname === '/budget/') {
         return text.replace(/[&<>"']/g, function(m) { return map[m]; });
     }
     
-
+});
 }
 if (window.location.pathname === '/to-do-list/' || window.location.pathname === '/my-dashboard/') {
 document.addEventListener('DOMContentLoaded', () => {
