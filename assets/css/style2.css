@@ -6174,6 +6174,7 @@ button#add_new_group_button {
     border-radius: 12px;
     overflow: hidden;
     margin: auto;
+    z-index: 1200 !important;
 }
 #confirm_modal_html_alert .modal-header, #modal_html_alert .modal-header {
     border: none;
