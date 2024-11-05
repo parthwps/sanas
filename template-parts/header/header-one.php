@@ -45,7 +45,7 @@ if(is_page_template( 'page-template/myevent.php')
                   <li>Nancy</li>
                   <li><a href="<?php echo home_url(); ?>/my-dashboard">Dashboard</a></li>
                   <li><a href="<?php echo home_url(); ?>/my-events"> My Events</a></li>
-                  <li><a href="<?php echo esc_url($logout_url);?>">Logout</a></li>
+                  <li class="logout-btn"><a href="javascript:void(0);" data-logout-url="<?php echo $logout_url; ?>">Logout</a></li>
                 </ul>
               </div>
             </div>
