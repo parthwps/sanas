@@ -1167,7 +1167,7 @@ function create_budget_expense_table() {
             id INT NOT NULL AUTO_INCREMENT,
             user_id INT NOT NULL,
             category_id INT NOT NULL,
-            expense DECIMAL(10, 2),
+            expense VARCHAR(255),
             vendor_name VARCHAR(255),
             vendor_contact VARCHAR(255),
             estimated_cost DECIMAL(10, 2),
@@ -1288,3 +1288,61 @@ function get_expenses_ajax_handler() {
     echo $output;
     wp_die();
 }
+
+// expense and category dumy entries hook
+function add_default_budget_data_on_user_registration($user_id) {
+    global $wpdb;
+
+    // Set up default categories with their icon classes
+    $categories = [
+        ['Rentals', 'truck-moving'],
+        ['Bartenders', 'martini-glass'],
+        ['DJ/VJ', 'music'],
+        ['Choreographers', 'person'],
+        ['Cole sparklers', 'volume-high'],
+        ['360° Photo Booth', 'camera'],
+        ['Transportation', 'car'],
+        ['Alterations', 'person'],
+        ['Priest', 'hands-praying'],
+        ['Florist', 'fan'],
+        ['Pre Event Shooting', 'camera'],
+        ['Mehndi services', 'hand'],
+        ['Makeup artist', 'paintbrush'],
+        ['Saree draping', 'shirt']
+    ];
+
+    // Insert default categories into `prefix_budget_category`
+    foreach ($categories as $category) {
+        $wpdb->insert(
+            "{$wpdb->prefix}budget_category",
+            [
+                'user_id'       => $user_id,
+                'category_name' => $category[0],
+                'icon_class'    => $category[1],
+                'created_at'    => current_time('mysql'),
+            ]
+        );
+        // Get the inserted category ID
+        $category_id = $wpdb->insert_id;
+
+        // Insert two dummy expenses for each category into `prefix_budget_expense`
+        for ($i = 1; $i <= 2; $i++) {
+            $wpdb->insert(
+                "{$wpdb->prefix}budget_expense",
+                [
+                    'user_id'         => $user_id,
+                    'category_id'     => $category_id,
+                    'expense'         => "{$category[0]} Expense $i",
+                    'estimated_cost'  => 500.00,
+                    'actual_cost'     => 0.00,
+                    'paid'            => 0.00,
+                    'due'             => 0.00,
+                    'created_at'      => current_time('mysql'),
+                ]
+            );
+        }
+    }
+}
+
+// Hook into user registration
+add_action('user_register', 'add_default_budget_data_on_user_registration');
