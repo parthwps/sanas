@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle "Yes" button click in the confirmation modal 
     jQuery('#modal-yes-button').on('click', function () {
-        jQuery('.user-logout').trigger('click');
+        jQuery('.user-logout').on('click');
     });
 
     // Handle click on hidden logout field
