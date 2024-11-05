@@ -115,7 +115,7 @@ get_sidebar('dashboard');
                       <?php if ($categories): ?>
                       <?php $expense_totals = $wpdb->get_results(
         $wpdb->prepare("
-            SELECT category_id, SUM(actual_cost) as total_expense
+            SELECT category_id, SUM(estimated_cost) as total_expense
             FROM {$wpdb->prefix}budget_expense
             WHERE user_id = %d
             GROUP BY category_id
