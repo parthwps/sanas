@@ -122,10 +122,14 @@ get_sidebar('dashboard');
                             ", $current_user_id),
                             OBJECT_K
                         );
-
+                        $i = 0;
                         foreach ($categories as $index => $category) {
                             // Retrieve total expense for the current category, default to 0 if not set
                             $category_id = $category['id'];
+                            if($i == 0){
+                              $first_category = $category_id;
+                              $i++;
+                            }
                             $total_expense = isset($expense_totals[$category_id]) ? $expense_totals[$category_id]->total_expense : 0;
                             $js_categories[] = esc_js($category['category_name']);
                             $js_expenses[] = (float) $total_expense;
@@ -215,7 +219,7 @@ get_sidebar('dashboard');
                   </thead>
                   <tbody>
                     <?php
-                    $expenses = get_expense_list();
+                    $expenses = get_expense_list($first_category);
                     $total_estimated = 0;
                     $total_actual = 0;
                     $total_paid = 0;
