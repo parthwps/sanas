@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         jQuery('#confirm_modal_html_alert').modal('hide');
     });
 });
-if (window.location.pathname === '/my-dashboard/') {
+if (window.location.pathname === '/budget/') {
     
 jQuery('.budget-category-item').on('click', function() {
     var categoryId = $(this).data('id');
