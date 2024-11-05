@@ -34,7 +34,25 @@ document.addEventListener('DOMContentLoaded', () => {
         jQuery('#confirm_modal_html_alert').modal('hide');
     });
 });
+if (window.location.pathname === '/my-dashboard/') {
+    
+$('.category-item').on('click', function() {
+    var categoryId = $(this).data('id');
+    console.log(categoryId);
+    // $.ajax({
+    //     url: '/path/to/your/endpoint',
+    //     method: 'GET',
+    //     data: { category_id: categoryId },
+    //     success: function(response) {
+    //         $('#expenses-list').html(response.expenses_html);
+    //     },
+    //     error: function() {
+    //         alert('Error loading expenses.');
+    //     }
+    // });
+});
 
+}
 if (window.location.pathname === '/to-do-list/' || window.location.pathname === '/my-dashboard/') {
 document.addEventListener('DOMContentLoaded', () => {
     const today = new Date();
