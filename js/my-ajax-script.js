@@ -622,33 +622,97 @@ if (window.location.pathname === '/budget/') {
                 data: formData + '&action=add_budget_category_item',
                 success: function(response) {
                     if (response.success) {
-                        alert(response.data);
-                        location.reload();
+                        // Hide add-vendor-popup
+                        $('#add-todolist-popup').modal('hide');
+                        // Set the modal title and message
+                        $('#exampleModalLabel').text('Success');
+                        $('#modal-body-text').text('Category item added successfully.');
+                        // Show the modal
+                        $('#modal_html_alert').modal('show');
+
+                        // Handle the click event on the "Yes" button in the modal
+                        $('#render-modal-yes-button').on('click', function() {
+                            location.reload();
+                        });
                     } else {
-                        alert(response.data);
+                        // Set the modal title and message
+                        $('#exampleModalLabel').text('Error');
+                        $('#modal-body-text').text(response.data);
+                        // Show the modal
+                        $('#modal_html_alert').modal('show');
+
+                        // Handle the click event on the "Yes" button in the modal
+                        $('#render-modal-yes-button').on('click', function() {
+                            $('#modal_html_alert').modal('hide');
+                        })
                     }
                 }
             });
         });
 
-        jQuery('.delete').on('click', function() {
-            var categoryId = jQuery(this).data('id');
-            if (confirm('Do you want to delete this entry?')) {
-                $.ajax({
-                    type: 'POST',
-                    url: ajax_object.ajax_url,
-                        data: { id: categoryId, action: 'delete_budget_category_item' },
-                    success: function(response) {
-                        if (response.success) {
-                            alert(response.data);
-                            location.reload();
-                        } else {
-                            alert(response.data);
-                        }
-                    }
-                });
-            }
+
+                // Function to show the modal
+        function show_alert_message2(title, message) {
+            $('#exampleConfirmModalLabel').text(title);
+            $('#confirm_modal-body-text').text(message);
+            $('#confirm_modal_html_alert').modal('show');
+        }
+        
+        // When "Yes" button is clicked
+        $('#modal-yes-button').on('click', function () {
+            // Trigger the removal process
+            proceedWithRemoval();
+            $('#confirm_modal_html_alert').modal('hide');
         });
+        
+        // Function to handle the AJAX call for removal
+        function proceedWithRemoval() {
+            var vendorId = currentVendorId;
+        
+            $.ajax({
+                type: 'POST',
+                url: ajax_object.ajax_url,
+                data: { id: vendorId, action: 'delete_budget_category_item' },
+                success: function(response) {   
+                    if (response.success) {
+                        location.reload();
+                    } else {
+                        alert(response.data);  
+                    }
+                }
+            });
+        }
+        
+        // Keep track of the vendor ID for the current action
+        var currentVendorId;
+        
+        // Click handler for the delete icon
+        $(".delete").on("click", function (e) {
+            e.preventDefault();
+            currentVendorId = $(this).data("id");
+        
+            show_alert_message2('Delete Category', 'Do you want to delete this entry?');
+        });
+
+
+        // jQuery('.delete').on('click', function() {
+        //     var categoryId = jQuery(this).data('id');
+        //     if (confirm('Do you want to delete this entry?')) {
+        //         $.ajax({
+        //             type: 'POST',
+        //             url: ajax_object.ajax_url,
+        //                 data: { id: categoryId, action: 'delete_budget_category_item' },
+        //             success: function(response) {
+        //                 if (response.success) {
+        //                     alert(response.data);
+        //                     location.reload();
+        //                 } else {
+        //                     alert(response.data);
+        //                 }
+        //             }
+        //         });
+        //     }
+        // });
     });
 }
 
