@@ -63,7 +63,7 @@
                         </a>
                     </li>
                     <li class="nav-item logout-btn">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="javascript:void(0);">
                             <i class="fa-solid fa-power-off"></i>
                             Logout
                         </a>

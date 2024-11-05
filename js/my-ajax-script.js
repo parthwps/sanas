@@ -4,11 +4,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to show the modal
     function show_confirm_modal_html_alert(title, message) {
-        $('#exampleConfirmModalLabel').text(title);
-        $('#confirm_modal-body-text').text(message);
-        $('#confirm_modal_html_alert').modal('show');
+        jQuery('#exampleConfirmModalLabel').text(title);
+        jQuery('#confirm_modal-body-text').text(message);
+        jQuery('#confirm_modal_html_alert').modal('show');
     }
     
+    // When "Yes" button is clicked
+    jQuery('#modal-yes-button').on('click', function () {
+        //redirect to login page
+        window.location.href = '/wp-login.php?action=logout';
+    });
+
     // logout button event listener
     const logoutButton = document.querySelector('.logout-btn');
     logoutButton.addEventListener('click', function(e) {
@@ -16,15 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
         show_confirm_modal_html_alert('Logout', 'Are you sure you want to logout?');
     });
 
-    // When "Yes" button is clicked
-    $('#modal-yes-button').on('click', function () {
-        //redirect to login page
-        window.location.href = '/wp-login.php?action=logout';
-    });
-
     // When "No" button is clicked
-    $('#modal-no-button').on('click', function () {
-        $('#confirm_modal_html_alert').modal('hide');
+    jQuery('#modal-no-button').on('click', function () {
+        jQuery('#confirm_modal_html_alert').modal('hide');
     });
 });
 
