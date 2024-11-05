@@ -459,7 +459,7 @@ get_sidebar('dashboard');
 
           // Define chart options
           var options = {
-            series: { 10, 10, 10, 10, 10, 10, 10, 5, 5, 5, 5, 5, 3, 2},  // Total expenses per category
+            series: expenses,  // Total expenses per category
             colors: randomColors,  // Random colors
             labels: categories,  // Category names
             markers: false,
