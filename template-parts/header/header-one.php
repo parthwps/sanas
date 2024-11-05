@@ -37,7 +37,14 @@ if(is_page_template( 'page-template/myevent.php')
             <div class="user">
               <div class="inner-colum justify-content-end dropdown">
                   <div class="btn-profile dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true">
-                      <?php echo ucfirst($first_char); ?>
+                      <?php
+                      $profile_picture = get_user_meta($userID, 'profile_picture', true);
+                      if (!empty($profile_picture)) {
+                          echo '<img class="user-profile-image" src="' . esc_url($profile_picture) . '" alt="Profile Picture">';
+                      } else {
+                          echo ucfirst($first_char);
+                      }
+                      ?>
                   </div>                
                 <img class="btn btn-secondary dropdown-toggle" style="display:none;" data-bs-toggle="dropdown" aria-expanded="false"
                   src="<?php echo get_template_directory_uri(); ?>/assets/img/login-img.jpg" alt="login-person">
