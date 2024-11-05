@@ -2,29 +2,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const tooltipTriggerList = document.querySelectorAll('[data-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
-    // Function to show the logout confirmation modal
-    function show_confirm_modal_html_alert() {
-        jQuery('#exampleConfirmModalLabel').text('Logout');
-        jQuery('#confirm_modal-body-text').text('Are you sure you want to logout?');
-        jQuery('#confirm_modal_html_alert').modal('show');
-    }
+    // // Function to show the logout confirmation modal
+    // function show_confirm_modal_html_alert() {
+    //     jQuery('#exampleConfirmModalLabel').text('Logout');
+    //     jQuery('#confirm_modal-body-text').text('Are you sure you want to logout?');
+    //     jQuery('#confirm_modal_html_alert').modal('show');
+    // }
 
-    // Logout button event listener
-    const logoutButton = document.querySelector('.logout-btn');
-    logoutButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        show_confirm_modal_html_alert();
-    });
+    // // Logout button event listener
+    // const logoutButton = document.querySelector('.logout-btn');
+    // logoutButton.addEventListener('click', function(e) {
+    //     e.preventDefault();
+    //     show_confirm_modal_html_alert();
+    // });
 
-    // Handle "Yes" button click in the confirmation modal
-    jQuery('#modal-yes-button').on('click', function () {
-        window.location.href = "<?php echo wp_logout_url(home_url()); ?>";
-    });
+    // // Handle "Yes" button click in the confirmation modal
+    // jQuery('#modal-yes-button').on('click', function () {
+    //     window.location.href = "<?php echo wp_logout_url(home_url()); ?>";
+    // });
 
-    // Handle "No" button click in the confirmation modal
-    jQuery('#modal-no-button').on('click', function () {
-        jQuery('#confirm_modal_html_alert').modal('hide');
-    });
+    // // Handle "No" button click in the confirmation modal
+    // jQuery('#modal-no-button').on('click', function () {
+    //     jQuery('#confirm_modal_html_alert').modal('hide');
+    // });
 });
 
 if (window.location.pathname === '/to-do-list/' || window.location.pathname === '/my-dashboard/') {
