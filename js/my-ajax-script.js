@@ -794,8 +794,9 @@ $('form.change-password').on('submit', function (e) {
             data: form_data,
             success: function(response) {
                 if (response.success) {
-                    
+                    // Update all elements with the class 'user-profile-image' with the new image URL
                     $('.user-profile-image').attr('src', response.data.url);
+                    console.log(response.data.url);
                 } else {
                     alert('Failed to upload image: ' + response.data);
                 }

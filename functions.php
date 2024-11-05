@@ -1121,26 +1121,18 @@ add_action('wp_ajax_upload_user_profile_image', 'upload_user_profile_image_callb
 
 function upload_user_profile_image_callback() {
     $user_id = get_current_user_id();
-    if (!$user_id) {
-        wp_send_json_error('User not logged in');
-        wp_die();
-    }
-
-    if (!function_exists('wp_handle_upload')) {
-        require_once(ABSPATH . 'wp-admin/includes/file.php');
-    }
-
     $uploadedfile = $_FILES['image'];
     $upload_overrides = array('test_form' => false);
     $movefile = wp_handle_upload($uploadedfile, $upload_overrides);
 
     if ($movefile && !isset($movefile['error'])) {
-        // File is uploaded successfully. Now save it as user meta.
         update_user_meta($user_id, 'profile_picture', $movefile['url']);
-        wp_send_json_success('Image uploaded successfully!');
+        wp_send_json_success(array('url' => $movefile['url']));
     } else {
         wp_send_json_error($movefile['error']);
     }
 
     wp_die();
 }
+add_action('wp_ajax_upload_user_profile_image', 'upload_user_profile_image_callback');
+add_action('wp_ajax_nopriv_upload_user_profile_image', 'upload_user_profile_image_callback');
