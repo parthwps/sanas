@@ -41,7 +41,7 @@ $youtube = get_user_meta($user_id, 'youtube', true);
 <div class="wl-dashboard-wrapper dashboard">
     <div class="container-fluid wl-dashboard-content">
       <div class="my-profile profile-form">
-        <div class="my-profile-box">
+        <div class="my-profile-box" data-tab="#tab-18">
           <div class="my-profile-details">
             <div class="profile-img">
             <div class="profile-firstc user-profile-image">

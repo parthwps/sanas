@@ -794,6 +794,7 @@ $('form.change-password').on('submit', function (e) {
             data: form_data,
             success: function(response) {
                 if (response.success) {
+                    jQuery("#tab-18 .my-profile-box").append('Profile image updated successfully!');
                     // Update all elements with the class 'user-profile-image' with the new image URL
                     $('.user-profile-image').attr('src', response.data.url);
                     console.log(response.data.url);
