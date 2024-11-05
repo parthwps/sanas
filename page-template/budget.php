@@ -158,7 +158,7 @@ get_sidebar('dashboard');
                <div class="title">
                 <h4>Expense</h4>
                </div>
-              <a href="#" class="dashbord-btn mt-2 me-2" data-bs-toggle="modal" data-bs-target="#add-category-popup"> Add New
+              <a href="#" class="dashbord-btn mt-2 me-2" data-bs-toggle="modal" data-bs-target="#add-expense-popup"> Add New
                 Expense</a>
             </div>
             <div class="table-box upcoming-tasks">
@@ -264,7 +264,7 @@ get_sidebar('dashboard');
       </div>
     </div>
   </div>
-  <div class="modal fade def-popup add-category-popup" id="add-category-popup" tabindex="-1" role="dialog"
+  <div class="modal fade def-popup add-expense-popup" id="add-expense-popup" tabindex="-1" role="dialog"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -329,7 +329,7 @@ get_sidebar('dashboard');
       </div>
     </div>
   </div>
-  <div class="modal fade def-popup add-category-popup" id="edit-category-popup" tabindex="-1" role="dialog"
+  <div class="modal fade def-popup add-expense-popup" id="edit-expense-popup" tabindex="-1" role="dialog"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -382,7 +382,7 @@ get_sidebar('dashboard');
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
-                      <input type="hidden" name="id" id="edit-category-id">
+                      <input type="hidden" name="id" id="edit-expense-id">
                       <button type="submit" class="dashbord-btn">Save</button>
                     </div>
                   </div>
