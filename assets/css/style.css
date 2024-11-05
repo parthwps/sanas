@@ -4378,7 +4378,8 @@ table.dataTable thead>tr>td.dt-orderable-desc:hover {
 }
 
 .add-todolist-popup form label,
-.add-category-popup form label {
+.add-category-popup form label,
+.add-expense-popup form label {
     font-weight: 500;
     font-size: 14px;
     line-height: 24px;
@@ -4387,7 +4388,8 @@ table.dataTable thead>tr>td.dt-orderable-desc:hover {
 }
 
 .add-todolist-popup.modal.fade form .form-control,
-.add-category-popup.modal.fade form .form-control {
+.add-category-popup.modal.fade form .form-control,
+.add-expense-popup.modal.fade form .form-control {
     position: relative;
     display: block;
     width: 100%;
