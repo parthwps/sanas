@@ -1126,8 +1126,26 @@ function upload_user_profile_image_callback() {
     $movefile = wp_handle_upload($uploadedfile, $upload_overrides);
 
     if ($movefile && !isset($movefile['error'])) {
-        update_user_meta($user_id, 'profile_picture', $movefile['url']);
-        wp_send_json_success(array('url' => $movefile['url']));
+        // Generate thumbnail
+        $image_id = wp_insert_attachment(array(
+            'guid'           => $movefile['url'],
+            'post_mime_type' => $movefile['type'],
+            'post_title'     => preg_replace('/\.[^.]+$/', '', basename($movefile['file'])),
+            'post_content'   => '',
+            'post_status'    => 'inherit'
+        ), $movefile['file']);
+
+        require_once(ABSPATH . 'wp-admin/includes/image.php');
+        $attach_data = wp_generate_attachment_metadata($image_id, $movefile['file']);
+        wp_update_attachment_metadata($image_id, $attach_data);
+
+        // Get thumbnail URL
+        $thumbnail_url = wp_get_attachment_image_url($image_id, 'thumbnail');
+
+        // Update user meta with thumbnail URL
+        update_user_meta($user_id, 'profile_picture', $thumbnail_url);
+
+        wp_send_json_success(array('url' => $thumbnail_url));
     } else {
         wp_send_json_error($movefile['error']);
     }
