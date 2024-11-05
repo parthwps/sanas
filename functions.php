@@ -995,7 +995,13 @@ function delete_budget_category_item() {
     $id = intval($_POST['id']);
 
     $wpdb->delete($wpdb->prefix . 'budget_category', array('id' => $id, 'user_id' => $current_user_id));
-    wp_send_json_success('Budget category item deleted successfully.');
+        // Delete related expenses
+    $wpdb->delete($wpdb->prefix . 'budget_expense', array('category_id' => $id, 'user_id' => $current_user_id));
+    if ($delete_category) {
+        wp_send_json_success('Budget category item and related expenses deleted successfully.');
+    } else {
+        wp_send_json_error('Failed to delete budget category item.');
+    }
 }
 
 // Render Modal HTML Alert
