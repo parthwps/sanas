@@ -1217,21 +1217,25 @@ function add_expense_callback() {
     wp_die(); // this is required to terminate immediately and return a proper response
 }
 
-function get_expense_list() {
+function get_expense_list($category_id = null) {
     global $wpdb;
-    $user_id = get_current_user_id(); // Assuming you want to fetch expenses for the current logged-in user
+    $user_id = get_current_user_id(); // Get the current logged-in user ID
     $table_name = $wpdb->prefix . 'budget_expense';
+    $query = "SELECT * FROM $table_name WHERE user_id = %d";
+    $query_params = [$user_id];
+    if ($category_id !== null) {
+        $query .= " AND category_id = %d";
+        $query_params[] = $category_id;
+    }
 
     $results = $wpdb->get_results(
-        $wpdb->prepare(
-            "SELECT * FROM $table_name WHERE user_id = %d",
-            $user_id
-        ),
+        $wpdb->prepare($query, $query_params),
         ARRAY_A
     );
 
     return $results;
 }
+
 
 add_action('wp_ajax_get_expenses_ajax', 'get_expenses_ajax_handler');
 function get_expenses_ajax_handler() {
@@ -1390,7 +1394,7 @@ function get_budget_expense_by_category() {
         $category_id = intval($_POST['category_id']); // Sanitize input
 
         // Query to get expenses based on category ID
-        $expenses = get_expenses_by_category($category_id); // Assume this function fetches expenses
+        $expenses = get_expense_list($category_id); // Assume this function fetches expenses
 
         if (!empty($expenses)) {
             // Return the expenses in a JSON response
