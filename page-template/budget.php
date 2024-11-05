@@ -495,26 +495,6 @@ get_sidebar('dashboard');
           chart.render();
         }
       });
-      if ($('#guest_attending').length) {
-        var con = 52;
-        var pending = 24;
-        var options = {
-            series: [con, pending],
-            colors: ['#28c38d', '#ff6666'],
-            labels: [],
-            markers: false,
-            chart: {
-                type: 'donut',
-                width: '100%'
-            },
-            legend: {
-                position: 'bottom'
-            }
-        };
-        options.labels = ['sent (' + options.series[0] + ')', 'Pending (' + options.series[1] + ')']
-        var chart = new ApexCharts(document.querySelector("#guest_attending"), options);
-        chart.render();
-    }
     </script>
     
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
