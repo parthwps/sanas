@@ -112,117 +112,42 @@ get_sidebar('dashboard');
                       <?php
                       $categories = get_all_budget_categories();
                       ?>
-<?php
-if ($categories) {
-    global $wpdb;
-    $current_user_id = get_current_user_id();
+                      <?php if ($categories): ?>
+                      <?php $expense_totals = $wpdb->get_results(
+                            $wpdb->prepare("
+                                SELECT category_id, SUM(estimated_cost) as total_expense
+                                FROM {$wpdb->prefix}budget_expense
+                                WHERE user_id = %d
+                                GROUP BY category_id
+                            ", $current_user_id),
+                            OBJECT_K
+                        );
 
-    // Get total expenses per category for the logged-in user
-    $expense_totals = $wpdb->get_results(
-        $wpdb->prepare("
-            SELECT category_id, SUM(actual_cost) as total_expense
-            FROM {$wpdb->prefix}budget_expense
-            WHERE user_id = %d
-            GROUP BY category_id
-        ", $current_user_id),
-        OBJECT_K
-    );
-
-    // Prepare arrays for JavaScript
-    $js_categories = [];
-    $js_expenses = [];
-    $total_expense_sum = 0;
-
-    // Calculate total expenses for all categories
-    foreach ($expense_totals as $expense) {
-        $total_expense_sum += $expense->total_expense;
-    }
-
-    foreach ($categories as $index => $category) {
-        // Retrieve total expense for the current category, default to 0 if not set
-        $category_id = $category['id'];
-        $total_expense = isset($expense_totals[$category_id]) ? $expense_totals[$category_id]->total_expense : 0;
-
-        // Populate JavaScript arrays
-        $js_categories[] = esc_js($category['category_name']);
-        $js_expenses[] = $total_expense;
-    }
-    
-    // If total expenses sum is not zero, calculate percentages
-    if ($total_expense_sum > 0) {
-        $js_percentages = array_map(function($expense) use ($total_expense_sum) {
-            return ($expense / $total_expense_sum) * 100; // Convert to percentage
-        }, $js_expenses);
-    } else {
-        $js_percentages = array_fill(0, count($js_expenses), 0); // Default to 0 if no expenses
-    }
-    ?>
-    
-    <script>
-      jQuery(document).ready(function () {
-        if (jQuery('#donut-chart-1').length) {
-          // Assign PHP arrays to JavaScript variables
-          var categories = <?php echo json_encode($js_categories); ?>;
-          var percentages = <?php echo json_encode($js_percentages); ?>;
-
-          // Function to generate random colors
-          function getRandomColor() {
-            var letters = '0123456789ABCDEF';
-            var color = '#';
-            for (var i = 0; i < 6; i++) {
-              color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-          }
-
-          // Generate random colors for each category
-          var randomColors = categories.map(function() {
-            return getRandomColor();
-          });
-
-          // Define chart options
-          var options = {
-            series: percentages,  // Use percentages for the chart
-            colors: randomColors,  // Random colors
-            labels: categories,  // Category names
-            markers: false,
-            chart: {
-              type: 'donut',
-              width: 400
-            },
-            legend: {
-              position: 'bottom'
-            },
-            plotOptions: {
-              pie: {
-                donut: {
-                  size: '55%'
-                }
-              }
-            },
-            responsive: [{
-              breakpoint: 480,
-              options: {
-                chart: {
-                  width: 250
-                },
-                legend: {
-                  position: 'bottom'
-                }
-              }
-            }]
-          };
-
-          // Create and render the chart
-          var chart = new ApexCharts(document.querySelector("#donut-chart-1"), options);
-          chart.render();
-        }
-      });
-    </script>
-    <?php
-}
-?>
-
+                        foreach ($categories as $index => $category) {
+                            // Retrieve total expense for the current category, default to 0 if not set
+                            $category_id = $category['id'];
+                            $total_expense = isset($expense_totals[$category_id]) ? $expense_totals[$category_id]->total_expense : 0;
+                            
+                            $js_categories[] = esc_js($category['category_name']);
+                            $js_expenses[] = $total_expense;
+                            ?>
+                            
+                            <li<?php echo $index === 0 ? ' class="active"' : ''; ?>>
+                                <a href="#budget-expense-box">
+                                    <div class="ttl">
+                                        <i class="fa-solid fa-<?php echo !empty($category['icon_class']) ? esc_attr($category['icon_class']) : strtolower(substr($category['category_name'], 0, 1)); ?>"></i>
+                                        <span class="txt"><?php echo esc_html($category['category_name']); ?></span>
+                                    </div>
+                                    <div class="count">
+                                        <span>$<?php echo $total_expense; ?></span>
+                                        <i class="fa fa-trash<?php echo $category['user_id'] != 0 ? ' delete' : ''; ?>" <?php echo $category['user_id'] != 0 ? 'data-id="' . esc_attr($category['id']) . '"' : ''; ?>></i>
+                                    </div>
+                                </a>
+                            </li>
+                            
+                            <?php
+                        } ?>
+                      <?php endif; ?>
                     </ul>
                   </div>
                 </div>
@@ -510,6 +435,7 @@ if ($categories) {
       </div>
     </div>
   </div>
+<script>
       jQuery(document).ready(function () {
         if (jQuery('#donut-chart-1').length) {
           // Assign PHP arrays to JavaScript variables
@@ -533,7 +459,7 @@ if ($categories) {
 
           // Define chart options
           var options = {
-            series: expenses,  // Total expenses per category
+            series: { 10, 10, 10, 10, 10, 10, 10, 5, 5, 5, 5, 5, 3, 2},  // Total expenses per category
             colors: randomColors,  // Random colors
             labels: categories,  // Category names
             markers: false,
