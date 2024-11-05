@@ -195,7 +195,7 @@ get_sidebar('dashboard');
                   }
                 }
                 ?>
-                <div class="icon-box"><i class="fa-solid <?php echo $category_icon; ?>"></i></div>
+                <div class="icon-box"><i class="fa-solid fa-<?php echo $category_icon; ?>"></i></div>
                 <div class="category_name_box"><?php echo $category_name_temp;?></div>
                 <div class="cost">
                   <span class="c-text">Estimated cost: <span class="category_estimated">$ 12,320</span></span>
