@@ -58,6 +58,7 @@ if (window.location.pathname === '/budget/') {
     
                     // Iterate over expenses and build table rows
                     expenses.forEach(function(expense) {
+                        console.log(expense);
                         total_estimated += parseFloat(expense.estimated_cost);
                         total_actual += parseFloat(expense.actual_cost);
                         total_paid += parseFloat(expense.paid);
