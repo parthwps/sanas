@@ -886,3 +886,28 @@ $('form.change-password').on('submit', function (e) {
         });
     });
 });
+
+jQuery(document).ready(function($) {
+    $('#add-vendor-form').submit(function(e) {
+        e.preventDefault();
+        var formData = $(this).serialize();
+        formData += '&action=add_expense'; // Append the action for WP AJAX
+
+        $.ajax({
+            type: 'POST',
+            url: ajax_object.ajax_url, // URL from localized script
+            data: formData,
+            success: function(response) {
+                if (response.success) {
+                    alert('Expense added successfully!');
+                    $('#add-expense-popup').modal('hide');
+                } else {
+                    alert('Error: ' + response.data);
+                }
+            },
+            error: function() {
+                alert('Failed to process the request.');
+            }
+        });
+    });
+});

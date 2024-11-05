@@ -1183,3 +1183,42 @@ function create_budget_expense_table() {
     }
 }
 add_action('after_switch_theme', 'create_budget_expense_table');
+
+add_action('wp_ajax_add_expense', 'add_expense_callback');
+function add_expense_callback() {
+    global $wpdb;
+    $user_id = get_current_user_id();
+    $table_name = $wpdb->prefix . 'budget_expense';
+
+    // Sanitize and prepare data
+    $category_id = isset($_POST['category_id']) ? intval($_POST['category_id']) : 0;
+    $expense = isset($_POST['expense']) ? sanitize_text_field($_POST['expense']) : '';
+    $vendor_name = isset($_POST['vendor_name']) ? sanitize_text_field($_POST['vendor_name']) : '';
+    $vendor_contact = isset($_POST['vendor_contact']) ? sanitize_text_field($_POST['vendor_contact']) : '';
+    $estimated_cost = isset($_POST['estimated_cost']) ? floatval($_POST['estimated_cost']) : 0;
+    $actual_cost = isset($_POST['actual_cost']) ? floatval($_POST['actual_cost']) : 0;
+    $paid = isset($_POST['paid']) ? floatval($_POST['paid']) : 0;
+    $due = isset($_POST['due']) ? floatval($_POST['due']) : 0;
+
+    // Insert data into the database
+    $result = $wpdb->insert($table_name, [
+        'user_id' => $user_id,
+        'category_id' => $category_id,
+        'expense' => $expense,
+        'vendor_name' => $vendor_name,
+        'vendor_contact' => $vendor_contact,
+        'estimated_cost' => $estimated_cost,
+        'actual_cost' => $actual_cost,
+        'paid' => $paid,
+        'due' => $due,
+        'created_at' => current_time('mysql', 1)
+    ]);
+
+    if ($result) {
+        wp_send_json_success('Expense added successfully.');
+    } else {
+        wp_send_json_error('Failed to add expense.');
+    }
+
+    wp_die(); // this is required to terminate immediately and return a proper response
+}

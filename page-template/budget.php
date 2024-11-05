@@ -288,7 +288,7 @@ get_sidebar('dashboard');
                   <div class="col-lg-12 col-sm-12">
                     <div class="form-group">
                       <label>Vendor Name</label>
-                      <input type="text" name="vendor_name" class="form-control" required="">
+                      <input type="text" name="vendor_name" class="form-control">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
@@ -353,7 +353,7 @@ get_sidebar('dashboard');
                   <div class="col-lg-12 col-sm-12">
                     <div class="form-group">
                       <label>Vendor Name</label>
-                      <input type="text" name="vendor_name" class="form-control" required="">
+                      <input type="text" name="vendor_name" class="form-control">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
