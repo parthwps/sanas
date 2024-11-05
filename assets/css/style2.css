@@ -6169,10 +6169,6 @@ button#add_new_group_button {
 }
 
 /*new Css 06/08/24*/
-#confirm_modal_html_alert {
-    z-index: 1500 !important;
-}
-
 #confirm_modal_html_alert .modal-dialog, #modal_html_alert .modal-dialog{
     transform: translate(0, 280px)!important;
     border-radius: 12px;
