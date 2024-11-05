@@ -794,7 +794,8 @@ $('form.change-password').on('submit', function (e) {
             data: form_data,
             success: function(response) {
                 if (response.success) {
-                    alert('Image uploaded successfully!');
+                    
+                    $('.user-profile-image').attr('src', response.data.url);
                 } else {
                     alert('Failed to upload image: ' + response.data);
                 }
