@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 if (window.location.pathname === '/budget/') {
     jQuery(document).ready(function($) {
     jQuery('.budget-category-item').on('click', function() {
-        jQuery('.budget-category-item').parent().find('.active').removeClass('active');
+        jQuery('.budget-category-item').parent().find('li').removeClass('active');
         jQuery(this).parent().addClass('active');
         var categoryId = jQuery(this).data('id');
     
