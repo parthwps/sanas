@@ -2,27 +2,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const tooltipTriggerList = document.querySelectorAll('[data-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
-    // Function to show the modal
-    function show_confirm_modal_html_alert(title, message) {
-        jQuery('#exampleConfirmModalLabel').text(title);
-        jQuery('#confirm_modal-body-text').text(message);
+    // Function to show the logout confirmation modal
+    function show_confirm_modal_html_alert() {
+        jQuery('#exampleConfirmModalLabel').text('Logout');
+        jQuery('#confirm_modal-body-text').text('Are you sure you want to logout?');
         jQuery('#confirm_modal_html_alert').modal('show');
     }
-    
-    // When "Yes" button is clicked
-    jQuery('#modal-yes-button').on('click', function () {
-        //redirect to login page
-        window.location.href = '/wp-login.php?action=logout';
-    });
 
-    // logout button event listener
+    // Logout button event listener
     const logoutButton = document.querySelector('.logout-btn');
     logoutButton.addEventListener('click', function(e) {
         e.preventDefault();
-        show_confirm_modal_html_alert('Logout', 'Are you sure you want to logout?');
+        show_confirm_modal_html_alert();
     });
 
-    // When "No" button is clicked
+    // Handle "Yes" button click in the confirmation modal
+    jQuery('#modal-yes-button').on('click', function () {
+        window.location.href = "<?php echo wp_logout_url(home_url()); ?>";
+    });
+
+    // Handle "No" button click in the confirmation modal
     jQuery('#modal-no-button').on('click', function () {
         jQuery('#confirm_modal_html_alert').modal('hide');
     });
