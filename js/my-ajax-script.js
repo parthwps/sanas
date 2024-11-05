@@ -103,6 +103,9 @@ if (window.location.pathname === '/budget/') {
             
                     // Update the table body with the new rows
                     jQuery('#budget-expense tbody').html(rows);
+                    jQuery('html, body').animate({
+                        scrollTop: jQuery('#budget-expense-box').offset().top
+                    }, 500);
                 } else {
                     alert('No expenses found for this category.');
                     jQuery('#budget-expense tbody').html('<tr><td colspan="8">No expenses to display.</td></tr>');
@@ -269,14 +272,10 @@ jQuery(document).ready(function($) {
         });
     }
 
-    // Keep track of the todo ID for the current action
     var currentTodoId;
-
-    // Click handler for the delete icon
     $(".delete").on("click", function (e) {
         e.preventDefault();
         currentTodoId = $(this).data("id");
-
         show_alert_message2('Delete Task', 'Do you want to delete this task?');
     });
     
@@ -312,13 +311,10 @@ function recalculate_task(){
                 if (response.success) {
                     recalculate_task();
                 } else {
-                    // console.log("Error: " + response.data);
                 }
             }
         });
     });
-
-    // Get To-Do Item for Editing
     jQuery('.edit-todo').on('click', function() {
         var todoId = jQuery(this).data('id');
         $.ajax({
@@ -344,8 +340,6 @@ function recalculate_task(){
 
 if (window.location.pathname === '/vendors-list/') {
     jQuery(document).ready(function($) {
-
-        // Add Vendor Item
         jQuery('#add-vendor-form').submit(function(e) {
             e.preventDefault();
             var formData = $(this).serialize();
@@ -358,29 +352,20 @@ if (window.location.pathname === '/vendors-list/') {
                 success: function(response) {
                     if (response.success) {
                         if (addAnother) {
-                            // add temporary message
                             jQuery('#add-vendor-form').append('<p id="temporary-message">Vendor item added successfully.</p>');
                             setTimeout(function() {
                                 jQuery('#temporary-message').fadeOut(500, function() {
                                     jQuery(this).remove();
                                 });
                             }, 3000);
-                            // Update the vendor table with the new data
                             $('#vendor-table tbody').html(response.data);
-                            // Clear form fields
                             $('#add-vendor-form')[0].reset();
-                            // Open the form again (assuming it's in a modal)
                             $('#add-todolist-popup').modal('show');
                         } else {
-                            // Hide add-vendor-popup
                             $('#add-todolist-popup').modal('hide');
-                            // Set the modal title and message
                             $('#exampleModalLabel').text('Success');
                             $('#modal-body-text').text('Vendor item added successfully.');
-                            // Show the modal
                             $('#modal_html_alert').modal('show');
-
-                            // Handle the click event on the "Yes" button in the modal
                             $('#render-modal-yes-button').on('click', function() {
                                 location.reload();
                             });
