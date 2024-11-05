@@ -40,6 +40,9 @@ if (window.location.pathname === '/budget/') {
         jQuery('#category_cost_section li').removeClass('active');
         jQuery(this).parent().addClass('active');
         var categoryId = jQuery(this).data('id');
+        var categoryText = jQuery(this).find('span.txt').text();
+                    console.log("Text found:", categoryText);
+                    jQuery('.category_name_box').html(categoryText);
     
         $.ajax({
             method: 'POST',
@@ -103,11 +106,6 @@ if (window.location.pathname === '/budget/') {
                     jQuery('#budget-expense tbody').html(rows);
                     jQuery('.category_estimated').text(total_estimated.toFixed(2));
                     jQuery('.category_actual').text(total_actual.toFixed(2));
-                    var categoryText = jQuery(this).find('span.txt').text();
-                    console.log("Text found:", categoryText);
-                    jQuery('.category_name_box').html(categoryText);
-                    
-
                     jQuery('html, body').animate({
                         scrollTop: jQuery('#budget-expense-box').offset().top
                     }, 200);
