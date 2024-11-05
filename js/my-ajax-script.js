@@ -50,9 +50,7 @@ if (window.location.pathname === '/budget/') {
             },
             success: function(response) {
                 if (response.success) {
-                    var expenses = response.data.expenses; // Assuming the response contains an array of expenses
-                    
-                    // Check if expenses are not empty
+                    var expenses = response.data.expenses;
                     if (expenses.length === 0) {
                         alert('No expenses found for this category.');
                         jQuery('#budget-expense tbody').html('<tr><td colspan="8">No expenses to display.</td></tr>');
@@ -64,8 +62,6 @@ if (window.location.pathname === '/budget/') {
                     var total_paid = 0;
                     var total_due = 0;
                     var rows = '';
-            
-                    // Iterate over expenses and build table rows
                     expenses.forEach(function(expense) {
                         total_estimated += parseFloat(expense.estimated_cost);
                         total_actual += parseFloat(expense.actual_cost);
@@ -108,7 +104,7 @@ if (window.location.pathname === '/budget/') {
                     jQuery('html, body').animate({
                         scrollTop: jQuery('#budget-expense-box').offset().top
                     }, 200);
-                    window.location.path = '?category=' + categoryId;
+                    window.history.pushState(null, '', '?category=' + categoryId);
                 } else {
                     alert('No expenses found for this category.');
                     jQuery('#budget-expense tbody').html('<tr><td colspan="8">No expenses to display.</td></tr>');
