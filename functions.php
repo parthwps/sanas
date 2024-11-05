@@ -1242,19 +1242,48 @@ function get_expense_list() {
 add_action('wp_ajax_get_expenses_ajax', 'get_expenses_ajax_handler');
 function get_expenses_ajax_handler() {
     $expenses = get_expense_list();
+    $total_estimated = 0;
+    $total_actual = 0;
+    $total_paid = 0;
+    $total_due = 0;
+    
     ob_start();
-    foreach ($expenses as $item) {
+    foreach ($expenses as $expense) {
+        $total_estimated += $expense['estimated_cost'];
+        $total_actual += $expense['actual_cost'];
+        $total_paid += $expense['paid'];
+        $total_due += $expense['due'];
+        
         echo '<tr>';
-        echo '<td>' . esc_html($item['expense']) . '</td>';
-        echo '<td>' . esc_html($item['vendor_name']) . '</td>';
-        echo '<td>' . esc_html($item['vendor_contact']) . '</td>';
-        echo '<td>' . esc_html($item['estimated_cost']) . '</td>';
-        echo '<td>' . esc_html($item['actual_cost']) . '</td>';
-        echo '<td>' . esc_html($item['paid']) . '</td>';
-        echo '<td>' . esc_html($item['due']) . '</td>';
-        echo '<td>Actions</td>'; // Placeholder for any actions like edit or delete
+        echo '<td class="expense">' . esc_html($expense['expense']) . '</td>';
+        echo '<td>' . esc_html($expense['vendor_name']) . '</td>';
+        echo '<td>' . esc_html($expense['vendor_contact']) . '</td>';
+        echo '<td>$' . esc_html($expense['estimated_cost']) . '</td>';
+        echo '<td>$' . esc_html($expense['actual_cost']) . '</td>';
+        echo '<td>$' . esc_html($expense['paid']) . '</td>';
+        echo '<td>$' . esc_html($expense['due']) . '</td>';
+        echo '<td class="actions">';
+        echo '<a href="#" class="edit theme-btn" data-id="' . esc_attr($expense['id']) . '" data-bs-toggle="modal" data-bs-target="#edit-expense-popup">';
+        echo '<i class="fa-solid fa-pen"></i>';
+        echo '</a>';
+        echo '<a href="#" class="delete theme-btn" data-id="' . esc_attr($expense['id']) . '">';
+        echo '<i class="fa-regular fa-trash-can"></i>';
+        echo '</a>';
+        echo '</td>';
         echo '</tr>';
     }
+    
+    echo '<tr>';
+    echo '<td>Total</td>';
+    echo '<td>&nbsp;</td>';
+    echo '<td>&nbsp;</td>';
+    echo '<td>$' . esc_html($total_estimated) . '</td>';
+    echo '<td>$' . esc_html($total_actual) . '</td>';
+    echo '<td>$' . esc_html($total_paid) . '</td>';
+    echo '<td>$' . esc_html($total_due) . '</td>';
+    echo '<td class="actions">&nbsp;</td>';
+    echo '</tr>';
+    
     $output = ob_get_clean();
     echo $output;
     wp_die();
