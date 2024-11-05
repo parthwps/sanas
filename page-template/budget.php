@@ -434,7 +434,7 @@ get_sidebar('dashboard');
   </div>
   <script>
     jQuery(document).ready(function () {
-      if ($('#donut-chart-1').length) {
+      if (jQuery('#donut-chart-1').length) {
         var options = {
             series: [32, 28, 50],
             colors: ['#28c38d', '#ff6666', '#745fed', '#f1b44c'],
