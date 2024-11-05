@@ -658,6 +658,30 @@ if (window.location.pathname === '/budget/') {
             });
         });
 
+        // get expense items
+        jQuery('.edit-expense').on('click', function() {
+            var id = $(this).data('id');
+            $.ajax({
+                type: 'POST',
+                url: ajax_object.ajax_url,  
+                data: { id: id, action: 'get_expense_list' },
+                success: function(response) {
+                    if (response.success) {
+                        // Set the modal title and message
+                        $('#edit-category-popup').modal('show');
+                        $('#edit-category-popup .modal-title').text('Edit Category Item');
+                        $('#edit-category-popup .modal-body').html(response.data);
+                    }
+                    else {
+                        // Set the modal title and message
+                        $('#edit-category-popup').modal('show');
+                        $('#edit-category-popup .modal-title').text('Edit Category Item');
+                        $('#edit-category-popup .modal-body').html(response.data);
+                    }
+                }
+            });
+        });
+
 
                 // Function to show the modal
         function show_alert_message2(title, message) {

@@ -1222,3 +1222,24 @@ function add_expense_callback() {
 
     wp_die(); // this is required to terminate immediately and return a proper response
 }
+
+add_action('wp_ajax_get_expense_list', 'get_expense_list');
+function get_expense_list() {
+    global $wpdb;
+    $user_id = get_current_user_id();
+    $table_name = $wpdb->prefix . 'budget_expense';
+
+    $expenses = $wpdb->get_results(
+        $wpdb->prepare(
+            "SELECT * FROM $table_name WHERE user_id = %d ORDER BY created_at DESC",
+            $user_id
+        ),
+        ARRAY_A
+    );
+
+    if (!empty($expenses)) {
+        wp_send_json_success($expenses);
+    } else {
+        wp_send_json_error('No expenses found.');
+    }
+}

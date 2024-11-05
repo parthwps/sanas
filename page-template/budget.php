@@ -177,43 +177,46 @@ get_sidebar('dashboard');
                     </tr>
                   </thead>
                   <tbody>
+                    <?php
+                    $expense_items = get_expense_list();
+                    $total_estimated = 0;
+                    $total_actual = 0;
+                    $total_paid = 0;
+                    $total_due = 0;
+
+                    foreach ($expense_items as $expense) {
+                        $total_estimated += floatval($expense['estimated_cost']);
+                        $total_actual += floatval($expense['actual_cost']); 
+                        $total_paid += floatval($expense['paid']);
+                        $total_due += floatval($expense['due']);
+                    ?>
+                        <tr>
+                            <td class="expense"><?php echo esc_html($expense['expense']); ?></td>
+                            <td><?php echo esc_html($expense['vendor_name']); ?></td>
+                            <td><?php echo esc_html($expense['vendor_contact']); ?></td>
+                            <td>$<?php echo number_format($expense['estimated_cost'], 2); ?></td>
+                            <td>$<?php echo number_format($expense['actual_cost'], 2); ?></td>
+                            <td>$<?php echo number_format($expense['paid'], 2); ?></td>
+                            <td>$<?php echo number_format($expense['due'], 2); ?></td>
+                            <td class="actions">
+                                <a href="#" class="edit theme-btn" data-id="<?php echo esc_attr($expense['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-expense-popup">
+                                    <i class="fa-solid fa-pen"></i>
+                                </a>
+                                <a href="#" class="delete theme-btn" data-id="<?php echo esc_attr($expense['id']); ?>">
+                                    <i class="fa-regular fa-trash-can"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php } ?>
                     <tr>
-                      <td class="expence">Red Dress</td>
-                      <td>Martin</td>
-                      <td>+8475486751</td>
-                      <td>$2,500</td>
-                      <td>$0</td>
-                      <td>$0</td>
-                      <td>$1011</td>
-                      <td class="actions">
-                        <a href="#" class="edit theme-btn" data-bs-toggle="modal"
-                          data-bs-target="#edit-expense-popup"><i class="fa-solid fa-pen"></i></a>
-                        <a href="#" class="delete theme-btn"><i class="fa-regular fa-trash-can"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="expence">Pink Dress</td>
-                      <td>Martin</td>
-                      <td>+8475486751</td>
-                      <td>$2,500</td>
-                      <td>$0</td>
-                      <td>$0</td>
-                      <td>$390</td>
-                      <td class="actions">
-                        <a href="#" class="edit theme-btn" data-bs-toggle="modal"
-                          data-bs-target="#edit-category-popup"><i class="fa-solid fa-pen"></i></a>
-                        <a href="#" class="delete theme-btn"><i class="fa-regular fa-trash-can"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Total</td>
-                      <td>&nbsp;</td>
-                      <td>&nbsp;</td>
-                      <td>$5,000</td>
-                      <td>$0</td>
-                      <td>$0</td>
-                      <td>$3300</td>
-                      <td class="actions">&nbsp;</td>
+                        <td>Total</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>$<?php echo number_format($total_estimated, 2); ?></td>
+                        <td>$<?php echo number_format($total_actual, 2); ?></td>
+                        <td>$<?php echo number_format($total_paid, 2); ?></td>
+                        <td>$<?php echo number_format($total_due, 2); ?></td>
+                        <td class="actions">&nbsp;</td>
                     </tr>
                   </tbody>
                 </table>
