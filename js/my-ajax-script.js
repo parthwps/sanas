@@ -103,7 +103,7 @@ if (window.location.pathname === '/budget/') {
                     jQuery('#budget-expense tbody').html(rows);
                     jQuery('.category_estimated').text(total_estimated.toFixed(2));
                     jQuery('.category_actual').text(total_actual.toFixed(2));
-                    jQuery('.category_name_box').text($(this).find('span.txt').text());
+                    jQuery('.category_name_box').text(jQuery(this).find('span.txt').text());
                     
 
                     jQuery('html, body').animate({
