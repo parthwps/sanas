@@ -128,7 +128,7 @@ get_sidebar('dashboard');
                             $category_id = $category['id'];
                             $total_expense = isset($expense_totals[$category_id]) ? $expense_totals[$category_id]->total_expense : 0;
                             $js_categories[] = esc_js($category['category_name']);
-                            $js_expenses[] = $total_expense;
+                            $js_expenses[] = (float) $total_expense;
                             ?>
                             
                             <li<?php echo $index === 0 ? ' class="active"' : ''; ?>>
