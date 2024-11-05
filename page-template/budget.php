@@ -187,7 +187,7 @@ get_sidebar('dashboard');
                       <td>$1011</td>
                       <td class="actions">
                         <a href="#" class="edit theme-btn" data-bs-toggle="modal"
-                          data-bs-target="#edit-category-popup"><i class="fa-solid fa-pen"></i></a>
+                          data-bs-target="#edit-expense-popup"><i class="fa-solid fa-pen"></i></a>
                         <a href="#" class="delete theme-btn"><i class="fa-regular fa-trash-can"></i></a>
                       </td>
                     </tr>
