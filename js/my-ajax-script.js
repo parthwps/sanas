@@ -10,8 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Logout button event listener
-    const logoutButton = document.querySelector('.logout-btn');
-    logoutButton.addEventListener('click', function(e) {
+   jQuery('.logout-btn').on('click', function(e) {
         e.preventDefault();
         show_confirm_modal_html_alert();
     });
