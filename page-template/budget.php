@@ -120,7 +120,7 @@ get_sidebar('dashboard');
                             <span class="txt"><?php echo esc_html($category['category_name']); ?></span>
                           </div>
                           <div class="count">
-                            <span>$<?php if(esc_html($category['cost']) != ""){echo esc_html($category['cost']);}else{echo "1000";} ?></span>
+                            <span>$<?php if(esc_html($category['cost']) != ""){echo esc_html($category['cost']);}else{echo "1001";} ?></span>
                             <i class="fa fa-trash<?php echo $category['user_id'] != 0 ? ' delete' : ''; ?>" <?php echo $category['user_id'] != 0 ? 'data-id="' . esc_attr($category['id']) . '"' : ''; ?>></i>
                           </div>
                         </a></li>
@@ -139,7 +139,7 @@ get_sidebar('dashboard');
                       <div class="subtitle">ESTIMATED COST</div>
                       <div class="p-box">
                         <span class="curr">$</span>
-                        <span class="amount">42,000</span>
+                        <span class="amount"><?php echo $totals->total_estimated; ?></span>
                       </div>
                       <div class="instr">You can edit this at any time.</div>
                     </div>
