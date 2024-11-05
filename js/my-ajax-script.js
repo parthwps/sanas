@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 if (window.location.pathname === '/budget/') {
     
 jQuery('.budget-category-item').on('click', function() {
-    var categoryId = $(this).data('id');
+    var categoryId = jQuery(this).data('id');
     console.log(categoryId);
     // $.ajax({
     //     url: '/path/to/your/endpoint',
