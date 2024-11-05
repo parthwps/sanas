@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 if (window.location.pathname === '/my-dashboard/') {
     
-$('.category-item').on('click', function() {
+$('.budget-category-item').on('click', function() {
     var categoryId = $(this).data('id');
     console.log(categoryId);
     // $.ajax({
