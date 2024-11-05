@@ -77,7 +77,6 @@ if(is_page_template( 'page-template/myevent.php')
           </div>
         </div>
       </div>
-      <?php render_confirm_modal_html_alert(); ?>
       <nav class="main-menu">
             <?php
                 if (has_nav_menu( 'sanas-main-menu' )) {
