@@ -435,74 +435,88 @@ get_sidebar('dashboard');
       </div>
     </div>
   </div>
-  <script>
-  jQuery(document).ready(function () {
-    if (jQuery('#donut-chart-1').length) {
-      // Assign PHP arrays to JavaScript variables
-      var categories = <?php echo json_encode($js_categories); ?>;
-      var percentages = <?php echo json_encode($js_percentages); ?>;
+<script>
+      jQuery(document).ready(function () {
+        if (jQuery('#donut-chart-1').length) {
+          // Assign PHP arrays to JavaScript variables
+          var categories = <?php echo json_encode($js_categories); ?>;
+          var expenses = <?php echo json_encode($js_expenses); ?>;
 
-      // Function to generate random colors
-      function getRandomColor() {
-        var letters = '0123456789ABCDEF';
-        var color = '#';
-        for (var i = 0; i < 6; i++) {
-          color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
-      }
-
-      // Generate random colors for each category
-      var randomColors = categories.map(function() {
-        return getRandomColor();
-      });
-
-      // Define chart options
-      var options = {
-        series: percentages,  // Use percentages for the chart
-        colors: randomColors,  // Random colors
-        labels: categories,  // Category names
-        markers: false,
-        chart: {
-          type: 'donut',
-          width: 400
-        },
-        legend: {
-          position: 'bottom',  // Ensure the legend is positioned at the bottom
-          labels: {
-            useSeriesColors: true  // Make sure the legend uses the same colors as the chart
-          }
-        },
-        dataLabels: {
-          enabled: false  // Disable data labels inside the donut if you prefer legends to show up below
-        },
-        plotOptions: {
-          pie: {
-            donut: {
-              size: '55%'
+          // Function to generate random colors
+          function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+              color += letters[Math.floor(Math.random() * 16)];
             }
+            return color;
           }
-        },
-        responsive: [{
-          breakpoint: 480,
-          options: {
+
+          // Generate random colors for each category
+          var randomColors = categories.map(function() {
+            return getRandomColor();
+          });
+
+          // Define chart options
+          var options = {
+            series: expenses,  // Total expenses per category
+            colors: randomColors,  // Random colors
+            labels: categories,  // Category names
+            markers: false,
             chart: {
-              width: 250
+              type: 'donut',
+              width: 400
             },
             legend: {
               position: 'bottom'
+            },
+            plotOptions: {
+              pie: {
+                donut: {
+                  size: '55%'
+                }
+              }
+            },
+            responsive: [{
+              breakpoint: 480,
+              options: {
+                chart: {
+                  width: 250
+                },
+                legend: {
+                  position: 'bottom'
+                }
+              }
+            }]
+          };
+
+          // Create and render the chart
+          var chart = new ApexCharts(document.querySelector("#donut-chart-1"), options);
+          chart.render();
+        }
+      });
+      if ($('#guest_attending').length) {
+        var con = 52;
+        var pending = 24;
+        var options = {
+            series: [con, pending],
+            colors: ['#28c38d', '#ff6666'],
+            labels: [],
+            markers: false,
+            chart: {
+                type: 'donut',
+                width: '100%'
+            },
+            legend: {
+                position: 'bottom'
             }
-          }
-        }]
-      };
-
-      // Create and render the chart
-      var chart = new ApexCharts(document.querySelector("#donut-chart-1"), options);
-      chart.render();
+        };
+        options.labels = ['sent (' + options.series[0] + ')', 'Pending (' + options.series[1] + ')']
+        var chart = new ApexCharts(document.querySelector("#guest_attending"), options);
+        chart.render();
     }
-  });
-</script>
-
+    </script>
+    
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <?php render_confirm_modal_html_alert(); ?>
 <?php render_modal_html_alert(); ?>
