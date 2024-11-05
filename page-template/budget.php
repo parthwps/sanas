@@ -127,7 +127,6 @@ get_sidebar('dashboard');
                             // Retrieve total expense for the current category, default to 0 if not set
                             $category_id = $category['id'];
                             $total_expense = isset($expense_totals[$category_id]) ? $expense_totals[$category_id]->total_expense : 0;
-                            
                             $js_categories[] = esc_js($category['category_name']);
                             $js_expenses[] = $total_expense;
                             ?>
@@ -435,68 +434,45 @@ get_sidebar('dashboard');
       </div>
     </div>
   </div>
-<script>
-      jQuery(document).ready(function () {
-        if (jQuery('#donut-chart-1').length) {
-          // Assign PHP arrays to JavaScript variables
-          var categories = <?php echo json_encode($js_categories); ?>;
-          var expenses = <?php echo json_encode($js_expenses); ?>;
-
-          // Function to generate random colors
-          function getRandomColor() {
-            var letters = '0123456789ABCDEF';
-            var color = '#';
-            for (var i = 0; i < 6; i++) {
-              color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-          }
-
-          // Generate random colors for each category
-          var randomColors = categories.map(function() {
-            return getRandomColor();
-          });
-
-          // Define chart options
-          var options = {
-            series: expenses,  // Total expenses per category
-            colors: randomColors,  // Random colors
-            labels: categories,  // Category names
+  <script>
+    jQuery(document).ready(function () {
+      if (jQuery('#donut-chart-1').length) {
+        var options = {
+            series: [32, 28, 50, 18],
+            colors: ['#28c38d', '#ff6666', '#745fed', '#f1b44c'],
+            labels: ['Photography', 'Catering', 'Venue', 'Other'],
             markers: false,
             chart: {
-              type: 'donut',
-              width: 400
+                type: 'donut',
+                width: 400
             },
             legend: {
-              position: 'bottom'
+                position: 'bottom'
             },
             plotOptions: {
-              pie: {
-                donut: {
-                  size: '55%'
+                pie: {
+                    donut: {
+                        size: '55%'
+                    }
                 }
-              }
             },
             responsive: [{
-              breakpoint: 480,
-              options: {
-                chart: {
-                  width: 250
-                },
-                legend: {
-                  position: 'bottom'
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: 250
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
                 }
-              }
             }]
-          };
-
-          // Create and render the chart
-          var chart = new ApexCharts(document.querySelector("#donut-chart-1"), options);
-          chart.render();
-        }
-      });
-    </script>
-    
+        };
+        var chart = new ApexCharts(document.querySelector("#donut-chart-1"), options);
+        chart.render();
+    }
+    });
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <?php render_confirm_modal_html_alert(); ?>
 <?php render_modal_html_alert(); ?>
