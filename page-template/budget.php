@@ -15,6 +15,40 @@
 get_header();
 get_sidebar('dashboard');
 ?>
+<?php
+if (is_user_logged_in()) {
+    global $wpdb;
+    
+    // Get the current user ID
+    $current_user_id = get_current_user_id();
+    
+    // Table name with prefix
+    $table_name = $wpdb->prefix . 'budget_expense';
+    
+    // Query to get the total values for estimated, actual, paid, and due columns for the logged-in user
+    $totals = $wpdb->get_row(
+        $wpdb->prepare("
+            SELECT 
+                COALESCE(SUM(estimated_cost), 0) AS total_estimated,
+                COALESCE(SUM(actual_cost), 0) AS total_actual,
+                COALESCE(SUM(paid), 0) AS total_paid,
+                COALESCE(SUM(due), 0) AS total_due
+            FROM $table_name
+            WHERE user_id = %d
+        ", $current_user_id)
+    );
+
+    // Display the results with fallback to 0
+    echo '<div class="budget-expense-totals">';
+    echo '<p><strong>Total Estimated:</strong> ' . number_format($totals->total_estimated, 2) . '</p>';
+    echo '<p><strong>Total Actual:</strong> ' . number_format($totals->total_actual, 2) . '</p>';
+    echo '<p><strong>Total Paid:</strong> ' . number_format($totals->total_paid, 2) . '</p>';
+    echo '<p><strong>Total Due:</strong> ' . number_format($totals->total_due, 2) . '</p>';
+    echo '</div>';
+} else {
+    echo '<p>Please log in to view your budget expense totals.</p>';
+}
+?>
 
 <div class="wl-dashboard-wrapper dashboard">
     <div class="container-fluid wl-dashboard-content">
