@@ -204,7 +204,6 @@ get_sidebar('dashboard');
             </div>
             <div class="table-box upcoming-tasks">
               <div class="table-responsive">
-                test
                 <table class="table" id="budget-expense">
                   <thead>
                     <tr>
