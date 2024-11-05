@@ -189,8 +189,8 @@ get_sidebar('dashboard');
                 <div class="icon-box"><i class="fa-solid fa-bowl-food"></i></div>
                 <div class="subtitle">Catering</div>
                 <div class="cost">
-                  <span class="c-text">Estimated cost: <span>$ 12,320</span></span>
-                  <span class="c-text">Actual cost: <span>$ 0</span></span>
+                  <span class="c-text">Estimated cost: <span class="category_estimated">$ 12,320</span></span>
+                  <span class="c-text">Actual cost: <span class="category_actual">$ 0</span></span>
                 </div>
               </div>
             </div>
