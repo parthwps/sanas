@@ -38,7 +38,6 @@ if (window.location.pathname === '/budget/') {
     jQuery(document).ready(function($) {
     jQuery('.budget-category-item').on('click', function() {
         var categoryId = jQuery(this).data('id');
-        console.log(categoryId); // This will log the clicked category ID
     
         $.ajax({
             method: 'POST',
@@ -48,7 +47,6 @@ if (window.location.pathname === '/budget/') {
                 action: 'get_budget_expense_by_category'
             },
             success: function(response) {
-                console.log(response); // Check the response structure
                 if (response.success) {
                     var expenses = response.data.expenses; // Assuming the response contains an array of expenses
                     
