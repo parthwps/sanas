@@ -81,7 +81,7 @@ img {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 9;
+    z-index: 7;
     background-color: var(--snas-bg-primary);
     padding: 0 100px;
 }
@@ -2716,6 +2716,9 @@ section.wl-main-canvas .card-canvas .col-md-6:nth-child(2) .preview-img {
 .modal {
     right: 0 !important;
     z-index: 10;
+}
+.modal-backdrop{
+    z-index: 8;
 }
 
 .modal-dialog {

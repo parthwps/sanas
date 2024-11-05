@@ -81,7 +81,7 @@ img {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 9;
+    z-index: 7;
     background-color: var(--snas-bg-primary);
     padding: 0 100px;
 }
