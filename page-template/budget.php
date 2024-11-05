@@ -279,13 +279,13 @@ get_sidebar('dashboard');
             <form id="add-vendor-form" method="post" action="#">
               <div class="form-content">
                 <div class="row">
-                  <div class="col-lg-6 col-sm-12">
+                  <div class="col-lg-12 col-sm-12">
                     <div class="form-group">
                       <label>Expense*</label>
                       <input type="text" name="expense" class="form-control" required="">
                     </div>
                   </div>
-                  <div class="col-lg-6 col-sm-12">
+                  <div class="col-lg-12 col-sm-12">
                     <div class="form-group">
                       <label>Vendor Name</label>
                       <input type="text" name="vendor_name" class="form-control" required="">
@@ -344,13 +344,13 @@ get_sidebar('dashboard');
             <form method="post" id="edit-vendor-form" action="#">
               <div class="form-content">
                 <div class="row">
-                <div class="col-lg-6 col-sm-12">
+                <div class="col-lg-12 col-sm-12">
                     <div class="form-group">
                       <label>Expense*</label>
                       <input type="text" name="expense" class="form-control" required="">
                     </div>
                   </div>
-                  <div class="col-lg-6 col-sm-12">
+                  <div class="col-lg-12 col-sm-12">
                     <div class="form-group">
                       <label>Vendor Name</label>
                       <input type="text" name="vendor_name" class="form-control" required="">
