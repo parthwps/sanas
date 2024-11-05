@@ -994,7 +994,7 @@ function delete_budget_category_item() {
     $current_user_id = get_current_user_id();
     $id = intval($_POST['id']);
 
-    $wpdb->delete($wpdb->prefix . 'budget_category', array('id' => $id, 'user_id' => $current_user_id));
+    $delete_category = $wpdb->delete($wpdb->prefix . 'budget_category', array('id' => $id, 'user_id' => $current_user_id));
         // Delete related expenses
     $wpdb->delete($wpdb->prefix . 'budget_expense', array('category_id' => $id, 'user_id' => $current_user_id));
     if ($delete_category) {
