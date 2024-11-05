@@ -16,16 +16,9 @@ get_header();
 get_sidebar('dashboard');
 ?>
 <?php
-if (is_user_logged_in()) {
     global $wpdb;
-    
-    // Get the current user ID
     $current_user_id = get_current_user_id();
-    
-    // Table name with prefix
     $table_name = $wpdb->prefix . 'budget_expense';
-    
-    // Query to get the total values for estimated, actual, paid, and due columns for the logged-in user
     $totals = $wpdb->get_row(
         $wpdb->prepare("
             SELECT 
@@ -37,17 +30,6 @@ if (is_user_logged_in()) {
             WHERE user_id = %d
         ", $current_user_id)
     );
-
-    // Display the results with fallback to 0
-    echo '<div class="budget-expense-totals">';
-    echo '<p><strong>Total Estimated:</strong> ' . number_format($totals->total_estimated, 2) . '</p>';
-    echo '<p><strong>Total Actual:</strong> ' . number_format($totals->total_actual, 2) . '</p>';
-    echo '<p><strong>Total Paid:</strong> ' . number_format($totals->total_paid, 2) . '</p>';
-    echo '<p><strong>Total Due:</strong> ' . number_format($totals->total_due, 2) . '</p>';
-    echo '</div>';
-} else {
-    echo '<p>Please log in to view your budget expense totals.</p>';
-}
 ?>
 
 <div class="wl-dashboard-wrapper dashboard">
@@ -68,7 +50,7 @@ if (is_user_logged_in()) {
                   <div class="text-muted">Estimated</div>
                   <div class="icon"><i class="fa-solid fa-list" aria-hidden="true"></i></div>
                   <div class="count">
-                    <span>$89850</span>
+                    <span><?php echo number_format($totals->total_estimated, 2); ?></span>
                   </div>
                 </div>
               </div>
@@ -79,7 +61,7 @@ if (is_user_logged_in()) {
                   <div class="text-muted">Actual</div>
                   <div class="icon"><i class="fa fa-chart-line" aria-hidden="true"></i></div>
                   <div class="count">
-                    <span>$78238</span>
+                    <span><?php echo number_format($totals->total_actual, 2); ?></span>
                   </div>
                 </div>
               </div>
@@ -90,7 +72,7 @@ if (is_user_logged_in()) {
                   <div class="text-muted">Paid</div>
                   <div class="icon"><i class="fa fa-check-square"></i></div>
                   <div class="count">
-                    <span>$25579</span>
+                    <span><?php echo number_format($totals->total_paid, 2); ?></span>
                   </div>
                 </div>
               </div>
@@ -101,7 +83,7 @@ if (is_user_logged_in()) {
                   <div class="text-muted">Due</div>
                   <div class="icon"><i class="fa fa-file-alt"></i></div>
                   <div class="count">
-                    <span>$52659</span>
+                    <span><?php echo number_format($totals->total_due, 2); ?></span>
                   </div>
                 </div>
               </div>
