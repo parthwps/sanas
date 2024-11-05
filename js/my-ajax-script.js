@@ -623,7 +623,7 @@ if (window.location.pathname === '/budget/') {
                 success: function(response) {
                     if (response.success) {
                         // Hide add-vendor-popup
-                        $('#add-todolist-popup').modal('hide');
+                        $('#add-category-popup').modal('hide');
                         // Set the modal title and message
                         $('#exampleModalLabel').text('Success');
                         $('#modal-body-text').text('Category item added successfully.');
