@@ -73,5 +73,3 @@
         </nav>
     </div>
 </div>
-
-<?php render_confirm_modal_html_alert(); ?>
