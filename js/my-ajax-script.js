@@ -108,6 +108,7 @@ if (window.location.pathname === '/budget/') {
                     jQuery('html, body').animate({
                         scrollTop: jQuery('#budget-expense-box').offset().top
                     }, 200);
+                    window.location.path = '?category=' + categoryId;
                 } else {
                     alert('No expenses found for this category.');
                     jQuery('#budget-expense tbody').html('<tr><td colspan="8">No expenses to display.</td></tr>');
