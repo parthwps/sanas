@@ -48,22 +48,30 @@ if (window.location.pathname === '/budget/') {
                 action: 'get_budget_expense_by_category'
             },
             success: function(response) {
+                console.log(response); // Check the response structure
                 if (response.success) {
                     var expenses = response.data.expenses; // Assuming the response contains an array of expenses
+                    
+                    // Check if expenses are not empty
+                    if (expenses.length === 0) {
+                        alert('No expenses found for this category.');
+                        jQuery('#budget-expense tbody').html('<tr><td colspan="8">No expenses to display.</td></tr>');
+                        return;
+                    }
+            
                     var total_estimated = 0;
                     var total_actual = 0;
                     var total_paid = 0;
                     var total_due = 0;
                     var rows = '';
-    
+            
                     // Iterate over expenses and build table rows
                     expenses.forEach(function(expense) {
-                        console.log(expense);
                         total_estimated += parseFloat(expense.estimated_cost);
                         total_actual += parseFloat(expense.actual_cost);
                         total_paid += parseFloat(expense.paid);
                         total_due += parseFloat(expense.due);
-    
+            
                         rows += '<tr>' +
                                     '<td class="expense">' + escapeHtml(expense.expense) + '</td>' +
                                     '<td>' + escapeHtml(expense.vendor_name) + '</td>' +
@@ -82,7 +90,7 @@ if (window.location.pathname === '/budget/') {
                                     '</td>' +
                                 '</tr>';
                     });
-    
+            
                     // Add total row
                     rows += '<tr>' +
                                 '<td>Total</td>' +
@@ -94,13 +102,15 @@ if (window.location.pathname === '/budget/') {
                                 '<td>$' + total_due.toFixed(2) + '</td>' +
                                 '<td class="actions">&nbsp;</td>' +
                             '</tr>';
-    
+            
                     // Update the table body with the new rows
                     jQuery('#budget-expense tbody').html(rows);
                 } else {
                     alert('No expenses found for this category.');
+                    jQuery('#budget-expense tbody').html('<tr><td colspan="8">No expenses to display.</td></tr>');
                 }
             },
+            
             error: function() {
                 alert('Error loading expenses.');
             }
