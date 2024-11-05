@@ -1217,7 +1217,7 @@ function add_expense_callback() {
     wp_die(); // this is required to terminate immediately and return a proper response
 }
 
-function get_expense_list($category_id = null) {
+function get_expense_list($category_id) {
     global $wpdb;
     $user_id = get_current_user_id(); // Get the current logged-in user ID
     $table_name = $wpdb->prefix . 'budget_expense';
