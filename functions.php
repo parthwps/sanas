@@ -1013,7 +1013,7 @@ function delete_budget_category_item() {
 // Render Modal HTML Alert
 function render_confirm_modal_html_alert() {
     ?>
-    <div class="modal fade" id="confirm_modal_html_alert" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" style="z-index: 1200" id="confirm_modal_html_alert" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
