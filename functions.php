@@ -1382,3 +1382,22 @@ function add_default_budget_data_on_user_registration($user_id) {
 
 // Hook into user registration
 add_action('user_register', 'add_default_budget_data_on_user_registration');
+
+
+
+function get_budget_expense_by_category() {
+    if (isset($_POST['category_id'])) {
+        $category_id = intval($_POST['category_id']); // Sanitize input
+
+        // Query to get expenses based on category ID
+        $expenses = get_expenses_by_category($category_id); // Assume this function fetches expenses
+
+        if (!empty($expenses)) {
+            // Return the expenses in a JSON response
+            wp_send_json_success(['expenses' => $expenses]);
+        } else {
+            wp_send_json_error('No expenses found for this category.');
+        }
+    }
+    wp_die();
+}
