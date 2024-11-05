@@ -940,18 +940,6 @@ function create_budget_category_table() {
             'Makeup artist' => 'paintbrush',
             'Saree draping' => 'shirt'
         ];
-
-        // Insert default categories for all users
-        foreach ($categories as $category_name => $icon_class) {
-            $wpdb->insert(
-                    $table_name,
-                    [
-                        'user_id' => '',
-                        'category_name' => $category_name,
-                        'icon_class' => $icon_class
-                    ]
-            );
-        }
     }
 }
 add_action('after_switch_theme', 'create_budget_category_table');
@@ -1342,6 +1330,48 @@ function add_default_budget_data_on_user_registration($user_id) {
             );
         }
     }
+
+    // Insert a dummy task into `prefix_todo_list`
+    $wpdb->insert(
+        "{$wpdb->prefix}todo_list",
+        [
+            'title'    => 'Sample Task',
+            'date'     => current_time('mysql'),
+            'category' => 'General',
+            'notes'    => 'This is a sample task for new users.',
+            'user_id'  => $user_id,
+        ]
+    );
+
+    // Insert a sample vendor into `prefix_vendor_list`
+    $wpdb->insert(
+        "{$wpdb->prefix}vendor_list",
+        [
+            'user_id'              => $user_id,
+            'category'             => 'Catering',
+            'name'                 => 'Sample Vendor',
+            'email'                => 'vendor@example.com',
+            'phone'                => '123-456-7890',
+            'notes'                => 'This is a sample vendor for demonstration.',
+            'social_media_profile' => 'https://facebook.com/samplevendor',
+            'pricing'              => 'Affordable',
+        ]
+    );
+
+    // Insert a sample entry into `prefix_my_vendor_list`
+    $wpdb->insert(
+        "{$wpdb->prefix}my_vendor_list",
+        [
+            'user_id'              => $user_id,
+            'category'             => 'Photography',
+            'name'                 => 'My Vendor',
+            'email'                => 'myvendor@example.com',
+            'phone'                => '987-654-3210',
+            'notes'                => 'This is a sample entry in my vendor list.',
+            'social_media_profile' => 'https://instagram.com/myvendor',
+            'pricing'              => 'Premium',
+        ]
+    );
 }
 
 // Hook into user registration
