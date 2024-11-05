@@ -303,13 +303,13 @@ get_sidebar('dashboard');
                       <input type="number" name="estimated_cost" class="form-control">
                     </div>
                   </div>
-                  <div class="col-lg-12 col-sm-12">
+                  <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Actual Cost</label>
                       <input type="number" name="actual_cost" class="form-control">
                     </div>
                   </div>
-                  <div class="col-lg-12 col-sm-12">
+                  <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Due</label>
                       <input type="number" name="due" class="form-control">
@@ -368,13 +368,13 @@ get_sidebar('dashboard');
                       <input type="number" name="estimated_cost" class="form-control">
                     </div>
                   </div>
-                  <div class="col-lg-12 col-sm-12">
+                  <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Actual Cost</label>
                       <input type="number" name="actual_cost" class="form-control">
                     </div>
                   </div>
-                  <div class="col-lg-12 col-sm-12">
+                  <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Due</label>
                       <input type="number" name="due" class="form-control">
