@@ -119,6 +119,7 @@ if (window.location.pathname === '/budget/') {
     
     // Escape HTML for safety
     function escapeHtml(text) {
+        if (text == null) return ''; // Return empty string for null or undefined
         var map = {
             '&': '&amp;',
             '<': '&lt;',
