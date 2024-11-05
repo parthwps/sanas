@@ -5068,7 +5068,9 @@ Category Wishlist
     padding: 10px;
     text-align: center;
 }
-
+.apexcharts-legend-series:nth-child(n+11) {
+    display: none; /* Hides all legend items beyond the 10th */
+}
 .budget-man-box .budget-col .cat-info .icon-box,.budget-man-box .cat-info .icon-box {
     position: relative;
     font-size: 36px;
