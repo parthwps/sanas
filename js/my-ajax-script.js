@@ -786,8 +786,6 @@ $('form.change-password').on('submit', function (e) {
         form_data.append('image', file_data);
         form_data.append('action', 'upload_user_profile_image');
 
-        // showPreloader('Loading...');
-
         $.ajax({
             url: ajax_object.ajax_url,
             type: 'POST',
@@ -800,14 +798,11 @@ $('form.change-password').on('submit', function (e) {
                     // Update all elements with the class 'user-profile-image' with the new image URL
                     $('.user-profile-image').attr('src', response.data.url);
                     console.log(response.data.url);
-                    // hidePreloader();
                 } else {
                     alert('Failed to upload image: ' + response.data);
-                    // hidePreloader();
                 }
             },
             error: function() {
-                // hidePreloader();
                 alert('Error uploading image.');
             }
         });
