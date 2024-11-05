@@ -104,6 +104,7 @@ if (window.location.pathname === '/budget/') {
                     jQuery('.category_estimated').text(total_estimated.toFixed(2));
                     jQuery('.category_actual').text(total_actual.toFixed(2));
                     var categoryText = jQuery(this).find('span.txt').text();
+                    console.log("Text found:", categoryText);
                     jQuery('.category_name_box').html(categoryText);
                     
 
