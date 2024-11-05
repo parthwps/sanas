@@ -113,18 +113,37 @@ get_sidebar('dashboard');
                       $categories = get_all_budget_categories();
                       ?>
                       <?php if ($categories): ?>
-                      <?php foreach ($categories as $index => $category): ?>
-                        <li<?php echo $index === 0 ? ' class="active"' : ''; ?>><a href="#budget-expense-box">
-                          <div class="ttl">
-                            <i class="fa-solid fa-<?php echo !empty($category['icon_class']) ? $category['icon_class'] : strtolower(substr($category['category_name'], 0, 1)); ?>"></i>
-                            <span class="txt"><?php echo esc_html($category['category_name']); ?></span>
-                          </div>
-                          <div class="count">
-                            <span>$<?php if(esc_html($category['cost']) != ""){echo esc_html($category['cost']);}else{echo "1001";} ?></span>
-                            <i class="fa fa-trash<?php echo $category['user_id'] != 0 ? ' delete' : ''; ?>" <?php echo $category['user_id'] != 0 ? 'data-id="' . esc_attr($category['id']) . '"' : ''; ?>></i>
-                          </div>
-                        </a></li>
-                      <?php endforeach; ?>
+                      <?php $expense_totals = $wpdb->get_results(
+        $wpdb->prepare("
+            SELECT category_id, SUM(actual_cost) as total_expense
+            FROM {$wpdb->prefix}budget_expense
+            WHERE user_id = %d
+            GROUP BY category_id
+        ", $current_user_id),
+        OBJECT_K
+    );
+
+    foreach ($categories as $index => $category) {
+        // Retrieve total expense for the current category, default to 0 if not set
+        $category_id = $category['id'];
+        $total_expense = isset($expense_totals[$category_id]) ? $expense_totals[$category_id]->total_expense : 0;
+        ?>
+        
+        <li<?php echo $index === 0 ? ' class="active"' : ''; ?>>
+            <a href="#budget-expense-box">
+                <div class="ttl">
+                    <i class="fa-solid fa-<?php echo !empty($category['icon_class']) ? esc_attr($category['icon_class']) : strtolower(substr($category['category_name'], 0, 1)); ?>"></i>
+                    <span class="txt"><?php echo esc_html($category['category_name']); ?></span>
+                </div>
+                <div class="count">
+                    <span>$<?php echo number_format($total_expense, 2); ?></span>
+                    <i class="fa fa-trash<?php echo $category['user_id'] != 0 ? ' delete' : ''; ?>" <?php echo $category['user_id'] != 0 ? 'data-id="' . esc_attr($category['id']) . '"' : ''; ?>></i>
+                </div>
+            </a>
+        </li>
+        
+        <?php
+    } ?>
                       <?php endif; ?>
                     </ul>
                   </div>
