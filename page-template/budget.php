@@ -434,13 +434,29 @@ get_sidebar('dashboard');
       </div>
     </div>
   </div>
+
   <script>
     jQuery(document).ready(function () {
       if (jQuery('#donut-chart-1').length) {
+        var categories = <?php echo json_encode($js_categories); ?>;
+        var expenses = <?php echo json_encode($js_expenses); ?>;
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+              color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+          }
+
+          // Generate random colors for each category
+          var randomColors = categories.map(function() {
+            return getRandomColor();
+          });
         var options = {
-            series: [32, 28, 50, 18],
-            colors: ['#28c38d', '#ff6666', '#745fed', '#f1b44c'],
-            labels: ['Photography', 'Catering', 'Venue', 'Other'],
+            series: expenses,
+            colors: randomColors,
+            labels: categories,
             markers: false,
             chart: {
                 type: 'donut',
