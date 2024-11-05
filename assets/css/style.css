@@ -4927,6 +4927,7 @@ Category Wishlist
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 60%;
+    font-size: 15px;
 }
 
 .budget-man-box .cat-col ul li .count {
@@ -4935,6 +4936,7 @@ Category Wishlist
     display: flex;
     align-items: center;
     column-gap: 20px;
+    font-size: 15px;
 }
 
 .budget-man-box .budget-col .info-box, .budget-man-box .info-box {
@@ -5719,7 +5721,10 @@ section.wedding-section {
     width: 150px !important;
 }
 .budget-man-box .cat-col ul li .ttl>i {
+    width: 30px;
     margin-right: 5px;
+    text-align: center;
+    font-size: 15px;
 }
 .wishlist-box>.inner-box>.flip-container{
     display: inline-block;
