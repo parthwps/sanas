@@ -101,12 +101,12 @@ if (window.location.pathname === '/budget/') {
             
                     // Update the table body with the new rows
                     jQuery('#budget-expense tbody').html(rows);
+                    jQuery('.category_estimated').text(total_estimated.toFixed(2));
+                    jQuery('.category_actual').text(total_actual.toFixed(2));
                     jQuery('html, body').animate({
                         scrollTop: jQuery('#budget-expense-box').offset().top
                     }, 200);
                     window.history.pushState(null, '', '?category=' + categoryId);
-                    jQuery('.category_expense').text(total_estimated.toFixed(2));
-                    jQuery('.category_actual').text(total_actual.toFixed(2));
                 } else {
                     alert('No expenses found for this category.');
                     jQuery('#budget-expense tbody').html('<tr><td colspan="8">No expenses to display.</td></tr>');
