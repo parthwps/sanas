@@ -432,6 +432,45 @@ get_sidebar('dashboard');
       </div>
     </div>
   </div>
+  <script>
+    jQuery(document).ready(function () {
+      if ($('#donut-chart-1').length) {
+        var options = {
+            series: [32, 28, 50],
+            colors: ['#28c38d', '#ff6666', '#745fed', '#f1b44c'],
+            labels: ['Photography', 'Catering', 'Venue', 'Other'],
+            markers: false,
+            chart: {
+                type: 'donut',
+                width: 400
+            },
+            legend: {
+                position: 'bottom'
+            },
+            plotOptions: {
+                pie: {
+                    donut: {
+                        size: '55%'
+                    }
+                }
+            },
+            responsive: [{
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: 250
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }]
+        };
+        var chart = new ApexCharts(document.querySelector("#donut-chart-1"), options);
+        chart.render();
+    }
+    });
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <?php render_confirm_modal_html_alert(); ?>
 <?php render_modal_html_alert(); ?>

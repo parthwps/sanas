@@ -323,41 +323,7 @@
         var chart = new ApexCharts(document.querySelector("#guest_attending"), options);
         chart.render();
     }
-    if ($('#donut-chart-1').length) {
-        var options = {
-            series: [32, 28, 50],
-            colors: ['#28c38d', '#ff6666', '#745fed'],
-            labels: ['Photography', 'Catering', 'Venue'],
-            markers: false,
-            chart: {
-                type: 'donut',
-                width: 400
-            },
-            legend: {
-                position: 'bottom'
-            },
-            plotOptions: {
-                pie: {
-                    donut: {
-                        size: '55%'
-                    }
-                }
-            },
-            responsive: [{
-                breakpoint: 480,
-                options: {
-                    chart: {
-                        width: 250
-                    },
-                    legend: {
-                        position: 'bottom'
-                    }
-                }
-            }]
-        };
-        var chart = new ApexCharts(document.querySelector("#donut-chart-1"), options);
-        chart.render();
-    }
+
     if ($('body').length) {
         // background images cheng
 
