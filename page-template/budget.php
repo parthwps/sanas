@@ -136,7 +136,7 @@ get_sidebar('dashboard');
                     <span class="txt"><?php echo esc_html($category['category_name']); ?></span>
                 </div>
                 <div class="count">
-                    <span>$<?php echo number_format($total_expense, 2); ?></span>
+                    <span>$<?php echo $total_expense; ?></span>
                     <i class="fa fa-trash<?php echo $category['user_id'] != 0 ? ' delete' : ''; ?>" <?php echo $category['user_id'] != 0 ? 'data-id="' . esc_attr($category['id']) . '"' : ''; ?>></i>
                 </div>
             </a>
