@@ -158,7 +158,7 @@ get_sidebar('dashboard');
                <div class="title">
                 <h4>Expense</h4>
                </div>
-              <a href="#" class="dashbord-btn mt-2 me-2"> Add New
+              <a href="#" class="dashbord-btn mt-2 me-2" data-bs-toggle="modal" data-bs-target="#add-category-popup"> Add New
                 Expense</a>
             </div>
             <div class="table-box upcoming-tasks">
@@ -253,6 +253,136 @@ get_sidebar('dashboard');
                   </div> -->
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
+                      <button type="submit" class="dashbord-btn">Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade def-popup add-category-popup" id="add-category-popup" tabindex="-1" role="dialog"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="modal-header">
+            <h4 class="modal-title">Add Expense</h4>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span class="cross"></span>
+            </button>
+          </div>
+          <div class="content-box">
+            <form id="add-vendor-form" method="post" action="#">
+              <div class="form-content">
+                <div class="row">
+                  <div class="col-lg-6 col-sm-12">
+                    <div class="form-group">
+                      <label>Expense*</label>
+                      <input type="text" name="expense" class="form-control" required="">
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-sm-12">
+                    <div class="form-group">
+                      <label>Vendor Name</label>
+                      <input type="text" name="vendor_name" class="form-control" required="">
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-sm-12">
+                    <div class="form-group">
+                      <label>Vendor Contact Info</label>
+                      <input type="number" name="vendor_contact" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-sm-12">
+                    <div class="form-group">
+                      <label>Estimated Cost</label>
+                      <input type="number" name="estimated_cost" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-sm-12">
+                    <div class="form-group">
+                      <label>Actual Cost</label>
+                      <input type="number" name="actual_cost" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-sm-12">
+                    <div class="form-group">
+                      <label>Due</label>
+                      <input type="number" name="due" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group col-lg-12 col-sm-12">
+                    <div class="links-box">
+                      <button type="submit" class="dashbord-btn">Save</button>
+                      <button type="submit" id="add-new-expense" class="dashbord-btn">Save and Add Another Expense</button>                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade def-popup add-category-popup" id="edit-category-popup" tabindex="-1" role="dialog"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="modal-header">
+            <h4 class="modal-title">Edit Expense</h4>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span class="cross"></span>
+            </button>
+          </div>
+          <div class="content-box">
+            <form method="post" id="edit-vendor-form" action="#">
+              <div class="form-content">
+                <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                    <div class="form-group">
+                      <label>Expense*</label>
+                      <input type="text" name="expense" class="form-control" required="">
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-sm-12">
+                    <div class="form-group">
+                      <label>Vendor Name</label>
+                      <input type="text" name="vendor_name" class="form-control" required="">
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-sm-12">
+                    <div class="form-group">
+                      <label>Vendor Contact Info</label>
+                      <input type="number" name="vendor_contact" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-sm-12">
+                    <div class="form-group">
+                      <label>Estimated Cost</label>
+                      <input type="number" name="estimated_cost" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-sm-12">
+                    <div class="form-group">
+                      <label>Actual Cost</label>
+                      <input type="number" name="actual_cost" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-sm-12">
+                    <div class="form-group">
+                      <label>Due</label>
+                      <input type="number" name="due" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group col-lg-12 col-sm-12">
+                    <div class="links-box">
+                      <input type="hidden" name="id" id="edit-category-id">
                       <button type="submit" class="dashbord-btn">Save</button>
                     </div>
                   </div>

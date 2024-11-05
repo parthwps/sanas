@@ -1154,3 +1154,32 @@ function upload_user_profile_image_callback() {
 }
 add_action('wp_ajax_upload_user_profile_image', 'upload_user_profile_image_callback');
 add_action('wp_ajax_nopriv_upload_user_profile_image', 'upload_user_profile_image_callback');
+
+function create_budget_expense_table() {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'budget_expense';
+
+    // Check if the table already exists
+    if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
+        $charset_collate = $wpdb->get_charset_collate();
+
+        $sql = "CREATE TABLE $table_name (
+            id INT NOT NULL AUTO_INCREMENT,
+            user_id INT NOT NULL,
+            category_id INT NOT NULL,
+            expense DECIMAL(10, 2),
+            vendor_name VARCHAR(255),
+            vendor_contact VARCHAR(255),
+            estimated_cost DECIMAL(10, 2),
+            actual_cost DECIMAL(10, 2),
+            paid DECIMAL(10, 2),
+            due DECIMAL(10, 2),
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (id)
+        ) $charset_collate;";
+
+        require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+        dbDelta($sql);
+    }
+}
+add_action('after_switch_theme', 'create_budget_expense_table');
