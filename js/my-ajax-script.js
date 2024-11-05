@@ -1,6 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
     const tooltipTriggerList = document.querySelectorAll('[data-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+    // Function to show the modal
+    function show_confirm_modal_html_alert(title, message) {
+        $('#exampleConfirmModalLabel').text(title);
+        $('#confirm_modal-body-text').text(message);
+        $('#confirm_modal_html_alert').modal('show');
+    }
+    
+    // logout button event listener
+    const logoutButton = document.querySelector('.logout-btn');
+    logoutButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        show_confirm_modal_html_alert('Logout', 'Are you sure you want to logout?');
+    });
+
+    // When "Yes" button is clicked
+    $('#modal-yes-button').on('click', function () {
+        //redirect to login page
+        window.location.href = '/wp-login.php?action=logout';
+    });
+
+    // When "No" button is clicked
+    $('#modal-no-button').on('click', function () {
+        $('#confirm_modal_html_alert').modal('hide');
+    });
 });
 
 if (window.location.pathname === '/to-do-list/' || window.location.pathname === '/my-dashboard/') {

@@ -62,8 +62,8 @@
                             My Profile
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo wp_logout_url(home_url()); ?>">
+                    <li class="nav-item logout-btn">
+                        <a class="nav-link" href="#">
                             <i class="fa-solid fa-power-off"></i>
                             Logout
                         </a>
@@ -73,3 +73,5 @@
         </nav>
     </div>
 </div>
+
+<?php render_confirm_modal_html_alert(); ?>
