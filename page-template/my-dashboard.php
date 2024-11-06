@@ -243,6 +243,9 @@ $totals = $wpdb->get_row(
                             </li>
                             
                             <?php
+                            if($i == 5){
+                              break;
+                            }
                         } ?>
                       <?php endif; ?>
                     </ul>
