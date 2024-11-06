@@ -298,12 +298,12 @@ if (window.location.pathname === '/budget/') {
         $('#confirm_modal_html_alert').modal('show');
     }
     
-    // // When "Yes" button is clicked
-    // $('#modal-yes-button').on('click', function () {
-    //     // Trigger the removal process
-    //     proceedWithRemoval();
-    //     $('#confirm_modal_html_alert').modal('hide');
-    // });
+    // When "Yes" button is clicked
+    $('#modal-yes-button').on('click', function () {
+        // Trigger the removal process
+        proceedWithRemoval();
+        $('#confirm_modal_html_alert').modal('hide');
+    });
     
     // Function to handle the AJAX call for removal
     function proceedWithRemoval() {
@@ -372,10 +372,11 @@ if (window.location.pathname === '/budget/') {
     jQuery('.clear-budget-btn').on('click', function() {
         $('#confirm_modal_html_alert').modal('show');
         $('#confirm_modal_html_alert').addClass('clear-budget-confirmation-modal');
-        $('.clear-budget-confirmation-modal #modal-yes-button').on('click', function() {
+        $('.clear-budget-confirmation-modal #modal-yes-button').on('click', function(event) {
             event.preventDefault();
             console.log('clicked');
             $('#confirm_modal_html_alert').removeClass('clear-budget-confirmation-modal');
+            //I want to stop page reload on modal-yes-button click
         });
     });
 
