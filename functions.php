@@ -1217,15 +1217,22 @@ function add_expense_callback() {
     wp_die(); // this is required to terminate immediately and return a proper response
 }
 
-function get_expense_list($category_id) {
+function get_expense_list($category_id = null) {
     global $wpdb;
     $user_id = get_current_user_id(); // Get the current logged-in user ID
     $table_name = $wpdb->prefix . 'budget_expense';
     $query = "SELECT * FROM $table_name WHERE user_id = %d";
     $query_params = [$user_id];
+
     if ($category_id !== null) {
         $query .= " AND category_id = %d";
         $query_params[] = $category_id;
+    } else {
+        // Fetch for the default or 'active' category
+        // This could be the first category or another logic to determine the default
+        $default_category_id = get_default_category_id(); // You need to define this function
+        $query .= " AND category_id = %d";
+        $query_params[] = $default_category_id;
     }
 
     $results = $wpdb->get_results(
