@@ -71,7 +71,7 @@ get_sidebar('dashboard');
         <div class="col-xl-10 col-lg-8 col-md-12">
           <div class="row event-card-item">
 <?php 
-
+      if(!empty($get_event)){
        foreach ($get_event as $event) { 
         $id = $event->event_no;
         $event_card_id = $event->event_card_id;
@@ -187,6 +187,9 @@ get_sidebar('dashboard');
       </div>
       <?php
         }
+      }else{
+        echo '<h4 class="text-center">You havent created any card yet</h4>';
+      }
         ?>
     </div>
   </div>
