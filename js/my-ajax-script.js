@@ -298,12 +298,12 @@ if (window.location.pathname === '/budget/') {
         $('#confirm_modal_html_alert').modal('show');
     }
     
-    // When "Yes" button is clicked
-    $('#modal-yes-button').on('click', function () {
-        // Trigger the removal process
-        proceedWithRemoval();
-        $('#confirm_modal_html_alert').modal('hide');
-    });
+    // // When "Yes" button is clicked
+    // $('#modal-yes-button').on('click', function () {
+    //     // Trigger the removal process
+    //     proceedWithRemoval();
+    //     $('#confirm_modal_html_alert').modal('hide');
+    // });
     
     // Function to handle the AJAX call for removal
     function proceedWithRemoval() {
