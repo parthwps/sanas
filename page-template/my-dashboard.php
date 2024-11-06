@@ -198,34 +198,55 @@ $totals = $wpdb->get_row(
               </div>
             </div>
             <div class="list cat-col">
-              <ul>
-                <?php
-                $i = 0;
-                $categories = get_all_budget_categories();
-                foreach ($categories as $category) {
-                  $i++;
-                  $category_name = $category->category_name;
-                  $category_id = $category->category_id;
-                  $category_icon = $category->category_icon;
-                ?>
-                <li>
-                  <a href="/budget/?category=<?php echo $category_id; ?>">
-                    <div class="ttl" bis_skin_checked="1">
-                        <i class="fa-solid fa-<?php echo $category_icon; ?>"></i>
-                        <span class="txt"><?php echo $category_name; ?></span>
-                    </div>
-                    <div class="count" bis_skin_checked="1">
-                        <span></span>
-                    </div>
-                  </a>
-                </li>
-                <?php
-                if($i == 4){
-                  break;
-                }
-                }
-                ?>
-              </ul>
+            <ul class="p-0" id="category_cost_section">
+                      <?php
+                      $categories = get_all_budget_categories();
+                      ?>
+                      <?php if ($categories): ?>
+                      <?php $expense_totals = $wpdb->get_results(
+                            $wpdb->prepare("
+                                SELECT category_id, SUM(estimated_cost) as total_expense 
+                                FROM {$wpdb->prefix}budget_expense
+                                WHERE user_id = %d
+                                GROUP BY category_id
+                            ", $current_user_id),
+                            OBJECT_K
+                        );
+                        $i = 0;
+                        // Sort categories by created_at date in descending order
+                        usort($categories, function($a, $b) {
+                            return strtotime($b['created_at']) - strtotime($a['created_at']);
+                        });
+                        foreach ($categories as $index => $category) {
+                            $category_id = $category['id'];
+                            if($i == 0){
+                              $first_category = $category_id;
+                              $first_category_name = $category['category_name'];
+                              $first_category_icon = !empty($category['icon_class']) ? $category['icon_class'] : strtolower(substr($category['category_name'], 0, 1));
+                              $i++;
+                            }
+                            $total_expense = isset($expense_totals[$category_id]) ? $expense_totals[$category_id]->total_expense : 0;
+                            $js_categories[] = esc_js($category['category_name']);
+                            $js_expenses[] = (float) $total_expense;
+                            ?>
+                            
+                            <li<?php echo (empty($_GET['category']) && $index === 0) || (isset($_GET['category']) && $_GET['category'] == $category_id) ? ' class="active"' : ''; ?>>
+                                <a href="javascript:void(0)" class="budget-category-item" data-id="<?php echo esc_attr($category['id']); ?>">
+                                    <div class="ttl">
+                                        <i class="fa-solid fa-<?php echo !empty($category['icon_class']) ? esc_attr($category['icon_class']) : strtolower(substr($category['category_name'], 0, 1)); ?>"></i>
+                                        <span class="txt"><?php echo esc_html($category['category_name']); ?></span>
+                                    </div>
+                                    <div class="count">
+                                        <span>$<?php echo $total_expense; ?></span>
+                                        <i class="fa fa-trash<?php echo $category['user_id'] != 0 ? ' delete category-delete' : ''; ?>" <?php echo $category['user_id'] != 0 ? 'data-id="' . esc_attr($category['id']) . '"' : ''; ?>></i>
+                                    </div>
+                                </a>
+                            </li>
+                            
+                            <?php
+                        } ?>
+                      <?php endif; ?>
+                    </ul>
             </div>
             <div class="link-box">
               <a href="/budget/" class="dashbord-btn">Manage Budget</a>
