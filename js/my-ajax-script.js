@@ -371,9 +371,9 @@ if (window.location.pathname === '/budget/') {
 
     jQuery('.clear-budget-btn').on('click', function() {
         $('#confirm_modal_html_alert').modal('show');
-        // $('#confirm_modal_html_alert').addClass('clear-budget-confirmation-modal');
-        // $('.clear-budget-confirmation-modal #modal-body-text').text('Do you want to clear all expenses?');
-        // $('.clear-budget-confirmation-modal #modal-yes-button').attr('id', 'render-modal-yes-button');
+        $('#confirm_modal_html_alert').addClass('clear-budget-confirmation-modal');
+        $('.clear-budget-confirmation-modal #confirm_modal-body-text').text('Do you want to clear all expenses?');
+        $('.clear-budget-confirmation-modal #modal-yes-button').attr('id', 'render-modal-yes-button');
         $('.clear-budget-confirmation-modal #modal-yes-button').on('click', function() {
             console.log('clicked');
         });
