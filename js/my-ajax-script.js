@@ -374,6 +374,7 @@ if (window.location.pathname === '/budget/') {
         $('#confirm_modal_html_alert').addClass('clear-budget-confirmation-modal');
         $('.clear-budget-confirmation-modal #confirm_modal-body-text').text('Do you want to clear all expenses?');
         $('.clear-budget-confirmation-modal #modal-yes-button').attr('id', 'render-modal-yes-button');
+        $('.clear-budget-confirmation-modal #modal-yes-button').off('click');
         $('.clear-budget-confirmation-modal #render-modal-yes-button').on('click', function() {
             console.log('clicked');
             $('.clear-budget-confirmation-modal #render-modal-yes-button').attr('id', 'modal-yes-button');
