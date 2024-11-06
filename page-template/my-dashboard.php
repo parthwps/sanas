@@ -96,7 +96,7 @@ $totals = $wpdb->get_row(
               <div class="card-body">
                 <h4 class="text-muted">My Website</h4>
                 <div class="icon"><i class="fa-solid fa-earth-americas"></i></div>
-                <div class="link"><a href="#">View Details</a></div>
+                <div class="link"><a href="/my-website/">View Details</a></div>
               </div>
             </div>
           </div>
