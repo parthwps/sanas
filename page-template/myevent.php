@@ -187,7 +187,7 @@ get_sidebar('dashboard');
       <?php
         }
         if(is_array($get_event) && empty($get_event)){
-        echo '<h4 class="text-center">You havent created any card yet</h4>';
+        echo '<p>You havent created any event yet</p>';
       }
         ?>
     </div>
