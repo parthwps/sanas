@@ -4208,9 +4208,9 @@ table.dataTable thead>tr>td.dt-orderable-desc:hover {
 }
 
 .my-profile .my-profile-box .my-profile-details .profile-img img {
-    max-width: 100px;
-    max-height: 100px;
-    border-radius: 100px;
+    max-width: 107px;
+    max-height: 107px;
+    border-radius: 110px;
 }
 
 .my-profile .my-profile-box .my-profile-details .profile-info {
@@ -6490,4 +6490,10 @@ th.todo-subhead h4 {
 }
 .btn-profile.dropdown-toggle img {
     border-radius: 100%;
+    display: flex;
+}
+.btn-profile.dropdown-toggle {
+    height: 40px;
+    width: 40px;
+    padding: 2px;
 }
