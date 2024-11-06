@@ -73,7 +73,7 @@ if (window.location.pathname === '/budget/') {
                         total_estimated += parseFloat(expense.estimated_cost);
                         total_actual += parseFloat(expense.actual_cost);
                         total_paid += parseFloat(expense.paid);
-                        total_due = parseFloat(expense.actual_cost) - parseFloat(expense.paid);
+                        total_due += parseFloat(expense.due;
             
                         rows += '<tr>' +
                                     '<td class="expense">' + escapeHtml(expense.expense) + '</td>' +
@@ -82,7 +82,7 @@ if (window.location.pathname === '/budget/') {
                                     '<td>$' + escapeHtml(expense.estimated_cost) + '</td>' +
                                     '<td>$' + escapeHtml(expense.actual_cost) + '</td>' +
                                     '<td>$' + escapeHtml(expense.paid) + '</td>' +
-                                    '<td>$' + escapeHtml(expense.actual_cost - expense.paid) + '</td>' +
+                                    '<td>$' + escapeHtml(expense.due) + '</td>' +
                                     '<td class="actions">' +
                                         '<a href="#" class="edit theme-btn" data-id="' + escapeHtml(expense.id) + '" data-bs-toggle="modal" data-bs-target="#edit-expense-popup">' +
                                             '<i class="fa-solid fa-pen"></i>' +
