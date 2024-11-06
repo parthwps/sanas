@@ -1395,11 +1395,9 @@ function get_budget_expense_by_category() {
     if (isset($_POST['category_id'])) {
         $category_id = intval($_POST['category_id']); // Sanitize input
 
-        // Query to get expenses based on category ID
-        $expenses = get_expense_list($category_id); // Assume this function fetches expenses
+        $expenses = get_expense_list($category_id); // Fetch expenses for the category
 
         if (!empty($expenses)) {
-            // Return the expenses in a JSON response
             wp_send_json_success(['expenses' => $expenses]);
         } else {
             wp_send_json_error('No expenses found for this category.');
