@@ -132,7 +132,7 @@ get_sidebar('dashboard');
                             if($i == 0){
                               $first_category = $category_id;
                               $first_category_name = $category['category_name'];
-                              $first_category_icon = $category['icon_class'];
+                              $first_category_icon = !empty($category['icon_class']) ? $category['icon_class'] : strtolower(substr($category['category_name'], 0, 1));
                               $i++;
                             }
                             $total_expense = isset($expense_totals[$category_id]) ? $expense_totals[$category_id]->total_expense : 0;
@@ -192,7 +192,6 @@ get_sidebar('dashboard');
           <div class="lower-box">
             <div class="info-box">
               <div class="cat-info">
-                
                 <div class="icon-box"><i class="fa-solid fa-<?php echo $first_category_icon; ?>"></i></div>
                 <div class="category_name_box"><?php echo $first_category_name; ?></div>
                 <div class="cost">
