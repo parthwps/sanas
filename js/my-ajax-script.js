@@ -329,7 +329,7 @@ if (window.location.pathname === '/budget/') {
     var currentVendorId;
     
     // Click handler for the delete icon
-    $(".delete").on("click", function (e) {
+    $(".category-delete").on("click", function (e) {
         e.preventDefault();
         currentVendorId = $(this).data("id");
     
