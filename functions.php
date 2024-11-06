@@ -1331,7 +1331,6 @@ function add_default_budget_data_on_user_registration($user_id) {
                     'estimated_cost'  => 500.00,
                     'actual_cost'     => 0.00,
                     'paid'            => 0.00,
-                    'due'             => 0.00,
                     'created_at'      => current_time('mysql'),
                 ]
             );
