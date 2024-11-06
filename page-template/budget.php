@@ -24,8 +24,7 @@ get_sidebar('dashboard');
             SELECT 
                 COALESCE(SUM(estimated_cost), 0) AS total_estimated,
                 COALESCE(SUM(actual_cost), 0) AS total_actual,
-                COALESCE(SUM(paid), 0) AS total_paid,
-                COALESCE(SUM(due), 0) AS total_due
+                COALESCE(SUM(paid), 0) AS total_paid
             FROM $table_name
             WHERE user_id = %d
         ", $current_user_id)
@@ -83,7 +82,7 @@ get_sidebar('dashboard');
                   <div class="text-muted">Due</div>
                   <div class="icon"><i class="fa fa-file-alt"></i></div>
                   <div class="count">
-                    <span>$<?php echo number_format($totals->total_due, 0); ?></span>
+                    <span>$<?php //echo number_format($totals->total_due, 0); ?></span>
                   </div>
                 </div>
               </div>
