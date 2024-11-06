@@ -392,7 +392,6 @@
     }
     // guest-list data table
     if ($('.table-responsive').length) {
-        $('#budget-expense').DataTable();
         $('#guest-list-Table').DataTable();
         $('.my-vendor-table').DataTable({
             columnDefs: [
