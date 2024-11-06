@@ -199,7 +199,7 @@ $totals = $wpdb->get_row(
             </div>
             <div class="list cat-col">
               <ul>
-                <li class="active">
+                <li>
                   <a href="javascript:void();">
                     <div class="ttl" bis_skin_checked="1">
                         <i class="fa-solid fa-t"></i>
