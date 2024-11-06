@@ -176,9 +176,26 @@ if (window.location.pathname === '/budget/') {
             data: formData + '&action=edit_expense',
             success: function(response) {
                 if (response.success) {
-                    alert(response.data);
+                    $('#edit-expense-popup').modal('hide');
+                    // set the modal title and message
+                    $('#exampleModalLabel').text('Success');
+                    $('#modal-body-text').text(response.data);
+                    // show the modal
+                    $('#modal_html_alert').modal('show');
+                    // handle the click event on the "Yes" button in the modal
+                    $('#render-modal-yes-button').on('click', function() {
+                        location.reload();
+                    });
                 } else {
-                    alert(response.data);
+                    // set the modal title and message
+                    $('#exampleModalLabel').text('Error');
+                    $('#modal-body-text').text(response.data);
+                    // show the modal
+                    $('#modal_html_alert').modal('show');
+                    // handle the click event on the "Yes" button in the modal
+                    $('#render-modal-yes-button').on('click', function() {
+                        $('#modal_html_alert').modal('hide');
+                    });
                 }
             }
         });
