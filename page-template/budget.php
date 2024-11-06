@@ -195,8 +195,8 @@ get_sidebar('dashboard');
                 <div class="icon-box"><i class="fa-solid fa-<?php echo $first_category_icon; ?>"></i></div>
                 <div class="category_name_box"><?php echo $first_category_name; ?></div>
                 <div class="cost">
-                  <span class="c-text">Estimated cost: <span class="category_estimated">$<?php echo isset($first_category) ? $total_estimated : '0'; ?></span></span>
-                  <span class="c-text">Actual cost: <span class="category_actual">$<?php echo isset($first_category) ? $total_actual : '0'; ?></span></span>
+                  <span class="c-text">Estimated cost: <span class="category_estimated">$<?php echo isset($first_category) ? get_expense_list($first_category)[0]['estimated_cost'] : '0'; ?></span></span>
+                  <span class="c-text">Actual cost: <span class="category_actual">$<?php echo isset($first_category) ? get_expense_list($first_category)[0]['actual_cost'] : '0'; ?></span></span>
                 </div>
               </div>
             </div>
