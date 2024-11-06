@@ -193,11 +193,8 @@ get_sidebar('dashboard');
                 <?php
                 $category_name_temp = '';
                 $category_icon = '';
-                $total_estimated = 0;
-                $total_actual = 0;
-
-                // Get category details
-                foreach ($categories as $category) {
+                
+                foreach ($categories as $index => $category) {
                     if (isset($_GET['category']) && $_GET['category'] == $category['id']) {
                         $category_name_temp = $category['category_name'];
                         $category_icon = $category['icon_class'];
@@ -205,8 +202,8 @@ get_sidebar('dashboard');
                     }
                 }
                 ?>
-                <div class="icon-box"><i class="fa-solid fa-<?php echo esc_attr($category_icon); ?>"></i></div>
-                <div class="category_name_box"><?php echo esc_html($category_name_temp); ?></div>
+                <div class="icon-box"><i class="fa-solid fa-<?php echo $category_icon; ?>"></i></div>
+                <div class="category_name_box"><?php echo $category_name_temp;?></div>
                 <div class="cost">
                   <span class="c-text">Estimated cost: <span class="category_estimated">$ 12,320</span></span>
                   <span class="c-text">Actual cost: <span class="category_actual">$ 0</span></span>
@@ -237,12 +234,8 @@ get_sidebar('dashboard');
                   </thead>
                   <tbody>
                     <?php
-                    // Get category ID from URL or use first category
-                    $expense_category = isset($_GET['category']) ? intval($_GET['category']) : $first_category;
-                    
-                    // Get expenses for selected category
+                    $expense_category = isset($_GET['category']) ? $_GET['category'] : $first_category;
                     $expenses = get_expense_list($expense_category);
-                    
                     $total_estimated = 0;
                     $total_actual = 0;
                     $total_paid = 0;
@@ -250,10 +243,10 @@ get_sidebar('dashboard');
                     
                     if (!empty($expenses)) {
                         foreach ($expenses as $expense) {
-                            $total_estimated += floatval($expense['estimated_cost']);
-                            $total_actual += floatval($expense['actual_cost']); 
-                            $total_paid += floatval($expense['paid']);
-                            $total_due += floatval($expense['due']);
+                            $total_estimated += $expense['estimated_cost'];
+                            $total_actual += $expense['actual_cost']; 
+                            $total_paid += $expense['paid'];
+                            $total_due += $expense['due'];
                             ?>
                             <tr>
                                 <td class="expense"><?php echo esc_html($expense['expense']); ?></td>
@@ -272,28 +265,19 @@ get_sidebar('dashboard');
                                     </a>
                                 </td>
                             </tr>
-                        <?php 
-                        }
-                        ?>
-                        <tr>
-                            <td>Total</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>$<?php echo number_format($total_estimated, 2); ?></td>
-                            <td>$<?php echo number_format($total_actual, 2); ?></td>
-                            <td>$<?php echo number_format($total_paid, 2); ?></td>
-                            <td>$<?php echo number_format($total_due, 2); ?></td>
-                            <td class="actions">&nbsp;</td>
-                        </tr>
-                    <?php
-                    } else {
-                        ?>
-                        <tr>
-                            <td colspan="8" class="text-center">No expenses found for this category</td>
-                        </tr>
-                        <?php
-                    }
+                        <?php }
+                    } 
                     ?>
+                    <tr>
+                        <td>Total</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>$<?php echo esc_html($total_estimated); ?></td>
+                        <td>$<?php echo esc_html($total_actual); ?></td>
+                        <td>$<?php echo esc_html($total_paid); ?></td>
+                        <td>$<?php echo esc_html($total_due); ?></td>
+                        <td class="actions">&nbsp;</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
