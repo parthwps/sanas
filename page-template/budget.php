@@ -131,6 +131,8 @@ get_sidebar('dashboard');
                             $category_id = $category['id'];
                             if($i == 0){
                               $first_category = $category_id;
+                              $category_name = $category['category_name'];
+                              $category_icon = $category['icon_class'];
                               $i++;
                             }
                             $total_expense = isset($expense_totals[$category_id]) ? $expense_totals[$category_id]->total_expense : 0;
@@ -192,17 +194,16 @@ get_sidebar('dashboard');
               <div class="cat-info">
                 <?php
                 $category_name_temp = '';
-                $category_icon = '';
-                
+                $category_icon_class = '';
                 foreach ($categories as $index => $category) {
                     if (isset($_GET['category']) && $_GET['category'] == $category['id']) {
-                        $category_name_temp = $category['category_name'];
-                        $category_icon = $category['icon_class'];
+                        $category_name_temp = $category_name;
+                        $category_icon_class = $category_icon;
                         break;
                     }
                 }
                 ?>
-                <div class="icon-box"><i class="fa-solid fa-<?php echo $category_icon; ?>"></i></div>
+                <div class="icon-box"><i class="fa-solid fa-<?php echo $category_icon_class; ?>"></i></div>
                 <div class="category_name_box"><?php echo $category_name_temp;?></div>
                 <div class="cost">
                   <span class="c-text">Estimated cost: <span class="category_estimated">$ 12,320</span></span>
