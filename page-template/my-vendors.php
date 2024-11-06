@@ -38,7 +38,7 @@ get_sidebar('dashboard');
                 <div class="inner-box3">
                   <div class="table-box upcoming-tasks">
                     <div class="vendor-table table-responsive m-0">
-                      <table class="vendor-list-table" id="vendor-table">
+                      <table class="vendor-list-table my-vendor-table" id="vendor-table">
                         <thead>
                         <tr>
                           <th>Category</th>

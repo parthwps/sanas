@@ -394,9 +394,14 @@
     if ($('.table-responsive').length) {
         $('#budget-expense').DataTable();
         $('#guest-list-Table').DataTable();
-        $('#vendor-table').DataTable({
+        $('.my-vendor-table').DataTable({
             columnDefs: [
                 { orderable: true, targets: [0, 5] },
+            ]
+        });
+        $('.vendor-table-list').DataTable({
+            columnDefs: [
+                { orderable: true, targets: [1, 6] },
             ]
         });
         $('#guest-contact-list').DataTable();
