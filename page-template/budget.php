@@ -191,16 +191,22 @@ get_sidebar('dashboard');
             <div class="info-box">
               <div class="cat-info">
                 <?php
-                foreach ($categories as $index => $category) {
-                  if (isset($_GET['category']) && $_GET['category'] == $category['id']) {
-                    $category_name_temp = $category['category_name'];
-                    $category_icon = $category['icon_class'];
-                    break;
-                  }
+                $category_name_temp = '';
+                $category_icon = '';
+                $total_estimated = 0;
+                $total_actual = 0;
+
+                // Get category details
+                foreach ($categories as $category) {
+                    if (isset($_GET['category']) && $_GET['category'] == $category['id']) {
+                        $category_name_temp = $category['category_name'];
+                        $category_icon = $category['icon_class'];
+                        break;
+                    }
                 }
                 ?>
-                <div class="icon-box"><i class="fa-solid fa-<?php echo $category_icon; ?>"></i></div>
-                <div class="category_name_box"><?php echo $category_name_temp;?></div>
+                <div class="icon-box"><i class="fa-solid fa-<?php echo esc_attr($category_icon); ?>"></i></div>
+                <div class="category_name_box"><?php echo esc_html($category_name_temp); ?></div>
                 <div class="cost">
                   <span class="c-text">Estimated cost: <span class="category_estimated">$ 12,320</span></span>
                   <span class="c-text">Actual cost: <span class="category_actual">$ 0</span></span>
@@ -231,51 +237,63 @@ get_sidebar('dashboard');
                   </thead>
                   <tbody>
                     <?php
-                    if($_GET['category'] != '') {
-                      $expense_category = $_GET['category'];
-                    } else {
-                      $expense_category = $first_category;
-                    }
+                    // Get category ID from URL or use first category
+                    $expense_category = isset($_GET['category']) ? intval($_GET['category']) : $first_category;
+                    
+                    // Get expenses for selected category
                     $expenses = get_expense_list($expense_category);
+                    
                     $total_estimated = 0;
                     $total_actual = 0;
                     $total_paid = 0;
                     $total_due = 0;
                     
-                    foreach ($expenses as $expense) {
-                        $total_estimated += $expense['estimated_cost'];
-                        $total_actual += $expense['actual_cost']; 
-                        $total_paid += $expense['paid'];
-                        $total_due += $expense['due'];
+                    if (!empty($expenses)) {
+                        foreach ($expenses as $expense) {
+                            $total_estimated += floatval($expense['estimated_cost']);
+                            $total_actual += floatval($expense['actual_cost']); 
+                            $total_paid += floatval($expense['paid']);
+                            $total_due += floatval($expense['due']);
+                            ?>
+                            <tr>
+                                <td class="expense"><?php echo esc_html($expense['expense']); ?></td>
+                                <td><?php echo esc_html($expense['vendor_name']); ?></td>
+                                <td><?php echo esc_html($expense['vendor_contact']); ?></td>
+                                <td>$<?php echo esc_html($expense['estimated_cost']); ?></td>
+                                <td>$<?php echo esc_html($expense['actual_cost']); ?></td>
+                                <td>$<?php echo esc_html($expense['paid']); ?></td>
+                                <td>$<?php echo esc_html($expense['due']); ?></td>
+                                <td class="actions">
+                                    <a href="#" class="edit theme-btn" data-id="<?php echo esc_attr($expense['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-expense-popup">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </a>
+                                    <a href="#" class="delete theme-btn" data-id="<?php echo esc_attr($expense['id']); ?>">
+                                        <i class="fa-regular fa-trash-can"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php 
+                        }
                         ?>
                         <tr>
-                            <td class="expense"><?php echo esc_html($expense['expense']); ?></td>
-                            <td><?php echo esc_html($expense['vendor_name']); ?></td>
-                            <td><?php echo esc_html($expense['vendor_contact']); ?></td>
-                            <td>$<?php echo esc_html($expense['estimated_cost']); ?></td>
-                            <td>$<?php echo esc_html($expense['actual_cost']); ?></td>
-                            <td>$<?php echo esc_html($expense['paid']); ?></td>
-                            <td>$<?php echo esc_html($expense['due']); ?></td>
-                            <td class="actions">
-                                <a href="#" class="edit theme-btn" data-id="<?php echo esc_attr($expense['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-expense-popup">
-                                    <i class="fa-solid fa-pen"></i>
-                                </a>
-                                <a href="#" class="delete theme-btn" data-id="<?php echo esc_attr($expense['id']); ?>">
-                                    <i class="fa-regular fa-trash-can"></i>
-                                </a>
-                            </td>
+                            <td>Total</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>$<?php echo number_format($total_estimated, 2); ?></td>
+                            <td>$<?php echo number_format($total_actual, 2); ?></td>
+                            <td>$<?php echo number_format($total_paid, 2); ?></td>
+                            <td>$<?php echo number_format($total_due, 2); ?></td>
+                            <td class="actions">&nbsp;</td>
                         </tr>
-                    <?php } ?>
-                    <tr>
-                        <td>Total</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>$<?php echo esc_html($total_estimated); ?></td>
-                        <td>$<?php echo esc_html($total_actual); ?></td>
-                        <td>$<?php echo esc_html($total_paid); ?></td>
-                        <td>$<?php echo esc_html($total_due); ?></td>
-                        <td class="actions">&nbsp;</td>
-                    </tr>
+                    <?php
+                    } else {
+                        ?>
+                        <tr>
+                            <td colspan="8" class="text-center">No expenses found for this category</td>
+                        </tr>
+                        <?php
+                    }
+                    ?>
                   </tbody>
                 </table>
               </div>
