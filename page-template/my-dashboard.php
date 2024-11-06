@@ -179,7 +179,7 @@ $totals = $wpdb->get_row(
           </div>
         <?php }?>
         <div class="wed-cat-info col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
-          <div class="inner">
+          <div class="inner budget-man-box">
             <div class="title-box">
               <div class="title">
                 <h4>Budget Calculator</h4>
@@ -197,16 +197,18 @@ $totals = $wpdb->get_row(
                 </div>
               </div>
             </div>
-            <div class="list">
+            <div class="list cat-col">
               <ul>
                 <li class="active">
-                  <div class="ttl" bis_skin_checked="1">
-                      <i class="fa-solid fa-t"></i>
-                      <span class="txt">Test</span>
-                  </div>
-                  <div class="count" bis_skin_checked="1">
-                      <span>$900.00</span>
-                  </div>
+                  <a href="javascript:void();">
+                    <div class="ttl" bis_skin_checked="1">
+                        <i class="fa-solid fa-t"></i>
+                        <span class="txt">Test</span>
+                    </div>
+                    <div class="count" bis_skin_checked="1">
+                        <span>$900.00</span>
+                    </div>
+                  </a>
                 </li>
                 <li><a href="#">
                     <div class="ttl"><i class="icon flaticon-camera"></i><span class="txt">Photography</span>
