@@ -399,6 +399,11 @@
                 { orderable: false, targets: [1, 2, 3, 4, 5] },
             ]
         });
+        $('.budget-table-sort').DataTable({
+            columnDefs: [
+                { orderable: false, targets: [0, 2, 3, 4, 5, 6] },
+            ]
+        });
         $('.vendor-table-list').DataTable({
             columnDefs: [
                 { orderable: false, targets: [0,2,3,4,5] },
