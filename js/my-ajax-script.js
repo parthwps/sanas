@@ -144,6 +144,8 @@ if (window.location.pathname === '/budget/') {
         e.preventDefault();
         var expenseId = $(this).data('id');
         var categoryId = $('#category-id-input').val();
+        // set the category ID in the hidden input field
+        $('#category-id-input').val(categoryId);
         
         $.ajax({
             type: 'POST',
@@ -158,7 +160,7 @@ if (window.location.pathname === '/budget/') {
                     $('#edit-estimated-cost').val(response.data.estimated_cost);
                     $('#edit-actual-cost').val(response.data.actual_cost);
                     $('#edit-paid').val(response.data.paid);
-                    $('#edit-category-id').val(response.data.category_id);
+                    $('#category-id-input').val(response.data.category_id);
                     $('#edit-expense-popup').modal('show');
                 } else {
                     alert('Failed to fetch expense details.');
