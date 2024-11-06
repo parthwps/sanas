@@ -4593,7 +4593,7 @@ table.dataTable thead>tr>td.dt-orderable-desc:hover {
     font-size: 13px;
     text-transform: uppercase;
     line-height: 30px;
-    padding: 17px 0px;
+    padding: 0px;
     border-bottom: 1px solid #00000012;
 }
 

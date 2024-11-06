@@ -199,37 +199,32 @@ $totals = $wpdb->get_row(
             </div>
             <div class="list cat-col">
               <ul>
+                <?php
+                $i = 0;
+                $categories = get_all_budget_categories();
+                foreach ($categories as $category) {
+                  $i++;
+                  $category_name = $category->category_name;
+                  $category_id = $category->category_id;
+                  $category_icon = $category->category_icon;
+                ?>
                 <li>
-                  <a href="javascript:void();">
+                  <a href="/budget/?category=<?php echo $category_id; ?>">
                     <div class="ttl" bis_skin_checked="1">
-                        <i class="fa-solid fa-t"></i>
-                        <span class="txt">Test</span>
+                        <i class="fa-solid fa-<?php echo $category_icon; ?>"></i>
+                        <span class="txt"><?php echo $category_name; ?></span>
                     </div>
                     <div class="count" bis_skin_checked="1">
-                        <span>$900.00</span>
+                        <span></span>
                     </div>
                   </a>
                 </li>
-                <li><a href="#">
-                    <div class="ttl"><i class="icon flaticon-camera"></i><span class="txt">Photography</span>
-                    </div>
-                    <div class="Budget-count"><span> $15,000</span></div>
-                  </a></li>
-                <li><a href="#">
-                    <div class="ttl"><i class="icon flaticon-bouquet-1"></i><span class="txt">Flowers (100)</span>
-                    </div>
-                    <div class="Budget-count"><span> $1,000</span></div>
-                  </a></li>
-                <li><a href="#">
-                    <div class="ttl"><i class="icon flaticon-envelope"></i><span class="txt">Invitation
-                        (100)</span></div>
-                    <div class="Budget-count"><span> $3,000</span></div>
-                  </a></li>
-                <li><a href="#">
-                    <div class="ttl"><i class="icon flaticon-wedding-arch-1"></i><span class="txt">Decorations
-                        (30)</span></div>
-                    <div class="Budget-count"><span> $5,000</span></div>
-                  </a></li>
+                <?php
+                if($i == 4){
+                  break;
+                }
+                }
+                ?>
               </ul>
             </div>
             <div class="link-box">
