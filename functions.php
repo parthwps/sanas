@@ -1402,3 +1402,53 @@ function get_budget_expense_by_category() {
     }
     wp_die();
 }
+
+// Fetch expense details for editing
+add_action('wp_ajax_get_expense_details', 'get_expense_details');
+function get_expense_details() {
+    global $wpdb;
+    $expense_id = intval($_POST['id']);
+    $table_name = $wpdb->prefix . 'budget_expense';
+
+    $expense = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE id = %d", $expense_id), ARRAY_A);
+
+    if ($expense) {
+        wp_send_json_success($expense);
+    } else {
+        wp_send_json_error('Expense not found.');
+    }
+}
+
+// Update expense details
+add_action('wp_ajax_edit_expense', 'edit_expense');
+function edit_expense() {
+    global $wpdb;
+    $expense_id = intval($_POST['id']);
+    $category_id = intval($_POST['category_id']);
+    $expense = sanitize_text_field($_POST['expense']);
+    $vendor_name = sanitize_text_field($_POST['vendor_name']);
+    $vendor_contact = sanitize_text_field($_POST['vendor_contact']);
+    $estimated_cost = floatval($_POST['estimated_cost']);
+    $actual_cost = floatval($_POST['actual_cost']);
+    $paid = floatval($_POST['paid']);
+
+    $result = $wpdb->update(
+        $wpdb->prefix . 'budget_expense',
+        [
+            'category_id' => $category_id,
+            'expense' => $expense,
+            'vendor_name' => $vendor_name,
+            'vendor_contact' => $vendor_contact,
+            'estimated_cost' => $estimated_cost,
+            'actual_cost' => $actual_cost,
+            'paid' => $paid
+        ],
+        ['id' => $expense_id]
+    );
+
+    if ($result !== false) {
+        wp_send_json_success('Expense updated successfully.');
+    } else {
+        wp_send_json_error('Failed to update expense.');
+    }
+}

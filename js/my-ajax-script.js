@@ -139,6 +139,51 @@ if (window.location.pathname === '/budget/') {
         return text.replace(/[&<>"']/g, function(m) { return map[m]; });
     }
 
+    // Edit Expense Item
+    jQuery('.edit').on('click', function(e) {
+        e.preventDefault();
+        var expenseId = $(this).data('id');
+
+        $.ajax({
+            type: 'POST',
+            url: ajax_object.ajax_url,
+            data: { id: expenseId, action: 'get_expense_details' },
+            success: function(response) {
+                if (response.success) {
+                    $('#edit-expense-id').val(response.data.id);
+                    $('#edit-expense-name').val(response.data.expense);
+                    $('#edit-vendor-name').val(response.data.vendor_name);
+                    $('#edit-vendor-contact').val(response.data.vendor_contact);
+                    $('#edit-estimated-cost').val(response.data.estimated_cost);
+                    $('#edit-actual-cost').val(response.data.actual_cost);
+                    $('#edit-paid').val(response.data.paid);
+                    $('#edit-category-id').val(response.data.category_id);
+                    $('#edit-expense-popup').modal('show');
+                } else {
+                    alert('Failed to fetch expense details.');
+                }
+            }
+        });
+    });
+
+    // Edit Expense form
+    jQuery('#edit-expense-form').submit(function(e) {
+        e.preventDefault();
+        var formData = $(this).serialize();
+        $.ajax({
+            type: 'POST',
+            url: ajax_object.ajax_url,
+            data: formData + '&action=edit_expense',
+            success: function(response) {
+                if (response.success) {
+                    alert(response.data);
+                } else {
+                    alert(response.data);
+                }
+            }
+        });
+    });
+
     // Add Budget Category Item
     jQuery('#add-budget-category-form').submit(function(e) {
         e.preventDefault();
