@@ -6447,11 +6447,6 @@ th.todo-subhead h4 {
     width: 100px;
 }
 
-.vendor-list-table td:first-child, .vendor-list-table th:first-child{
-    max-width: 50px;
-    width: 50px;
-}
-
 .todo-list-table td:first-child, .todo-list-table th:first-child{
     max-width: 100px !important;
     width: 100px !important;
