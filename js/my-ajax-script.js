@@ -186,7 +186,7 @@ if (window.location.pathname === '/budget/') {
                     $('#modal_html_alert').modal('show');
                     // handle the click event on the "Yes" button in the modal
                     $('#render-modal-yes-button').on('click', function() {
-                        //location.reload();
+                        location.reload();
                     });
                 } else {
                     // set the modal title and message
@@ -225,7 +225,7 @@ if (window.location.pathname === '/budget/') {
                 data: { id: expenseId, action: 'delete_expense' },
                 success: function(response) {   
                     if (response.success) {
-                        //location.reload();
+                        location.reload();
                     } else {
                         // set the modal title and message
                         $('#exampleModalLabel').text('Error');
@@ -272,7 +272,7 @@ if (window.location.pathname === '/budget/') {
 
                     // Handle the click event on the "Yes" button in the modal
                     $('#render-modal-yes-button').on('click', function() {
-                        //location.reload();
+                        location.reload();
                     });
                 } else {
                     // Set the modal title and message
@@ -315,7 +315,7 @@ if (window.location.pathname === '/budget/') {
             data: { id: vendorId, action: 'delete_budget_category_item' },
             success: function(response) {   
                 if (response.success) {
-                    //location.reload();
+                    location.reload();
                 } else {
                     // alert(response.data);  
                 }
@@ -345,7 +345,7 @@ if (window.location.pathname === '/budget/') {
     //             success: function(response) {
     //                 if (response.success) {
     //                     alert(response.data);
-    //                     //location.reload();
+    //                     location.reload();
     //                 } else {
     //                     alert(response.data);
     //                 }
@@ -403,7 +403,7 @@ jQuery(document).ready(function($) {
                     $('#modal_html_alert').modal('show');
                     recalculate_task();
                     $('#render-modal-yes-button').on('click', function() {
-                        //location.reload();
+                        location.reload();
                     });
                 } else {
                     $('#exampleModalLabel').text('Error');
@@ -437,7 +437,7 @@ jQuery(document).ready(function($) {
 
                     // Handle the click event on the "Yes" button in the modal
                     $('#render-modal-yes-button').on('click', function() {
-                        //location.reload();
+                        location.reload();
                     });
                 } else {
                     // Set the modal title and message
@@ -503,7 +503,7 @@ jQuery(document).ready(function($) {
             data: { id: todoId, action: 'delete_todo_item' },
             success: function(response) {
                 if (response.success) {
-                    //location.reload();
+                    location.reload();
                 } else {
                     // Set the modal title and message
                     $('#exampleModalLabel').text('Error');
@@ -615,7 +615,7 @@ if (window.location.pathname === '/vendors-list/') {
                             $('#modal-body-text').text('Vendor item added successfully.');
                             $('#modal_html_alert').modal('show');
                             $('#render-modal-yes-button').on('click', function() {
-                                //location.reload();
+                                location.reload();
                             });
                         }
                     } else {
@@ -672,7 +672,7 @@ if (window.location.pathname === '/vendors-list/') {
                         // Show the modal
                         $('#modal_html_alert').modal('show');
                         $('#render-modal-yes-button').on('click', function() {
-                            //location.reload();
+                            location.reload();
                         });
                     } else {
                         alert(response.data);
@@ -719,7 +719,7 @@ if (window.location.pathname === '/vendors-list/') {
 
                                 // Handle the click event on the "Yes" button in the modal
                                 $('#render-modal-yes-button').on('click', function() {
-                                    //location.reload();
+                                    location.reload();
                                 });
                             } else {
                                 // Set the modal title and message
@@ -763,7 +763,7 @@ if (window.location.pathname === '/vendors-list/') {
                 data: { id: vendorId, action: 'delete_vendor_item' },
                 success: function(response) {
                     if (response.success) {
-                        //location.reload();
+                        location.reload();
                     } else {
                         alert(response.data);  
                     }
@@ -805,7 +805,7 @@ if (window.location.pathname === '/my-vendors/' || window.location.pathname === 
                             $('#modal-body-text').text('Vendor item added successfully.');
                             $('#modal_html_alert').modal('show');
                             $('#render-modal-yes-button').on('click', function() {
-                                //location.reload();
+                                location.reload();
                             });
                         }
                         if(buttonDataId == 1){
@@ -883,7 +883,7 @@ if (window.location.pathname === '/my-vendors/' || window.location.pathname === 
 
                         // Handle the click event on the "Yes" button in the modal
                         $('#render-modal-yes-button').on('click', function() {
-                            //location.reload();
+                            location.reload();
                         });
                     } else {
                         // Set the modal title and message
@@ -925,7 +925,7 @@ if (window.location.pathname === '/my-vendors/' || window.location.pathname === 
                 data: { id: vendorId, action: 'delete_my_vendor_item' },
                 success: function(response) {   
                     if (response.success) {
-                        //location.reload();
+                        location.reload();
                     } else {
                         alert(response.data);  
                     }
@@ -977,7 +977,7 @@ if (window.location.pathname === '/my-favorites/') {
                 },
                 success: function (response) {
                     if (response.success) {
-                        //location.reload();
+                        location.reload();
                     } else {
                         console.log("Something went wrong. Please try again.");
                     }
@@ -1132,7 +1132,7 @@ jQuery(document).ready(function($) {
 
                     // Handle the click event on the "Yes" button in the modal
                     $('#render-modal-yes-button').on('click', function() {
-                        //location.reload();
+                        location.reload();
                     });
 
                 } else {
