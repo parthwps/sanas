@@ -1198,6 +1198,7 @@ function add_expense_handler() {
             'category_id' => $category_id,
             'expense' => $expense,
             'vendor_name' => $vendor_name,
+            'vendor_contact' => $vendor_contact,
             'estimated_cost' => $estimated_cost,
             'actual_cost' => $actual_cost,
             'paid' => $paid,
