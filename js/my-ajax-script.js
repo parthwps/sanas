@@ -144,8 +144,6 @@ if (window.location.pathname === '/budget/') {
         e.preventDefault();
         var expenseId = $(this).data('id');
         var categoryId = $('#category-id-input').val();
-        // set the category ID in the hidden input field
-        $('#category-id-input').val(categoryId);
         
         $.ajax({
             type: 'POST',
