@@ -165,7 +165,7 @@ get_sidebar('dashboard');
                         <span class="curr">$</span>
                         <span class="amount"><?php echo $totals->total_estimated; ?></span>
                       </div>
-                      <div class="instr">You can edit this at any time.</div>
+                      <div class="instr">To edit estimated cost edit estimated cost on expenses.</div>
                     </div>
                     <div class="graph-box">
                       <div class="title">Total Budget</div>
