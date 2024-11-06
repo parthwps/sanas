@@ -1466,3 +1466,19 @@ function delete_expense() {
         wp_send_json_error('Failed to delete expense.');
     }
 }
+
+//clear_budget for current user only
+add_action('wp_ajax_clear_budget', 'clear_budget');
+function clear_budget() {
+    global $wpdb;
+    $user_id = get_current_user_id();
+    $table_name = $wpdb->prefix . 'budget_expense';
+
+    $result = $wpdb->delete($table_name, ['user_id' => $user_id]);
+
+    if ($result !== false) {
+        wp_send_json_success('Budget cleared successfully.');
+    } else {
+        wp_send_json_error('Failed to clear budget.');
+    }
+}

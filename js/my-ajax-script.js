@@ -377,7 +377,20 @@ if (window.location.pathname === '/budget/') {
             event.preventDefault();
             console.log('clicked');
             $('#confirm_modal_html_alert').removeClass('clear-budget-confirmation-modal');
-            //I want to stop page reload on modal-yes-button click
+            $.ajax({
+                url: ajax_object.ajax_url,
+                type: 'POST',
+                data: {
+                    action: 'clear_budget'
+                },
+                success: function(response) {
+                    if (response.success) {
+                        location.reload();
+                    } else {
+                        alert(response.data);
+                    }
+                }
+            });
         });
     });
 
