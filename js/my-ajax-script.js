@@ -375,6 +375,7 @@ if (window.location.pathname === '/budget/') {
         $('.clear-budget-confirmation-modal #modal-yes-button').on('click', function() {
             console.log('clicked');
         });
+        $('#confirm_modal_html_alert').removeClass('clear-budget-confirmation-modal');
     });
 
 });
