@@ -383,7 +383,7 @@ get_sidebar('dashboard');
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
                       <button type="submit" class="dashbord-btn">Save</button>
-                      <button type="submit" id="add-new-expense" class="dashbord-btn">Save and Add Another Expense</button>                    
+                      <!-- <button type="submit" id="add-new-expense" class="dashbord-btn">Save and Add Another Expense</button>                     -->
                     </div>
                   </div>
                 </div>
