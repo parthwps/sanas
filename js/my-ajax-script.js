@@ -203,31 +203,48 @@ if (window.location.pathname === '/budget/') {
         });
     });
 
-
-    // Delete Expense Item
-    jQuery('.delete').on('click', function(e) {
-        e.preventDefault();
-        var expenseId = $(this).data('id');
+        // Function to show the modal
+        function show_alert_message3(title, message) {
+            $('#exampleConfirmModalLabel').text(title);
+            $('#confirm_modal-body-text').text(message);
+            $('#confirm_modal_html_alert').modal('show');
+        }
         
-        if(confirm('Are you sure you want to delete this expense?')) {
+        // When "Yes" button is clicked
+        $('#modal-yes-button').on('click', function () {
+            // Trigger the removal process
+            proceedWithRemoval();
+            $('#confirm_modal_html_alert').modal('hide');
+        });
+        
+        // delete expense
+        function proceedWithRemoval() {
+            var expenseId = currentExpenseId;
+        
             $.ajax({
                 type: 'POST',
                 url: ajax_object.ajax_url,
                 data: { id: expenseId, action: 'delete_expense' },
-                success: function(response) {
+                success: function(response) {   
                     if (response.success) {
-                        alert(response.data);
                         location.reload();
                     } else {
-                        alert(response.data);
+                        alert(response.data);  
                     }
-                },
-                error: function() {
-                    alert('Error deleting expense.');
                 }
             });
         }
-    });
+        
+        // Keep track of the expense ID for the current action
+        var currentExpenseId;
+        
+        // Click handler for the delete icon
+        $(".delete").on("click", function (e) {
+            e.preventDefault();
+            currentExpenseId = $(this).data("id");
+        
+            show_alert_message3('Delete Expense', 'Do you want to delete this entry?');
+        });
 
     // Add Budget Category Item
     jQuery('#add-budget-category-form').submit(function(e) {
