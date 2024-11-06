@@ -396,7 +396,7 @@
         $('#guest-list-Table').DataTable();
         $('#vendor-table').DataTable({
             columnDefs: [
-                { orderable: false, targets: [1, 2, 3, 4, 6] },
+                { orderable: true, targets: [0, 5] },
             ]
         });
         $('#guest-contact-list').DataTable();
