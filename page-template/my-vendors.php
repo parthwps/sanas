@@ -41,7 +41,6 @@ get_sidebar('dashboard');
                       <table class="vendor-list-table" id="vendor-table">
                         <thead>
                         <tr>
-                          <th> <input type="checkbox" name="allCheck" id="all-select-chechbox"> </th>
                           <th>Category</th>
                           <th>Name</th>
                           <th>Email</th>
@@ -59,7 +58,6 @@ get_sidebar('dashboard');
                         <?php if ($my_vendor_items): ?>
                             <?php foreach ($my_vendor_items as $my_vendor): ?>
                                 <tr>
-                                    <td><input type="checkbox"></td>
                                     <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['category']); ?>"><?php echo esc_html($my_vendor['category']); ?></td>
                                     <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['name']); ?>"><?php echo esc_html($my_vendor['name']); ?></td>
                                     <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['email']); ?>"><?php echo esc_html($my_vendor['email']); ?></td>
