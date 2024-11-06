@@ -373,6 +373,7 @@ if (window.location.pathname === '/budget/') {
         $('#confirm_modal_html_alert').modal('show');
         $('#modal-yes-button').on('click', function() {
             console.log('clicked');
+        });
     });
 
 });
