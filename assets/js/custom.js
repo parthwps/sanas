@@ -401,7 +401,7 @@
         });
         $('.vendor-table-list').DataTable({
             columnDefs: [
-                { orderable: true, targets: [0,2,3,4,5] },
+                { orderable: false, targets: [0,2,3,4,5] },
             ]
         });
         $('#guest-contact-list').DataTable();
