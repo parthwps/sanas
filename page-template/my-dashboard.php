@@ -31,7 +31,17 @@ $completed_count = $wpdb->get_var(
         'Completed'
     )
 );
-
+global $wpdb;
+$current_user_id = get_current_user_id();
+$table_name = $wpdb->prefix . 'budget_expense';
+$totals = $wpdb->get_row(
+    $wpdb->prepare("
+        SELECT 
+            COALESCE(SUM(estimated_cost), 0) AS total_estimated
+        FROM $table_name
+        WHERE user_id = %d
+    ", $current_user_id)
+);
 ?>
 
   <div class="wl-dashboard-wrapper dashboard">
@@ -63,7 +73,7 @@ $completed_count = $wpdb->get_var(
                 <h4 class="text-muted">Estimated Budget</h4>
                 <div class="icon"><i class="fa fa-chart-line"></i></div>
                 <div class="count">
-                  <span>$0</span>
+                  <span>$<?php echo number_format($totals->total_estimated, 0); ?></span>
                 </div>
                 <div class="link"><a href="/budget/">View Details</a></div>
               </div>
