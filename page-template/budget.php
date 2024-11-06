@@ -374,6 +374,12 @@ get_sidebar('dashboard');
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
+                      <label>Paid</label>
+                      <input type="number" name="paid" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-sm-12">
+                    <div class="form-group">
                       <label>Due</label>
                       <input type="number" name="due" class="form-control">
                     </div>
@@ -436,6 +442,12 @@ get_sidebar('dashboard');
                     <div class="form-group">
                       <label>Actual Cost</label>
                       <input type="number" name="actual_cost" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-sm-12">
+                    <div class="form-group">
+                      <label>Paid</label>
+                      <input type="number" name="paid" class="form-control">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
