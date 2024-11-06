@@ -401,7 +401,7 @@
         });
         $('.budget-table-sort').DataTable({
             columnDefs: [
-                { orderable: false, targets: [0, 2, 3, 4, 5, 6] },
+                { orderable: false, targets: [0, 2, 3, 4, 5] },
             ]
         });
         $('.vendor-table-list').DataTable({
