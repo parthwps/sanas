@@ -1,3 +1,9 @@
+<?php
+if ( ! is_user_logged_in() ) {
+    wp_redirect( home_url() );
+    exit;
+}
+?>
 <div class="wl-left-sidebar sidebar-dark active">
     <div class="menu-list">
         <nav class="navbar navbar-expand-lg navbar-light">
