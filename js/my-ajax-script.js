@@ -82,7 +82,7 @@ if (window.location.pathname === '/budget/') {
                                     '<td>$' + escapeHtml(expense.estimated_cost) + '</td>' +
                                     '<td>$' + escapeHtml(expense.actual_cost) + '</td>' +
                                     '<td>$' + escapeHtml(expense.paid) + '</td>' +
-                                    '<td>$ ' + escapeHtml(total_due.toFixed(2)) + '</td>' +
+                                    '<td>$ ' + (expense.actual_cost - expense.paid) + '</td>' +
                                     '<td class="actions">' +
                                         '<a href="#" class="edit theme-btn" data-id="' + escapeHtml(expense.id) + '" data-bs-toggle="modal" data-bs-target="#edit-expense-popup">' +
                                             '<i class="fa-solid fa-pen"></i>' +
