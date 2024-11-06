@@ -223,7 +223,6 @@ $totals = $wpdb->get_row(
                               $first_category = $category_id;
                               $first_category_name = $category['category_name'];
                               $first_category_icon = !empty($category['icon_class']) ? $category['icon_class'] : strtolower(substr($category['category_name'], 0, 1));
-                              $i++;
                             }
                             $total_expense = isset($expense_totals[$category_id]) ? $expense_totals[$category_id]->total_expense : 0;
                             $js_categories[] = esc_js($category['category_name']);
@@ -243,9 +242,10 @@ $totals = $wpdb->get_row(
                             </li>
                             
                             <?php
-                            if($i == 5){
+                            if($i == 4){
                               break;
                             }
+                            $i++;
                         } ?>
                       <?php endif; ?>
                     </ul>
