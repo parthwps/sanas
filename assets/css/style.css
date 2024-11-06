@@ -5528,7 +5528,6 @@ section.fillter-section {
     display: none;
 }
 /* #budget-expense_wrapper table.dataTable thead>tr>th>span.dt-column-order,
-#vendor-table_wrapper table.dataTable thead>tr>th:nth-child(1)>span.dt-column-order,
 #vendor-table_wrapper table.dataTable thead>tr>th:nth-child(4)>span.dt-column-order,
 #vendor-table_wrapper table.dataTable thead>tr>th:nth-child(5)>span.dt-column-order,
 #vendor-table_wrapper table.dataTable thead>tr>th:nth-child(6)>span.dt-column-order,
