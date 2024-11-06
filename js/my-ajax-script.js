@@ -139,6 +139,49 @@ if (window.location.pathname === '/budget/') {
         return text.replace(/[&<>"']/g, function(m) { return map[m]; });
     }
 
+    // Add Expense Item
+    jQuery('#add-expense-form').submit(function(e) {
+        e.preventDefault();
+        var formData = $(this).serialize();
+        formData += '&action=add_expense'; // Append the action for WP AJAX
+    
+        $.ajax({
+            type: 'POST',
+            url: ajax_object.ajax_url, // URL from localized script
+            data: formData,
+            success: function(response) {
+                if (response.success) {
+                    $('#add-expense-popup').modal('hide');    
+                    // Set the modal title and message
+                    $('#exampleModalLabel').text('Success');
+                    $('#modal-body-text').text('Expense item added successfully.');
+                    // Show the modal
+                    $('#modal_html_alert').modal('show');
+    
+                    // Handle the click event on the "Yes" button in the modal
+                    $('#render-modal-yes-button').on('click', function() {
+                        location.reload();
+                    });
+    
+                } else {
+                    // Set the modal title and message
+                    $('#exampleModalLabel').text('Error');
+                    $('#modal-body-text').text(response.data);
+                    // Show the modal
+                    $('#modal_html_alert').modal('show');
+    
+                    // Handle the click event on the "Yes" button in the modal
+                    $('#render-modal-yes-button').on('click', function() {
+                        $('#modal_html_alert').modal('hide');
+                    })
+                }
+            },
+            error: function() {
+                alert('Failed to process the request.');
+            }
+        });
+    });
+
     // Add Budget Category Item
     jQuery('#add-budget-category-form').submit(function(e) {
         e.preventDefault();
@@ -982,51 +1025,6 @@ $('form.change-password').on('submit', function (e) {
             error: function() {
                 alert('Error uploading image.');
                 hidePreloader();
-            }
-        });
-    });
-});
-
-jQuery(document).ready(function($) {
-    $('#add-vendor-form').submit(function(e) {
-        e.preventDefault();
-        var formData = $(this).serialize();
-        formData += '&action=add_expense'; // Append the action for WP AJAX
-
-        $.ajax({
-            type: 'POST',
-            url: ajax_object.ajax_url, // URL from localized script
-            data: formData,
-            success: function(response) {
-                if (response.success) {
-                    $('#add-expense-popup').modal('hide');
-                    
-                    // Set the modal title and message
-                    $('#exampleModalLabel').text('Success');
-                    $('#modal-body-text').text('Expense item added successfully.');
-                    // Show the modal
-                    $('#modal_html_alert').modal('show');
-
-                    // Handle the click event on the "Yes" button in the modal
-                    $('#render-modal-yes-button').on('click', function() {
-                        location.reload();
-                    });
-
-                } else {
-                     // Set the modal title and message
-                    $('#exampleModalLabel').text('Error');
-                    $('#modal-body-text').text(response.data);
-                    // Show the modal
-                    $('#modal_html_alert').modal('show');
-
-                    // Handle the click event on the "Yes" button in the modal
-                    $('#render-modal-yes-button').on('click', function() {
-                        $('#modal_html_alert').modal('hide');
-                    })
-                }
-            },
-            error: function() {
-                alert('Failed to process the request.');
             }
         });
     });

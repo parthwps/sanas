@@ -339,7 +339,7 @@ get_sidebar('dashboard');
             </button>
           </div>
           <div class="content-box">
-            <form id="add-vendor-form" method="post" action="#">
+            <form id="add-expense-form" method="post" action="#">
               <div class="form-content">
                 <div class="row">
                   <div class="col-lg-12 col-sm-12">
