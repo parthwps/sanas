@@ -957,7 +957,8 @@ function add_budget_category_item() {
         $wpdb->prefix . 'budget_category',
         array(
             'user_id' => $current_user_id,
-            'category_name' => $category_name
+            'category_name' => $category_name,
+            'created_at' => current_time('mysql'),
             // 'cost' => $cost,
         )
     );
