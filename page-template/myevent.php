@@ -72,7 +72,7 @@ get_sidebar('dashboard');
           <div class="row event-card-item">
 <?php 
 
-      if (!is_null($get_event) && empty($get_event)) {
+      if (!is_null($get_event) && !empty($get_event)) {
        foreach ($get_event as $event) { 
         $id = $event->event_no;
         $event_card_id = $event->event_card_id;
