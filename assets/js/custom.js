@@ -396,12 +396,12 @@
         $('#guest-list-Table').DataTable();
         $('.my-vendor-table').DataTable({
             columnDefs: [
-                { orderable: true, targets: [0, 4] },
+                { orderable: false, targets: [1, 2, 3, 5] },
             ]
         });
         $('.vendor-table-list').DataTable({
             columnDefs: [
-                { orderable: true, targets: [1, 6] },
+                { orderable: true, targets: [0,2,3,4,5] },
             ]
         });
         $('#guest-contact-list').DataTable();
