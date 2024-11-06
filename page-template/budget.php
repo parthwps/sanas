@@ -380,12 +380,6 @@ get_sidebar('dashboard');
                       <input type="number" name="paid" class="form-control">
                     </div>
                   </div>
-                  <div class="col-lg-6 col-sm-12">
-                    <div class="form-group">
-                      <label>Due</label>
-                      <input type="number" name="due" class="form-control">
-                    </div>
-                  </div>
                   <input type="hidden" name="category_id" id="category-id-input" value="<?php echo isset($first_category) ? esc_attr($first_category) : ''; ?>">
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
@@ -450,12 +444,6 @@ get_sidebar('dashboard');
                     <div class="form-group">
                       <label>Paid</label>
                       <input type="number" name="paid" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-lg-6 col-sm-12">
-                    <div class="form-group">
-                      <label>Due</label>
-                      <input type="number" name="due" class="form-control">
                     </div>
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">

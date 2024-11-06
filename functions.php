@@ -1167,7 +1167,6 @@ function create_budget_expense_table() {
             estimated_cost DECIMAL(10, 2),
             actual_cost DECIMAL(10, 2),
             paid DECIMAL(10, 2),
-            due DECIMAL(10, 2),
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (id)
         ) $charset_collate;";
@@ -1189,7 +1188,6 @@ function add_expense_handler() {
     $estimated_cost = floatval($_POST['estimated_cost']);
     $actual_cost = floatval($_POST['actual_cost']);
     $paid = floatval($_POST['paid']);
-    $due = floatval($_POST['due']);
 
     $result = $wpdb->insert(
         $wpdb->prefix . 'budget_expense',
@@ -1202,7 +1200,6 @@ function add_expense_handler() {
             'estimated_cost' => $estimated_cost,
             'actual_cost' => $actual_cost,
             'paid' => $paid,
-            'due' => $due,
             'created_at' => current_time('mysql', 1)
         ]
     );
