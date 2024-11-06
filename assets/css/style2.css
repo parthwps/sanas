@@ -4118,7 +4118,7 @@ table.dataTable thead>tr>td.dt-orderable-asc span.dt-column-order,
 table.dataTable thead>tr>td.dt-orderable-desc span.dt-column-order,
 table.dataTable thead>tr>td.dt-ordering-asc span.dt-column-order,
 table.dataTable thead>tr>td.dt-ordering-desc span.dt-column-order {
-    left: -7px;
+    left: -2px;
 }
 
 #guest-list-Table_wrapper table.dataTable thead>tr>th:nth-child(1),
