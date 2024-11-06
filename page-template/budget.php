@@ -236,7 +236,7 @@ get_sidebar('dashboard');
                   <tbody>
                     <?php
                     $expense_category = isset($_GET['category']) ? $_GET['category'] : $first_category;
-                    $expenses = get_expense_lists($expense_category);
+                    $expenses = get_expense_list($expense_category);
                     $total_estimated = 0;
                     $total_actual = 0;
                     $total_paid = 0;
@@ -406,7 +406,7 @@ get_sidebar('dashboard');
             </button>
           </div>
           <div class="content-box">
-            <form method="post" id="edit-expense-form" action="#">
+            <form method="post" id="edit-vendor-form" action="#">
               <div class="form-content">
                 <div class="row">
                 <div class="col-lg-12 col-sm-12">

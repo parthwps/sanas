@@ -1214,7 +1214,7 @@ function add_expense_handler() {
     wp_die(); // this is required to terminate immediately and return a proper response
 }
 
-function get_expense_lists($category_id) {
+function get_expense_list($category_id) {
     global $wpdb;
     $user_id = get_current_user_id(); // Get the current logged-in user ID
     $table_name = $wpdb->prefix . 'budget_expense';
@@ -1236,7 +1236,7 @@ function get_expense_lists($category_id) {
 
 add_action('wp_ajax_get_expenses_ajax', 'get_expenses_ajax_handler');
 function get_expenses_ajax_handler() {
-    $expenses = get_expense_lists();
+    $expenses = get_expense_list();
     $total_estimated = 0;
     $total_actual = 0;
     $total_paid = 0;
@@ -1392,7 +1392,7 @@ function get_budget_expense_by_category() {
     if (isset($_POST['category_id'])) {
         $category_id = intval($_POST['category_id']); // Sanitize input
 
-        $expenses = get_expense_lists($category_id); // Fetch expenses for the category
+        $expenses = get_expense_list($category_id); // Fetch expenses for the category
 
         if (!empty($expenses)) {
             wp_send_json_success(['expenses' => $expenses]);
