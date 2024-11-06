@@ -999,10 +999,30 @@ jQuery(document).ready(function($) {
             data: formData,
             success: function(response) {
                 if (response.success) {
-                    alert('Expense added successfully!');
                     $('#add-expense-popup').modal('hide');
+                    
+                    // Set the modal title and message
+                    $('#exampleModalLabel').text('Success');
+                    $('#modal-body-text').text('Expense item added successfully.');
+                    // Show the modal
+                    $('#modal_html_alert').modal('show');
+
+                    // Handle the click event on the "Yes" button in the modal
+                    $('#render-modal-yes-button').on('click', function() {
+                        location.reload();
+                    });
+
                 } else {
-                    alert('Error: ' + response.data);
+                     // Set the modal title and message
+                    $('#exampleModalLabel').text('Error');
+                    $('#modal-body-text').text(response.data);
+                    // Show the modal
+                    $('#modal_html_alert').modal('show');
+
+                    // Handle the click event on the "Yes" button in the modal
+                    $('#render-modal-yes-button').on('click', function() {
+                        $('#modal_html_alert').modal('hide');
+                    })
                 }
             },
             error: function() {
