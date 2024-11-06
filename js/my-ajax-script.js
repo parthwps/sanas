@@ -376,9 +376,9 @@ if (window.location.pathname === '/budget/') {
         $('.clear-budget-confirmation-modal #modal-yes-button').attr('id', 'render-modal-yes-button');
         $('.clear-budget-confirmation-modal #render-modal-yes-button').on('click', function() {
             console.log('clicked');
+            $('.clear-budget-confirmation-modal #render-modal-yes-button').attr('id', 'modal-yes-button');
+            $('#confirm_modal_html_alert').removeClass('clear-budget-confirmation-modal');
         });
-        $('.clear-budget-confirmation-modal #render-modal-yes-button').attr('id', 'modal-yes-button');
-        $('#confirm_modal_html_alert').removeClass('clear-budget-confirmation-modal');
     });
 
 });
