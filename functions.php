@@ -1452,3 +1452,19 @@ function edit_expense() {
         wp_send_json_error('Failed to update expense.');
     }
 }
+
+// Add AJAX action for deleting an expense
+add_action('wp_ajax_delete_expense', 'delete_expense');
+function delete_expense() {
+    global $wpdb;
+    $expense_id = intval($_POST['id']); // Sanitize input
+    $table_name = $wpdb->prefix . 'budget_expense';
+
+    $result = $wpdb->delete($table_name, ['id' => $expense_id]);
+
+    if ($result !== false) {
+        wp_send_json_success('Expense deleted successfully.');
+    } else {
+        wp_send_json_error('Failed to delete expense.');
+    }
+}

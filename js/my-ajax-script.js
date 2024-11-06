@@ -146,7 +146,6 @@ if (window.location.pathname === '/budget/') {
         var categoryId = $('#category-id-input').val();
         // set the category ID in the hidden input field
         $('#category-id-input').val(categoryId);
-        
         $.ajax({
             type: 'POST',
             url: ajax_object.ajax_url,
@@ -202,6 +201,32 @@ if (window.location.pathname === '/budget/') {
                 }
             }
         });
+    });
+
+
+    // Delete Expense Item
+    jQuery('.delete').on('click', function(e) {
+        e.preventDefault();
+        var expenseId = $(this).data('id');
+        
+        if(confirm('Are you sure you want to delete this expense?')) {
+            $.ajax({
+                type: 'POST',
+                url: ajax_object.ajax_url,
+                data: { id: expenseId, action: 'delete_expense' },
+                success: function(response) {
+                    if (response.success) {
+                        alert(response.data);
+                        location.reload();
+                    } else {
+                        alert(response.data);
+                    }
+                },
+                error: function() {
+                    alert('Error deleting expense.');
+                }
+            });
+        }
     });
 
     // Add Budget Category Item
