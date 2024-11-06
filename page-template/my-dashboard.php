@@ -189,9 +189,9 @@ $totals = $wpdb->get_row(
                   <div class="dropdown-outer"><a class="btn-box" id="dropdownMenu5" data-bs-toggle="dropdown"
                       aria-haspopup="true" aria-expanded="true" href="#"><span class="icon fa fa-ellipsis-v"></span></a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu5">
-                      <li><a href="#">View All</a></li>
-                      <li><a href="#">Edit</a></li>
-                      <li><a href="#">Update</a></li>
+                      <li><a href="/budget/">View All</a></li>
+                      <li><a href="/budget/">Edit</a></li>
+                      <li><a href="/budget/">Update</a></li>
                     </ul>
                   </div>
                 </div>
@@ -199,6 +199,15 @@ $totals = $wpdb->get_row(
             </div>
             <div class="list">
               <ul>
+                <li class="active">
+                  <div class="ttl" bis_skin_checked="1">
+                      <i class="fa-solid fa-t"></i>
+                      <span class="txt">Test</span>
+                  </div>
+                  <div class="count" bis_skin_checked="1">
+                      <span>$900.00</span>
+                  </div>
+                </li>
                 <li><a href="#">
                     <div class="ttl"><i class="icon flaticon-camera"></i><span class="txt">Photography</span>
                     </div>
@@ -222,7 +231,7 @@ $totals = $wpdb->get_row(
               </ul>
             </div>
             <div class="link-box">
-              <a href="" class="dashbord-btn">Manage Budget</a>
+              <a href="/budget/" class="dashbord-btn">Manage Budget</a>
             </div>
           </div>
         </div>
