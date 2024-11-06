@@ -378,6 +378,7 @@ get_sidebar('dashboard');
                       <input type="number" name="due" class="form-control">
                     </div>
                   </div>
+                  <input type="hidden" name="category_id" id="category-id-input" value="">
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
                       <button type="submit" class="dashbord-btn">Save</button>

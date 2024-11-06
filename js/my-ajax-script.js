@@ -37,9 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
 if (window.location.pathname === '/budget/') {
     jQuery(document).ready(function($) {
     jQuery('.budget-category-item').on('click', function() {
+        var categoryId = jQuery(this).data('id');
+        // Set the category ID in the hidden input field
+        jQuery('#category-id-input').val(categoryId);
+
         jQuery('#category_cost_section li').removeClass('active');
         jQuery(this).parent().addClass('active');
-        var categoryId = jQuery(this).data('id');
         var categoryText = jQuery(this).find('span.txt').text();
         jQuery('.category_name_box').html(categoryText);
         var categoryIcon = jQuery(this).find('.ttl i').prop('outerHTML');
