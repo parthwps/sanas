@@ -59,7 +59,6 @@ if (window.location.pathname === '/budget/') {
                 if (response.success) {
                     var expenses = response.data.expenses;
                     if (expenses.length === 0) {
-                        alert('No expenses found for this category.');
                         jQuery('#budget-expense tbody').html('<tr><td colspan="8">No expenses to display.</td></tr>');
                         return;
                     }
@@ -115,7 +114,6 @@ if (window.location.pathname === '/budget/') {
                     }, 200);
                     window.history.pushState(null, '', '?category=' + categoryId);
                 } else {
-                    alert('No expenses found for this category.');
                     jQuery('#budget-expense tbody').html('<tr><td colspan="8">No expenses to display.</td></tr>');
                 }
             },
