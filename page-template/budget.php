@@ -192,11 +192,12 @@ get_sidebar('dashboard');
           <div class="lower-box">
             <div class="info-box">
               <div class="cat-info">
+                
                 <div class="icon-box"><i class="fa-solid fa-<?php echo $first_category_icon; ?>"></i></div>
                 <div class="category_name_box"><?php echo $first_category_name; ?></div>
                 <div class="cost">
-                  <span class="c-text">Estimated cost: <span class="category_estimated">$ 12,320</span></span>
-                  <span class="c-text">Actual cost: <span class="category_actual">$ 0</span></span>
+                  <span class="c-text">Estimated cost: <span class="category_estimated">$12,320</span></span>
+                  <span class="c-text">Actual cost: <span class="category_actual">$0</span></span>
                 </div>
               </div>
             </div>
