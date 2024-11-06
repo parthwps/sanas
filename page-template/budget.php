@@ -115,7 +115,7 @@ get_sidebar('dashboard');
                       <?php if ($categories): ?>
                       <?php $expense_totals = $wpdb->get_results(
                             $wpdb->prepare("
-                                SELECT category_id, SUM(estimated_cost) as total_expense
+                                SELECT category_id, SUM(estimated_cost) as total_expense 
                                 FROM {$wpdb->prefix}budget_expense
                                 WHERE user_id = %d
                                 GROUP BY category_id
@@ -123,6 +123,10 @@ get_sidebar('dashboard');
                             OBJECT_K
                         );
                         $i = 0;
+                        // Sort categories by created_at date in descending order
+                        usort($categories, function($a, $b) {
+                            return strtotime($b['created_at']) - strtotime($a['created_at']);
+                        });
                         foreach ($categories as $index => $category) {
                             $category_id = $category['id'];
                             if($i == 0){
