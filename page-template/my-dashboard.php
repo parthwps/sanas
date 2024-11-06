@@ -230,7 +230,7 @@ $totals = $wpdb->get_row(
                             $js_expenses[] = (float) $total_expense;
                             ?>
                             
-                            <li<?php echo (empty($_GET['category']) && $index === 0) || (isset($_GET['category']) && $_GET['category'] == $category_id) ? ' class="active"' : ''; ?>>
+                            <li>
                                 <a href="javascript:void(0)" class="budget-category-item" data-id="<?php echo esc_attr($category['id']); ?>">
                                     <div class="ttl">
                                         <i class="fa-solid fa-<?php echo !empty($category['icon_class']) ? esc_attr($category['icon_class']) : strtolower(substr($category['category_name'], 0, 1)); ?>"></i>
@@ -238,7 +238,6 @@ $totals = $wpdb->get_row(
                                     </div>
                                     <div class="count">
                                         <span>$<?php echo $total_expense; ?></span>
-                                        <i class="fa fa-trash<?php echo $category['user_id'] != 0 ? ' delete category-delete' : ''; ?>" <?php echo $category['user_id'] != 0 ? 'data-id="' . esc_attr($category['id']) . '"' : ''; ?>></i>
                                     </div>
                                 </a>
                             </li>
