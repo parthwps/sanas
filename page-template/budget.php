@@ -147,7 +147,7 @@ get_sidebar('dashboard');
                                     </div>
                                     <div class="count">
                                         <span>$<?php echo $total_expense; ?></span>
-                                        <i class="fa fa-trash<?php echo $category['user_id'] != 0 ? ' delete' : ''; ?>" <?php echo $category['user_id'] != 0 ? 'data-id="' . esc_attr($category['id']) . '"' : ''; ?>></i>
+                                        <i class="fa fa-trash<?php echo $category['user_id'] != 0 ? ' delete category-delete' : ''; ?>" <?php echo $category['user_id'] != 0 ? 'data-id="' . esc_attr($category['id']) . '"' : ''; ?>></i>
                                     </div>
                                 </a>
                             </li>
@@ -261,7 +261,7 @@ get_sidebar('dashboard');
                                     <a href="#" class="edit theme-btn" data-id="<?php echo esc_attr($expense['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-expense-popup">
                                         <i class="fa-solid fa-pen"></i>
                                     </a>
-                                    <a href="#" class="expense-delete theme-btn" data-id="<?php echo esc_attr($expense['id']); ?>">
+                                    <a href="#" class="delete expense-delete theme-btn" data-id="<?php echo esc_attr($expense['id']); ?>">
                                         <i class="fa-regular fa-trash-can"></i>
                                     </a>
                                 </td>
