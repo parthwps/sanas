@@ -20,7 +20,7 @@ get_sidebar('dashboard');
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
           <div class="page-header">
-            <h3 class="pageheader-title"> My Vendors</h3>
+            <h3 class="pageheader-title"> My Website</h3>
           </div>
         </div>
         <h1 class="text-center">Coming Soon</h1>
