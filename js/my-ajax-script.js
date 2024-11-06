@@ -186,7 +186,7 @@ if (window.location.pathname === '/budget/') {
                     $('#modal_html_alert').modal('show');
                     // handle the click event on the "Yes" button in the modal
                     $('#render-modal-yes-button').on('click', function() {
-                        //location.reload();
+                        location.reload();
                     });
                 } else {
                     // set the modal title and message
@@ -225,7 +225,7 @@ if (window.location.pathname === '/budget/') {
                 data: { id: expenseId, action: 'delete_expense' },
                 success: function(response) {   
                     if (response.success) {
-                        //location.reload();
+                        location.reload();
                     } else {
                         // set the modal title and message
                         $('#exampleModalLabel').text('Error');
@@ -272,7 +272,7 @@ if (window.location.pathname === '/budget/') {
 
                     // Handle the click event on the "Yes" button in the modal
                     $('#render-modal-yes-button').on('click', function() {
-                        //location.reload();
+                        location.reload();
                     });
                 } else {
                     // Set the modal title and message
@@ -315,7 +315,7 @@ if (window.location.pathname === '/budget/') {
             data: { id: vendorId, action: 'delete_budget_category_item' },
             success: function(response) {   
                 if (response.success) {
-                    //location.reload();
+                    location.reload();
                 } else {
                     // alert(response.data);  
                 }
@@ -371,6 +371,7 @@ if (window.location.pathname === '/budget/') {
 
     jQuery('.clear-budget-btn').on('click', function() {
         $('#confirm_modal_html_alert').modal('show');
+        $('#confirm_modal_html_alert #confirm_modal-body-text').text('Do you want to clear all values in your budget, including categories, expenses, and vendor information? Please be aware that once cleared, this information cannot be retrieved.');
         $('#confirm_modal_html_alert').addClass('clear-budget-confirmation-modal');
         $('.clear-budget-confirmation-modal #modal-yes-button').on('click', function(event) {
             event.preventDefault();
