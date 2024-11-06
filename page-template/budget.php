@@ -195,6 +195,18 @@ get_sidebar('dashboard');
                 <div class="icon-box"><i class="fa-solid fa-<?php echo $first_category_icon; ?>"></i></div>
                 <div class="category_name_box"><?php echo $first_category_name; ?></div>
                 <div class="cost">
+                  <?php
+                  $first_category_expenses = get_expense_list($first_category);
+                  $total_estimated = 0;
+                  $total_actual = 0;
+                  
+                  if (!empty($first_category_expenses)) {
+                      foreach ($first_category_expenses as $expense) {
+                          $total_estimated += $expense['estimated_cost'];
+                          $total_actual += $expense['actual_cost'];
+                      }
+                  }
+                  ?>
                   <span class="c-text">Estimated cost: <span class="category_estimated">$<?php echo $total_estimated; ?></span></span>
                   <span class="c-text">Actual cost: <span class="category_actual">$<?php echo $total_actual; ?></span></span>
                 </div>
