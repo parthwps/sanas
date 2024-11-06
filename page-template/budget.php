@@ -223,11 +223,11 @@ get_sidebar('dashboard');
                 <table class="vendor-table" id="budget-expense">
                   <thead>
                     <tr>
-                      <th>Expense</th>
-                      <th>Vendor Name</th>
-                      <th>Vendor Contact Info</th>
-                      <th>Estimated Cost</th>
-                      <th>Actual Cost</th>
+                      <th class="text-single-line">Expense</th>
+                      <th class="text-single-line">Vendor Name</th>
+                      <th class="text-single-line">Vendor Contact Info</th>
+                      <th class="text-single-line">Estimated Cost</th>
+                      <th class="text-single-line">Actual Cost</th>
                       <th>Paid</th>
                       <th>Due</th>
                       <th class="actions">Actions</th>
@@ -250,9 +250,9 @@ get_sidebar('dashboard');
                             $total_due = $total_actual - $total_paid;
                             ?>
                             <tr>
-                                <td class="expense"><?php echo esc_html($expense['expense']); ?></td>
-                                <td><?php echo esc_html($expense['vendor_name']); ?></td>
-                                <td><?php echo esc_html($expense['vendor_contact']); ?></td>
+                                <td class="expense text-single-line""><?php echo esc_html($expense['expense']); ?></td>
+                                <td class="text-single-line"><?php echo esc_html($expense['vendor_name']); ?></td>
+                                <td class="text-single-line"><?php echo esc_html($expense['vendor_contact']); ?></td>
                                 <td>$<?php echo esc_html($expense['estimated_cost']); ?></td>
                                 <td>$<?php echo esc_html($expense['actual_cost']); ?></td>
                                 <td>$<?php echo esc_html($expense['paid']); ?></td>
