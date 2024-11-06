@@ -58,6 +58,10 @@ if (window.location.pathname === '/budget/') {
             success: function(response) {
                 if (response.success) {
                     var expenses = response.data.expenses;
+                    jQuery('html, body').animate({
+                        scrollTop: jQuery('#budget-expense-box').offset().top
+                    }, 500);
+                    window.history.pushState(null, '', '?category=' + categoryId);
                     if (expenses.length === 0) {
                         jQuery('#budget-expense tbody').html('<tr><td colspan="8">No expenses to display.</td></tr>');
                         return;
@@ -109,10 +113,6 @@ if (window.location.pathname === '/budget/') {
                     jQuery('#budget-expense tbody').html(rows);
                     jQuery('.category_estimated').text(total_estimated.toFixed(2));
                     jQuery('.category_actual').text(total_actual.toFixed(2));
-                    jQuery('html, body').animate({
-                        scrollTop: jQuery('#budget-expense-box').offset().top
-                    }, 200);
-                    window.history.pushState(null, '', '?category=' + categoryId);
                 } else {
                     jQuery('#budget-expense tbody').html('<tr><td colspan="8">No expenses to display.</td></tr>');
                 }
