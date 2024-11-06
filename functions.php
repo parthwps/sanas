@@ -1381,7 +1381,6 @@ function add_default_budget_data_on_user_registration($user_id) {
     );
 }
 
-// Hook into user registration
 add_action('user_register', 'add_default_budget_data_on_user_registration');
 
 

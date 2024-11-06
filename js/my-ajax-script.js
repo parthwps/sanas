@@ -210,9 +210,7 @@ if (window.location.pathname === '/budget/') {
             $('#confirm_modal_html_alert').modal('show');
         }
         
-        // When "Yes" button is clicked
         $('#modal-yes-button').on('click', function () {
-            // Trigger the removal process
             proceedWithRemovalExpense();
             $('#confirm_modal_html_alert').modal('hide');
         });
@@ -368,9 +366,29 @@ if (window.location.pathname === '/budget/') {
             }
         });
     }
-
-    loadExpenses(); // Call this function on page load or whenever you need to refresh the table
+    loadExpenses();
     
+
+    jQuery('.clear-budget-btn').on('click', function() {
+        if (confirm('Do you want to clear all expenses?')) {
+            console.log("test");
+            // $.ajax({
+            //     type: 'POST',
+            //     url: ajax_object.ajax_url,
+            //     data: { action: 'clear_expenses' },
+            //     success: function(response) {
+            //         if (response.success) {
+            //             location.reload();
+            //         } else {
+            //             alert(response.data);
+            //         }
+            //     }
+            // });
+        }else{
+            console.log("test2");
+        }
+    });
+
 });
 }
 if (window.location.pathname === '/to-do-list/' || window.location.pathname === '/my-dashboard/') {

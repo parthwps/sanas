@@ -4825,11 +4825,10 @@ Category Wishlist
 .budget-man .title-box {
     position: relative;
     display: flex;
-    justify-content: space-between;
+    gap: 0 30px;
     margin-bottom: 25px;
     flex-wrap: wrap;
 }
-
 .budget-man .title-box .title {
     position: relative;
     font-size: 18px;
@@ -4841,6 +4840,7 @@ Category Wishlist
 
 .budget-man .title-box .add-link {
     position: relative;
+    margin-left: auto;
 }
 
 .budget-man .title-box .add-link a i {

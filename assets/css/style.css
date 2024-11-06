@@ -4840,7 +4840,7 @@ Category Wishlist
 .budget-man .title-box {
     position: relative;
     display: flex;
-    gap: 30px;
+    gap: 0 30px;
     margin-bottom: 25px;
     flex-wrap: wrap;
 }
@@ -4860,6 +4860,7 @@ Category Wishlist
 
 .budget-man .title-box .add-link {
     position: relative;
+    margin-left: auto;
 }
 
 .budget-man .title-box .add-link a i {
