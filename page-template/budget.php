@@ -82,7 +82,7 @@ get_sidebar('dashboard');
                   <div class="text-muted">Due</div>
                   <div class="icon"><i class="fa fa-file-alt"></i></div>
                   <div class="count">
-                    <span>$<?php //echo number_format($totals->total_due, 0); ?></span>
+                    <span>$<?php echo $totals->total_actual - $totals->total_paid; ?></span>
                   </div>
                 </div>
               </div>
