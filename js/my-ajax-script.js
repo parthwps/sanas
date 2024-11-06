@@ -143,11 +143,14 @@ if (window.location.pathname === '/budget/') {
     jQuery('.edit').on('click', function(e) {
         e.preventDefault();
         var expenseId = $(this).data('id');
+        var categoryId = $('#edit-category-id').val();
+        // set the category ID in the hidden input field
+        $('#edit-category-id').val(categoryId);
 
         $.ajax({
             type: 'POST',
             url: ajax_object.ajax_url,
-            data: { id: expenseId, action: 'get_expense_details' },
+            data: { id: expenseId, action: 'get_expense_details', category_id: categoryId },
             success: function(response) {
                 if (response.success) {
                     $('#edit-expense-id').val(response.data.id);
