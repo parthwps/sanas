@@ -37,21 +37,88 @@ document.addEventListener('DOMContentLoaded', () => {
 if (window.location.pathname === '/budget/') {
     jQuery(document).ready(function($) {
     jQuery('.budget-category-item').on('click', function() {
+        jQuery('#category_cost_section li').removeClass('active');
+        jQuery(this).parent().addClass('active');
         var categoryId = jQuery(this).data('id');
-        jQuery.ajax({
+        var categoryText = jQuery(this).find('span.txt').text();
+        jQuery('.category_name_box').html(categoryText);
+        var categoryIcon = jQuery(this).find('.ttl i').prop('outerHTML');
+        jQuery('#budget-expense-box .icon-box').html(categoryIcon);
+    
+        $.ajax({
             method: 'POST',
             url: ajax_object.ajax_url,
             data: {
-                action: 'get_budget_expense_by_category',
-                category_id: categoryId
+                category_id: categoryId,
+                action: 'get_budget_expense_by_category'
             },
             success: function(response) {
                 if (response.success) {
-                    // Update the expenses table with the new data
-                    updateExpensesTable(response.data.expenses);
+                    var expenses = response.data.expenses;
+                    if (expenses.length === 0) {
+                        alert('No expenses found for this category.');
+                        jQuery('#budget-expense tbody').html('<tr><td colspan="8">No expenses to display.</td></tr>');
+                        return;
+                    }
+            
+                    var total_estimated = 0;
+                    var total_actual = 0;
+                    var total_paid = 0;
+                    var total_due = 0;
+                    var rows = '';
+                    expenses.forEach(function(expense) {
+                        total_estimated += parseFloat(expense.estimated_cost);
+                        total_actual += parseFloat(expense.actual_cost);
+                        total_paid += parseFloat(expense.paid);
+                        total_due += parseFloat(expense.due);
+            
+                        rows += '<tr>' +
+                                    '<td class="expense">' + escapeHtml(expense.expense) + '</td>' +
+                                    '<td>' + escapeHtml(expense.vendor_name) + '</td>' +
+                                    '<td>' + escapeHtml(expense.vendor_contact) + '</td>' +
+                                    '<td>$' + escapeHtml(expense.estimated_cost) + '</td>' +
+                                    '<td>$' + escapeHtml(expense.actual_cost) + '</td>' +
+                                    '<td>$' + escapeHtml(expense.paid) + '</td>' +
+                                    '<td>$' + escapeHtml(expense.due) + '</td>' +
+                                    '<td class="actions">' +
+                                        '<a href="#" class="edit theme-btn" data-id="' + escapeHtml(expense.id) + '" data-bs-toggle="modal" data-bs-target="#edit-expense-popup">' +
+                                            '<i class="fa-solid fa-pen"></i>' +
+                                        '</a>' +
+                                        '<a href="#" class="delete theme-btn" data-id="' + escapeHtml(expense.id) + '">' +
+                                            '<i class="fa-regular fa-trash-can"></i>' +
+                                        '</a>' +
+                                    '</td>' +
+                                '</tr>';
+                    });
+            
+                    // Add total row
+                    rows += '<tr>' +
+                                '<td>Total</td>' +
+                                '<td>&nbsp;</td>' +
+                                '<td>&nbsp;</td>' +
+                                '<td>$' + total_estimated.toFixed(2) + '</td>' +
+                                '<td>$' + total_actual.toFixed(2) + '</td>' +
+                                '<td>$' + total_paid.toFixed(2) + '</td>' +
+                                '<td>$' + total_due.toFixed(2) + '</td>' +
+                                '<td class="actions">&nbsp;</td>' +
+                            '</tr>';
+            
+                    // Update the table body with the new rows
+                    jQuery('#budget-expense tbody').html(rows);
+                    jQuery('.category_estimated').text(total_estimated.toFixed(2));
+                    jQuery('.category_actual').text(total_actual.toFixed(2));
+                    jQuery('html, body').animate({
+                        scrollTop: jQuery('#budget-expense-box').offset().top
+                    }, 200);
+                    window.history.pushState(null, '', '?category=' + categoryId);
                 } else {
                     alert('No expenses found for this category.');
+                    jQuery('#budget-expense tbody').html('<tr><td colspan="8">No expenses to display.</td></tr>');
                 }
+            },
+            
+            error: function() {
+                alert('Error loading expenses.');
             }
         });
     });
