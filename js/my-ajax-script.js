@@ -143,7 +143,7 @@ if (window.location.pathname === '/budget/') {
     jQuery('#add-expense-form').submit(function(e) {
         e.preventDefault();
         var formData = $(this).serialize();
-        formData += '&action=add_expense_handler'; // Append the action for WP AJAX
+        formData += '&action=add_expense'; // Append the action for WP AJAX
     
         $.ajax({
             type: 'POST',
