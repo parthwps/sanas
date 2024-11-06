@@ -123,9 +123,9 @@ get_sidebar('dashboard');
                             OBJECT_K
                         );
                         $i = 0;
-                        // Sort categories by created_at date in ascending order
+                        // Sort categories by created_at date in descending order
                         usort($categories, function($a, $b) {
-                            return strtotime($a['created_at']) - strtotime($b['created_at']); 
+                            return strtotime($b['created_at']) - strtotime($a['created_at']);
                         });
                         foreach ($categories as $index => $category) {
                             $category_id = $category['id'];
