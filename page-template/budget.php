@@ -236,7 +236,7 @@ get_sidebar('dashboard');
                   <tbody>
                     <?php
                     $expense_category = isset($_GET['category']) ? $_GET['category'] : $first_category;
-                    $expenses = get_expense_list($expense_category);
+                    $expenses = get_expense_lists($expense_category);
                     $total_estimated = 0;
                     $total_actual = 0;
                     $total_paid = 0;
@@ -406,43 +406,43 @@ get_sidebar('dashboard');
             </button>
           </div>
           <div class="content-box">
-            <form method="post" id="edit-vendor-form" action="#">
+            <form method="post" id="edit-expense-form" action="#">
               <div class="form-content">
                 <div class="row">
                 <div class="col-lg-12 col-sm-12">
                     <div class="form-group">
                       <label>Expense*</label>
-                      <input type="text" name="expense" class="form-control" required="">
+                      <input type="text" name="expense" class="form-control" id="edit-expense-name" required="">
                     </div>
                   </div>
                   <div class="col-lg-12 col-sm-12">
                     <div class="form-group">
                       <label>Vendor Name</label>
-                      <input type="text" name="vendor_name" class="form-control">
+                      <input type="text" name="vendor_name" id="edit-vendor-name" class="form-control">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Vendor Contact Info</label>
-                      <input type="number" name="vendor_contact" class="form-control">
+                      <input type="number" name="vendor_contact" id="edit-vendor-contact" class="form-control">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Estimated Cost</label>
-                      <input type="number" name="estimated_cost" class="form-control">
+                      <input type="number" name="estimated_cost" id="edit-estimated-cost" class="form-control">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Actual Cost</label>
-                      <input type="number" name="actual_cost" class="form-control">
+                      <input type="number" name="actual_cost" id="edit-actual-cost" class="form-control">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Paid</label>
-                      <input type="number" name="paid" class="form-control">
+                      <input type="number" name="paid" id="edit-paid" class="form-control">
                     </div>
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">
