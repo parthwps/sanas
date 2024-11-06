@@ -15,7 +15,18 @@
 get_header();
 get_sidebar('dashboard');
 ?>
-<h1 class="text-center">Coming Soon</h1>
+<div class="wl-dashboard-wrapper dashboard">
+    <div class="container-fluid wl-dashboard-content">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class="page-header">
+            <h3 class="pageheader-title"> My Vendors</h3>
+          </div>
+        </div>
+        <h1 class="text-center">Coming Soon</h1>
+      </div>
+    </div>
+</div>
 <?php
 get_footer('dashboard');
 ?>
