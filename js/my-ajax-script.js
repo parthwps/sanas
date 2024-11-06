@@ -73,7 +73,7 @@ if (window.location.pathname === '/budget/') {
                         total_estimated += parseFloat(expense.estimated_cost);
                         total_actual += parseFloat(expense.actual_cost);
                         total_paid += parseFloat(expense.paid);
-                        total_due += parseFloat(expense.due;
+                        total_due += parseFloat(expense.due);
             
                         rows += '<tr>' +
                                     '<td class="expense">' + escapeHtml(expense.expense) + '</td>' +
