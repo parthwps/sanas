@@ -213,12 +213,12 @@ if (window.location.pathname === '/budget/') {
         // When "Yes" button is clicked
         $('#modal-yes-button').on('click', function () {
             // Trigger the removal process
-            proceedWithRemoval();
+            proceedWithRemovalExpense();
             $('#confirm_modal_html_alert').modal('hide');
         });
         
         // delete expense
-        function proceedWithRemoval() {
+        function proceedWithRemovalExpense() {
             var expenseId = currentExpenseId;
         
             $.ajax({
@@ -229,7 +229,15 @@ if (window.location.pathname === '/budget/') {
                     if (response.success) {
                         location.reload();
                     } else {
-                        alert(response.data);  
+                        // set the modal title and message
+                        $('#exampleModalLabel').text('Error');
+                        $('#modal-body-text').text(response.data);
+                        // show the modal
+                        $('#modal_html_alert').modal('show');
+                        // handle the click event on the "Yes" button in the modal
+                        $('#render-modal-yes-button').on('click', function() {
+                            $('#modal_html_alert').modal('hide');
+                        });
                     }
                 }
             });
