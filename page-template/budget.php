@@ -247,7 +247,7 @@ get_sidebar('dashboard');
                             $total_estimated += $expense['estimated_cost'];
                             $total_actual += $expense['actual_cost']; 
                             $total_paid += $expense['paid'];
-                            $total_due += $expense['due'];
+                            $total_due = $total_actual - $total_paid;
                             ?>
                             <tr>
                                 <td class="expense"><?php echo esc_html($expense['expense']); ?></td>
@@ -256,7 +256,7 @@ get_sidebar('dashboard');
                                 <td>$<?php echo esc_html($expense['estimated_cost']); ?></td>
                                 <td>$<?php echo esc_html($expense['actual_cost']); ?></td>
                                 <td>$<?php echo esc_html($expense['paid']); ?></td>
-                                <td>$<?php echo esc_html($expense['due']); ?></td>
+                                <td>$<?php echo esc_html($expense['actual_cost'] - $expense['paid']); ?></td>
                                 <td class="actions">
                                     <a href="#" class="edit theme-btn" data-id="<?php echo esc_attr($expense['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-expense-popup">
                                         <i class="fa-solid fa-pen"></i>
