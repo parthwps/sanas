@@ -3031,6 +3031,7 @@ section.wl-main-canvas .card-canvas .col-md-6:nth-child(2) .preview-img {
     color: #777;
     font-size: 11px;
     line-height: 11px;
+    font-weight: 400 !important;
 }
 
 .wl-dashboard-content .title {
@@ -3041,6 +3042,7 @@ section.wl-main-canvas .card-canvas .col-md-6:nth-child(2) .preview-img {
     color: #777;
     font-size: 11px;
     line-height: 11px;
+    font-weight: 400 !important;
 }
 .wl-dashboard-content .page-header .pageheader-title {
     position: relative;
@@ -6275,7 +6277,6 @@ button#add_new_group_button {
     text-decoration: underline;
 }
 .event-title-2 h4, .title h4{
-    margin-bottom: 15px;
     font-size: 20px;
 }
 
