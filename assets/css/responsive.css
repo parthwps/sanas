@@ -1063,6 +1063,9 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile {
     .budget-man-box .inner{
         padding: 20px 5px 5px;
     }
+    .table-box .vendor-table td{
+        padding: 10px 5px;
+    }
     #vendor-table_wrapper table.dataTable thead>tr>th:nth-child(4), #vendor-table_wrapper table.dataTable tbody>tr>td:nth-child(4),
     #vendor-table_wrapper table.dataTable thead>tr>th:nth-child(5), #vendor-table_wrapper table.dataTable tbody>tr>td:nth-child(5),
     #vendor-table_wrapper table.dataTable thead>tr>th:nth-child(7), #vendor-table_wrapper table.dataTable tbody>tr>td:nth-child(7),
