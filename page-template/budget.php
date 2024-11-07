@@ -252,7 +252,7 @@ get_sidebar('dashboard');
                             <tr>
                                 <td class="expense text-single-line""><?php echo esc_html($expense['expense']); ?></td>
                                 <td class="text-single-line"><?php echo esc_html($expense['vendor_name']); ?></td>
-                                <td class="text-single-line"><?php echo esc_html($expense['vendor_contact']); ?></td>
+                                <td class="text-single-line">+<?php echo esc_html($expense['vendor_contact']); ?></td>
                                 <td>$<?php echo esc_html($expense['estimated_cost']); ?></td>
                                 <td>$<?php echo esc_html($expense['actual_cost']); ?></td>
                                 <td>$<?php echo esc_html($expense['paid']); ?></td>
