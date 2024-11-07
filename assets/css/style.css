@@ -4982,8 +4982,10 @@ Category Wishlist
 
 .budget-man-box .budget-col .info-box, .budget-man-box .info-box {
     position: relative;
-    border: 1px solid #00000012;
-    border-radius: 8px;
+    border-top: 1px solid #00000012;
+    border-right: 1px solid #00000012;
+    border-left: 1px solid #00000012;
+    border-radius: 8px 8px 0 0;
     height: 100%;
 }
 .budget-man-box .budget-col .info-box .info-top-box{
@@ -5888,7 +5890,7 @@ td.todo-subhead h4 span {
     position: relative;
 }
 #budget-expense_wrapper {
-    padding: 10px;
+    padding: 0 10px;
 }
 .lower-box .table-box .table tbody>tr:last-child>td::after {
     content: "";
