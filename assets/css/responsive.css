@@ -1066,6 +1066,10 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile {
     .table-box .vendor-table td{
         padding: 10px 5px;
     }
+    table.dataTable>tbody>tr>td.actions{
+        display: flex;
+        width: 60px;
+    }
     #vendor-table_wrapper table.dataTable thead>tr>th:nth-child(4), #vendor-table_wrapper table.dataTable tbody>tr>td:nth-child(4),
     #vendor-table_wrapper table.dataTable thead>tr>th:nth-child(5), #vendor-table_wrapper table.dataTable tbody>tr>td:nth-child(5),
     #vendor-table_wrapper table.dataTable thead>tr>th:nth-child(7), #vendor-table_wrapper table.dataTable tbody>tr>td:nth-child(7),
