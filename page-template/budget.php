@@ -499,7 +499,7 @@ get_sidebar('dashboard');
             markers: false,
             chart: {
                 type: 'donut',
-                width: 300
+                width: 400
             },
             legend: {
               show: true,
@@ -520,7 +520,7 @@ get_sidebar('dashboard');
                 breakpoint: 480,
                 options: {
                     chart: {
-                        width: 300
+                        width: 250
                     },
                     legend: {
                         position: 'bottom'
