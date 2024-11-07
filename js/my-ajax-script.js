@@ -81,7 +81,7 @@ if (window.location.pathname === '/budget/') {
                         rows += '<tr>' +
                                     '<td class="expense">' + escapeHtml(expense.expense) + '</td>' +
                                     '<td>' + escapeHtml(expense.vendor_name) + '</td>' +
-                                    '<td>' + escapeHtml(expense.vendor_contact) + '</td>' +
+                                    '<td>' + (expense.vendor_contact ? '+' + escapeHtml(expense.vendor_contact) : '') + '</td>' +
                                     '<td>$' + escapeHtml(expense.estimated_cost) + '</td>' +
                                     '<td>$' + escapeHtml(expense.actual_cost) + '</td>' +
                                     '<td>$' + escapeHtml(expense.paid) + '</td>' +
