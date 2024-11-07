@@ -887,6 +887,11 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile .guest-count {
     section.tab-section ul#pills-tab {
         display: none;
     }
+
+    .expense-list-table td, .expense-list-table th{
+        max-width: 70px !important;
+        width: 70px !important;
+    }
     
     .all-tamplate>.all-tamplate-btn {
         color: #344054;
@@ -1062,6 +1067,11 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile {
     }
     #vendor-table_wrapper .table th ,  #vendor-table_wrapper .table td{
         width: 33.33%;
+    }
+
+    .expense-list-table td, .expense-list-table th{
+        max-width: 50px !important;
+        width: 50px !important;
     }
     .nav-pills {
         flex-direction: column;
