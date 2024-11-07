@@ -138,7 +138,7 @@ if (window.location.pathname === '/budget/') {
     }
 
     // Edit Expense Item
-    jQuery('.edit').on('click', function(e) {
+    jQuery('.edit').on('click', '.edit', function(e) {
         e.preventDefault();
         var expenseId = $(this).data('id');
         var categoryId = $('#category-id-input').val();
