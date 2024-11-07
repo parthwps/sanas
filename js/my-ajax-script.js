@@ -79,9 +79,9 @@ if (window.location.pathname === '/budget/') {
                         total_due = total_actual - total_paid;
             
                         rows += '<tr>' +
-                                    '<td class="expense">' + escapeHtml(expense.expense) + '</td>' +
-                                    '<td>' + escapeHtml(expense.vendor_name) + '</td>' +
-                                    '<td>' + (expense.vendor_contact ? '+' + escapeHtml(expense.vendor_contact) : '') + '</td>' +
+                                    '<td class="expense text-single-line" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.expense) + '">' + escapeHtml(expense.expense) + '</td>' +
+                                    '<td class="text-single-line" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.vendor_name) + '">' + escapeHtml(expense.vendor_name) + '</td>' +
+                                    '<td class="text-single-line" data-toggle="tooltip" data-bs-original-title="' + (expense.vendor_contact ? '+' + escapeHtml(expense.vendor_contact) : '') + '">' + (expense.vendor_contact ? '+' + escapeHtml(expense.vendor_contact) : '') + '</td>' +
                                     '<td>$' + escapeHtml(expense.estimated_cost) + '</td>' +
                                     '<td>$' + escapeHtml(expense.actual_cost) + '</td>' +
                                     '<td>$' + escapeHtml(expense.paid) + '</td>' +
