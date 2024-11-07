@@ -1251,12 +1251,12 @@ function get_expenses_ajax_handler() {
         
         echo '<tr>';
         echo '<td class="expense">' . esc_html($expense['expense']) . '</td>';
-        echo '<td>' . esc_html($expense['vendor_name']) . '</td>';
-        echo '<td>' . esc_html($expense['vendor_contact']) . '</td>';
-        echo '<td>$' . esc_html($expense['estimated_cost']) . '</td>';
-        echo '<td>$' . esc_html($expense['actual_cost']) . '</td>';
-        echo '<td>$' . esc_html($expense['paid']) . '</td>';
-        echo '<td>$' . esc_html($expense['due']) . '</td>';
+        echo '<td class="text-single-line">' . esc_html($expense['vendor_name']) . '</td>';
+        echo '<td class="text-single-line">' . esc_html($expense['vendor_contact']) . '</td>';
+        echo '<td class="text-single-line">$' . esc_html($expense['estimated_cost']) . '</td>';
+        echo '<td class="text-single-line">$' . esc_html($expense['actual_cost']) . '</td>';
+        echo '<td class="text-single-line">$' . esc_html($expense['paid']) . '</td>';
+        echo '<td class="text-single-line">$' . esc_html($expense['due']) . '</td>';
         echo '<td class="actions">';
         echo '<a href="#" class="edit theme-btn" data-id="' . esc_attr($expense['id']) . '" data-bs-toggle="modal" data-bs-target="#edit-expense-popup">';
         echo '<i class="fa-solid fa-pen"></i>';
@@ -1272,10 +1272,10 @@ function get_expenses_ajax_handler() {
     echo '<td>Total</td>';
     echo '<td>&nbsp;</td>';
     echo '<td>&nbsp;</td>';
-    echo '<td>$' . esc_html($total_estimated) . '</td>';
-    echo '<td>$' . esc_html($total_actual) . '</td>';
-    echo '<td>$' . esc_html($total_paid) . '</td>';
-    echo '<td>$' . esc_html($total_due) . '</td>';
+    echo '<td class="text-single-line" data-toggle="tooltip" data-bs-original-title="' . esc_html($total_estimated) . '">$' . esc_html($total_estimated) . '</td>';
+    echo '<td class="text-single-line" data-toggle="tooltip" data-bs-original-title="' . esc_html($total_actual) . '">$' . esc_html($total_actual) . '</td>';
+    echo '<td class="text-single-line" data-toggle="tooltip" data-bs-original-title="' . esc_html($total_paid) . '">$' . esc_html($total_paid) . '</td>';
+    echo '<td class="text-single-line" data-toggle="tooltip" data-bs-original-title="' . esc_html($total_due) . '">$' . esc_html($total_due) . '</td>';
     echo '<td class="actions">&nbsp;</td>';
     echo '</tr>';
     

@@ -82,10 +82,10 @@ if (window.location.pathname === '/budget/') {
                                     '<td class="expense text-single-line" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.expense) + '">' + escapeHtml(expense.expense) + '</td>' +
                                     '<td class="text-single-line" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.vendor_name) + '">' + escapeHtml(expense.vendor_name) + '</td>' +
                                     '<td class="text-single-line" data-toggle="tooltip" data-bs-original-title="' + (expense.vendor_contact ? '+' + escapeHtml(expense.vendor_contact) : '') + '">' + (expense.vendor_contact ? '+' + escapeHtml(expense.vendor_contact) : '') + '</td>' +
-                                    '<td>$' + escapeHtml(expense.estimated_cost) + '</td>' +
-                                    '<td>$' + escapeHtml(expense.actual_cost) + '</td>' +
-                                    '<td>$' + escapeHtml(expense.paid) + '</td>' +
-                                    '<td>$' + (parseFloat(expense.actual_cost) - parseFloat(expense.paid)).toFixed(2) + '</td>' +
+                                    '<td class="text-single-line" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.estimated_cost) + '">$' + escapeHtml(expense.estimated_cost) + '</td>' +
+                                    '<td class="text-single-line" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.actual_cost) + '">$' + escapeHtml(expense.actual_cost) + '</td>' +
+                                    '<td class="text-single-line" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.paid) + '">$' + escapeHtml(expense.paid) + '</td>' +
+                                    '<td class="text-single-line" data-toggle="tooltip" data-bs-original-title="' + (parseFloat(expense.actual_cost) - parseFloat(expense.paid)).toFixed(2) + '">$' + (parseFloat(expense.actual_cost) - parseFloat(expense.paid)).toFixed(2) + '</td>' +
                                     '<td class="actions">' +
                                         '<a href="#" class="edit theme-btn" data-id="' + escapeHtml(expense.id) + '" data-bs-toggle="modal" data-bs-target="#edit-expense-popup">' +
                                             '<i class="fa-solid fa-pen"></i>' +
@@ -102,10 +102,10 @@ if (window.location.pathname === '/budget/') {
                                 '<td>Total</td>' +
                                 '<td>&nbsp;</td>' +
                                 '<td>&nbsp;</td>' +
-                                '<td>$' + total_estimated.toFixed(2) + '</td>' +
-                                '<td>$' + total_actual.toFixed(2) + '</td>' +
-                                '<td>$' + total_paid.toFixed(2) + '</td>' +
-                                '<td>$' + total_due.toFixed(2) + '</td>' +
+                                '<td class="text-single-line" data-toggle="tooltip" data-bs-original-title="' + total_estimated.toFixed(2) + '">$' + total_estimated.toFixed(2) + '</td>' +
+                                '<td class="text-single-line" data-toggle="tooltip" data-bs-original-title="' + total_actual.toFixed(2) + '">$' + total_actual.toFixed(2) + '</td>' +
+                                '<td class="text-single-line" data-toggle="tooltip" data-bs-original-title="' + total_paid.toFixed(2) + '">$' + total_paid.toFixed(2) + '</td>' +
+                                '<td class="text-single-line" data-toggle="tooltip" data-bs-original-title="' + total_due.toFixed(2) + '>$' + total_due.toFixed(2) + '</td>' +
                                 '<td class="actions">&nbsp;</td>' +
                             '</tr>';
             
