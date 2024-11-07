@@ -499,7 +499,7 @@ get_sidebar('dashboard');
             markers: false,
             chart: {
                 type: 'donut',
-                width: 400
+                width: 300
             },
             legend: {
               show: true,
@@ -512,7 +512,7 @@ get_sidebar('dashboard');
             plotOptions: {
                 pie: {
                     donut: {
-                        size: '55%'
+                        size: '100%'
                     }
                 }
             },
@@ -520,7 +520,7 @@ get_sidebar('dashboard');
                 breakpoint: 480,
                 options: {
                     chart: {
-                        width: 250
+                        width: 400
                     },
                     legend: {
                         position: 'bottom'
