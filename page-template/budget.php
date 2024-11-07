@@ -180,7 +180,7 @@ get_sidebar('dashboard');
                       </div>
                     </div>
                   </div>
-                  <p class="text-center mb-3">Scroll Down To Add Expenses Under Each Category</p>
+                  <p class="text-center mb-3 px-3">Scroll Down To Add Expenses Under Each Category</p>
                 </div>
               </div>
             </div>
