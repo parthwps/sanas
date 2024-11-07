@@ -410,7 +410,7 @@
                 }
             },
             "rowCallback": function(row, data, index) {
-                if ($(row).hasClass('expense-total-row')) {
+                if ($(row).hasClass('.expense-total-row')) {
                     $(row).detach().appendTo('#budget-expense tbody');
                 }
             }
