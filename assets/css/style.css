@@ -3893,7 +3893,7 @@ div.dt-container select.dt-input {
 }
 
 .table-responsive {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .dt-orderable-none .dt-column-order {
@@ -4858,7 +4858,8 @@ Category Wishlist
 }
 .budget-man-box .add-link{
     justify-content: right;
-    margin: 20px;
+    margin: 0 10px;
+    align-items: center;
 }
 
 .budget-man .title-box .title {
