@@ -512,7 +512,7 @@ get_sidebar('dashboard');
             plotOptions: {
                 pie: {
                     donut: {
-                        size: '100%'
+                        size: '55%'
                     }
                 }
             },
