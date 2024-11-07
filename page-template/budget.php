@@ -258,7 +258,7 @@ get_sidebar('dashboard');
                                 <td>$<?php echo esc_html($expense['paid']); ?></td>
                                 <td>$<?php echo esc_html($expense['actual_cost'] - $expense['paid']); ?></td>
                                 <td class="actions">
-                                    <a href="#" class="edit theme-btn" data-id="<?php echo esc_attr($expense['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-expense-popup">
+                                    <a href="#" class="edit-expense theme-btn" data-id="<?php echo esc_attr($expense['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-expense-popup">
                                         <i class="fa-solid fa-pen"></i>
                                     </a>
                                     <a href="#" class="delete expense-delete theme-btn" data-id="<?php echo esc_attr($expense['id']); ?>">
