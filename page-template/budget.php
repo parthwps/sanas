@@ -206,8 +206,8 @@ get_sidebar('dashboard');
                       }
                   }
                   ?>
-                  <span class="c-text">Estimated cost: <span class="category_estimated">$<?php echo $total_estimated; ?></span></span>
-                  <span class="c-text">Actual cost: <span class="category_actual">$<?php echo $total_actual; ?></span></span>
+                  <span class="c-text">Estimated cost: <span class="category_estimated">$<?php echo number_format($total_estimated, 2); ?></span></span>
+                  <span class="c-text">Actual cost: <span class="category_actual">$<?php echo number_format($total_actual, 2); ?></span></span>
                 </div>
               </div>
             </div>
@@ -273,10 +273,10 @@ get_sidebar('dashboard');
                         <td>Total</td>
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>
-                        <td>$<?php echo esc_html($total_estimated); ?></td>
-                        <td>$<?php echo esc_html($total_actual); ?></td>
-                        <td>$<?php echo esc_html($total_paid); ?></td>
-                        <td>$<?php echo esc_html($total_due); ?></td>
+                        <td>$<?php echo esc_html(number_format($total_estimated, 2)); ?></td>
+                        <td>$<?php echo esc_html(number_format($total_actual, 2)); ?></td>
+                        <td>$<?php echo esc_html(number_format($total_paid, 2)); ?></td>
+                        <td>$<?php echo esc_html(number_format($total_due, 2)); ?></td>
                         <td class="actions">&nbsp;</td>
                     </tr>
                   </tbody>
