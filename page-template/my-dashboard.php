@@ -236,7 +236,7 @@ $totals = $wpdb->get_row(
                                         <span><?php echo esc_html($category['category_name']); ?></span>
                                     </div>
                                     <div class="count">
-                                        <span>$<?php echo $total_expense; ?></span>
+                                        <span>$<?php echo number_format($total_expense, 2); ?></span>
                                     </div>
                                 </a>
                             </li>
