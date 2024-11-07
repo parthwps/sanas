@@ -4827,7 +4827,6 @@ Category Wishlist
     display: flex;
     gap: 0 30px;
     margin-bottom: 25px;
-    flex-wrap: wrap;
 }
 .budget-man .title-box .title {
     position: relative;

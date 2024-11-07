@@ -3019,10 +3019,6 @@ section.wl-main-canvas .card-canvas .col-md-6:nth-child(2) .preview-img {
     margin-bottom: 30px;
 }
 
-.budget-man .title-box {
-    display: flex;
-}
-
 .budget-man .title-box .title p{
     color: #777;
     font-size: 11px;
@@ -4859,7 +4855,6 @@ Category Wishlist
     display: flex;
     gap: 0 30px;
     margin-bottom: 25px;
-    flex-wrap: wrap;
 }
 .budget-man-box .add-link{
     justify-content: right;
