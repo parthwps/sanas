@@ -49,7 +49,7 @@ get_sidebar('dashboard');
                   <div class="text-muted">Estimated</div>
                   <div class="icon"><i class="fa-solid fa-list" aria-hidden="true"></i></div>
                   <div class="count">
-                    <span>$<?php echo number_format($totals->total_estimated, 0); ?></span>
+                    <span>$<?php echo number_format($totals->total_estimated, 2); ?></span>
                   </div>
                 </div>
               </div>
@@ -60,7 +60,7 @@ get_sidebar('dashboard');
                   <div class="text-muted">Actual</div>
                   <div class="icon"><i class="fa fa-chart-line" aria-hidden="true"></i></div>
                   <div class="count">
-                    <span>$<?php echo number_format($totals->total_actual, 0); ?></span>
+                    <span>$<?php echo number_format($totals->total_actual, 2); ?></span>
                   </div>
                 </div>
               </div>
@@ -71,7 +71,7 @@ get_sidebar('dashboard');
                   <div class="text-muted">Paid</div>
                   <div class="icon"><i class="fa fa-check-square"></i></div>
                   <div class="count">
-                    <span>$<?php echo number_format($totals->total_paid, 0); ?></span>
+                    <span>$<?php echo number_format($totals->total_paid, 2); ?></span>
                   </div>
                 </div>
               </div>
@@ -82,7 +82,7 @@ get_sidebar('dashboard');
                   <div class="text-muted">Due</div>
                   <div class="icon"><i class="fa fa-file-alt"></i></div>
                   <div class="count">
-                    <span>$<?php echo $totals->total_actual - $totals->total_paid; ?></span>
+                    <span>$<?php echo number_format($totals->total_actual - $totals->total_paid, 2); ?></span>
                   </div>
                 </div>
               </div>
