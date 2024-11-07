@@ -409,11 +409,9 @@
                     });
                 }
             },
-            "rowCallback": function(row, data, index) {
-            // Always move the last row to the bottom
-                if ($(row).hasClass('expense-total-row')) {
-                    $(row).detach().appendTo('#budget-expense tbody');
-                }
+            "drawCallback": function( settings ) {
+                var expenseTotalRow = $('.expense-total-row').detach();
+                $('#budget-expense-Table tbody').append(expenseTotalRow);
             }
         });
         $('.vendor-table-list').DataTable({
