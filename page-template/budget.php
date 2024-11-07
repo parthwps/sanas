@@ -269,7 +269,7 @@ get_sidebar('dashboard');
                         <?php }
                     } 
                     ?>
-                    <tr>
+                    <tr class="expense-total-row">
                         <td>Total</td>
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>

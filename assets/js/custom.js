@@ -408,6 +408,12 @@
                         $(this).attr('data-order', '');
                     });
                 }
+            },
+            "rowCallback": function(row, data, index) {
+            // Always move the last row to the bottom
+                if ($(row).hasClass('expense-total-row')) {
+                    $(row).detach().appendTo('#budget-expense_wrapper tbody');
+                }
             }
         });
         $('.vendor-table-list').DataTable({
