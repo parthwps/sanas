@@ -224,13 +224,13 @@ get_sidebar('dashboard');
                 <table class="vendor-table vendor-list-table budget-table-sort expense-list-table" id="budget-expense">
                   <thead>
                     <tr>
-                      <th class="text-single-line">Expense</th>
-                      <th class="text-single-line">Vendor Name</th>
-                      <th class="text-single-line">Vendor Contact Info</th>
-                      <th class="text-single-line">Estimated Cost</th>
-                      <th class="text-single-line">Actual Cost</th>
-                      <th>Paid</th>
-                      <th>Due</th>
+                      <th class="text-single-line" data-toggle="tooltip" data-bs-original-title="Expense">Expense</th>
+                      <th class="text-single-line" data-toggle="tooltip" data-bs-original-title="Vendor Name">Vendor Name</th>
+                      <th class="text-single-line" data-toggle="tooltip" data-bs-original-title="Vendor Contact Info">Vendor Contact Info</th>
+                      <th class="text-single-line" data-toggle="tooltip" data-bs-original-title="Estimated Cost">Estimated Cost</th>
+                      <th class="text-single-line" data-toggle="tooltip" data-bs-original-title="Actual Cost">Actual Cost</th>
+                      <th class="text-single-line" data-toggle="tooltip" data-bs-original-title="Paid">Paid</th>
+                      <th class="text-single-line" data-toggle="tooltip" data-bs-original-title="Due">Due</th>
                       <th class="actions">Actions</th>
                     </tr>
                   </thead>
