@@ -1063,7 +1063,7 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile {
     .budget-man-box .inner{
         padding: 20px 5px 5px;
     }
-    .table-box .vendor-table td{
+    .table-box .vendor-table td, .table-box .vendor-table th{
         padding: 10px 5px;
     }
     table.dataTable>tbody>tr>td.actions{
