@@ -892,6 +892,11 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile .guest-count {
         max-width: 70px !important;
         width: 70px !important;
     }
+
+    .expense-list-table td:first-child, .expense-list-table th:first-child{
+        max-width: 70px !important;
+        width: 70px !important;
+    }
     
     .all-tamplate>.all-tamplate-btn {
         color: #344054;
@@ -1070,6 +1075,10 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile {
     }
 
     .expense-list-table td, .expense-list-table th{
+        max-width: 50px !important;
+        width: 50px !important;
+    }
+    .expense-list-table td:first-child, .expense-list-table th:first-child{
         max-width: 50px !important;
         width: 50px !important;
     }
