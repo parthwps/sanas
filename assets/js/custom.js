@@ -409,9 +409,10 @@
                     });
                 }
             },
-            "drawCallback": function( settings ) {
-                var expenseTotalRow = $('.expense-total-row').detach();
-                $('#budget-expense-Table tbody').append(expenseTotalRow);
+            "rowCallback": function(row, data, index) {
+                if ($(row).hasClass('expense-total-row')) {
+                    $(row).detach().appendTo('#budget-expense tbody');
+                }
             }
         });
         $('.vendor-table-list').DataTable({
