@@ -36,9 +36,32 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 if (window.location.pathname === '/budget/') {
     jQuery(document).ready(function($) {
+        $('.budget-table-sort').DataTable({
+            columnDefs: [
+                { orderable: false, targets: [0, 2, 3, 4, 5, 6] },
+            ],
+            "createdRow": function (row, data, dataIndex) {
+                if (dataIndex === $('.budget-table-sort').DataTable().data().length - 1) {
+                    $('td', row).each(function () {
+                        $(this).attr('data-order', '');
+                    });
+                }
+                // Check if this is the total row
+                if (data[0] === 'Total') {
+                    $(row).addClass('expense-total-row');
+                }
+            },
+            "drawCallback": function(settings) {
+                // Move the total row to the bottom
+                var api = this.api();
+                var totalRow = api.rows('.expense-total-row').nodes();
+                if (totalRow.length) {
+                    $(totalRow).appendTo(api.table().body());
+                }
+            }
+        });
     jQuery('.budget-category-item').on('click', function() {
         var categoryId = jQuery(this).data('id');
-        // Set the category ID in the hidden input field
         jQuery('#category-id-input').val(categoryId);
 
         jQuery('#category_cost_section li').removeClass('active');
@@ -58,7 +81,7 @@ if (window.location.pathname === '/budget/') {
             success: function(response) {
                 jQuery('html, body').animate({
                     scrollTop: jQuery('#budget-expense-box').offset().top
-                }, 500);
+                }, 300);
                 window.history.pushState(null, '', '?category=' + categoryId);
                 if (response.success) {
                     var expenses = response.data.expenses;
@@ -123,7 +146,6 @@ if (window.location.pathname === '/budget/') {
             }
         });
     });
-    
     // Escape HTML for safety
     function escapeHtml(text) {
         if (text == null) return ''; // Return empty string for null or undefined
