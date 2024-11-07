@@ -3019,15 +3019,25 @@ section.wl-main-canvas .card-canvas .col-md-6:nth-child(2) .preview-img {
     margin-bottom: 30px;
 }
 
-.title-box {
+.budget-man .title-box {
     display: flex;
 }
 
-.title {
+.budget-man .title {
     max-width: 60%;
 }
 
-.title p{
+.budget-man .title p{
+    color: #777;
+    font-size: 11px;
+    line-height: 11px;
+}
+
+.wl-dashboard-content .title {
+    max-width: 60%;
+}
+
+.wl-dashboard-content .title p{
     color: #777;
     font-size: 11px;
     line-height: 11px;
