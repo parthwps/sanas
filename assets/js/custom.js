@@ -403,6 +403,11 @@
                 { orderable: false, targets: [0, 2, 3, 4, 5, 6] },
             ],
             "createdRow": function (row, data, dataIndex) {
+                if (dataIndex === $('.budget-table-sort').DataTable().data().length - 1) {
+                    $('td', row).each(function () {
+                        $(this).attr('data-order', '');
+                    });
+                }
                 // Check if this is the total row
                 if (data[0] === 'Total') {
                     $(row).addClass('expense-total-row');
