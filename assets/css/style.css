@@ -3023,19 +3023,15 @@ section.wl-main-canvas .card-canvas .col-md-6:nth-child(2) .preview-img {
     display: flex;
 }
 
-.budget-man .title {
+.budget-man .title-box .title {
     max-width: 60%;
 }
 
-.budget-man .title p{
+.budget-man .title-box .title p{
     color: #777;
     font-size: 11px;
     line-height: 11px;
     font-weight: 400 !important;
-}
-
-.wl-dashboard-content .title {
-    max-width: 60%;
 }
 
 .wl-dashboard-content .title p{
