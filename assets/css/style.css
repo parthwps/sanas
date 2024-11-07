@@ -4898,7 +4898,29 @@ Category Wishlist
     position: relative;
     max-height: 480px;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
+
+/* width */
+.budget-man-box .cat-col ul::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 100px;
+  }
+  
+  /* Track */
+  .budget-man-box .cat-col ul::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  .budget-man-box .cat-col ul::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  .budget-man-box .cat-col ul::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
 
 .budget-man-box .cat-col ul li {
     position: relative;
