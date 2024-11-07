@@ -6451,7 +6451,7 @@ th.todo-subhead h4 {
     width: 100px !important;
 }
 
-.expense-table td:first-child, .expense-table th:first-child{
+.expense-list-table td:first-child, .expense-list-table th:first-child{
     max-width: 100px !important;
     width: 100px !important;
 }
