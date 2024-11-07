@@ -251,9 +251,9 @@ get_sidebar('dashboard');
                             $total_due = $total_actual - $total_paid;
                             ?>
                             <tr>
-                                <td class="expense text-single-line""><?php echo esc_html($expense['expense']); ?></td>
-                                <td class="text-single-line"><?php echo esc_html($expense['vendor_name']); ?></td>
-                                <td class="text-single-line"><?php echo !empty($expense['vendor_contact']) ? '+' . esc_html($expense['vendor_contact']) : ''; ?></td>
+                                <td class="expense text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($expense['expense']); ?>"><?php echo esc_html($expense['expense']); ?></td>
+                                <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($expense['vendor_name']); ?>"><?php echo esc_html($expense['vendor_name']); ?></td>
+                                <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo !empty($expense['vendor_contact']) ? '+' . esc_html($expense['vendor_contact']) : ''; ?>"><?php echo !empty($expense['vendor_contact']) ? '+' . esc_html($expense['vendor_contact']) : ''; ?></td>
                                 <td>$<?php echo esc_html($expense['estimated_cost']); ?></td>
                                 <td>$<?php echo esc_html($expense['actual_cost']); ?></td>
                                 <td>$<?php echo esc_html($expense['paid']); ?></td>
