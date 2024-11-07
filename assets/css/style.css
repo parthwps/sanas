@@ -3033,7 +3033,7 @@ section.wl-main-canvas .card-canvas .col-md-6:nth-child(2) .preview-img {
 
 .add-link {
     flex-basis: 40%;
-    max-width: 40%;
+    min-width: 40%;
     box-sizing: border-box;
     display: flex;
     justify-content: flex-end;
