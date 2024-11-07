@@ -3023,10 +3023,6 @@ section.wl-main-canvas .card-canvas .col-md-6:nth-child(2) .preview-img {
     display: flex;
 }
 
-.budget-man .title-box .title {
-    max-width: 60%;
-}
-
 .budget-man .title-box .title p{
     color: #777;
     font-size: 11px;
@@ -6321,6 +6317,7 @@ button#add_new_group_button {
     transition: all 0.5s;
     border-radius: 4px;
     width: fit-content;
+    text-wrap: nowrap;
 }
 .dashbord-btn:hover{
     background-color:#744F30 ;
