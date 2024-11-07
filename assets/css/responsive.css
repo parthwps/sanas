@@ -1069,7 +1069,9 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile {
     table.dataTable>tbody>tr>td.actions{
         min-width: 60px !important;
         display: grid;
-        grid-template-columns: auto auto;    
+        grid-template-columns: auto auto;
+        min-height: 62px;
+        align-items: center;    
     }
     #vendor-table_wrapper table.dataTable thead>tr>th:nth-child(4), #vendor-table_wrapper table.dataTable tbody>tr>td:nth-child(4),
     #vendor-table_wrapper table.dataTable thead>tr>th:nth-child(5), #vendor-table_wrapper table.dataTable tbody>tr>td:nth-child(5),
