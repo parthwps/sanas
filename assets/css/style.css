@@ -4903,7 +4903,7 @@ Category Wishlist
 
 /* width */
 .budget-man-box .cat-col ul::-webkit-scrollbar {
-    width: 5px;
+    width: 4px;
     border-radius: 100px;
   }
   
@@ -4914,7 +4914,8 @@ Category Wishlist
    
   /* Handle */
   .budget-man-box .cat-col ul::-webkit-scrollbar-thumb {
-    background: #888; 
+    background: #888;
+    border-radius: 10px;
   }
   
   /* Handle on hover */
