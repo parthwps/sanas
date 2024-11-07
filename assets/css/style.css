@@ -4998,12 +4998,14 @@ Category Wishlist
     position: relative;
     padding: 50px 20px;
     text-align: center;
+    width: 45%;
 }
 
 .budget-man-box .budget-col .graph-box {
     position: relative;
     padding: 40px 20px;
     text-align: center;
+    width: 55%;
 }
 
 .budget-man-box .budget-col .title {
