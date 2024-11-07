@@ -92,12 +92,14 @@ get_sidebar('dashboard');
       </div>
       <div class="budget-man">
         <div class="inner">
-          <div class="title-box">
-            <div class="title"><h4>Manage Budget</h4>
+          <div class="title-box-wrapper">
+            <div class="title-box">
+              <div class="title"><h4>Manage Budget</h4>
             <p>Select from below categories or add new category, then enter expense for each</p>
           </div>
             <div class="add-link align-items-center">
               <a href="javascript:void(0);" class="dashbord-btn clear-budget-btn"> Clear Budget</a>
+              </div>
             </div>
           </div>
           <div class="budget-man-box">
