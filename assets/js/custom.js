@@ -403,12 +403,19 @@
                 { orderable: false, targets: [0, 2, 3, 4, 5, 6] },
             ],
             "createdRow": function (row, data, dataIndex) {
-                if (dataIndex === $('.budget-table-sort').DataTable().data().length - 1) {
-                    $('td', row).each(function () {
-                        $(this).attr('data-order', '');
-                    });
+                // Check if this is the total row
+                if (data[0] === 'Total') {
+                    $(row).addClass('expense-total-row');
                 }
             },
+            "drawCallback": function(settings) {
+                // Move the total row to the bottom
+                var api = this.api();
+                var totalRow = api.rows('.expense-total-row').nodes();
+                if (totalRow.length) {
+                    $(totalRow).appendTo(api.table().body());
+                }
+            }
         });
         $('.vendor-table-list').DataTable({
             columnDefs: [
