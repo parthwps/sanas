@@ -1054,7 +1054,10 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile {
     #vendor-table_wrapper table.dataTable thead>tr>th:nth-child(5), #vendor-table_wrapper table.dataTable tbody>tr>td:nth-child(5),
     #vendor-table_wrapper table.dataTable thead>tr>th:nth-child(7), #vendor-table_wrapper table.dataTable tbody>tr>td:nth-child(7),
     #vendor-table_wrapper table.dataTable colgroup>col:nth-child(4), #vendor-table_wrapper table.dataTable colgroup>col:nth-child(5),
-    #vendor-table_wrapper table.dataTable colgroup>col:nth-child(7){
+    #vendor-table_wrapper table.dataTable colgroup>col:nth-child(7),
+    #budget-expense_wrapper table.dataTable thead>tr>th:nth-child(1), #budget-expense_wrapper table.dataTable tbody>tr>td:nth-child(1),
+    #budget-expense_wrapper table.dataTable thead>tr>th:nth-child(2), #budget-expense_wrapper table.dataTable tbody>tr>td:nth-child(2),
+    #budget-expense_wrapper table.dataTable colgroup>col:nth-child(1), #budget-expense_wrapper table.dataTable colgroup>col:nth-child(2){
         display: none;
     }
     #vendor-table_wrapper .table th ,  #vendor-table_wrapper .table td{
