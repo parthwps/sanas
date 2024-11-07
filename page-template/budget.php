@@ -520,7 +520,7 @@ get_sidebar('dashboard');
                 breakpoint: 480,
                 options: {
                     chart: {
-                        width: 250
+                        width: 350
                     },
                     legend: {
                         position: 'bottom'
