@@ -3023,6 +3023,10 @@ section.wl-main-canvas .card-canvas .col-md-6:nth-child(2) .preview-img {
     display: flex;
 }
 
+.title {
+    max-width: 60%;
+}
+
 .title p{
     color: #777;
     font-size: 11px;
