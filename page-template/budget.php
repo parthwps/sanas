@@ -220,7 +220,7 @@ get_sidebar('dashboard');
             </div>
             <div class="table-box upcoming-tasks">
               <div class="table-responsive">
-                <table class="vendor-table budget-table-sort expense-table" id="budget-expense">
+                <table class="vendor-table budget-table-sort expense-list-table" id="budget-expense">
                   <thead>
                     <tr>
                       <th class="text-single-line">Expense</th>
