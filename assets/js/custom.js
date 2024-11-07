@@ -400,7 +400,7 @@
         });
         $('.budget-table-sort').DataTable({
             columnDefs: [
-                { orderable: false, targets: [0, 1, 2, 3, 4, 5, 6] },
+                { orderable: false, targets: [0, 2, 3, 4, 5, 6] },
             ],
             "createdRow": function (row, data, dataIndex) {
                 if (dataIndex === $('.budget-table-sort').DataTable().data().length - 1) {
