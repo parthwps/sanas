@@ -136,7 +136,7 @@ get_sidebar('dashboard');
                               $i++;
                             }
                             $total_expense = isset($expense_totals[$category_id]) ? $expense_totals[$category_id]->total_expense : 0;
-                            if($total_expense != 0){
+                            if($total_expense != 0 && $total_expense != 0.00){
                               $js_categories[] = esc_js($category['category_name']);
                               $js_expenses[] = (float) $total_expense;
                             }
