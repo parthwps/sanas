@@ -313,6 +313,7 @@
             markers: false,
             chart: {
                 type: 'donut',
+                height: '370px',
                 width: '100%'
             },
             legend: {
