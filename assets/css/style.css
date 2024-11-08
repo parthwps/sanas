@@ -6448,11 +6448,7 @@ th.todo-subhead h4 {
     font-weight: 400;
     padding: 10px 15px;
     vertical-align: middle;
-    text-align: left !important;
-}
-
-.number-align-right {
-    text-align: right !important;
+    text-align: left;
 }
 
 .table-box .vendor-table th {
@@ -6464,7 +6460,7 @@ th.todo-subhead h4 {
     font-size: 16px;
     text-transform: capitalize;
     vertical-align: middle;
-    text-align: left !important;
+    text-align: left;
 }
 
 .vendor-table a.edit,
