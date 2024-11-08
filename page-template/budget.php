@@ -136,8 +136,10 @@ get_sidebar('dashboard');
                               $i++;
                             }
                             $total_expense = isset($expense_totals[$category_id]) ? $expense_totals[$category_id]->total_expense : 0;
-                            $js_categories[] = esc_js($category['category_name']);
-                            $js_expenses[] = (float) $total_expense;
+                            if($total_expense != 0){
+                              $js_categories[] = esc_js($category['category_name']);
+                              $js_expenses[] = (float) $total_expense;
+                            }
                             ?>
                             
                             <li <?php echo (empty($_GET['category']) && $index === 0) || (isset($_GET['category']) && $_GET['category'] == $category_id) ? ' class="active"' : ''; ?>>
