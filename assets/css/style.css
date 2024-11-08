@@ -4926,6 +4926,10 @@ Category Wishlist
     background: #888; 
   }
 
+  .budget-category-box-dashboard{
+    padding: 30px 0;
+  }
+
 .budget-man-box .cat-col ul li {
     position: relative;
     border-bottom: 1px solid #00000012;
