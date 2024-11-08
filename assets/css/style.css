@@ -4917,13 +4917,13 @@ Category Wishlist
    
   /* Handle */
   .budget-man-box .cat-col ul::-webkit-scrollbar-thumb {
-    background: #888;
+    background: #555;
     border-radius: 10px;
   }
   
   /* Handle on hover */
   .budget-man-box .cat-col ul::-webkit-scrollbar-thumb:hover {
-    background: #555; 
+    background: #888; 
   }
 
 .budget-man-box .cat-col ul li {
@@ -4986,7 +4986,7 @@ Category Wishlist
     position: relative;
     height: 100%;
 }
-.budget-man-box .budget-col .info-box, .budget-man-box .info-box {
+.budget-col .info-box, .budget-man-box .info-box {
     border: 1px solid #00000012;
     border-radius: 8px 8px 0 0;
 }
