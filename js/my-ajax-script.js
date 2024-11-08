@@ -125,8 +125,8 @@ if (window.location.pathname === '/budget/') {
                     });
             
                     // Add total row
-                    rows += '<tr>' +
-                                '<td>Total</td>' +
+                    rows += '<tr class="expense-total-row">' +
+                                '<td class="text-single-line">Total</td>' +
                                 '<td>&nbsp;</td>' +
                                 '<td>&nbsp;</td>' +
                                 '<td class="text-single-line" data-toggle="tooltip" data-bs-original-title="' + total_estimated.toFixed(2) + '">$' + total_estimated.toFixed(2) + '</td>' +
