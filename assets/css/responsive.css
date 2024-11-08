@@ -1195,9 +1195,9 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile {
         font-size: 14px;
     }
   
-    tr.todo-check-title th:nth-child(6), .todo-list tr td:nth-child(6) {
+    /* tr.todo-check-title th:nth-child(6), .todo-list tr td:nth-child(6) {
         display: none;
-    }
+    } */
     .contact table.dataTable>tbody>tr>td,.contact table.dataTable>tbody>tr>td:first-child{
         width: 25%;
     }
