@@ -218,7 +218,7 @@ get_sidebar('dashboard');
                <div class="title">
                 <h4>Expense</h4>
                </div>
-              <a href="#" class="dashbord-btn mt-2 me-2" data-bs-toggle="modal" data-bs-target="#add-expense-popup"> Add New
+              <a href="#" class="dashbord-btn" data-bs-toggle="modal" data-bs-target="#add-expense-popup"> Add New
                 Expense</a>
             </div>
             <div class="table-box upcoming-tasks">
