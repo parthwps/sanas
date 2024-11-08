@@ -41,14 +41,14 @@ if (window.location.pathname === '/budget/') {
                 { orderable: false, targets: [0, 2, 3, 4, 5, 6] },
             ],
             "createdRow": function (row, data, dataIndex) {
-                if (dataIndex === $('.budget-table-sort').DataTable().data().length - 1) {
-                    $('td', row).each(function () {
-                        $(this).attr('data-order', '');
+                if (dataIndex === jQuery('.budget-table-sort').DataTable().data().length - 1) {
+                    jQuery('td', row).each(function () {
+                        jQuery(this).attr('data-order', '');
                     });
                 }
                 // Check if this is the total row
                 if (data[0] === 'Total') {
-                    $(row).addClass('expense-total-row');
+                    jQuery(row).addClass('expense-total-row');
                 }
             },
             "drawCallback": function(settings) {
@@ -56,7 +56,7 @@ if (window.location.pathname === '/budget/') {
                 var api = this.api();
                 var totalRow = api.rows('.expense-total-row').nodes();
                 if (totalRow.length) {
-                    $(totalRow).appendTo(api.table().body());
+                    jQuery(totalRow).appendTo(api.table().body());
                 }
             }
         });
@@ -166,27 +166,27 @@ function escapeHtml(text) {
     // Edit Expense Item
     jQuery(document).on('click', '.edit-expense', function(e) {
         e.preventDefault();
-        var expenseId = $(this).data('id');
-        var categoryId = $('#category-id-input').val();
-        console.log(expenseId + " " + $(this).data('id'));
-        console.log(categoryId + " " + $('#category-id-input').val());
+        var expenseId = jQuery(this).data('id');
+        var categoryId = jQuery('#category-id-input').val();
+        console.log(expenseId + " " + jQuery(this).data('id'));
+        console.log(categoryId + " " + jQuery('#category-id-input').val());
         // set the category ID in the hidden input field
-        $('#category-id-input-edit').val(categoryId);
+        jQuery('#category-id-input-edit').val(categoryId);
         $.ajax({
             type: 'POST',
             url: ajax_object.ajax_url,
             data: { id: expenseId, category_id: categoryId, action: 'get_expense_details' },
             success: function(response) {
                 if (response.success) {
-                    $('#edit-expense-id').val(response.data.id);
-                    $('#edit-expense-name').val(response.data.expense);
-                    $('#edit-vendor-name').val(response.data.vendor_name);
-                    $('#edit-vendor-contact').val(response.data.vendor_contact);
-                    $('#edit-estimated-cost').val(response.data.estimated_cost);
-                    $('#edit-actual-cost').val(response.data.actual_cost);
-                    $('#edit-paid').val(response.data.paid);
-                    $('#category-id-input').val(response.data.category_id);
-                    $('#edit-expense-popup').modal('show');
+                    jQuery('#edit-expense-id').val(response.data.id);
+                    jQuery('#edit-expense-name').val(response.data.expense);
+                    jQuery('#edit-vendor-name').val(response.data.vendor_name);
+                    jQuery('#edit-vendor-contact').val(response.data.vendor_contact);
+                    jQuery('#edit-estimated-cost').val(response.data.estimated_cost);
+                    jQuery('#edit-actual-cost').val(response.data.actual_cost);
+                    jQuery('#edit-paid').val(response.data.paid);
+                    jQuery('#category-id-input').val(response.data.category_id);
+                    jQuery('#edit-expense-popup').modal('show');
                 } else {
                     alert('Failed to fetch expense details.');
                 }
@@ -197,30 +197,30 @@ function escapeHtml(text) {
     // Edit Expense form
     jQuery('#edit-expense-form').submit(function(e) {
         e.preventDefault();
-        var formData = $(this).serialize();
+        var formData = jQuery(this).serialize();
         $.ajax({
             type: 'POST',
             url: ajax_object.ajax_url,
             data: formData + '&action=edit_expense',
             success: function(response) {
                 if (response.success) {
-                    // $('#edit-expense-popup').modal('hide');
+                    // jQuery('#edit-expense-popup').modal('hide');
                     // set the modal title and message
-                    // $('#exampleModalLabel').text('Success');
-                    // $('#modal-body-text').text(response.data);
-                    // $('#modal_html_alert').modal('show');
-                    // $('#render-modal-yes-button').on('click', function() {
+                    // jQuery('#exampleModalLabel').text('Success');
+                    // jQuery('#modal-body-text').text(response.data);
+                    // jQuery('#modal_html_alert').modal('show');
+                    // jQuery('#render-modal-yes-button').on('click', function() {
                         location.reload();
                     // });
                 } else {
                     // set the modal title and message
-                    $('#exampleModalLabel').text('Error');
-                    $('#modal-body-text').text(response.data);
+                    jQuery('#exampleModalLabel').text('Error');
+                    jQuery('#modal-body-text').text(response.data);
                     // show the modal
-                    $('#modal_html_alert').modal('show');
+                    jQuery('#modal_html_alert').modal('show');
                     // handle the click event on the "Yes" button in the modal
-                    $('#render-modal-yes-button').on('click', function() {
-                        $('#modal_html_alert').modal('hide');
+                    jQuery('#render-modal-yes-button').on('click', function() {
+                        jQuery('#modal_html_alert').modal('hide');
                     });
                 }
             }
@@ -229,14 +229,14 @@ function escapeHtml(text) {
 
         // Function to show the modal
         function show_alert_message3(title, message) {
-            $('#exampleConfirmModalLabel').text(title);
-            $('#confirm_modal-body-text').text(message);
-            $('#confirm_modal_html_alert').modal('show');
+            jQuery('#exampleConfirmModalLabel').text(title);
+            jQuery('#confirm_modal-body-text').text(message);
+            jQuery('#confirm_modal_html_alert').modal('show');
         }
         
-        $('#modal-yes-button').on('click', function () {
+        jQuery('#modal-yes-button').on('click', function () {
             proceedWithRemovalExpense();
-            $('#confirm_modal_html_alert').modal('hide');
+            jQuery('#confirm_modal_html_alert').modal('hide');
         });
         
         // delete expense
@@ -252,13 +252,13 @@ function escapeHtml(text) {
                         location.reload();
                     } else {
                         // set the modal title and message
-                        $('#exampleModalLabel').text('Error');
-                        $('#modal-body-text').text(response.data);
+                        jQuery('#exampleModalLabel').text('Error');
+                        jQuery('#modal-body-text').text(response.data);
                         // show the modal
-                        $('#modal_html_alert').modal('show');
+                        jQuery('#modal_html_alert').modal('show');
                         // handle the click event on the "Yes" button in the modal
-                        $('#render-modal-yes-button').on('click', function() {
-                            $('#modal_html_alert').modal('hide');
+                        jQuery('#render-modal-yes-button').on('click', function() {
+                            jQuery('#modal_html_alert').modal('hide');
                         });
                     }
                 }
@@ -269,9 +269,9 @@ function escapeHtml(text) {
         var currentExpenseId;
         
         // Click handler for the delete icon
-        $(".expense-delete").on("click", function (e) {
+        jQuery(".expense-delete").on("click", function (e) {
             e.preventDefault();
-            currentExpenseId = $(this).data("id");
+            currentExpenseId = jQuery(this).data("id");
         
             show_alert_message3('Delete Expense', 'Do you want to delete this entry?');
         });
@@ -279,7 +279,7 @@ function escapeHtml(text) {
     // Add Budget Category Item
     jQuery('#add-budget-category-form').submit(function(e) {
         e.preventDefault();
-        var formData = $(this).serialize();
+        var formData = jQuery(this).serialize();
         $.ajax({
             type: 'POST',
             url: ajax_object.ajax_url,
@@ -287,27 +287,27 @@ function escapeHtml(text) {
             success: function(response) {
                 if (response.success) {
                     // Hide add-vendor-popup
-                    $('#add-category-popup').modal('hide');
+                    jQuery('#add-category-popup').modal('hide');
                     // Set the modal title and message
-                    $('#exampleModalLabel').text('Success');
-                    $('#modal-body-text').text('Category item added successfully.');
+                    jQuery('#exampleModalLabel').text('Success');
+                    jQuery('#modal-body-text').text('Category item added successfully.');
                     // Show the modal
-                    $('#modal_html_alert').modal('show');
+                    jQuery('#modal_html_alert').modal('show');
 
                     // Handle the click event on the "Yes" button in the modal
-                    $('#render-modal-yes-button').on('click', function() {
+                    jQuery('#render-modal-yes-button').on('click', function() {
                         location.reload();
                     });
                 } else {
                     // Set the modal title and message
-                    $('#exampleModalLabel').text('Error');
-                    $('#modal-body-text').text(response.data);
+                    jQuery('#exampleModalLabel').text('Error');
+                    jQuery('#modal-body-text').text(response.data);
                     // Show the modal
-                    $('#modal_html_alert').modal('show');
+                    jQuery('#modal_html_alert').modal('show');
 
                     // Handle the click event on the "Yes" button in the modal
-                    $('#render-modal-yes-button').on('click', function() {
-                        $('#modal_html_alert').modal('hide');
+                    jQuery('#render-modal-yes-button').on('click', function() {
+                        jQuery('#modal_html_alert').modal('hide');
                     })
                 }
             }
@@ -317,16 +317,16 @@ function escapeHtml(text) {
 
     // Function to show the modal
     function show_alert_message2(title, message) {
-        $('#exampleConfirmModalLabel').text(title);
-        $('#confirm_modal-body-text').text(message);
-        $('#confirm_modal_html_alert').modal('show');
+        jQuery('#exampleConfirmModalLabel').text(title);
+        jQuery('#confirm_modal-body-text').text(message);
+        jQuery('#confirm_modal_html_alert').modal('show');
     }
     
     // When "Yes" button is clicked
-    $('#modal-yes-button').on('click', function () {
+    jQuery('#modal-yes-button').on('click', function () {
         // Trigger the removal process
         proceedWithRemoval();
-        $('#confirm_modal_html_alert').modal('hide');
+        jQuery('#confirm_modal_html_alert').modal('hide');
     });
     
     // Function to handle the AJAX call for removal
@@ -351,9 +351,9 @@ function escapeHtml(text) {
     var currentVendorId;
     
     // Click handler for the delete icon
-    $(".category-delete").on("click", function (e) {
+    jQuery(".category-delete").on("click", function (e) {
         e.preventDefault();
-        currentVendorId = $(this).data("id");
+        currentVendorId = jQuery(this).data("id");
     
         show_alert_message2('Delete Category', 'Do you want to delete this entry?');
     });
@@ -386,7 +386,7 @@ function escapeHtml(text) {
                 action: 'get_expenses_ajax'
             },
             success: function(response) {
-                $('#budget-expense tbody').html(response);
+                jQuery('#budget-expense tbody').html(response);
             }
         });
     }
@@ -394,13 +394,13 @@ function escapeHtml(text) {
     
 
     jQuery('.clear-budget-btn').on('click', function() {
-        $('#confirm_modal_html_alert').modal('show');
-        $('#confirm_modal_html_alert #confirm_modal-body-text').text('Do you want to clear all values in your budget, including categories, expenses, and vendor information? Please be aware that once cleared, this information cannot be retrieved.');
-        $('#confirm_modal_html_alert').addClass('clear-budget-confirmation-modal');
-        $('.clear-budget-confirmation-modal #modal-yes-button').on('click', function(event) {
+        jQuery('#confirm_modal_html_alert').modal('show');
+        jQuery('#confirm_modal_html_alert #confirm_modal-body-text').text('Do you want to clear all values in your budget, including categories, expenses, and vendor information? Please be aware that once cleared, this information cannot be retrieved.');
+        jQuery('#confirm_modal_html_alert').addClass('clear-budget-confirmation-modal');
+        jQuery('.clear-budget-confirmation-modal #modal-yes-button').on('click', function(event) {
             event.preventDefault();
             console.log('clicked');
-            $('#confirm_modal_html_alert').removeClass('clear-budget-confirmation-modal');
+            jQuery('#confirm_modal_html_alert').removeClass('clear-budget-confirmation-modal');
             $.ajax({
                 url: ajax_object.ajax_url,
                 type: 'POST',
@@ -429,27 +429,27 @@ document.addEventListener('DOMContentLoaded', () => {
 jQuery(document).ready(function($) {
     jQuery('#add-todo-form').submit(function(e) {
         e.preventDefault();
-        var formData = $(this).serialize();
+        var formData = jQuery(this).serialize();
         $.ajax({
             type: 'POST',
             url: ajax_object.ajax_url,
             data: formData + '&action=add_todo_item',
             success: function(response) {
                 if (response.success) {
-                    $('#add-todolist-popup').modal('hide');
-                    $('#exampleModalLabel').text('Success');
-                    $('#modal-body-text').text(response.data);
-                    $('#modal_html_alert').modal('show');
+                    jQuery('#add-todolist-popup').modal('hide');
+                    jQuery('#exampleModalLabel').text('Success');
+                    jQuery('#modal-body-text').text(response.data);
+                    jQuery('#modal_html_alert').modal('show');
                     recalculate_task();
-                    $('#render-modal-yes-button').on('click', function() {
+                    jQuery('#render-modal-yes-button').on('click', function() {
                         location.reload();
                     });
                 } else {
-                    $('#exampleModalLabel').text('Error');
-                    $('#modal-body-text').text(response.data);
-                    $('#modal_html_alert').modal('show');
-                    $('#render-modal-yes-button').on('click', function() {
-                        $('#modal_html_alert').modal('hide');
+                    jQuery('#exampleModalLabel').text('Error');
+                    jQuery('#modal-body-text').text(response.data);
+                    jQuery('#modal_html_alert').modal('show');
+                    jQuery('#render-modal-yes-button').on('click', function() {
+                        jQuery('#modal_html_alert').modal('hide');
                     });
                 }
             }
@@ -459,7 +459,7 @@ jQuery(document).ready(function($) {
     // Edit To-Do Item
     jQuery('#edit-todo-form').submit(function(e) {
         e.preventDefault();
-        var formData = $(this).serialize();
+        var formData = jQuery(this).serialize();
         $.ajax({
             type: 'POST',
             url: ajax_object.ajax_url,
@@ -467,27 +467,27 @@ jQuery(document).ready(function($) {
             success: function(response) {
                 if (response.success) {
                     // Hide add-todolist-popup
-                    $('#edit-todolist-popup').modal('hide');
+                    jQuery('#edit-todolist-popup').modal('hide');
                     // Set the modal title and message
-                    $('#exampleModalLabel').text('Success');
-                    $('#modal-body-text').text(response.data);
+                    jQuery('#exampleModalLabel').text('Success');
+                    jQuery('#modal-body-text').text(response.data);
                     // Show the modal
-                    $('#modal_html_alert').modal('show');
+                    jQuery('#modal_html_alert').modal('show');
 
                     // Handle the click event on the "Yes" button in the modal
-                    $('#render-modal-yes-button').on('click', function() {
+                    jQuery('#render-modal-yes-button').on('click', function() {
                         location.reload();
                     });
                 } else {
                     // Set the modal title and message
-                    $('#exampleModalLabel').text('Error');
-                    $('#modal-body-text').text(response.data);
+                    jQuery('#exampleModalLabel').text('Error');
+                    jQuery('#modal-body-text').text(response.data);
                     // Show the modal
-                    $('#modal_html_alert').modal('show');
+                    jQuery('#modal_html_alert').modal('show');
 
                     // Handle the click event on the "Yes" button in the modal
-                    $('#render-modal-yes-button').on('click', function() {
-                        $('#modal_html_alert').modal('hide');
+                    jQuery('#render-modal-yes-button').on('click', function() {
+                        jQuery('#modal_html_alert').modal('hide');
                     });
                 }
             }
@@ -520,16 +520,16 @@ jQuery(document).ready(function($) {
   });
    // Function to show the modal
     function show_alert_message2(title, message) {
-        $('#exampleConfirmModalLabel').text(title);
-        $('#confirm_modal-body-text').text(message);
-        $('#confirm_modal_html_alert').modal('show');
+        jQuery('#exampleConfirmModalLabel').text(title);
+        jQuery('#confirm_modal-body-text').text(message);
+        jQuery('#confirm_modal_html_alert').modal('show');
     }
 
     // When "Yes" button is clicked
-    $('#modal-yes-button').on('click', function () {
+    jQuery('#modal-yes-button').on('click', function () {
         // Trigger the removal process
         proceedWithRemoval();
-        $('#confirm_modal_html_alert').modal('hide');
+        jQuery('#confirm_modal_html_alert').modal('hide');
     });
 
     // Function to handle the AJAX call for removal
@@ -545,14 +545,14 @@ jQuery(document).ready(function($) {
                     location.reload();
                 } else {
                     // Set the modal title and message
-                    $('#exampleModalLabel').text('Error');
-                    $('#modal-body-text').text(response.data);
+                    jQuery('#exampleModalLabel').text('Error');
+                    jQuery('#modal-body-text').text(response.data);
                     // Show the modal
-                    $('#modal_html_alert').modal('show');
+                    jQuery('#modal_html_alert').modal('show');
 
                     // Handle the click event on the "Yes" button in the modal
-                    $('#render-modal-yes-button').on('click', function() {
-                        $('#modal_html_alert').modal('hide');
+                    jQuery('#render-modal-yes-button').on('click', function() {
+                        jQuery('#modal_html_alert').modal('hide');
                     });
                 }
             }
@@ -560,9 +560,9 @@ jQuery(document).ready(function($) {
     }
 
     var currentTodoId;
-    $(".delete").on("click", function (e) {
+    jQuery(".delete").on("click", function (e) {
         e.preventDefault();
-        currentTodoId = $(this).data("id");
+        currentTodoId = jQuery(this).data("id");
         show_alert_message2('Delete Task', 'Do you want to delete this task?');
     });
     
@@ -610,12 +610,12 @@ function recalculate_task(){
             data: { id: todoId, action: 'get_todo_item' },
             success: function(response) {
                 if (response.success) {
-                    $('#edit-todo-id').val(response.data.id);
-                    $('#edit-todo-title').val(response.data.title);
-                    $('#edit-todo-date').val(response.data.date);
-                    $('#edit-todo-category').val(response.data.category);
-                    $('#edit-todo-notes').val(response.data.notes);
-                    $('#edit-todolist-popup').modal('show');
+                    jQuery('#edit-todo-id').val(response.data.id);
+                    jQuery('#edit-todo-title').val(response.data.title);
+                    jQuery('#edit-todo-date').val(response.data.date);
+                    jQuery('#edit-todo-category').val(response.data.category);
+                    jQuery('#edit-todo-notes').val(response.data.notes);
+                    jQuery('#edit-todolist-popup').modal('show');
                 }
             }
         });
@@ -629,8 +629,8 @@ if (window.location.pathname === '/vendors-list/') {
     jQuery(document).ready(function($) {
         jQuery('#add-vendor-form').submit(function(e) {
             e.preventDefault();
-            var formData = $(this).serialize();
-            var addAnother = $(e.originalEvent.submitter).attr('id') === 'add-new-vendor';
+            var formData = jQuery(this).serialize();
+            var addAnother = jQuery(e.originalEvent.submitter).attr('id') === 'add-new-vendor';
             
             $.ajax({
                 type: 'POST',
@@ -645,15 +645,15 @@ if (window.location.pathname === '/vendors-list/') {
                                     jQuery(this).remove();
                                 });
                             }, 3000);
-                            $('#vendor-table tbody').html(response.data);
-                            $('#add-vendor-form')[0].reset();
-                            $('#add-todolist-popup').modal('show');
+                            jQuery('#vendor-table tbody').html(response.data);
+                            jQuery('#add-vendor-form')[0].reset();
+                            jQuery('#add-todolist-popup').modal('show');
                         } else {
-                            $('#add-todolist-popup').modal('hide');
-                            $('#exampleModalLabel').text('Success');
-                            $('#modal-body-text').text('Vendor item added successfully.');
-                            $('#modal_html_alert').modal('show');
-                            $('#render-modal-yes-button').on('click', function() {
+                            jQuery('#add-todolist-popup').modal('hide');
+                            jQuery('#exampleModalLabel').text('Success');
+                            jQuery('#modal-body-text').text('Vendor item added successfully.');
+                            jQuery('#modal_html_alert').modal('show');
+                            jQuery('#render-modal-yes-button').on('click', function() {
                                 location.reload();
                             });
                         }
@@ -666,8 +666,8 @@ if (window.location.pathname === '/vendors-list/') {
 
         // Select All Checkbox
         jQuery('#all-select-chechbox').on('change', function() {
-            var allChecked = $(this).is(':checked');
-            $('.checkSingle').prop('checked', allChecked);
+            var allChecked = jQuery(this).is(':checked');
+            jQuery('.checkSingle').prop('checked', allChecked);
         });
 
         // Get Vendor Item for Editing
@@ -679,15 +679,15 @@ if (window.location.pathname === '/vendors-list/') {
                 data: { id: vendorId, action: 'get_vendor_list_item' },
                 success: function(response) {
                     if (response.success) {
-                        $('#edit-vendor-id').val(response.data.id);
-                        $('#edit-vendor-category').val(response.data.category);
-                        $('#edit-vendor-name').val(response.data.name);
-                        $('#edit-vendor-email').val(response.data.email);
-                        $('#edit-vendor-phone').val(response.data.phone);
-                        $('#edit-vendor-notes').val(response.data.notes);
-                        $('#edit-vendor-social-media-profile').val(response.data.social_media_profile);
-                        $('#edit-vendor-pricing').val(response.data.pricing);
-                        $('#edit-todolist-popup').modal('show');
+                        jQuery('#edit-vendor-id').val(response.data.id);
+                        jQuery('#edit-vendor-category').val(response.data.category);
+                        jQuery('#edit-vendor-name').val(response.data.name);
+                        jQuery('#edit-vendor-email').val(response.data.email);
+                        jQuery('#edit-vendor-phone').val(response.data.phone);
+                        jQuery('#edit-vendor-notes').val(response.data.notes);
+                        jQuery('#edit-vendor-social-media-profile').val(response.data.social_media_profile);
+                        jQuery('#edit-vendor-pricing').val(response.data.pricing);
+                        jQuery('#edit-todolist-popup').modal('show');
                     }
                 }
             });
@@ -696,7 +696,7 @@ if (window.location.pathname === '/vendors-list/') {
         // Edit Vendor Item
         jQuery('#edit-vendor-form').submit(function(e) {
             e.preventDefault();
-            var formData = $(this).serialize();
+            var formData = jQuery(this).serialize();
             $.ajax({
                 type: 'POST',
                 url: ajax_object.ajax_url,
@@ -704,13 +704,13 @@ if (window.location.pathname === '/vendors-list/') {
                 success: function(response) {
                     if (response.success) {
                         // Hide add-vendor-popup
-                        $('#edit-todolist-popup').modal('hide');
+                        jQuery('#edit-todolist-popup').modal('hide');
                         // Set the modal title and message
-                        $('#exampleModalLabel').text('Success');
-                        $('#modal-body-text').text(response.data);
+                        jQuery('#exampleModalLabel').text('Success');
+                        jQuery('#modal-body-text').text(response.data);
                         // Show the modal
-                        $('#modal_html_alert').modal('show');
-                        $('#render-modal-yes-button').on('click', function() {
+                        jQuery('#modal_html_alert').modal('show');
+                        jQuery('#render-modal-yes-button').on('click', function() {
                             location.reload();
                         });
                     } else {
@@ -722,23 +722,23 @@ if (window.location.pathname === '/vendors-list/') {
 
         jQuery(document).ready(function($) {
             // Move to My Vendors List button click
-            $('.add-link-btn').on('click', function(e) {
+            jQuery('.add-link-btn').on('click', function(e) {
                 e.preventDefault();
-                var selectedVendors = $('.checkSingle:checked').map(function() {
-                    return $(this).closest('tr').find('.edit').data('id');
+                var selectedVendors = jQuery('.checkSingle:checked').map(function() {
+                    return jQuery(this).closest('tr').find('.edit').data('id');
                 }).get();
 
                 if (selectedVendors.length === 0) {
                     // alert('Please select at least one vendor to move to the "My Vendors" page.');
                     // Set the modal title and message
-                    $('#exampleModalLabel').text('Error');
-                    $('#modal-body-text').text('Please select at least one vendor to move to the "My Vendors" page.');
+                    jQuery('#exampleModalLabel').text('Error');
+                    jQuery('#modal-body-text').text('Please select at least one vendor to move to the "My Vendors" page.');
                     // Show the modal
-                    $('#modal_html_alert').modal('show');
+                    jQuery('#modal_html_alert').modal('show');
 
                     // Handle the click event on the "Yes" button in the modal
-                    $('#render-modal-yes-button').on('click', function() {
-                        $('#modal_html_alert').modal('hide');
+                    jQuery('#render-modal-yes-button').on('click', function() {
+                        jQuery('#modal_html_alert').modal('hide');
                     });
                 } else {
                     $.ajax({
@@ -751,25 +751,25 @@ if (window.location.pathname === '/vendors-list/') {
                         success: function(response) {
                             if (response.success) {
                                 // Set the modal title and message
-                                $('#exampleModalLabel').text('Success');
-                                $('#modal-body-text').text(response.data);
+                                jQuery('#exampleModalLabel').text('Success');
+                                jQuery('#modal-body-text').text(response.data);
                                 // Show the modal
-                                $('#modal_html_alert').modal('show');
+                                jQuery('#modal_html_alert').modal('show');
 
                                 // Handle the click event on the "Yes" button in the modal
-                                $('#render-modal-yes-button').on('click', function() {
+                                jQuery('#render-modal-yes-button').on('click', function() {
                                     location.reload();
                                 });
                             } else {
                                 // Set the modal title and message
-                                $('#exampleModalLabel').text('Error');
-                                $('#modal-body-text').text(response.data);
+                                jQuery('#exampleModalLabel').text('Error');
+                                jQuery('#modal-body-text').text(response.data);
                                 // Show the modal
-                                $('#modal_html_alert').modal('show');
+                                jQuery('#modal_html_alert').modal('show');
 
                                 // Handle the click event on the "Yes" button in the modal
-                                $('#render-modal-yes-button').on('click', function() {
-                                    $('#modal_html_alert').modal('hide');
+                                jQuery('#render-modal-yes-button').on('click', function() {
+                                    jQuery('#modal_html_alert').modal('hide');
                                 });
                             }
                         }
@@ -780,16 +780,16 @@ if (window.location.pathname === '/vendors-list/') {
 
         // Function to show the modal
         function show_alert_message2(title, message) {
-            $('#exampleConfirmModalLabel').text(title);
-            $('#confirm_modal-body-text').text(message);
-            $('#confirm_modal_html_alert').modal('show');
+            jQuery('#exampleConfirmModalLabel').text(title);
+            jQuery('#confirm_modal-body-text').text(message);
+            jQuery('#confirm_modal_html_alert').modal('show');
         }
 
         // When "Yes" button is clicked
-        $('#modal-yes-button').on('click', function () {
+        jQuery('#modal-yes-button').on('click', function () {
             // Trigger the removal process
             proceedWithRemoval();
-            $('#confirm_modal_html_alert').modal('hide');
+            jQuery('#confirm_modal_html_alert').modal('hide');
         });
 
         // Function to handle the AJAX call for removal
@@ -814,9 +814,9 @@ if (window.location.pathname === '/vendors-list/') {
         var currentVendorId;
 
         // Click handler for the delete icon
-        $(".delete").on("click", function (e) {
+        jQuery(".delete").on("click", function (e) {
             e.preventDefault();
-            currentVendorId = $(this).data("id");
+            currentVendorId = jQuery(this).data("id");
 
             show_alert_message2('Delete Vendor', 'Are you sure you want to delete this vendor?');
         });
@@ -831,7 +831,7 @@ if (window.location.pathname === '/my-vendors/' || window.location.pathname === 
         });
         jQuery('#add-my-vendor-form').submit(function(e) {
             e.preventDefault();
-            var formData = $(this).serialize();
+            var formData = jQuery(this).serialize();
             $.ajax({
                 type: 'POST',
                 url: ajax_object.ajax_url,
@@ -839,11 +839,11 @@ if (window.location.pathname === '/my-vendors/' || window.location.pathname === 
                 success: function(response) {
                     if (response.success) {
                         if(buttonDataId == 0){
-                            $('#add-todolist-popup').modal('hide');
-                            $('#exampleModalLabel').text('Success');
-                            $('#modal-body-text').text('Vendor item added successfully.');
-                            $('#modal_html_alert').modal('show');
-                            $('#render-modal-yes-button').on('click', function() {
+                            jQuery('#add-todolist-popup').modal('hide');
+                            jQuery('#exampleModalLabel').text('Success');
+                            jQuery('#modal-body-text').text('Vendor item added successfully.');
+                            jQuery('#modal_html_alert').modal('show');
+                            jQuery('#render-modal-yes-button').on('click', function() {
                                 location.reload();
                             });
                         }
@@ -856,22 +856,22 @@ if (window.location.pathname === '/my-vendors/' || window.location.pathname === 
                                 });
                             }, 3000);
                             // Update the vendor table with the new data
-                            $('#vendor-table tbody').html(response.data);
+                            jQuery('#vendor-table tbody').html(response.data);
                             // Clear form fields
-                            $('#add-my-vendor-form')[0].reset();
+                            jQuery('#add-my-vendor-form')[0].reset();
                             // Open the form again (assuming it's in a modal)
-                            $('#add-todolist-popup').modal('show');
+                            jQuery('#add-todolist-popup').modal('show');
                         }
                     } else {
                         // Set the modal title and message
-                        $('#exampleModalLabel').text('Error');
-                        $('#modal-body-text').text(response.data);
+                        jQuery('#exampleModalLabel').text('Error');
+                        jQuery('#modal-body-text').text(response.data);
                         // Show the modal
-                        $('#modal_html_alert').modal('show');
+                        jQuery('#modal_html_alert').modal('show');
 
                         // Handle the click event on the "Yes" button in the modal
-                        $('#render-modal-yes-button').on('click', function() {
-                            $('#modal_html_alert').modal('hide');
+                        jQuery('#render-modal-yes-button').on('click', function() {
+                            jQuery('#modal_html_alert').modal('hide');
                         });
                     }
                 }
@@ -888,15 +888,15 @@ if (window.location.pathname === '/my-vendors/' || window.location.pathname === 
                 data: { id: vendorId, action: 'get_my_vendor_list_item' },
                 success: function(response) {
                     if (response.success) {
-                        $('#edit-my-vendor-id').val(response.data.id);
-                        $('#edit-my-vendor-category').val(response.data.category);
-                        $('#edit-my-vendor-name').val(response.data.name);
-                        $('#edit-my-vendor-email').val(response.data.email);
-                        $('#edit-my-vendor-phone').val(response.data.phone);
-                        $('#edit-my-vendor-notes').val(response.data.notes);
-                        $('#edit-my-vendor-social-media-profile').val(response.data.social_media_profile);
-                        $('#edit-my-vendor-pricing').val(response.data.pricing);
-                        $('#edit-vendor-popup').modal('show');
+                        jQuery('#edit-my-vendor-id').val(response.data.id);
+                        jQuery('#edit-my-vendor-category').val(response.data.category);
+                        jQuery('#edit-my-vendor-name').val(response.data.name);
+                        jQuery('#edit-my-vendor-email').val(response.data.email);
+                        jQuery('#edit-my-vendor-phone').val(response.data.phone);
+                        jQuery('#edit-my-vendor-notes').val(response.data.notes);
+                        jQuery('#edit-my-vendor-social-media-profile').val(response.data.social_media_profile);
+                        jQuery('#edit-my-vendor-pricing').val(response.data.pricing);
+                        jQuery('#edit-vendor-popup').modal('show');
                     }
                 }
             });
@@ -905,7 +905,7 @@ if (window.location.pathname === '/my-vendors/' || window.location.pathname === 
         // Edit My Vendor Item
         jQuery('#edit-my-vendor-form').submit(function(e) {
             e.preventDefault();
-            var formData = $(this).serialize();
+            var formData = jQuery(this).serialize();
             $.ajax({
                 type: 'POST',
                 url: ajax_object.ajax_url,
@@ -913,27 +913,27 @@ if (window.location.pathname === '/my-vendors/' || window.location.pathname === 
                 success: function(response) {
                     if (response.success) {
                         // Hide add-vendor-popup
-                        $('#edit-todolist-popup').modal('hide');
+                        jQuery('#edit-todolist-popup').modal('hide');
                         // Set the modal title and message
-                        $('#exampleModalLabel').text('Success');
-                        $('#modal-body-text').text(response.data);
+                        jQuery('#exampleModalLabel').text('Success');
+                        jQuery('#modal-body-text').text(response.data);
                         // Show the modal
-                        $('#modal_html_alert').modal('show');
+                        jQuery('#modal_html_alert').modal('show');
 
                         // Handle the click event on the "Yes" button in the modal
-                        $('#render-modal-yes-button').on('click', function() {
+                        jQuery('#render-modal-yes-button').on('click', function() {
                             location.reload();
                         });
                     } else {
                         // Set the modal title and message
-                        $('#exampleModalLabel').text('Error');
-                        $('#modal-body-text').text(response.data);
+                        jQuery('#exampleModalLabel').text('Error');
+                        jQuery('#modal-body-text').text(response.data);
                         // Show the modal
-                        $('#modal_html_alert').modal('show');
+                        jQuery('#modal_html_alert').modal('show');
 
                         // Handle the click event on the "Yes" button in the modal
-                        $('#render-modal-yes-button').on('click', function() {
-                            $('#modal_html_alert').modal('hide');
+                        jQuery('#render-modal-yes-button').on('click', function() {
+                            jQuery('#modal_html_alert').modal('hide');
                         });
                     }
                 }
@@ -942,16 +942,16 @@ if (window.location.pathname === '/my-vendors/' || window.location.pathname === 
 
         // Function to show the modal
         function show_alert_message2(title, message) {
-            $('#exampleConfirmModalLabel').text(title);
-            $('#confirm_modal-body-text').text(message);
-            $('#confirm_modal_html_alert').modal('show');
+            jQuery('#exampleConfirmModalLabel').text(title);
+            jQuery('#confirm_modal-body-text').text(message);
+            jQuery('#confirm_modal_html_alert').modal('show');
         }
         
         // When "Yes" button is clicked
-        $('#modal-yes-button').on('click', function () {
+        jQuery('#modal-yes-button').on('click', function () {
             // Trigger the removal process
             proceedWithRemoval();
-            $('#confirm_modal_html_alert').modal('hide');
+            jQuery('#confirm_modal_html_alert').modal('hide');
         });
         
         // Function to handle the AJAX call for removal
@@ -976,9 +976,9 @@ if (window.location.pathname === '/my-vendors/' || window.location.pathname === 
         var currentVendorId;
         
         // Click handler for the delete icon
-        $(".delete").on("click", function (e) {
+        jQuery(".delete").on("click", function (e) {
             e.preventDefault();
-            currentVendorId = $(this).data("id");
+            currentVendorId = jQuery(this).data("id");
         
             show_alert_message2('Delete My Vendor', 'Do you want to delete this entry?');
         });
@@ -990,21 +990,21 @@ if (window.location.pathname === '/my-favorites/') {
     jQuery(document).ready(function ($) {
         // Function to show the modal
         function show_alert_message2(title, message) {
-            $('#exampleConfirmModalLabel').text(title);
-            $('#confirm_modal-body-text').text(message);
-            $('#confirm_modal_html_alert').modal('show');
+            jQuery('#exampleConfirmModalLabel').text(title);
+            jQuery('#confirm_modal-body-text').text(message);
+            jQuery('#confirm_modal_html_alert').modal('show');
         }
 
         // When "Yes" button is clicked
-        $('#modal-yes-button').on('click', function () {
+        jQuery('#modal-yes-button').on('click', function () {
             // Trigger the removal process
             proceedWithRemoval();
-            $('#confirm_modal_html_alert').modal('hide');
+            jQuery('#confirm_modal_html_alert').modal('hide');
         });
 
         // Function to handle the AJAX call for removal
         function proceedWithRemoval() {
-            var $icon = $('.wishlist-delete-icon[data-card-id="' + currentCardId + '"]');
+            var $icon = jQuery('.wishlist-delete-icon[data-card-id="' + currentCardId + '"]');
 
             $.ajax({
                 url: sanas_ajax_object.ajax_url,
@@ -1028,9 +1028,9 @@ if (window.location.pathname === '/my-favorites/') {
         var currentCardId;
 
         // Click handler for the delete icon
-        $(".wishlist-delete-icon").on("click", function (e) {
+        jQuery(".wishlist-delete-icon").on("click", function (e) {
             e.preventDefault();
-            currentCardId = $(this).data("card-id");
+            currentCardId = jQuery(this).data("card-id");
 
             show_alert_message2('Delete Favorite', 'Do you want to remove this card from My Favorites?');
         });
@@ -1040,33 +1040,33 @@ if (window.location.pathname === '/my-favorites/') {
 
 jQuery(document).ready(function ($) {
     // Update Profile
-    $('form.profile-update').on('submit', function (e) {
+    jQuery('form.profile-update').on('submit', function (e) {
         e.preventDefault();
         var data = {
             action: 'update_profile',
-            first_name: $('form.profile-update input[name="first_name"]').val(),
-            last_name: $('form.profile-update input[name="last_name"]').val(),
-            email: $('form.profile-update input[name="email"]').val(),
-            phone: $('form.profile-update input[name="phone"]').val(),
-            about: $('form.profile-update textarea[name="about"]').val(),
+            first_name: jQuery('form.profile-update input[name="first_name"]').val(),
+            last_name: jQuery('form.profile-update input[name="last_name"]').val(),
+            email: jQuery('form.profile-update input[name="email"]').val(),
+            phone: jQuery('form.profile-update input[name="phone"]').val(),
+            about: jQuery('form.profile-update textarea[name="about"]').val(),
         };
 
         $.post(ajax_object.ajax_url, data, function (response) {
-            jQuery(".profile-info-title h4").text($('form.profile-update input[name="first_name"]').val() + ' ' + $('form.profile-update input[name="last_name"]').val());
-            jQuery(".profile-info-text").text($('form.profile-update textarea[name="about"]').val());
+            jQuery(".profile-info-title h4").text(jQuery('form.profile-update input[name="first_name"]').val() + ' ' + jQuery('form.profile-update input[name="last_name"]').val());
+            jQuery(".profile-info-text").text(jQuery('form.profile-update textarea[name="about"]').val());
             jQuery("#tab-11 .form-box").append(response.success ? 'Profile updated successfully!' : response.data);
         });
     });
 
     // Update Social Media Links
-    $('form.social-update').on('submit', function (e) {
+    jQuery('form.social-update').on('submit', function (e) {
         e.preventDefault();
         var data = {
             action: 'update_profile',
-            facebook: $('form.social-update input[name="facebook"]').val(),
-            twitter: $('form.social-update input[name="twitter"]').val(),
-            instagram: $('form.social-update input[name="instagram"]').val(),
-            youtube: $('form.social-update input[name="youtube"]').val(),
+            facebook: jQuery('form.social-update input[name="facebook"]').val(),
+            twitter: jQuery('form.social-update input[name="twitter"]').val(),
+            instagram: jQuery('form.social-update input[name="instagram"]').val(),
+            youtube: jQuery('form.social-update input[name="youtube"]').val(),
         };
 
         $.post(ajax_object.ajax_url, data, function (response) {
@@ -1075,13 +1075,13 @@ jQuery(document).ready(function ($) {
     });
 
  // Change Password
-$('form.change-password').on('submit', function (e) {
+jQuery('form.change-password').on('submit', function (e) {
     e.preventDefault();
 
     var data = {
         action: 'change_password',
-        current_password: $('form.change-password input[name="current_password"]').val(),
-        new_password: $('form.change-password input[name="new_password"]').val(),
+        current_password: jQuery('form.change-password input[name="current_password"]').val(),
+        new_password: jQuery('form.change-password input[name="new_password"]').val(),
         security: ajax_object.change_password_nonce // Nonce for security
     };
 
@@ -1096,7 +1096,7 @@ $('form.change-password').on('submit', function (e) {
 
 
     // Delete Account
-    $('.delete-account-btn').on('click', function () {
+    jQuery('.delete-account-btn').on('click', function () {
         if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
             $.post(ajax_object.ajax_url, { action: 'delete_account' }, function (response) {
                 if (response.success) {
@@ -1110,12 +1110,12 @@ $('form.change-password').on('submit', function (e) {
     });
 
     // Update Profile Picture
-    $('#edit-image-btn').on('click', function() {
-        $('#profile-image-upload').click();
+    jQuery('#edit-image-btn').on('click', function() {
+        jQuery('#profile-image-upload').click();
     });
 
-    $('#profile-image-upload').on('change', function() {
-        var file_data = $('#profile-image-upload').prop('files')[0];
+    jQuery('#profile-image-upload').on('change', function() {
+        var file_data = jQuery('#profile-image-upload').prop('files')[0];
         var form_data = new FormData();
         form_data.append('image', file_data);
         form_data.append('action', 'upload_user_profile_image');
@@ -1133,7 +1133,7 @@ $('form.change-password').on('submit', function (e) {
                 if (response.success) {
                     jQuery("#tab-18 .my-profile-box").append('Profile image updated successfully!');
                     // Update all elements with the class 'user-profile-image' with the new image URL
-                    $('.user-profile-image').attr('src', response.data.url);
+                    jQuery('.user-profile-image').attr('src', response.data.url);
                     hidePreloader();
                     console.log(response.data.url);
                 } else {
@@ -1150,9 +1150,9 @@ $('form.change-password').on('submit', function (e) {
 });
 
 jQuery(document).ready(function($) {
-    $('#add-expense-form').submit(function(e) {
+    jQuery('#add-expense-form').submit(function(e) {
         e.preventDefault();
-        var formData = $(this).serialize();
+        var formData = jQuery(this).serialize();
         formData += '&action=add_expense'; // Append the action for WP AJAX
 
         $.ajax({
@@ -1161,24 +1161,24 @@ jQuery(document).ready(function($) {
             data: formData,
             success: function(response) {
                 if (response.success) {
-                    // $('#add-expense-popup').modal('hide');
-                    // $('#exampleModalLabel').text('Success');
-                    // $('#modal-body-text').text('Expense item added successfully.');
-                    // $('#modal_html_alert').modal('show');
-                    // $('#render-modal-yes-button').on('click', function() {
+                    // jQuery('#add-expense-popup').modal('hide');
+                    // jQuery('#exampleModalLabel').text('Success');
+                    // jQuery('#modal-body-text').text('Expense item added successfully.');
+                    // jQuery('#modal_html_alert').modal('show');
+                    // jQuery('#render-modal-yes-button').on('click', function() {
                         location.reload();
                     // });
 
                 } else {
                      // Set the modal title and message
-                    $('#exampleModalLabel').text('Error');
-                    $('#modal-body-text').text(response.data);
+                    jQuery('#exampleModalLabel').text('Error');
+                    jQuery('#modal-body-text').text(response.data);
                     // Show the modal
-                    $('#modal_html_alert').modal('show');
+                    jQuery('#modal_html_alert').modal('show');
 
                     // Handle the click event on the "Yes" button in the modal
-                    $('#render-modal-yes-button').on('click', function() {
-                        $('#modal_html_alert').modal('hide');
+                    jQuery('#render-modal-yes-button').on('click', function() {
+                        jQuery('#modal_html_alert').modal('hide');
                     })
                 }
             },
