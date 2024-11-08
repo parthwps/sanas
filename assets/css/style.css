@@ -4917,7 +4917,7 @@ Category Wishlist
    
   /* Handle */
   .budget-man-box .cat-col ul::-webkit-scrollbar-thumb {
-    background: #555;
+    background: #aaa;
     border-radius: 10px;
   }
   
