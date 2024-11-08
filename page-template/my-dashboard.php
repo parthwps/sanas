@@ -184,7 +184,7 @@ $totals = $wpdb->get_row(
               <div class="title">
                 <h4>Budget Calculator</h4>
               </div>
-              <div class="options">
+              <!-- <div class="options">
                 <div class="drop-nav option-nav">
                   <div class="dropdown-outer"><a class="btn-box" id="dropdownMenu5" data-bs-toggle="dropdown"
                       aria-haspopup="true" aria-expanded="true" href="#"><span class="icon fa fa-ellipsis-v"></span></a>
@@ -195,7 +195,7 @@ $totals = $wpdb->get_row(
                     </ul>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
             <div class="list cat-col">
             <ul class="p-0 dashboard-category-section" id="category_cost_section">
