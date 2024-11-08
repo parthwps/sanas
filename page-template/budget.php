@@ -381,7 +381,7 @@ get_sidebar('dashboard');
                       <input type="number" name="paid" class="form-control">
                     </div>
                   </div>
-                  <input type="hidden" name="category_id" id="category-id-input" data-id="<?php echo esc_attr($category['id']); ?>">
+                  <input type="hidden" name="category_id" id="category-id-input" value="<?php echo isset($first_category) ? esc_attr($first_category) : ''; ?>">
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
                       <button type="submit" class="dashbord-btn">Save</button>
@@ -449,8 +449,8 @@ get_sidebar('dashboard');
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
-                      <input type="text" name="category_id" id="category-id-input" data-id="<?php echo esc_attr($category['id']); ?>">
-                      <input type="text" name="id" id="edit-expense-id" data-id="<?php echo esc_attr($expense['id']); ?>">
+                      <input type="text" name="category_id" id="category-id-input" value="<?php echo isset($first_category) ? esc_attr($first_category) : ''; ?>">
+                      <input type="text" name="id" id="edit-expense-id">
                       <button type="submit" class="dashbord-btn">Save</button>
                     </div>
                   </div>
