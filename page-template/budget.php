@@ -195,7 +195,7 @@ get_sidebar('dashboard');
             <div class="info-box">
               <div class="cat-info">
                 <?php
-                if(isset($_GET['category']) && !empty($_GET['category'])){
+                if(isset($_GET['category'])){
                   $category_id = intval($_GET['category']);
                   $category = $wpdb->get_row(
                       $wpdb->prepare("SELECT category_name, icon_class FROM $table_name WHERE id = %d", $category_id)
