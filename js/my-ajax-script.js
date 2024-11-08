@@ -110,7 +110,7 @@ jQuery('.budget-category-item .ttl').on('click', function() {
                                 '<td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.paid) + '">$' + escapeHtml(expense.paid) + '</td>' +
                                 '<td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + (parseFloat(expense.actual_cost) - parseFloat(expense.paid)).toFixed(2) + '">$' + (parseFloat(expense.actual_cost) - parseFloat(expense.paid)).toFixed(2) + '</td>' +
                                 '<td class="actions">' +
-                                    '<a href="#" class="edit theme-btn" data-id="' + escapeHtml(expense.id) + '" data-bs-toggle="modal" data-bs-target="#edit-expense-popup">' +
+                                    '<a href="#" class="edit edit-expense theme-btn" data-id="' + escapeHtml(expense.id) + '" data-bs-toggle="modal" data-bs-target="#edit-expense-popup">' +
                                         '<i class="fa-solid fa-pen"></i>' +
                                     '</a>' +
                                     '<a href="#" class="delete theme-btn" data-id="' + escapeHtml(expense.id) + '">' +
