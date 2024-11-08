@@ -179,7 +179,7 @@ $totals = $wpdb->get_row(
           </div>
         <?php }?>
         <div class="wed-cat-info col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
-          <div class="inner budget-man-box">
+          <div class="inner budget-man-box budget-category-box-dashboard">
             <div class="title-box">
               <div class="title">
                 <h4>Budget Calculator</h4>
