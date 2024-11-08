@@ -165,6 +165,8 @@ function escapeHtml(text) {
         e.preventDefault();
         var expenseId = $(this).data('id');
         var categoryId = $('#category-id-input').val();
+        console.log(expenseId + " " + $(this).data('id'));
+        console.log(categoryId + " " + $('#category-id-input').val());
         // set the category ID in the hidden input field
         $('#category-id-input').val(categoryId);
         $.ajax({
