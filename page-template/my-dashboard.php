@@ -196,6 +196,9 @@ $totals = $wpdb->get_row(
                   </div>
                 </div>
               </div> -->
+              <div class="options">
+                <a href="/budget/">View All</a>
+              </div>
             </div>
             <div class="list cat-col">
             <ul class="p-0 dashboard-category-section" id="category_cost_section">
