@@ -197,6 +197,7 @@ get_sidebar('dashboard');
                 <?php
                 if(isset($_GET['category'])){
                   $category_id = intval($_GET['category']);
+                  echo $category_id;
                   $category = $wpdb->get_row(
                       $wpdb->prepare("SELECT category_name, icon_class FROM $wpdb->prefix . 'budget_category' WHERE id = %d", $category_id)
                   );
