@@ -231,7 +231,7 @@ $totals = $wpdb->get_row(
                             
                             <li>
                                 <a href="/budget/?category=<?php echo esc_attr($category['id']); ?>#budget-expense-box" class="budget-category-item">
-                                    <div class="ttl"  data-id="<?php echo esc_attr($category['id']); ?>>
+                                    <div class="ttl"  data-id="<?php echo esc_attr($category['id']); ?>">
                                         <i class="fa-solid fa-<?php echo !empty($category['icon_class']) ? esc_attr($category['icon_class']) : strtolower(substr($category['category_name'], 0, 1)); ?>"></i>
                                         <span><?php echo esc_html($category['category_name']); ?></span>
                                     </div>
