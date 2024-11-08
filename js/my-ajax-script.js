@@ -60,7 +60,7 @@ if (window.location.pathname === '/budget/') {
                 }
             }
         });
-    jQuery('.budget-category-item .ttl').on('click', function() {
+    jQuery('.budget-category-item').on('click', function() {
         var categoryId = jQuery(this).data('id');
         jQuery('#category-id-input').val(categoryId);
 
