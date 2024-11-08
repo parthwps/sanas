@@ -237,7 +237,6 @@ get_sidebar('dashboard');
                   <tbody>
                     <?php
                     $expense_category = isset($_GET['category']) ? $_GET['category'] : $first_category;
-                    echo $expense_category;
                     $expenses = get_expense_list($expense_category);
                     $total_estimated = 0;
                     $total_actual = 0;
@@ -449,8 +448,8 @@ get_sidebar('dashboard');
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
-                      <input type="text" name="category_id" id="category-id-input" value="<?php echo isset($first_category) ? esc_attr($first_category) : ''; ?>">
-                      <input type="text" name="id" id="edit-expense-id">
+                      <input type="hidden" name="category_id" id="category-id-input" value="<?php echo isset($first_category) ? esc_attr($first_category) : ''; ?>">
+                      <input type="hidden" name="id" id="edit-expense-id">
                       <button type="submit" class="dashbord-btn">Save</button>
                     </div>
                   </div>
