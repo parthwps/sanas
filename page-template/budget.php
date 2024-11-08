@@ -255,10 +255,10 @@ get_sidebar('dashboard');
                                 <td class="expense text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($expense['expense']); ?>"><?php echo esc_html($expense['expense']); ?></td>
                                 <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($expense['vendor_name']); ?>"><?php echo esc_html($expense['vendor_name']); ?></td>
                                 <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo !empty($expense['vendor_contact']) ? '+' . esc_html($expense['vendor_contact']) : ''; ?>"><?php echo !empty($expense['vendor_contact']) ? '+' . esc_html($expense['vendor_contact']) : ''; ?></td>
-                                <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($expense['estimated_cost']); ?>">$<?php echo esc_html($expense['estimated_cost']); ?></td>
-                                <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($expense['actual_cost']); ?>">$<?php echo esc_html($expense['actual_cost']); ?></td>
-                                <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($expense['paid']); ?>">$<?php echo esc_html($expense['paid']); ?></td>
-                                <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($expense['actual_cost'] - $expense['paid']); ?>">$<?php echo esc_html(number_format($expense['actual_cost'] - $expense['paid'], 2)); ?></td>
+                                <td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($expense['estimated_cost']); ?>">$<?php echo esc_html($expense['estimated_cost']); ?></td>
+                                <td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($expense['actual_cost']); ?>">$<?php echo esc_html($expense['actual_cost']); ?></td>
+                                <td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($expense['paid']); ?>">$<?php echo esc_html($expense['paid']); ?></td>
+                                <td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($expense['actual_cost'] - $expense['paid']); ?>">$<?php echo esc_html(number_format($expense['actual_cost'] - $expense['paid'], 2)); ?></td>
                                 <td class="actions">
                                     <a href="#" class="edit edit-expense theme-btn" data-id="<?php echo esc_attr($expense['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-expense-popup">
                                         <i class="fa-solid fa-pen"></i>
@@ -275,10 +275,10 @@ get_sidebar('dashboard');
                         <td class="text-single-line">Total</td>
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>
-                        <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($total_estimated); ?>">$<?php echo esc_html(number_format($total_estimated, 2)); ?></td>
-                        <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($total_actual); ?>">$<?php echo esc_html(number_format($total_actual, 2)); ?></td>
-                        <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($total_paid); ?>">$<?php echo esc_html(number_format($total_paid, 2)); ?></td>
-                        <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($total_due); ?>">$<?php echo esc_html(number_format($total_due, 2)); ?></td>
+                        <td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($total_estimated); ?>">$<?php echo esc_html(number_format($total_estimated, 2)); ?></td>
+                        <td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($total_actual); ?>">$<?php echo esc_html(number_format($total_actual, 2)); ?></td>
+                        <td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($total_paid); ?>">$<?php echo esc_html(number_format($total_paid, 2)); ?></td>
+                        <td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($total_due); ?>">$<?php echo esc_html(number_format($total_due, 2)); ?></td>
                         <td class="actions">&nbsp;</td>
                     </tr>
                   </tbody>
