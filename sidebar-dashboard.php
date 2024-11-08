@@ -41,7 +41,7 @@ if ( ! is_user_logged_in() ) {
                     <li class="nav-item">
                         <a class="nav-link <?php if (is_page('budget')) echo 'active'; ?>" href="<?php echo home_url('/budget/'); ?>">
                             <i class="fa-regular fa-calendar-days"></i>
-                            Budgets
+                            Budget Calculator
                         </a>
                     </li>
                     <li class="nav-item">
