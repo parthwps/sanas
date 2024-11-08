@@ -123,13 +123,13 @@ jQuery('.budget-category-item .ttl').on('click', function() {
 
                 // Add total row
                 table.row.add(['<td class="text-single-line">Total</td>',
-                        '<td>&nbsp;</td>',
-                        '<td>&nbsp;</td>',
-                        '<td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + total_estimated.toFixed(2) + '">$' + total_estimated.toFixed(2) + '</td>',
-                        '<td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + total_actual.toFixed(2) + '">$' + total_actual.toFixed(2) + '</td>',
-                        '<td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + total_paid.toFixed(2) + '">$' + total_paid.toFixed(2) + '</td>',
-                        '<td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + total_due.toFixed(2) + '">$' + total_due.toFixed(2) + '</td>',
-                        '<td class="actions">&nbsp;</td>'
+    '<td>&nbsp;</td>',
+    '<td>&nbsp;</td>',
+    '<td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + total_estimated.toFixed(2) + '">$' + total_estimated.toFixed(2) + '</td>',
+    '<td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + total_actual.toFixed(2) + '">$' + total_actual.toFixed(2) + '</td>',
+    '<td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + total_paid.toFixed(2) + '">$' + total_paid.toFixed(2) + '</td>',
+    '<td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + total_due.toFixed(2) + '">$' + total_due.toFixed(2) + '</td>',
+    '<td class="actions">&nbsp;</td>'
                 ]);
                 table.draw();
 
