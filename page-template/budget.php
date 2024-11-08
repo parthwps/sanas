@@ -199,12 +199,12 @@ get_sidebar('dashboard');
                   $category_id = intval($_GET['category']);
                   echo $category_id;
                   $category_name = $wpdb->get_var(
-                    $wpdb->prepare("SELECT category_name FROM $table_name WHERE id = %d", $category_id)
+                    $wpdb->prepare("SELECT category_name FROM $wpdb->prefix.budget_category WHERE id = %d", $category_id)
                   );
-              
+                  
                   // Fetch the icon_class for the given category_id
                   $category_icon = $wpdb->get_var(
-                      $wpdb->prepare("SELECT icon_class FROM $table_name WHERE id = %d", $category_id)
+                      $wpdb->prepare("SELECT icon_class FROM $wpdb->prefix.budget_category WHERE id = %d", $category_id)
                   );
                   if ($category) {
                     echo "test";
