@@ -44,6 +44,10 @@ if (window.location.pathname === '/budget/') {
             var category = getQueryParam('category');
             jQuery('#category-id-input').val(category); 
         })
+        jQuery('.edit-expense-trigger').on('click', function() {
+            var category = getQueryParam('category');
+            jQuery('#category-id-input-edit').val(category); 
+        })
         var table = jQuery('.budget-table-sort').DataTable({
             columnDefs: [
                 { orderable: false, targets: [0, 2, 3, 4, 5, 6] },
