@@ -223,6 +223,7 @@ get_sidebar('dashboard');
             </div>
             <div class="table-box upcoming-tasks">
               <div class="table-responsive">
+                <?php echo $_GET['category']; ?>
                 <table class="vendor-table vendor-list-table budget-table-sort expense-list-table" id="budget-expense">
                   <thead>
                     <tr>
@@ -238,7 +239,6 @@ get_sidebar('dashboard');
                   </thead>
                   <tbody>
                     <?php
-                    echo $_GET['category'];
                     $expense_category = isset($_GET['category']) ? $_GET['category'] : $first_category;
                     $expenses = get_expense_list($expense_category);
                     $total_estimated = 0;
