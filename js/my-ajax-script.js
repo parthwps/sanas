@@ -96,13 +96,14 @@ jQuery('.budget-category-item .ttl').on('click', function() {
                 var total_due = 0;
                 var rows = '';
                 table.clear();
+                let dataRows = [];
                 expenses.forEach(function(expense) {
                     total_estimated += parseFloat(expense.estimated_cost);
                     total_actual += parseFloat(expense.actual_cost);
                     total_paid += parseFloat(expense.paid);
                     total_due += parseFloat(expense.actual_cost) - parseFloat(expense.paid);
 
-                    table.row.add([
+                    dataRows.push([
                         '<span class="expense text-single-line" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.expense) + '">' + escapeHtml(expense.expense) + '</span>',
                         '<span class="text-single-line" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.vendor_name) + '">' + escapeHtml(expense.vendor_name) + '</span>',
                         '<span class="text-single-line" data-toggle="tooltip" data-bs-original-title="' + (expense.vendor_contact ? '+' + escapeHtml(expense.vendor_contact) : '') + '">' + (expense.vendor_contact ? '+' + escapeHtml(expense.vendor_contact) : '') + '</span>',
@@ -122,7 +123,7 @@ jQuery('.budget-category-item .ttl').on('click', function() {
                 });
 
                 // Add total row
-                table.row.add(['<td class="text-single-line">Total</td>',
+                dataRows.push(['<td class="text-single-line">Total</td>',
     '<td>&nbsp;</td>',
     '<td>&nbsp;</td>',
     '<td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + total_estimated.toFixed(2) + '">$' + total_estimated.toFixed(2) + '</td>',
@@ -131,7 +132,7 @@ jQuery('.budget-category-item .ttl').on('click', function() {
     '<td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + total_due.toFixed(2) + '">$' + total_due.toFixed(2) + '</td>',
     '<td class="actions">&nbsp;</td>'
                 ]);
-                table.draw();
+                table.rows.add(dataRows).draw();
 
                 // Update the table body with the new rows
                 jQuery('#budget-expense tbody').html(rows);
