@@ -100,6 +100,7 @@ if (window.location.pathname === '/budget/') {
                         total_actual += parseFloat(expense.actual_cost);
                         total_paid += parseFloat(expense.paid);
                         total_due = parseFloat(total_actual) - parseFloat(total_paid);
+                        console.log(total_due);
             
                         rows += '<tr>' +
                                     '<td class="expense text-single-line" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.expense) + '">' + escapeHtml(expense.expense) + '</td>' +
