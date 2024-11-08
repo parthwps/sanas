@@ -238,8 +238,6 @@ get_sidebar('dashboard');
             </div>
             <div class="table-box upcoming-tasks">
               <div class="table-responsive">
-                <?php $category = isset($array['category']) ? $array['category'] : null;
-echo $_GET['category']; ?>
                 <table class="vendor-table vendor-list-table budget-table-sort expense-list-table" id="budget-expense">
                   <thead>
                     <tr>
