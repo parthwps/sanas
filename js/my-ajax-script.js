@@ -204,16 +204,14 @@ function escapeHtml(text) {
             data: formData + '&action=edit_expense',
             success: function(response) {
                 if (response.success) {
-                    $('#edit-expense-popup').modal('hide');
+                    // $('#edit-expense-popup').modal('hide');
                     // set the modal title and message
-                    $('#exampleModalLabel').text('Success');
-                    $('#modal-body-text').text(response.data);
-                    // show the modal
-                    $('#modal_html_alert').modal('show');
-                    // handle the click event on the "Yes" button in the modal
-                    $('#render-modal-yes-button').on('click', function() {
+                    // $('#exampleModalLabel').text('Success');
+                    // $('#modal-body-text').text(response.data);
+                    // $('#modal_html_alert').modal('show');
+                    // $('#render-modal-yes-button').on('click', function() {
                         location.reload();
-                    });
+                    // });
                 } else {
                     // set the modal title and message
                     $('#exampleModalLabel').text('Error');
@@ -1163,18 +1161,13 @@ jQuery(document).ready(function($) {
             data: formData,
             success: function(response) {
                 if (response.success) {
-                    $('#add-expense-popup').modal('hide');
-                    
-                    // Set the modal title and message
-                    $('#exampleModalLabel').text('Success');
-                    $('#modal-body-text').text('Expense item added successfully.');
-                    // Show the modal
-                    $('#modal_html_alert').modal('show');
-
-                    // Handle the click event on the "Yes" button in the modal
-                    $('#render-modal-yes-button').on('click', function() {
+                    // $('#add-expense-popup').modal('hide');
+                    // $('#exampleModalLabel').text('Success');
+                    // $('#modal-body-text').text('Expense item added successfully.');
+                    // $('#modal_html_alert').modal('show');
+                    // $('#render-modal-yes-button').on('click', function() {
                         location.reload();
-                    });
+                    // });
 
                 } else {
                      // Set the modal title and message
