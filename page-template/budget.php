@@ -194,6 +194,24 @@ get_sidebar('dashboard');
           <div class="lower-box">
             <div class="info-box">
               <div class="cat-info">
+                <?php
+                if(isset($_GET['category']) && !empty($_GET['category'])){
+                  $category_id = intval($_GET['category']);
+                  $category = $wpdb->get_row(
+                      $wpdb->prepare("SELECT category_name, icon_class FROM $table_name WHERE id = %d", $category_id)
+                  );
+                  if ($category) {
+                    $first_category_name = $category->category_name;
+                    $first_category_icon = $category->icon_class;
+                  } else {
+                      $first_category_name = 'Default Category';
+                      $first_category_icon = 'default-icon';
+                  }
+                } else {
+                    $first_category_name = 'Default Category';
+                    $first_category_icon = 'default-icon';
+                }
+                ?>
                 <div class="icon-box"><i class="fa-solid fa-<?php echo $first_category_icon; ?>"></i></div>
                 <div class="category_name_box"><?php echo $first_category_name; ?></div>
                 <div class="cost">
