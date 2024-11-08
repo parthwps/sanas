@@ -506,10 +506,10 @@ if (array_reduce($js_expenses, fn($carry, $item) => $carry && ($item == 0 || $it
             return color;
           }
 
-          // Generate random colors for each category
-          var randomColors = categories.map(function() {
-            return getRandomColor();
-          });
+        // Generate random colors for each category
+        var randomColors = categories.map(function() {
+          return getRandomColor();
+        });
         var options = {
             series: expenses,
             colors: randomColors,
