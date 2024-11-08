@@ -204,8 +204,6 @@ get_sidebar('dashboard');
                       $wpdb->prepare("SELECT icon_class FROM {$wpdb->prefix}budget_category WHERE id = %d", $category_id)
                   );
                   if ($category_name && $category_icon) {
-                      echo "Category Name: " . $category_name;
-                      echo "Category Icon: " . $category_icon;
                       $first_category_name = $category_name;
                       $first_category_icon = $category_icon;
                   }
@@ -258,7 +256,6 @@ echo $_GET['category']; ?>
                   <tbody>
                     <?php
                     $expense_category = isset($_GET['category']) ? $_GET['category'] : $first_category;
-                    echo $expense_category;
                     $expenses = get_expense_list($expense_category);
                     $total_estimated = 0;
                     $total_actual = 0;
