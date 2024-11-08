@@ -145,9 +145,9 @@ get_sidebar('dashboard');
                                     <div class="ttl" data-id="<?php echo esc_attr($category['id']); ?>">
                                         <i class="fa-solid fa-<?php echo !empty($category['icon_class']) ? esc_attr($category['icon_class']) : strtolower(substr($category['category_name'], 0, 1)); ?>"></i>
                                         <span class="txt"><?php echo esc_html($category['category_name']); ?></span>
+                                        <span>$<?php echo number_format($total_expense, 2); ?></span>
                                     </div>
                                     <div class="count">
-                                        <span>$<?php echo number_format($total_expense, 2); ?></span>
                                         <i class="fa fa-trash<?php echo $category['user_id'] != 0 ? ' delete category-delete' : ''; ?>" <?php echo $category['user_id'] != 0 ? 'data-id="' . esc_attr($category['id']) . '"' : ''; ?>></i>
                                     </div>
                                 </a>
