@@ -97,10 +97,13 @@ if (window.location.pathname === '/budget/') {
                     var rows = '';
                     expenses.forEach(function(expense) {
                         total_estimated += parseFloat(expense.estimated_cost);
+                        console.log('estimated', total_estimated);
                         total_actual += parseFloat(expense.actual_cost);
+                        console.log('actual', total_actual);
                         total_paid += parseFloat(expense.paid);
-                        total_due = total_actual - total_paid;
-                        console.log(total_due);
+                        console.log('paid', total_paid);
+                        total_due += parseFloat(expense.actual_cost) - parseFloat(expense.paid);
+                        console.log('due', total_due);
             
                         rows += '<tr>' +
                                     '<td class="expense text-single-line" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.expense) + '">' + escapeHtml(expense.expense) + '</td>' +
