@@ -198,13 +198,18 @@ get_sidebar('dashboard');
                 if(isset($_GET['category'])){
                   $category_id = intval($_GET['category']);
                   echo $category_id;
-                  $category = $wpdb->get_row(
-                      $wpdb->prepare("SELECT category_name, icon_class FROM $wpdb->prefix . 'budget_category' WHERE id = %d", $category_id)
+                  $category_name = $wpdb->get_var(
+                    $wpdb->prepare("SELECT category_name FROM $table_name WHERE id = %d", $category_id)
+                  );
+              
+                  // Fetch the icon_class for the given category_id
+                  $category_icon = $wpdb->get_var(
+                      $wpdb->prepare("SELECT icon_class FROM $table_name WHERE id = %d", $category_id)
                   );
                   if ($category) {
                     echo "test";
-                    $first_category_name = $category->category_name;
-                    $first_category_icon = $category->icon_class;
+                    $first_category_name = $category_name;
+                    $first_category_icon = $category_icon;
                   }
                   echo "tes2t";
                 }
