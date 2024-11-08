@@ -6451,6 +6451,10 @@ th.todo-subhead h4 {
     text-align: left;
 }
 
+.number-align-right {
+    text-align: right !important;
+}
+
 .table-box .vendor-table th {
     line-height: 24px;
     padding: 20px 15px;
