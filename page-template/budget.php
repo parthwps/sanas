@@ -223,7 +223,8 @@ get_sidebar('dashboard');
             </div>
             <div class="table-box upcoming-tasks">
               <div class="table-responsive">
-                <?php echo $_GET['category']; ?>
+                <?php $category = isset($array['category']) ? $array['category'] : null;
+echo $_GET['category']; ?>
                 <table class="vendor-table vendor-list-table budget-table-sort expense-list-table" id="budget-expense">
                   <thead>
                     <tr>
@@ -466,17 +467,18 @@ get_sidebar('dashboard');
     </div>
   </div>
   <?php 
-  $js_expenses = json_decode(json_encode($js_expenses), true);
-  if (array_reduce($js_expenses, fn($carry, $item) => $carry && ($item == 0 || $item == 0.00), true)) {
-      $key = array_search(0, $js_expenses);
-      if ($key === false) {
-          $key = array_search(0.00, $js_expenses);
-      }
-      if ($key !== false) {
-          $js_expenses[$key] = 100;
-      }
-  }
-  ?>
+$js_expenses = isset($js_expenses) && is_array($js_expenses) ? $js_expenses : [];
+$js_expenses = json_decode(json_encode($js_expenses), true);
+if (array_reduce($js_expenses, fn($carry, $item) => $carry && ($item == 0 || $item == 0.00), true)) {
+    $key = array_search(0, $js_expenses, true);
+    if ($key === false) {
+        $key = array_search(0.00, $js_expenses, true);
+    }
+    if ($key !== false) {
+        $js_expenses[$key] = 100;
+    }
+}
+?>
   <script>
     jQuery(document).ready(function () {
       if (jQuery('#donut-chart-1').length) {
