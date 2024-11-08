@@ -250,9 +250,9 @@ $totals = $wpdb->get_row(
                       <?php endif; ?>
                     </ul>
             </div>
-            <div class="link-box">
+            <!-- <div class="link-box">
               <a href="/budget/" class="dashbord-btn">Manage Budget</a>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="wed-cat-info  col-12">
