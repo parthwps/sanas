@@ -201,9 +201,11 @@ get_sidebar('dashboard');
                       $wpdb->prepare("SELECT category_name, icon_class FROM $table_name WHERE id = %d", $category_id)
                   );
                   if ($category) {
+                    echo "test";
                     $first_category_name = $category->category_name;
                     $first_category_icon = $category->icon_class;
                   }
+                  echo "tes2t";
                 }
                 ?>
                 <div class="icon-box"><i class="fa-solid fa-<?php echo $first_category_icon; ?>"></i></div>
