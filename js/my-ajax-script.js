@@ -102,7 +102,7 @@ jQuery('.budget-category-item .ttl').on('click', function() {
                     total_paid += parseFloat(expense.paid);
                     total_due += parseFloat(expense.actual_cost) - parseFloat(expense.paid);
 
-                    rows += '<tr>' +
+                    table.row.add([ '<tr>' +
                                 '<td class="expense text-single-line" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.expense) + '">' + escapeHtml(expense.expense) + '</td>' +
                                 '<td class="text-single-line" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.vendor_name) + '">' + escapeHtml(expense.vendor_name) + '</td>' +
                                 '<td class="text-single-line" data-toggle="tooltip" data-bs-original-title="' + (expense.vendor_contact ? '+' + escapeHtml(expense.vendor_contact) : '') + '">' + (expense.vendor_contact ? '+' + escapeHtml(expense.vendor_contact) : '') + '</td>' +
@@ -118,11 +118,11 @@ jQuery('.budget-category-item .ttl').on('click', function() {
                                         '<i class="fa-regular fa-trash-can"></i>' +
                                     '</a>' +
                                 '</td>' +
-                            '</tr>';
+                            '</tr>']);
                 });
 
                 // Add total row
-                rows += '<tr class="expense-total-row">' +
+                table.row.add(['<tr class="expense-total-row">' +
                             '<td class="text-single-line">Total</td>' +
                             '<td>&nbsp;</td>' +
                             '<td>&nbsp;</td>' +
@@ -131,7 +131,9 @@ jQuery('.budget-category-item .ttl').on('click', function() {
                             '<td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + total_paid.toFixed(2) + '">$' + total_paid.toFixed(2) + '</td>' +
                             '<td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + total_due.toFixed(2) + '">$' + total_due.toFixed(2) + '</td>' +
                             '<td class="actions">&nbsp;</td>' +
-                        '</tr>';
+                        '</tr>'
+                ]);
+                table.draw();
 
                 // Update the table body with the new rows
                 jQuery('#budget-expense tbody').html(rows);
@@ -139,6 +141,7 @@ jQuery('.budget-category-item .ttl').on('click', function() {
                 jQuery('.category_actual').text(total_actual.toFixed(2));
                 jQuery('.category_due').text(total_due.toFixed(2)); // Ensure total due is displayed
             } else {
+                table.clear().draw();
                 jQuery('#budget-expense tbody').html('<tr><td colspan="8">No expenses to display.</td></tr>');
             }
         },
