@@ -4901,7 +4901,7 @@ Category Wishlist
     overflow-y: scroll;
     overflow-x: hidden;
 }
-.wl-dashboard-wrapper.dashboard .budget-man-box .cat-col ul{
+.dashboard-category-section{
     max-height: 230px !important;
 }
 /* width */
