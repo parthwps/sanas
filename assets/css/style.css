@@ -4986,6 +4986,10 @@ Category Wishlist
     position: relative;
     height: 100%;
 }
+.budget-man-box .budget-col .info-box, .budget-man-box .info-box {
+    border: 1px solid #00000012;
+    border-radius: 8px 8px 0 0;
+}
 .budget-man-box .budget-col .info-box .info-top-box{
     display: flex;
     justify-content: space-evenly;
