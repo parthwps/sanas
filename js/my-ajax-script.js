@@ -99,7 +99,7 @@ if (window.location.pathname === '/budget/') {
                         total_estimated += parseFloat(expense.estimated_cost);
                         total_actual += parseFloat(expense.actual_cost);
                         total_paid += parseFloat(expense.paid);
-                        total_due = parseFloat(total_actual) - parseFloat(total_paid);
+                        total_due = total_actual - total_paid;
                         console.log(total_due);
             
                         rows += '<tr>' +
