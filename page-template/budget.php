@@ -198,7 +198,7 @@ get_sidebar('dashboard');
                 if(isset($_GET['category'])){
                   $category_id = intval($_GET['category']);
                   $category = $wpdb->get_row(
-                      $wpdb->prepare("SELECT category_name, icon_class FROM $table_name WHERE id = %d", $category_id)
+                      $wpdb->prepare("SELECT category_name, icon_class FROM $wpdb->prefix . 'budget_category' WHERE id = %d", $category_id)
                   );
                   if ($category) {
                     echo "test";
