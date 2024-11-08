@@ -63,7 +63,7 @@ if (window.location.pathname === '/budget/') {
 jQuery('.budget-category-item .ttl').on('click', function() {
     var categoryId = jQuery(this).data('id');
     jQuery('#category-id-input').val(categoryId);
-
+    console.log(categoryId);
     jQuery('#category_cost_section li').removeClass('active');
     jQuery(this).parent().addClass('active');
     var categoryText = jQuery(this).find('span.txt').text();
