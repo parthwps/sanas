@@ -4907,6 +4907,7 @@ Category Wishlist
     text-overflow: ellipsis;
     max-width: 60%;
     font-size: 14px;
+    text-transform: normal;
 }
 .budget-man-box .cat-col ul li .count {
     position: relative;
