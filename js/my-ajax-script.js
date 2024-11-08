@@ -44,10 +44,6 @@ if (window.location.pathname === '/budget/') {
             var category = getQueryParam('category');
             jQuery('#category-id-input').val(category); 
         })
-        jQuery('.edit-expense-trigger').on('click', function() {
-            var category = getQueryParam('category');
-            jQuery('#category-id-input-edit').val(category); 
-        })
         var table = jQuery('.budget-table-sort').DataTable({
             columnDefs: [
                 { orderable: false, targets: [0, 2, 3, 4, 5, 6] },
@@ -75,6 +71,7 @@ if (window.location.pathname === '/budget/') {
 jQuery('.budget-category-item .ttl').on('click', function() {
     var categoryId = jQuery(this).data('id');
     jQuery('#category-id-input').val(categoryId);
+    jQuery('#category-id-input-edit').val(categoryId);
     console.log(categoryId);
     jQuery('#category_cost_section li').removeClass('active');
     jQuery(this).parent().addClass('active');
@@ -197,7 +194,7 @@ function escapeHtml(text) {
                     jQuery('#edit-estimated-cost').val(response.data.estimated_cost);
                     jQuery('#edit-actual-cost').val(response.data.actual_cost);
                     jQuery('#edit-paid').val(response.data.paid);
-                    jQuery('#category-id-input').val(response.data.category_id);
+                    jQuery('#category-id-input-edit').val(response.data.category_id);
                     jQuery('#edit-expense-popup').modal('show');
                 } else {
                     alert('Failed to fetch expense details.');
