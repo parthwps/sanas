@@ -196,7 +196,7 @@ $totals = $wpdb->get_row(
                   </div>
                 </div>
               </div> -->
-              <div class="options">
+              <div class="options dashboard-view-all">
                 <a href="/budget/">View All</a>
               </div>
             </div>
@@ -351,6 +351,9 @@ $totals = $wpdb->get_row(
         <div class="wed-cat-info todo-list col-12">
           <div class="inner">
             <h5 class="pageheader-title mb-3">To Do List</h5>
+            <div class="options dashboard-view-all">
+              <a href="/todo-list/">View All</a>
+            </div>
 
             <div class="to-do-table-box table-box upcoming-tasks">
                     <div class="vendor-table table-responsive m-0">
