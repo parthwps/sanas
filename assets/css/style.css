@@ -6558,3 +6558,8 @@ th.todo-subhead h4 {
     font-weight: 500;
     font-size: 16px;
 }
+
+.dashboard-todo-list-header{
+    display: flex;
+    justify-content: space-between;
+}
