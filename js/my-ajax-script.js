@@ -103,21 +103,21 @@ jQuery('.budget-category-item .ttl').on('click', function() {
                     total_due += parseFloat(expense.actual_cost) - parseFloat(expense.paid);
 
                     table.row.add([
-                        '<td class="expense text-single-line" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.expense) + '">' + escapeHtml(expense.expense) + '</td>',
-                        '<td class="text-single-line" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.vendor_name) + '">' + escapeHtml(expense.vendor_name) + '</td>',
-                        '<td class="text-single-line" data-toggle="tooltip" data-bs-original-title="' + (expense.vendor_contact ? '+' + escapeHtml(expense.vendor_contact) : '') + '">' + (expense.vendor_contact ? '+' + escapeHtml(expense.vendor_contact) : '') + '</td>',
-                        '<td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.estimated_cost) + '">$' + escapeHtml(expense.estimated_cost) + '</td>',
-                        '<td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.actual_cost) + '">$' + escapeHtml(expense.actual_cost) + '</td>',
-                        '<td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.paid) + '">$' + escapeHtml(expense.paid) + '</td>',
-                        '<td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + (parseFloat(expense.actual_cost) - parseFloat(expense.paid)).toFixed(2) + '">$' + (parseFloat(expense.actual_cost) - parseFloat(expense.paid)).toFixed(2) + '</td>',
-                        '<td class="actions">' +
+                        '<span class="expense text-single-line" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.expense) + '">' + escapeHtml(expense.expense) + '</span>',
+                        '<span class="text-single-line" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.vendor_name) + '">' + escapeHtml(expense.vendor_name) + '</span>',
+                        '<span class="text-single-line" data-toggle="tooltip" data-bs-original-title="' + (expense.vendor_contact ? '+' + escapeHtml(expense.vendor_contact) : '') + '">' + (expense.vendor_contact ? '+' + escapeHtml(expense.vendor_contact) : '') + '</span>',
+                        '<span class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.estimated_cost) + '">$' + escapeHtml(expense.estimated_cost) + '</span>',
+                        '<span class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.actual_cost) + '">$' + escapeHtml(expense.actual_cost) + '</span>',
+                        '<span class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.paid) + '">$' + escapeHtml(expense.paid) + '</span>',
+                        '<span class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + (parseFloat(expense.actual_cost) - parseFloat(expense.paid)).toFixed(2) + '">$' + (parseFloat(expense.actual_cost) - parseFloat(expense.paid)).toFixed(2) + '</span>',
+                        '<span class="actions">' +
                             '<a href="#" class="edit edit-expense theme-btn" data-id="' + escapeHtml(expense.id) + '" data-bs-toggle="modal" data-bs-target="#edit-expense-popup">' +
                                 '<i class="fa-solid fa-pen"></i>' +
                             '</a>' +
                             '<a href="#" class="delete theme-btn" data-id="' + escapeHtml(expense.id) + '">' +
                                 '<i class="fa-regular fa-trash-can"></i>' +
                             '</a>' +
-                        '</td>'
+                        '</span>'
                     ]);
                 });
 
