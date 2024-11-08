@@ -4926,7 +4926,7 @@ Category Wishlist
   }
 
   .budget-category-box-dashboard{
-    padding: 30px 0;
+    padding: 30px 10px !important;
   }
 
 .budget-man-box .cat-col ul li {
@@ -4974,7 +4974,7 @@ Category Wishlist
     text-overflow: ellipsis;
     max-width: 60%;
     font-size: 14px;
-    text-transform: normal;
+    text-transform: capitalize !important;
 }
 
 .budget-man-box .cat-col ul li .count {
