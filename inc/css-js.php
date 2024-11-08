@@ -5,11 +5,11 @@
 if ( !function_exists( 'sanas_google_fonts_url' ) ) {
     function sanas_google_fonts_url() {
         $sanas_fonts_url = '';
-        $sanas_fonts     = array('Mulish','sans-serif','Radio Canada');
+        $sanas_fonts     = array('Mulish','sans-serif','Faculty Glyphic');
         $sanas_subsets   = 'latin,latin-ext';
         /* translators: If there are characters in your language that are not supported by Inter, translate this to 'off'. Do not translate into your own language. */
         if ('off' !== _x('on', 'Manrope font: on or off', 'sanas')) {
-            $sanas_fonts[] = 'Manrope:100,200,300,400,500,600,700,800,900|Radio Canada:400,500,600,700';
+            $sanas_fonts[] = 'Manrope:100,200,300,400,500,600,700,800,900|Faculty Glyphic:400,500,600,700';
         }
         if ($sanas_fonts) {
             $sanas_fonts_url = add_query_arg(array(
