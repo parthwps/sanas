@@ -10,14 +10,14 @@
 /***********************
 * Variable
 ***********************/
-
+@import url('https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 :root {
     --snas-bg-primary: #9CA89C;
     --snas-bg-secondary: #A67A69;
     --snas-bg-secondary-2: #744F30;
     --snas-text-primary: #101828;
     --snas-text-secondary: #344054;
-    --snas-main-font: "Radio Canada";
+    --snas-main-font: "Faculty Glyphic";
     --snas-body-font: "Mulish";
     --snas-text-white: #ffffff;
     --snas-text-black: #2D2D2D;
@@ -5424,7 +5424,7 @@ input.rsvp-msg.host-name ,.event-title, .event-date {
     margin: 20px 0;
     color: #7c7878;
     background-color: transparent;
-    font-family: 'Radio Canada';
+    font-family: var(--snas-main-font);
     text-align: center;
 }
 .event-title{
