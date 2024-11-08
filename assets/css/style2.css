@@ -4914,7 +4914,7 @@ Category Wishlist
     display: flex;
     align-items: center;
     column-gap: 20px;
-    font-size: 13px;
+    font-size: 12px;
 }
 .budget-man-box .budget-col .info-box, .budget-man-box .info-box {
     position: relative;
