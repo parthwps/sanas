@@ -197,22 +197,36 @@ get_sidebar('dashboard');
                 <?php
                 if(isset($_GET['category'])){
                   $category_id = intval($_GET['category']);
-                  echo $category_id;
+                  
+                  // Debugging: Output the category_id to ensure it's being passed correctly
+                  echo "Category ID: " . $category_id;
+              
+                  // Correct SQL query with $wpdb->prefix
                   $category_name = $wpdb->get_var(
-                    $wpdb->prepare("SELECT category_name FROM $wpdb->prefix.budget_category WHERE id = %d", $category_id)
+                      $wpdb->prepare("SELECT category_name FROM {$wpdb->prefix}budget_category WHERE id = %d", $category_id)
                   );
                   
-                  // Fetch the icon_class for the given category_id
                   $category_icon = $wpdb->get_var(
-                      $wpdb->prepare("SELECT icon_class FROM $wpdb->prefix.budget_category WHERE id = %d", $category_id)
+                      $wpdb->prepare("SELECT icon_class FROM {$wpdb->prefix}budget_category WHERE id = %d", $category_id)
                   );
-                  if ($category) {
-                    echo "test";
-                    $first_category_name = $category_name;
-                    $first_category_icon = $category_icon;
+                  
+                  // Check if category name and icon are returned
+                  if ($category_name && $category_icon) {
+                      echo "Category Name: " . $category_name;
+                      echo "Category Icon: " . $category_icon;
+              
+                      // Assign to your variables
+                      $first_category_name = $category_name;
+                      $first_category_icon = $category_icon;
+                  } else {
+                      // If no result, output a message
+                      echo "No category found for ID: " . $category_id;
                   }
-                  echo "tes2t";
-                }
+              } else {
+                  // If category is not set in the URL
+                  echo "No category parameter in URL.";
+              }
+              ?>
                 ?>
                 <div class="icon-box"><i class="fa-solid fa-<?php echo $first_category_icon; ?>"></i></div>
                 <div class="category_name_box"><?php echo $first_category_name; ?></div>
