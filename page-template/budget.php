@@ -449,8 +449,8 @@ get_sidebar('dashboard');
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
-                      <input type="hidden" name="category_id" id="category-id-input" value="<?php echo isset($first_category) ? esc_attr($first_category) : ''; ?>">
-                      <input type="hidden" name="id" id="edit-expense-id">
+                      <input type="text" name="category_id" id="category-id-input" value="<?php echo isset($first_category) ? esc_attr($first_category) : ''; ?>">
+                      <input type="text" name="id" id="edit-expense-id">
                       <button type="submit" class="dashbord-btn">Save</button>
                     </div>
                   </div>
