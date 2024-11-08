@@ -242,9 +242,9 @@ $totals = $wpdb->get_row(
                             </li>
                             
                             <?php
-                            if($i == 4){
-                              break;
-                            }
+                            // if($i == 4){
+                            //   break;
+                            // }
                             $i++;
                         } ?>
                       <?php endif; ?>
