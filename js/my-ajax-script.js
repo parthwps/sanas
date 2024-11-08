@@ -34,8 +34,16 @@ document.addEventListener('DOMContentLoaded', () => {
         jQuery('#confirm_modal_html_alert').modal('hide');
     });
 });
+function getQueryParam(param) {
+    var urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
 if (window.location.pathname === '/budget/') {
     jQuery(document).ready(function($) {
+        jQuery('.add-expense-trigger').on('click', function() {
+            var category = getQueryParam('category');
+            jQuery('#category-id-input').val(category); 
+        })
         var table = jQuery('.budget-table-sort').DataTable({
             columnDefs: [
                 { orderable: false, targets: [0, 2, 3, 4, 5, 6] },
