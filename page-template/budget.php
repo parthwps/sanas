@@ -203,13 +203,7 @@ get_sidebar('dashboard');
                   if ($category) {
                     $first_category_name = $category->category_name;
                     $first_category_icon = $category->icon_class;
-                  } else {
-                      $first_category_name = 'Default Category';
-                      $first_category_icon = 'default-icon';
                   }
-                } else {
-                    $first_category_name = 'Default Category';
-                    $first_category_icon = 'default-icon';
                 }
                 ?>
                 <div class="icon-box"><i class="fa-solid fa-<?php echo $first_category_icon; ?>"></i></div>
