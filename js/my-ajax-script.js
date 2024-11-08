@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 if (window.location.pathname === '/budget/') {
     jQuery(document).ready(function($) {
-        $('.budget-table-sort').DataTable({
+        var table = jQuery('.budget-table-sort').DataTable({
             columnDefs: [
                 { orderable: false, targets: [0, 2, 3, 4, 5, 6] },
             ],
@@ -95,6 +95,7 @@ jQuery('.budget-category-item .ttl').on('click', function() {
                 var total_paid = 0;
                 var total_due = 0;
                 var rows = '';
+                table.clear();
                 expenses.forEach(function(expense) {
                     total_estimated += parseFloat(expense.estimated_cost);
                     total_actual += parseFloat(expense.actual_cost);
