@@ -300,7 +300,7 @@ $totals = $wpdb->get_row(
                                         <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['phone']); ?>"><?php echo esc_html($my_vendor['phone']); ?></td>
                                         <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['notes']); ?>"><?php echo esc_html($my_vendor['notes']); ?></td>
                                         <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['social_media_profile']); ?>"><?php echo esc_html($my_vendor['social_media_profile']); ?></td>
-                                        <td>$<?php echo esc_html($my_vendor['pricing']); ?></td>
+                                        <td class="number-align-right">$<?php echo esc_html($my_vendor['pricing']); ?></td>
                                         <td class="actions">
                                             <a href="#" class="edit edit-myvendor theme-btn" data-id="<?php echo esc_attr($my_vendor['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-vendor-popup">
                                                 <i class="fa-solid fa-pen"></i>
