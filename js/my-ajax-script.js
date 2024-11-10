@@ -446,13 +446,13 @@ jQuery(document).ready(function($) {
             success: function(response) {
                 if (response.success) {
                     jQuery('#add-todolist-popup').modal('hide');
-                    jQuery('#exampleModalLabel').text('Success');
-                    jQuery('#modal-body-text').text(response.data);
-                    jQuery('#modal_html_alert').modal('show');
+                    // jQuery('#exampleModalLabel').text('Success');
+                    // jQuery('#modal-body-text').text(response.data);
+                    // jQuery('#modal_html_alert').modal('show');
                     recalculate_task();
-                    jQuery('#render-modal-yes-button').on('click', function() {
+                    // jQuery('#render-modal-yes-button').on('click', function() {
                         location.reload();
-                    });
+                    // });
                 } else {
                     jQuery('#exampleModalLabel').text('Error');
                     jQuery('#modal-body-text').text(response.data);
@@ -475,26 +475,17 @@ jQuery(document).ready(function($) {
             data: formData + '&action=edit_todo_item',
             success: function(response) {
                 if (response.success) {
-                    // Hide add-todolist-popup
                     jQuery('#edit-todolist-popup').modal('hide');
-                    // Set the modal title and message
-                    jQuery('#exampleModalLabel').text('Success');
-                    jQuery('#modal-body-text').text(response.data);
-                    // Show the modal
-                    jQuery('#modal_html_alert').modal('show');
-
-                    // Handle the click event on the "Yes" button in the modal
-                    jQuery('#render-modal-yes-button').on('click', function() {
+                    // jQuery('#exampleModalLabel').text('Success');
+                    // jQuery('#modal-body-text').text(response.data);
+                    // jQuery('#modal_html_alert').modal('show');
+                    // jQuery('#render-modal-yes-button').on('click', function() {
                         location.reload();
-                    });
+                    // });
                 } else {
-                    // Set the modal title and message
                     jQuery('#exampleModalLabel').text('Error');
                     jQuery('#modal-body-text').text(response.data);
-                    // Show the modal
                     jQuery('#modal_html_alert').modal('show');
-
-                    // Handle the click event on the "Yes" button in the modal
                     jQuery('#render-modal-yes-button').on('click', function() {
                         jQuery('#modal_html_alert').modal('hide');
                     });
