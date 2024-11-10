@@ -840,12 +840,12 @@ if (window.location.pathname === '/my-vendors/' || window.location.pathname === 
                     if (response.success) {
                         if(buttonDataId == 0){
                             jQuery('#add-todolist-popup').modal('hide');
-                            jQuery('#exampleModalLabel').text('Success');
-                            jQuery('#modal-body-text').text('Vendor item added successfully.');
-                            jQuery('#modal_html_alert').modal('show');
-                            jQuery('#render-modal-yes-button').on('click', function() {
+                            // jQuery('#exampleModalLabel').text('Success');
+                            // jQuery('#modal-body-text').text('Vendor item added successfully.');
+                            // jQuery('#modal_html_alert').modal('show');
+                            // jQuery('#render-modal-yes-button').on('click', function() {
                                 location.reload();
-                            });
+                            // });
                         }
                         if(buttonDataId == 1){
                             // add temporary message
@@ -912,26 +912,17 @@ if (window.location.pathname === '/my-vendors/' || window.location.pathname === 
                 data: formData + '&action=edit_my_vendor_item',
                 success: function(response) {
                     if (response.success) {
-                        // Hide add-vendor-popup
                         jQuery('#edit-todolist-popup').modal('hide');
-                        // Set the modal title and message
-                        jQuery('#exampleModalLabel').text('Success');
-                        jQuery('#modal-body-text').text(response.data);
-                        // Show the modal
-                        jQuery('#modal_html_alert').modal('show');
-
-                        // Handle the click event on the "Yes" button in the modal
-                        jQuery('#render-modal-yes-button').on('click', function() {
+                        // jQuery('#exampleModalLabel').text('Success');
+                        // jQuery('#modal-body-text').text(response.data);
+                        // jQuery('#modal_html_alert').modal('show');
+                        // jQuery('#render-modal-yes-button').on('click', function() {
                             location.reload();
-                        });
+                        // });
                     } else {
-                        // Set the modal title and message
                         jQuery('#exampleModalLabel').text('Error');
                         jQuery('#modal-body-text').text(response.data);
-                        // Show the modal
                         jQuery('#modal_html_alert').modal('show');
-
-                        // Handle the click event on the "Yes" button in the modal
                         jQuery('#render-modal-yes-button').on('click', function() {
                             jQuery('#modal_html_alert').modal('hide');
                         });
@@ -946,10 +937,7 @@ if (window.location.pathname === '/my-vendors/' || window.location.pathname === 
             jQuery('#confirm_modal-body-text').text(message);
             jQuery('#confirm_modal_html_alert').modal('show');
         }
-        
-        // When "Yes" button is clicked
         jQuery('#modal-yes-button').on('click', function () {
-            // Trigger the removal process
             proceedWithRemoval();
             jQuery('#confirm_modal_html_alert').modal('hide');
         });
