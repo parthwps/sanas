@@ -67,7 +67,10 @@ if (window.location.pathname === '/budget/') {
                     jQuery(totalRow).appendTo(api.table().body());
                 }
             }
-        });
+        }).on('error.dt', function(e, settings, techNote, message) {
+            e.preventDefault();
+            console.log('DataTables error: ', message);
+        });;
 jQuery('.budget-category-item .ttl').on('click', function() {
     var categoryId = jQuery(this).data('id');
     jQuery('#category-id-input').val(categoryId);
