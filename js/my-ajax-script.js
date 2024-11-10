@@ -297,16 +297,15 @@ function escapeHtml(text) {
                 if (response.success) {
                     // Hide add-vendor-popup
                     jQuery('#add-category-popup').modal('hide');
-                    // Set the modal title and message
-                    jQuery('#exampleModalLabel').text('Success');
-                    jQuery('#modal-body-text').text('Category item added successfully.');
-                    // Show the modal
-                    jQuery('#modal_html_alert').modal('show');
 
-                    // Handle the click event on the "Yes" button in the modal
-                    jQuery('#render-modal-yes-button').on('click', function() {
+                    // jQuery('#exampleModalLabel').text('Success');
+                    // jQuery('#modal-body-text').text('Category item added successfully.');
+
+                    // jQuery('#modal_html_alert').modal('show');
+
+                    // jQuery('#render-modal-yes-button').on('click', function() {
                         location.reload();
-                    });
+                    // });
                 } else {
                     // Set the modal title and message
                     jQuery('#exampleModalLabel').text('Error');
