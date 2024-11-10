@@ -261,7 +261,7 @@ $totals = $wpdb->get_row(
         <div class="wed-cat-info  col-12">
           <div class="vendor">
             <div class="inner">
-              <div class="todo-search-add-link justify-content-end">
+              <div class="todo-search-add-link">
                   <div class="title">
                     <h4>My Vendors</h4>
                   </div>
