@@ -650,12 +650,12 @@ if (window.location.pathname === '/vendors-list/') {
                             jQuery('#add-todolist-popup').modal('show');
                         } else {
                             jQuery('#add-todolist-popup').modal('hide');
-                            jQuery('#exampleModalLabel').text('Success');
-                            jQuery('#modal-body-text').text('Vendor item added successfully.');
-                            jQuery('#modal_html_alert').modal('show');
-                            jQuery('#render-modal-yes-button').on('click', function() {
+                            // jQuery('#exampleModalLabel').text('Success');
+                            // jQuery('#modal-body-text').text('Vendor item added successfully.');
+                            // jQuery('#modal_html_alert').modal('show');
+                            // jQuery('#render-modal-yes-button').on('click', function() {
                                 location.reload();
-                            });
+                            // });
                         }
                     } else {
                         alert(response.data);
@@ -703,16 +703,15 @@ if (window.location.pathname === '/vendors-list/') {
                 data: formData + '&action=edit_vendor_item',
                 success: function(response) {
                     if (response.success) {
-                        // Hide add-vendor-popup
-                        jQuery('#edit-todolist-popup').modal('hide');
-                        // Set the modal title and message
-                        jQuery('#exampleModalLabel').text('Success');
-                        jQuery('#modal-body-text').text(response.data);
-                        // Show the modal
-                        jQuery('#modal_html_alert').modal('show');
-                        jQuery('#render-modal-yes-button').on('click', function() {
+                        // jQuery('#edit-todolist-popup').modal('hide');
+                        
+                        // jQuery('#exampleModalLabel').text('Success');
+                        // jQuery('#modal-body-text').text(response.data);
+                        
+                        // jQuery('#modal_html_alert').modal('show');
+                        // jQuery('#render-modal-yes-button').on('click', function() {
                             location.reload();
-                        });
+                        // });
                     } else {
                         alert(response.data);
                     }
