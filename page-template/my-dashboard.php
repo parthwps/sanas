@@ -261,7 +261,7 @@ $totals = $wpdb->get_row(
         <div class="wed-cat-info  col-12">
           <div class="vendor">
             <div class="inner">
-              <div class="todo-search-add-link">
+              <div class="todo-search-add-link justify-content-end">
                   <div class="title">
                     <h4>My Vendors</h4>
                   </div>
@@ -275,7 +275,7 @@ $totals = $wpdb->get_row(
                     <div class="inner-box3">
                       <div class="table-box upcoming-tasks">
                         <div class="vendor-table table-responsive m-0">
-                          <table class="vendor-list-table" id="vendor-table">
+                          <table class="vendor-list-table my-vendor-table" id="vendor-table">
                             <thead>
                             <tr>
                               <!-- <th><input type="checkbox" name="allCheck" id="all-select-chechbox"> </th> -->
@@ -303,7 +303,7 @@ $totals = $wpdb->get_row(
                                         <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['phone']); ?>"><?php echo esc_html($my_vendor['phone']); ?></td>
                                         <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['notes']); ?>"><?php echo esc_html($my_vendor['notes']); ?></td>
                                         <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['social_media_profile']); ?>"><?php echo esc_html($my_vendor['social_media_profile']); ?></td>
-                                        <td class="number-align-right">$<?php echo esc_html($my_vendor['pricing']); ?></td>
+                                        <td>$<?php echo esc_html($my_vendor['pricing']); ?></td>
                                         <td class="actions">
                                             <a href="#" class="edit edit-myvendor theme-btn" data-id="<?php echo esc_attr($my_vendor['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-vendor-popup">
                                                 <i class="fa-solid fa-pen"></i>
