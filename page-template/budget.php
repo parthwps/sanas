@@ -287,7 +287,7 @@ get_sidebar('dashboard');
                             </tr>
                         <?php }
                     }else{
-                        echo '<tr><td>No expense found</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>';
+                        echo '<tr><td class="text-nowrap">No expense found</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>';
                     }
                     ?>
                     <tr class="expense-total-row">
