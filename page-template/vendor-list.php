@@ -19,13 +19,13 @@ get_sidebar('dashboard');
 <div class="wl-dashboard-wrapper dashboard">
     <div class="container-fluid wl-dashboard-content">
       <div class="row">
+        <div class="link text-right">
+          <a href="#" class="add-link-btn">Move to My Vendors</a>
+        </div>
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-between">
           <div class="page-header d-flex flex-column align-items-baseline gap-2 title">
             <h3 class="pageheader-title m-0">Vendors List</h3>
             <p class="m-0">Add your party vendors, then move your selected vendors to the "My Vendors" Page.</p>
-          </div>
-          <div class="link">
-            <a href="#" class="add-link-btn">Move to My Vendors</a>
           </div>
         </div>
       </div>

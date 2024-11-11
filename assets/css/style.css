@@ -6581,3 +6581,6 @@ font-size: 18px;
 .link a{
     color: #9A7A5F;
 }
+.text-right{
+    text-align: right;
+}
