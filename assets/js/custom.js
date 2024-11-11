@@ -25,6 +25,9 @@
         jQuery(".dt-search label").on("click", function() {
             jQuery(".dt-search input[type=search]").toggle(); // Show or hide the search input
         });
+        jQuery(".dt-search input[type=search]").on("focusout", function() {
+            jQuery(this).toggle(); // Hide the search input on focus out
+        });
       });
 
 // jQuery(document).on('click', function (e) {
