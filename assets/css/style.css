@@ -5843,6 +5843,7 @@ td.todo-status {
 }
 table.dataTable>thead>tr>th.actions{
     text-align: right;
+    padding: 10px;
 }
 .todo-status .progress {
     height: 10px;
