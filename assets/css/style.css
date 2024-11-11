@@ -5833,7 +5833,9 @@ td.todo-status {
     border-bottom-width: 0px;
 }
 .todo-status .status-dropdown{
-    border: none;
+    border: 0;
+    background: none;
+    font-size: 22px;
 }
 .todo-status .progress {
     height: 10px;
