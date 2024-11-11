@@ -338,6 +338,10 @@ $totals = $wpdb->get_row(
         ?>
         <div class="wed-cat-info todo-list col-12">
           <div class="inner">
+            <div class="todo-search-add-link justify-content-end">
+              <div class="add-link"><a href="#" class="dashbord-btn" data-bs-toggle="modal" data-bs-target="#add-todolist-popup"><i class="icon-plus"></i> Add Task</a>
+              </div>
+            </div>
             <div class="dashboard-todo-list-header">
               <div class="title-box">
                 <h5 class="pageheader-title mb-3"><a href="/to-do-list/" class="text-black">To Do List</a></h5>
@@ -618,6 +622,59 @@ $totals = $wpdb->get_row(
         </div>
     </div>
 </div>
+<!-- Add To-Do Modal -->
+<div class="modal fade def-popup add-todolist-popup" id="add-todolist-popup" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Task</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span class="cross"></span>
+                    </button>
+                </div>
+                <div class="content-box">
+                    <form id="add-todo-form" method="post" action="#">
+                        <div class="form-content">
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Task*</label>
+                                        <input type="text" name="title" class="form-control" placeholder="Task" required="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Date</label>
+                                        <input type="date" name="date" id="add-todo-date" class="form-control" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-12 col-sm-12">
+                                    <label>Category*</label>
+                                    <input type="text" name="category" class="form-control" required="">
+                                </div>
+                                <!-- <div class="form-group col-lg-12 col-sm-12">
+                                    <label>Description</label>
+                                    <textarea name="description" class="form-control" placeholder="Description" required=""></textarea>
+                                </div> -->
+                                <div class="form-group col-lg-12 col-sm-12">
+                                    <label>Notes</label>
+                                    <textarea name="notes" class="form-control" maxlength="250" placeholder="Notes"></textarea>
+                                </div>
+                                <div class="form-group col-lg-12 col-sm-12">
+                                    <div class="links-box">
+                                        <button type="submit" class="dashbord-btn">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <?php render_confirm_modal_html_alert(); ?>
 <?php render_modal_html_alert(); ?>
