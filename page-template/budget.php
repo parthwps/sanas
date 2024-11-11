@@ -195,6 +195,7 @@ get_sidebar('dashboard');
             <div class="info-box">
               <div class="cat-info">
                 <?php
+                echo $_GET['category'];
                 if(isset($_GET['category'])){
                   $category_id = intval($_GET['category']);
                   $category_name = $wpdb->get_var(
