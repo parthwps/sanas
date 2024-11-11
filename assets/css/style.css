@@ -5832,7 +5832,7 @@ td.todo-status {
 .table>:not(caption)>*>*{
     border-bottom-width: 0px;
 }
-.todo-status .status-dropdown{
+.status-dropdown{
     border: 0;
     background: none;
     font-size: 22px;
