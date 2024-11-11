@@ -964,7 +964,11 @@ function add_budget_category_item() {
     );
 
     if ($wpdb->insert_id) {
-        wp_send_json_success('Budget category item added successfully.');
+        $category_id = $wpdb->insert_id;
+        wp_send_json_success(array(
+            'message' => 'Budget category item added successfully.',
+            'category_id' => $category_id
+        ));
     } else {
         wp_send_json_error('Failed to add budget category item.');
     }
