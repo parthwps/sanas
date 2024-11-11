@@ -935,3 +935,6 @@ textarea {
 .dt-search input[type=search] {
     display: none;
 }
+.ml-auto{
+	margin-left: auto;
+}
