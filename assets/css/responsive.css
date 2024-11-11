@@ -675,6 +675,9 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile .guest-count {
             width: 100%;
             padding: 10px 20px;
         }
+        .budget-cat-row{
+            flex-direction: column-reverse;
+        }
     .featured-box {
         border-radius: 8px;
     }

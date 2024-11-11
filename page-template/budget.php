@@ -101,7 +101,7 @@ get_sidebar('dashboard');
             </div>
           </div>
           <div class="budget-man-box">
-            <div class="row row-gap-5">
+            <div class="row row-gap-5 budget-cat-row">
               <div class="cat-col col-xl-4 col-lg-12 col-md-12 col-sm-12">
                 <div class="links-box">
                   <div class="links">
