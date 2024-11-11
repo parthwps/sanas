@@ -394,19 +394,19 @@ get_sidebar('dashboard');
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Estimated Cost</label>
-                      <input type="number" name="estimated_cost" class="form-control">
+                      <input type="number" step="0.01" name="estimated_cost" class="form-control">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Actual Cost</label>
-                      <input type="number" name="actual_cost" class="form-control">
+                      <input type="number" step="0.01" name="actual_cost" class="form-control">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Paid</label>
-                      <input type="number" name="paid" class="form-control">
+                      <input type="number" step="0.01" name="paid" class="form-control">
                     </div>
                   </div>
                   <input type="hidden" name="category_id" id="category-id-input" value="<?php echo isset($first_category) ? esc_attr($first_category) : ''; ?>">
@@ -460,19 +460,19 @@ get_sidebar('dashboard');
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Estimated Cost</label>
-                      <input type="number" name="estimated_cost" id="edit-estimated-cost" class="form-control">
+                      <input type="number" step="0.01" name="estimated_cost" id="edit-estimated-cost" class="form-control">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Actual Cost</label>
-                      <input type="number" name="actual_cost" id="edit-actual-cost" class="form-control">
+                      <input type="number" step="0.01" name="actual_cost" id="edit-actual-cost" class="form-control">
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label>Paid</label>
-                      <input type="number" name="paid" id="edit-paid" class="form-control">
+                      <input type="number" step="0.01" name="paid" id="edit-paid" class="form-control">
                     </div>
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">
