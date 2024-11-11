@@ -204,11 +204,9 @@ get_sidebar('dashboard');
                   $category_icon = $wpdb->get_var(
                       $wpdb->prepare("SELECT icon_class FROM {$wpdb->prefix}budget_category WHERE id = %d", $category_id)
                   );
-                  if ($category_name && $category_icon) {
                       $first_category = $category_id;
                       $first_category_name = $category_name;
                       $first_category_icon = $category_icon;
-                  }
               }
               ?>
                 <div class="icon-box"><i class="fa-solid fa-<?php echo $first_category_icon; ?>"></i></div>
