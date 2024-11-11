@@ -128,7 +128,7 @@ $totals = $wpdb->get_row(
         <?php if ($get_event) {?>
         <div class="attend-info col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
           <div class="inner">
-            <div class="event-title-2 mb-2">
+            <div class="event-title-2 mb-4">
               <h4>My Events</h4>
             </div>
             <div class="inner-box">
