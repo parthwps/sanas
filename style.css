@@ -932,3 +932,6 @@ textarea {
 .title-px-20{
 	padding: 0 20px;
 }
+.dt-search input[type=search] {
+    display: none;
+}
