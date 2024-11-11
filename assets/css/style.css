@@ -6469,6 +6469,9 @@ th.todo-subhead h4 {
     vertical-align: middle;
     text-align: left;
 }
+.table-box .vendor-table th:nth-child(3){
+    text-align: left;
+}
 
 .vendor-table a.edit,
 .vendor-table a.delete {
