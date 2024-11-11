@@ -109,9 +109,9 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
 
                         // Generate tables for each month
                         foreach ($grouped_items as $month_year => $items): ?>
-                        <h4><span><?php echo $month_year; ?></span></h4>
                             <table class="mb-0">
-                            <tr><th class="todo-subhead text-align-start" colspan="7">
+                            <tr><th class="todo-subhead text-align-start" colspan="6">
+                            <h4><span><?php echo $month_year; ?></span></h4>
                             </th></tr>
                             </table>
                             <table class="vendor-list-table todo-list-table todo-table" id="todo-table-<?php echo str_replace(' ', '-', $month_year); ?>">
