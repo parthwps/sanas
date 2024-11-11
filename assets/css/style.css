@@ -6476,7 +6476,7 @@ font-size: 18px;
     vertical-align: middle;
     text-align: left;
 }
-.table-box .vendor-table th:nth-child(3){
+.table-box .vendor-table th:nth-child(3), .table-box .vendor-table th:nth-child(5){
     text-align: left;
 }
 
