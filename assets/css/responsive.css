@@ -673,6 +673,7 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile .guest-count {
     .budget-man-box .budget-col .graph-box,
         .budget-man-box .budget-col .info {
             width: 100%;
+            padding: 10px 20px;
         }
     .featured-box {
         border-radius: 8px;
