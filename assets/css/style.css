@@ -6524,7 +6524,8 @@ font-size: 18px;
     width: 50px !important;
 }
 
-.todo-list-table td:last-child, .todo-list-table th:last-child{
+.todo-list-table td:last-child, .todo-list-table th:last-child,
+.todo-list-table td:nth-last-child(2), .todo-list-table th:nth-last-child(2){
     max-width: 80px !important;
     width: 80px !important;
 }
