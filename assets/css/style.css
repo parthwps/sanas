@@ -6439,10 +6439,11 @@ th.todo-subhead {
 }
 th.todo-subhead h4 {
     margin-bottom: 0;
-    font-size: 18px;
     color: #744F30;
 }
-
+th.todo-subhead h4 .year-text {
+font-size: 18px;
+}
 /* Vendor List Table - prem */
 
 .table-box .vendor-table td {
