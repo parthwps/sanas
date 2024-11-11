@@ -98,7 +98,7 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                         foreach ($todo_items as $item) {
                             $item_month = date('F', strtotime($item['date']));
                             $item_year = date('Y', strtotime($item['date']));
-                            $current_item_month_year = $item_month . ' <span class="year-text">' . $item_year . '</span>';
+                            $current_item_month_year = $item_month . ' ' . $item_year;
 
                             // Group items by month and year
                             if (!isset($grouped_items[$current_item_month_year])) {
