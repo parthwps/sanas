@@ -145,7 +145,7 @@ $totals = $wpdb->get_row(
                   </div>
                 </div>
               </a>
-              <div class="lower-content ps-0 pe-0 block text-center">
+              <div class="lower-content ps-0 pe-0 d-block text-center">
                 <h4><?php echo $eventtitle; ?></h4>
                 <p class="m-0">Date: <?php echo $formattedDate ?></p>
               </div>
