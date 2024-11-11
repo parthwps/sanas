@@ -4802,7 +4802,9 @@ Category Wishlist
 .category-wishlist.no-wishlist .inner .title-box {
     padding-top: 0;
 }
-
+.category_name_box, .budget-table-sort td, .budget-table-sort th{
+    text-transform: capitalize;
+}
 .category-wishlist .inner .title-box .add-link a {
     position: relative;
     display: inline-block;
