@@ -156,7 +156,7 @@ $totals = $wpdb->get_row(
           <div class="inner">
             <div class="title-box">
               <div class="title graph">
-                <h4 class="title-px-20"><a href="/budget/" class="text-black">Guests Attending</a></h4>
+                <h4><a href="/budget/" class="text-black">Guests Attending</a></h4>
               </div>
             </div>
             <div class="graph-box">
