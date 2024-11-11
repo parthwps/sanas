@@ -182,23 +182,11 @@ $totals = $wpdb->get_row(
           <div class="inner budget-man-box budget-category-box-dashboard">
             <div class="title-box">
               <div class="title">
-                <h4>Budget Calculator</h4>
+                <h4><a href="/budget/">Budget Calculator</a></h4>
               </div>
-              <!-- <div class="options">
-                <div class="drop-nav option-nav">
-                  <div class="dropdown-outer"><a class="btn-box" id="dropdownMenu5" data-bs-toggle="dropdown"
-                      aria-haspopup="true" aria-expanded="true" href="#"><span class="icon fa fa-ellipsis-v"></span></a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu5">
-                      <li><a href="/budget/">View All</a></li>
-                      <li><a href="/budget/">Edit</a></li>
-                      <li><a href="/budget/">Update</a></li>
-                    </ul>
-                  </div>
-                </div>
+              <!-- <div class="options dashboard-view-all">
+                >View All</a>
               </div> -->
-              <div class="options dashboard-view-all">
-                <a href="/budget/">View All</a>
-              </div>
             </div>
             <div class="list cat-col">
             <ul class="p-0 dashboard-category-section" id="category_cost_section">
