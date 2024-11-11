@@ -70,10 +70,6 @@ h6 {
     letter-spacing: .5px;
     font-weight: 400 !important;
 }
-h1{
-    letter-spacing: 1px;
-}
-
 img {
     max-width: 100%;
 }
@@ -328,7 +324,6 @@ ul.main-menu-list>li>a:hover {
     font-size: 64px;
     font-weight: 600;
     line-height: 76.8px;
-    letter-spacing: -2.5px;
     margin-bottom: 48px;
 }
 
