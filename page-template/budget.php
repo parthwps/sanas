@@ -286,12 +286,14 @@ get_sidebar('dashboard');
                                 <td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($expense['paid']); ?>">$<?php echo esc_html($expense['paid']); ?></td>
                                 <td class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($expense['actual_cost'] - $expense['paid']); ?>">$<?php echo esc_html(number_format($expense['actual_cost'] - $expense['paid'], 2)); ?></td>
                                 <td class="actions">
+                                  <div>
                                     <a href="#" class="edit edit-expense edit-expense-trigger theme-btn" data-id="<?php echo esc_attr($expense['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-expense-popup">
                                         <i class="fa-solid fa-pen"></i>
                                     </a>
                                     <a href="#" class="delete expense-delete theme-btn" data-id="<?php echo esc_attr($expense['id']); ?>">
                                         <i class="fa-regular fa-trash-can"></i>
                                     </a>
+                                  </div>
                                 </td>
                             </tr>
                         <?php }

@@ -559,12 +559,14 @@ function add_vendor_item() {
                 <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($vendor['social_media_profile']); ?>"><?php echo esc_html($vendor['social_media_profile']); ?></td>
                 <td>$<?php echo esc_html($vendor['pricing']); ?></td>
                 <td class="actions">
-                    <a href="#" class="edit theme-btn" data-id="<?php echo esc_attr($vendor['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup">
-                        <i class="fa-solid fa-pen"></i>
-                    </a>
-                    <a href="#" class="delete theme-btn" data-id="<?php echo esc_attr($vendor['id']); ?>">
-                        <i class="fa-regular fa-trash-can"></i>
-                    </a>
+                    <div>
+                        <a href="#" class="edit theme-btn" data-id="<?php echo esc_attr($vendor['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup">
+                            <i class="fa-solid fa-pen"></i>
+                        </a>
+                        <a href="#" class="delete theme-btn" data-id="<?php echo esc_attr($vendor['id']); ?>">
+                            <i class="fa-regular fa-trash-can"></i>
+                        </a>
+                    </div>
                 </td>
                 </tr>
             <?php
@@ -742,12 +744,14 @@ function add_my_vendor_item() {
                 <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['social_media_profile']); ?>"><?php echo esc_html($my_vendor['social_media_profile']); ?></td>
                 <td>$<?php echo esc_html($my_vendor['pricing']); ?></td>
                 <td class="actions">
-                    <a href="#" class="edit theme-btn" data-id="<?php echo esc_attr($my_vendor['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup">
-                        <i class="fa-solid fa-pen"></i>
-                    </a>
-                    <a href="#" class="delete theme-btn" data-id="<?php echo esc_attr($my_vendor['id']); ?>">
-                        <i class="fa-regular fa-trash-can"></i>
-                    </a>
+                    <div>
+                        <a href="#" class="edit theme-btn" data-id="<?php echo esc_attr($my_vendor['id']); ?>" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup">
+                            <i class="fa-solid fa-pen"></i>
+                        </a>
+                        <a href="#" class="delete theme-btn" data-id="<?php echo esc_attr($my_vendor['id']); ?>">
+                            <i class="fa-regular fa-trash-can"></i>
+                        </a>
+                    </div>
                 </td>
             </tr>
             <?php
@@ -1262,14 +1266,14 @@ function get_expenses_ajax_handler() {
         echo '<td class="text-single-line">$' . esc_html($expense['actual_cost']) . '</td>';
         echo '<td class="text-single-line">$' . esc_html($expense['paid']) . '</td>';
         echo '<td class="text-single-line">$' . esc_html($expense['due']) . '</td>';
-        echo '<td class="actions">';
+        echo '<td class="actions"><div>';
         echo '<a href="#" class="edit theme-btn" data-id="' . esc_attr($expense['id']) . '" data-bs-toggle="modal" data-bs-target="#edit-expense-popup">';
         echo '<i class="fa-solid fa-pen"></i>';
         echo '</a>';
         echo '<a href="#" class="delete theme-btn" data-id="' . esc_attr($expense['id']) . '">';
         echo '<i class="fa-regular fa-trash-can"></i>';
         echo '</a>';
-        echo '</td>';
+        echo '</div></td>';
         echo '</tr>';
     }
     

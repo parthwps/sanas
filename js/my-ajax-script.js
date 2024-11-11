@@ -120,14 +120,14 @@ jQuery('.budget-category-item .ttl').on('click', function() {
                         '<span class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.actual_cost) + '">$' + escapeHtml(expense.actual_cost) + '</span>',
                         '<span class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + escapeHtml(expense.paid) + '">$' + escapeHtml(expense.paid) + '</span>',
                         '<span class="text-single-line number-align-right" data-toggle="tooltip" data-bs-original-title="' + (parseFloat(expense.actual_cost) - parseFloat(expense.paid)).toFixed(2) + '">$' + (parseFloat(expense.actual_cost) - parseFloat(expense.paid)).toFixed(2) + '</span>',
-                        '<span class="actions">' +
+                        '<span class="actions"><div>' +
                             '<a href="#" class="edit edit-expense theme-btn" data-id="' + escapeHtml(expense.id) + '" data-bs-toggle="modal" data-bs-target="#edit-expense-popup">' +
                                 '<i class="fa-solid fa-pen"></i>' +
                             '</a>' +
                             '<a href="#" class="delete theme-btn" data-id="' + escapeHtml(expense.id) + '">' +
                                 '<i class="fa-regular fa-trash-can"></i>' +
                             '</a>' +
-                        '</span>'
+                        '</div></span>'
                     ]);
                 });
 

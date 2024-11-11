@@ -370,12 +370,14 @@ $get_guest_details = $wpdb->get_results(
                              <td><?php echo $guest->guest_adult; ?></td>
 
                             <td class="actions">
-                              <a href="javascript:void(0)" data-bs-toggle="modal" onclick="edit_guestlist_details(<?php echo esc_attr($id);?>)" data-bs-target="#edit-popup" class="edit theme-btn">
-                                <i class="fa-solid fa-pen"></i>
-                              </a>
-                              <a href="javascript:void(0)" onclick="delete_guest_details(<?php echo esc_attr($id);?>)" class="delete theme-btn">
-                                <i class="fa-regular fa-trash-can"></i>
-                              </a>
+                              <div>
+                                <a href="javascript:void(0)" data-bs-toggle="modal" onclick="edit_guestlist_details(<?php echo esc_attr($id);?>)" data-bs-target="#edit-popup" class="edit theme-btn">
+                                  <i class="fa-solid fa-pen"></i>
+                                </a>
+                                <a href="javascript:void(0)" onclick="delete_guest_details(<?php echo esc_attr($id);?>)" class="delete theme-btn">
+                                  <i class="fa-regular fa-trash-can"></i>
+                                </a>
+                              </div>
                             </td>
                           </tr>
                           <?php } ?>
