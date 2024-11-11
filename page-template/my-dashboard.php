@@ -248,7 +248,8 @@ $totals = $wpdb->get_row(
             <div class="inner">
               <div class="todo-search-add-link">
                   <div class="title">
-                    <h4>My Vendors</h4>
+                    <h4>
+                    <a href="/my-vendors/" class="text-black">My Vendors</a></h4>
                   </div>
                 <div class="add-link">
                     <a href="#" class="" data-bs-toggle="modal" data-bs-target="#add-vendor-popup"> Add Vendor</a>
