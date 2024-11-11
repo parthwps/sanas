@@ -24,7 +24,9 @@ get_sidebar('dashboard');
             <h3 class="pageheader-title m-0">Vendors List</h3>
             <p class="m-0">Add your party vendors, then move your selected vendors to the "My Vendors" Page.</p>
           </div>
-          <a href="#" class="add-link-btn">Move to My Vendors</a>
+          <div class="link">
+            <a href="#" class="add-link-btn">Move to My Vendors</a>
+          </div>
         </div>
       </div>
       <div class="vendor">
