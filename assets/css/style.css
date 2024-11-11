@@ -6578,3 +6578,6 @@ font-size: 18px;
     display: flex;
     justify-content: space-between;
 }
+.link a{
+    color: #9A7A5F;
+}
