@@ -5839,6 +5839,7 @@ td.todo-status {
 }
 .actions>div{
     display: flex;
+    justify-content: flex-end;
 }
 .todo-status .progress {
     height: 10px;
