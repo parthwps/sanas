@@ -4904,7 +4904,7 @@ Category Wishlist
     overflow-x: hidden;
 }
 .dashboard-category-section{
-    max-height: 230px !important;
+    max-height: 280px !important;
 }
 /* width */
 .budget-man-box .cat-col ul::-webkit-scrollbar {
