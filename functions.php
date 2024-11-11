@@ -849,9 +849,10 @@ function delete_my_vendor_item() {
 
     if ($result) {
         wp_send_json_success('My Vendor item deleted successfully.');
-    } else {
-        wp_send_json_error('Failed to delete my vendor item.');
     }
+    // else {
+    //     wp_send_json_error('Failed to delete my vendor item.');
+    // }
 }
 
 add_action('wp_ajax_move_vendors_to_my_list', 'move_vendors_to_my_list');
