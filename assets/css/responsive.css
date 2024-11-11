@@ -660,7 +660,7 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile {
         padding-left: 0;
     }
     .todo-list .table tr td {
-        padding: 10px 5px;
+        padding: 10px 10px;
     }
 }
 @media only screen and (max-width:800px){
@@ -695,7 +695,7 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile .guest-count {
     .contact table.dataTable>tbody>tr>td, #vendor-table_wrapper .table td{
         font-size: 10px;
         width: 20%;
-        padding: 10px 5px;
+        padding: 10px 10px;
     }
     .contact table.dataTable>thead>tr>th, #vendor-table_wrapper .table th{
         font-size: 12px;
@@ -1068,7 +1068,7 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile {
         padding: 20px 5px 5px;
     }
     .table-box .vendor-table td, .table-box .vendor-table th{
-        padding: 10px 5px;
+        padding: 10px 10px;
     }
     .vendor-table a.edit, .vendor-table a.delete{
         font-size: 16px;
