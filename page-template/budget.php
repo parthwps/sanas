@@ -214,6 +214,11 @@ get_sidebar('dashboard');
                 <div class="category_name_box"><?php echo $first_category_name; ?></div>
                 <div class="cost">
                   <?php
+                  if(isset($_GET['category'])){
+                    $first_category = intval($_GET['category']);
+                  }else{
+                    $first_category = $first_category;  
+                  }
                   $first_category_expenses = get_expense_list($first_category);
                   $total_estimated = 0;
                   $total_actual = 0;
