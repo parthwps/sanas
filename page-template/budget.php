@@ -96,7 +96,7 @@ get_sidebar('dashboard');
               <div class="title"><h4>Manage Budget</h4>
               <p>Select from below categories or add new category, then enter expense for each</p>
             </div>
-            <div class="link align-items-center">
+            <div class="link ml-auto">
               <a href="javascript:void(0);">Clear Budget</a>
             </div>
           </div>
