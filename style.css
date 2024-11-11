@@ -929,3 +929,6 @@ textarea {
 .posted-on a{
 	color: #475467;
 }
+.title-px-20{
+	padding: 0 20px;
+}
