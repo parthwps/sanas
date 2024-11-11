@@ -339,10 +339,7 @@ $totals = $wpdb->get_row(
           <div class="inner">
             <div class="dashboard-todo-list-header">
               <div class="title-box">
-                <h5 class="pageheader-title mb-3">To Do List</h5>
-              </div>
-              <div class="options dashboard-view-all">
-                <a href="/to-do-list/">View All</a>
+                <h5 class="pageheader-title mb-3"><a href="/to-do-list/" class="text-black">To Do List</a></h5>
               </div>
             </div>
 
