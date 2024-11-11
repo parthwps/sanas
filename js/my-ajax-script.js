@@ -304,7 +304,8 @@ function escapeHtml(text) {
                     // jQuery('#modal_html_alert').modal('show');
 
                     // jQuery('#render-modal-yes-button').on('click', function() {
-                        location.reload();
+                        // window.location.reload();
+                        window.location.href = "/budget/?category=" + response.data.category_id + "#budget-expense-box";
                     // });
                 } else {
                     // Set the modal title and message
