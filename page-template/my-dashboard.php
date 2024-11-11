@@ -342,86 +342,85 @@ $totals = $wpdb->get_row(
                 <h5 class="pageheader-title mb-3"><a href="/to-do-list/" class="text-black">To Do List</a></h5>
               </div>
             </div>
-
             <div class="to-do-table-box table-box upcoming-tasks">
-                    <div class="vendor-table table-responsive m-0">
-                        <?php
-                        $vendor_items = get_vendor_list_items();
-                        ?>
-                        <?php if ($todo_items): ?>
-                        <?php 
-                        $grouped_items = [];
+              <div class="vendor-table table-responsive m-0">
+                  <?php
+                  $vendor_items = get_vendor_list_items();
+                  ?>
+                  <?php if ($todo_items): ?>
+                  <?php 
+                  $grouped_items = [];
 
-                        foreach ($todo_items as $item) {
-                            $item_month = date('F', strtotime($item['date']));
-                            $item_year = date('Y', strtotime($item['date']));
-                            $current_item_month_year = $item_month . ' ' . $item_year;
+                  foreach ($todo_items as $item) {
+                      $item_month = date('F', strtotime($item['date']));
+                      $item_year = date('Y', strtotime($item['date']));
+                      $current_item_month_year = $item_month . ' ' . $item_year;
 
-                            // Group items by month and year
-                            if (!isset($grouped_items[$current_item_month_year])) {
-                                $grouped_items[$current_item_month_year] = []; // Create an array for each month
-                            }
-                            $grouped_items[$current_item_month_year][] = $item; // Add the item to the respective month
-                        }
+                      // Group items by month and year
+                      if (!isset($grouped_items[$current_item_month_year])) {
+                          $grouped_items[$current_item_month_year] = []; // Create an array for each month
+                      }
+                      $grouped_items[$current_item_month_year][] = $item; // Add the item to the respective month
+                  }
 
-                        // Generate tables for each month
-                        foreach ($grouped_items as $month_year => $items): ?>
-                            <table class="mb-0">
-                            <tr><th class="todo-subhead text-align-start" colspan="7">
-                            <h4><span><?php echo $month_year; ?></span></h4>
-                            </th></tr>
-                            </table>
-                            <table class="vendor-list-table todo-list-table todo-table" id="todo-table-<?php echo str_replace(' ', '-', $month_year); ?>">
-                                <thead>
-                                    <tr class="todo-check-title">
-                                        <th>Category</th>
-                                        <th>Task</th>
-                                        <th>Notes</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
-                                        <th class="actions">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($items as $item): ?>
-                                        <tr <?php echo ($item['completed'] == 1) ? 'class="text-decoration-line-through pe-none"' : ''; ?>>
-                                            <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['category']); ?>">
-                                                <?php echo esc_html($item['category']); ?>
-                                            </td>
-                                            <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['title']); ?>">
-                                                <?php echo esc_html($item['title']); ?>
-                                            </td>
-                                            <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['notes']); ?>">
-                                                <?php echo esc_html($item['notes']); ?>
-                                            </td>
-                                            <td class="text-single-line text-nowrap">
-                                                <?php echo DateTime::createFromFormat('Y-m-d', $item['date'])->format('jS M Y'); ?>
-                                            </td>
-                                            <td>
-                                                <select class="status-dropdown" data-id="<?php echo $item['id']; ?>">
-                                                    <option value="Yet To Start" <?php echo selected($item['status'], 'Yet To Start', false); ?>>⏳</option>
-                                                    <option value="In Progress" <?php echo selected($item['status'], 'In Progress', false); ?>>🔄</option>
-                                                    <option value="Completed" <?php echo selected($item['status'], 'Completed', false); ?>>✅</option>
-                                                </select>
-                                            </td>
-                                            <td class="actions">
-                                              <div>
-                                                <a href="#" class="edit edit-todo theme-btn" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup" data-id="<?php echo $item['id']; ?>">
-                                                    <i class="fa-solid fa-pen"></i>
-                                                </a>
-                                                <a href="#" class="delete theme-btn" data-id="<?php echo $item['id']; ?>">
-                                                    <i class="fa-regular fa-trash-can"></i>
-                                                </a>
-                                              </div>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
-                        <?php endforeach; ?>
-                        <?php endif; ?>
-                    </div>
-                </div>
+                  // Generate tables for each month
+                  foreach ($grouped_items as $month_year => $items): ?>
+                      <table class="mb-0">
+                      <tr><th class="todo-subhead text-align-start" colspan="7">
+                      <h4><span><?php echo $month_year; ?></span></h4>
+                      </th></tr>
+                      </table>
+                      <table class="vendor-list-table todo-list-table todo-table" id="todo-table-<?php echo str_replace(' ', '-', $month_year); ?>">
+                          <thead>
+                              <tr class="todo-check-title">
+                                  <th>Category</th>
+                                  <th>Task</th>
+                                  <th>Notes</th>
+                                  <th>Date</th>
+                                  <th>Status</th>
+                                  <th class="actions">Actions</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <?php foreach ($items as $item): ?>
+                                  <tr <?php echo ($item['completed'] == 1) ? 'class="text-decoration-line-through pe-none"' : ''; ?>>
+                                      <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['category']); ?>">
+                                          <?php echo esc_html($item['category']); ?>
+                                      </td>
+                                      <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['title']); ?>">
+                                          <?php echo esc_html($item['title']); ?>
+                                      </td>
+                                      <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['notes']); ?>">
+                                          <?php echo esc_html($item['notes']); ?>
+                                      </td>
+                                      <td class="text-single-line text-nowrap">
+                                          <?php echo DateTime::createFromFormat('Y-m-d', $item['date'])->format('jS M Y'); ?>
+                                      </td>
+                                      <td>
+                                          <select class="status-dropdown" data-id="<?php echo $item['id']; ?>">
+                                              <option value="Yet To Start" <?php echo selected($item['status'], 'Yet To Start', false); ?>>⏳</option>
+                                              <option value="In Progress" <?php echo selected($item['status'], 'In Progress', false); ?>>🔄</option>
+                                              <option value="Completed" <?php echo selected($item['status'], 'Completed', false); ?>>✅</option>
+                                          </select>
+                                      </td>
+                                      <td class="actions">
+                                        <div>
+                                          <a href="#" class="edit edit-todo theme-btn" data-bs-toggle="modal" data-bs-target="#edit-todolist-popup" data-id="<?php echo $item['id']; ?>">
+                                              <i class="fa-solid fa-pen"></i>
+                                          </a>
+                                          <a href="#" class="delete theme-btn" data-id="<?php echo $item['id']; ?>">
+                                              <i class="fa-regular fa-trash-can"></i>
+                                          </a>
+                                        </div>
+                                      </td>
+                                  </tr>
+                              <?php endforeach; ?>
+                          </tbody>
+                      </table>
+                  <?php endforeach; ?>
+                  <?php endif; ?>
+              </div>
+          </div>
 
           </div>
         </div>
