@@ -24,13 +24,13 @@ get_sidebar('dashboard');
             <h3 class="pageheader-title m-0">Vendors List</h3>
             <p class="m-0">Add your party vendors, then move your selected vendors to the "My Vendors" Page.</p>
           </div>
+          <a href="#" class="add-link-btn">Move to My Vendors</a>
         </div>
       </div>
       <div class="vendor">
         <div class="inner">
           <div class="todo-search-add-link justify-content-end">
             <div class="add-link">
-              <a href="#" class="add-link-btn">Move to My Vendors List</a>
                 <a href="#" class="" data-bs-toggle="modal" data-bs-target="#add-todolist-popup">Add Vendor</a>
             </div>
           </div>
