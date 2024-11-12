@@ -312,6 +312,7 @@ function create_todo_table() {
             date DATE NOT NULL,
             status VARCHAR(50) NOT NULL DEFAULT 'Yet To Start',
 			completed INT(1) NOT NULL DEFAULT 0,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (id)
         ) $charset_collate;";
 
