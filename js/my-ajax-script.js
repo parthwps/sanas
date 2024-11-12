@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
       
         tooltipTriggerEl.addEventListener('shown.bs.tooltip', () => {
           const tooltipElement = document.querySelector('.tooltip'); // Get the tooltip element
-          tooltipElement.style.top = `${parseInt(tooltipElement.style.top) - 5}px`; // Adjust top by -5px
-          tooltipElement.style.left = `${parseInt(tooltipElement.style.left) + 10}px`; // Adjust left by +10px
+          tooltipElement.style.top = `${parseInt(tooltipElement.style.top) - 10}px`; // Adjust top by -5px
+          tooltipElement.style.left = `${parseInt(tooltipElement.style.left) - 20}px`; // Adjust left by +10px
         });
       
         return tooltipInstance;
