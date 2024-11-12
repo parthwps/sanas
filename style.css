@@ -961,3 +961,6 @@ textarea {
 .table-box .vendor-table th, .table-box .vendor-table td {
     border: 1px solid #eee !important;
 }
+table.dataTable thead>tr>th.dt-orderable-asc, table.dataTable thead>tr>th.dt-orderable-desc{
+	padding-right: 20px;
+}
