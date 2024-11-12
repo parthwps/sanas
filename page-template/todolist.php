@@ -153,12 +153,12 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                                 <?php echo DateTime::createFromFormat('Y-m-d', $item['date'])->format('jS M Y'); ?>
                                             </td>
                                             <td>
-                                                <select class="status-dropdown mobile-dropdown" data-id="<?php echo $item['id']; ?>">
+                                                <select class="status-dropdown mediumfont mobile-dropdown" data-id="<?php echo $item['id']; ?>">
                                                     <option value="Yet To Start" <?php echo selected($item['status'], 'Yet To Start', false); ?>>⏳</option>
                                                     <option value="In Progress" <?php echo selected($item['status'], 'In Progress', false); ?>>🔄</option>
                                                     <option value="Completed" <?php echo selected($item['status'], 'Completed', false); ?>>✅</option>
                                                 </select>
-                                                <select class="status-dropdown desktop-dropdown" data-id="<?php echo $item['id']; ?>">
+                                                <select class="status-dropdown smallfont desktop-dropdown" data-id="<?php echo $item['id']; ?>">
                                                     <option value="Yet To Start" <?php echo selected($item['status'], 'Yet To Start', false); ?>>Yet To Start</option>
                                                     <option value="In Progress" <?php echo selected($item['status'], 'In Progress', false); ?>>In Progress</option>
                                                     <option value="Completed" <?php echo selected($item['status'], 'Completed', false); ?>>Completed</option>
