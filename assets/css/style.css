@@ -6536,7 +6536,7 @@ font-size: 18px;
     width: 80px !important;
 }
 .todo-list-table td:nth-last-child(2), .todo-list-table th:nth-last-child(2){
-    text-align: right;
+    text-align: right !important;
 }
 
 /* @media (max-width: 748px) {
