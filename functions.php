@@ -362,7 +362,6 @@ function add_todo_item() {
             'category' => $category,
             'notes' => $notes,
             'user_id' => $current_user_id,
-            'created_at' => current_time('mysql')
         )
     );
 
