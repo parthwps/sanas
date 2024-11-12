@@ -700,9 +700,18 @@ $totals = $wpdb->get_row(
                 }]
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 title: {
                     display: true,
                     text: 'Weather'
+                },
+                legend: {
+                    display: true,
+                    labels: {
+                        fontColor: "#333", // Legend text color
+                        fontSize: 12, // Legend text size
+                    }
                 }
             }
         });
