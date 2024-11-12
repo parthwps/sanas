@@ -1,6 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
     const tooltipTriggerList = document.querySelectorAll('[data-toggle="tooltip"]')
-    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => 
+        new bootstrap.Tooltip(tooltipTriggerEl, {
+          popperConfig: (defaultConfig) => {
+            const customConfig = {
+              ...defaultConfig,
+              modifiers: [
+                ...(defaultConfig.modifiers || []),
+                {
+                  name: 'offset',
+                  options: {
+                    offset: [0, -5], // Adjust the offset [horizontal, vertical]
+                  },
+                },
+              ],
+            };
+            return customConfig;
+          }
+        })
+      );
 
     // Function to show the modal
     function show_confirm_modal_html_alert() {
