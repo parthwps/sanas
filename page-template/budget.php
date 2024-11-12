@@ -512,24 +512,10 @@ if (array_reduce($js_expenses, fn($carry, $item) => $carry && ($item == 0 || $it
     }
 }
 ?>
-  <script>
+  <!-- <script>
     jQuery(document).ready(function () {
       if (jQuery('#donut-chart-1').length) {
-        var categories = <?php echo json_encode($js_categories); ?>;
-        var expenses = <?php echo json_encode($js_expenses); ?>;
-        function getRandomColor() {
-            var letters = '0123456789ABCDEF';
-            var color = '#';
-            for (var i = 0; i < 6; i++) {
-              color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-          }
-
-        // Generate random colors for each category
-        var randomColors = categories.map(function() {
-          return getRandomColor();
-        });
+        
         var options = {
             series: expenses,
             colors: randomColors,
@@ -570,18 +556,31 @@ if (array_reduce($js_expenses, fn($carry, $item) => $carry && ($item == 0 || $it
         chart.render();
     }
     });
-  </script>
+  </script> -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js'></script>
 <script>
       jQuery(document).ready(function() {
+        var categories = <?php echo json_encode($js_categories); ?>;
+        var expenses = <?php echo json_encode($js_expenses); ?>;
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+              color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+          }
+        var randomColors = categories.map(function() {
+          return getRandomColor();
+        });
         var ctx = jQuery("#chart-line2");
         var myLineChart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: ["Pending", "Sent"],
+                labels: categories,
                 datasets: [{
-                    data: [20, 50],
-                    backgroundColor: ["rgba(255, 0, 0, 0.5)", "rgba(100, 255, 0, 0.5)"]
+                    data: expenses,
+                    backgroundColor: randomColors
                 }]
             },
             options: {
