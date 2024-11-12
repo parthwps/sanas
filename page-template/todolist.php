@@ -176,8 +176,12 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                         <?php endforeach; ?>
 
                         <?php if (!$show_all && count($grouped_items) > 5): ?>
-                            <div class="show-all-button">
-                                <a href="?show_all=true" class="btn btn-primary">Show All Months</a>
+                            <div class="todo-search-add-link justify-content-end">
+                                <a href="?show_all=true" class="add-link">Show All</a>
+                            </div>
+                        <?php else: ?>
+                            <div class="todo-search-add-link justify-content-end">
+                                <a href="?show_all=false" class="add-link">Hide Extra</a>
                             </div>
                         <?php endif; ?>
 
