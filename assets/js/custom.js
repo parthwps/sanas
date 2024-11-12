@@ -460,7 +460,7 @@
             }
         });
         jQuery('.my-vendor-table').DataTable({
-            "ordering": false,
+            "ordering": true,
             columnDefs: [
                 { orderable: false, targets: [1, 2, 3, 4, 5] },
             ],
