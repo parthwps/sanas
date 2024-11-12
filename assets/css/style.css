@@ -6515,6 +6515,10 @@ font-size: 18px;
     width: 100px;
 }
 
+.my-vendor-table td:nth-child(4), .my-vendor-table th:nth-child(4){
+    text-align: left !important;
+}
+
 .todo-list-table td:first-child, .todo-list-table th:first-child{
     max-width: 100px !important;
     width: 100px !important;
