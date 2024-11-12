@@ -702,6 +702,7 @@ $totals = $wpdb->get_row(
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
+                cutoutPercentage: 100,
                 title: {
                     display: true,
                     text: 'Weather'
