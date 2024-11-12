@@ -423,6 +423,11 @@
         jQuery('.expense-list-table').DataTable({
             "ordering": false,
         });
+        if (!$.fn.DataTable.isDataTable('#budget-expense')) {
+            jQuery('#budget-expense').DataTable({
+                // Your DataTable options here
+            });
+        }
         // jQuery('.budget-table-sort').DataTable({
         //     columnDefs: [
         //         { orderable: false, targets: [0, 2, 3, 4, 5, 6] },
