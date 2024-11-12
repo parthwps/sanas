@@ -962,5 +962,5 @@ textarea {
     border: 1px solid #eee !important;
 }
 table.dataTable thead>tr>th.dt-orderable-asc, table.dataTable thead>tr>th.dt-orderable-desc{
-	padding-right: 20px;
+	padding-right: 20px !important;
 }
