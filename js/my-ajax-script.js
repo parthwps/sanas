@@ -45,9 +45,7 @@ if (window.location.pathname === '/budget/') {
             jQuery('#category-id-input').val(category); 
         })
         var table = jQuery('.budget-table-sort').DataTable({
-            columnDefs: [
-                { orderable: false, targets: [0, 1, 2, 3, 4, 5, 6] },
-            ],
+            "ordering": false,
             "createdRow": function (row, data, dataIndex) {
                 if (dataIndex === jQuery('.budget-table-sort').DataTable().data().length - 1) {
                     jQuery('td', row).each(function () {
