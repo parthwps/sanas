@@ -185,7 +185,7 @@ get_sidebar('dashboard');
 <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
 <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
 </div>
-</div> <canvas id="chart-line" width="299" height="340" class="chartjs-render-monitor" style="display: block; width: 299px; height: 340px;"></canvas>
+</div> <canvas id="chart-line2" width="299" height="340" class="chartjs-render-monitor" style="display: block; width: 299px; height: 340px;"></canvas>
                       </div>
                     </div>
                   </div>
@@ -574,7 +574,7 @@ if (array_reduce($js_expenses, fn($carry, $item) => $carry && ($item == 0 || $it
   <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js'></script>
 <script>
       jQuery(document).ready(function() {
-        var ctx = jQuery("#chart-line");
+        var ctx = jQuery("#chart-line2");
         var myLineChart = new Chart(ctx, {
             type: 'pie',
             data: {
