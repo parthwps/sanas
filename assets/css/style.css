@@ -6535,6 +6535,9 @@ font-size: 18px;
     max-width: 80px !important;
     width: 80px !important;
 }
+.todo-list-table td:nth-last-child(2), .todo-list-table th:nth-last-child(2){
+    text-align: right;
+}
 
 /* @media (max-width: 748px) {
     .vendor-list-table td:nth-child(3), .vendor-list-table td:nth-child(4), .vendor-list-table th:nth-child(3), .vendor-list-table th:nth-child(4) {
