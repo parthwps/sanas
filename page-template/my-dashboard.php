@@ -286,6 +286,11 @@ $totals = $wpdb->get_row(
                           <tbody>
                           <?php
                             $my_vendor_items = get_my_vendor_list_items();
+
+                            // Sort the vendor items by created_at in descending order
+                            usort($my_vendor_items, function($a, $b) {
+                                return strtotime($b['created_at']) - strtotime($a['created_at']);
+                            });
                             ?>
                             <?php if ($my_vendor_items): ?>
                                 <?php foreach ($my_vendor_items as $my_vendor): ?>
