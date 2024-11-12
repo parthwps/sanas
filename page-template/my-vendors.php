@@ -54,8 +54,11 @@ get_sidebar('dashboard');
                       <tbody>
                       <?php
                         $my_vendor_items = get_my_vendor_list_items();
+                        if ($my_vendor_items) {
+                            usort($my_vendor_items, function($a, $b) {
+                                return strtotime($b['created_at']) - strtotime($a['created_at']);
+                            });
                         ?>
-                        <?php if ($my_vendor_items): ?>
                             <?php foreach ($my_vendor_items as $my_vendor): ?>
                                 <tr>
                                     <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['category']); ?>"><?php echo esc_html($my_vendor['category']); ?></td>
@@ -77,7 +80,7 @@ get_sidebar('dashboard');
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
-                        <?php endif; ?>
+                        <?php } ?>
                       </tbody>
                       </table>
                     </div>

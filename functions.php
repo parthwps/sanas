@@ -732,8 +732,11 @@ function add_my_vendor_item() {
     );
 
     if ($wpdb->insert_id) {
-        // Fetch the updated list of vendors
+        // Fetch the updated list of vendors sorted by created_at in descending order
         $my_vendor_items = get_my_vendor_list_items();
+        usort($my_vendor_items, function($a, $b) {
+            return strtotime($b['created_at']) - strtotime($a['created_at']);
+        });
         ob_start();
         foreach ($my_vendor_items as $my_vendor) {
             ?>  
