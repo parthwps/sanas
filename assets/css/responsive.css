@@ -1612,7 +1612,7 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile {
     div.dt-container div.dt-layout-row {
         justify-content: center;
     }
-    .dt-layout-row:first-child {
+    div.dt-container div.dt-layout-row:first-child {
         justify-content: space-between;
     }
     .hero-detaile-inner{
