@@ -693,7 +693,7 @@ $totals = $wpdb->get_row(
         var myLineChart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: ["Spring", "Summer"],
+                labels: ["Pending", "Sent"],
                 datasets: [{
                     data: [20, 50],
                     backgroundColor: ["rgba(255, 0, 0, 0.5)", "rgba(100, 255, 0, 0.5)"]
