@@ -97,7 +97,7 @@ get_sidebar('dashboard');
               <p>Select from below categories or add new category, then enter expense for each</p>
             </div>
             <div class="link ml-auto">
-              <a href="javascript:void(0);">Clear Budget</a>
+              <a href="javascript:void(0);" class="text-nowrap">Clear Budget</a>
             </div>
           </div>
           <div class="budget-man-box">
@@ -182,7 +182,7 @@ get_sidebar('dashboard');
                       </div>
                     </div>
                   </div>
-                  <p class="text-center mb-3 px-3">Scroll Down To Add Expenses Under Each Category</p>
+                  <!-- <p class="text-center mb-3 px-3">Scroll Down To Add Expenses Under Each Category</p> -->
                 </div>
               </div>
             </div>
