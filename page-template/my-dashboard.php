@@ -702,6 +702,7 @@ $totals = $wpdb->get_row(
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
+                cutoutPercentage: 0,
                 layout: {
                     padding: {
                         top: 10,
