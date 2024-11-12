@@ -126,7 +126,7 @@ get_sidebar('dashboard');
                         <tbody>
                             <?php
                         $vendor_items = get_vendor_list_items();
-                        
+
                         if (empty($vendor_items)) {
                             global $wpdb;
                             $current_user_id = get_current_user_id();
@@ -149,6 +149,11 @@ get_sidebar('dashboard');
                             // Refresh vendor items after insert
                             $vendor_items = get_vendor_list_items();
                         }
+
+                        // Sort vendor items by created_at in descending order
+                        usort($vendor_items, function($a, $b) {
+                            return strtotime($b['created_at']) - strtotime($a['created_at']);
+                        });
                         
                         if ($vendor_items): ?>
                             <?php foreach ($vendor_items as $vendor): ?>
