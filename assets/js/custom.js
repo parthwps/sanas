@@ -420,7 +420,7 @@
                 { orderable: false, targets: [1, 2, 3, 4, 5] },
             ]
         });
-        jQuery('.budget-table-sort').DataTable({
+        jQuery('.expense-list-table').DataTable({
             "ordering": false,
         });
         // jQuery('.budget-table-sort').DataTable({
