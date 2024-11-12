@@ -413,8 +413,7 @@
     }
     // guest-list data table
     if (jQuery('.table-responsive').length) {
-        jQuery('#guest-list-Table').DataTable();
-        jQuery('.my-vendor-table').DataTable({
+        jQuery('#guest-list-Table').DataTable({
             "ordering": false,
             columnDefs: [
                 { orderable: false, targets: [1, 2, 3, 4, 5] },
@@ -459,6 +458,12 @@
             language: {
                 info: ""
             }
+        });
+        jQuery('.my-vendor-table').DataTable({
+            "ordering": false,
+            columnDefs: [
+                { orderable: false, targets: [1, 2, 3, 4, 5] },
+            ],
         });
     }
     if (jQuery('.registry').length) {
