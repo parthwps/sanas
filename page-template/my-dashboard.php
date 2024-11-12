@@ -160,7 +160,15 @@ $totals = $wpdb->get_row(
               </div>
             </div>
             <div class="graph-box">
-              <div id="guest_attending"></div>
+              <!-- <div id="guest_attending"></div> -->
+              <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                                <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                    <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                                </div>
+                            </div> <canvas id="chart-line" width="299" height="200" class="chartjs-render-monitor" style="display: block; width: 299px; height: 200px;"></canvas>
             </div>
           </div>
         </div>
@@ -678,8 +686,28 @@ $totals = $wpdb->get_row(
 
 <?php render_confirm_modal_html_alert(); ?>
 <?php render_modal_html_alert(); ?>
-
-
-  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js'></script>
+<script>
+      jQuery(document).ready(function() {
+        var ctx = jQuery("#chart-line");
+        var myLineChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ["Spring", "Summer", "Fall", "Winter"],
+                datasets: [{
+                    data: [1200, 1700, 800, 200],
+                    backgroundColor: ["rgba(255, 0, 0, 0.5)", "rgba(100, 255, 0, 0.5)", "rgba(200, 50, 255, 0.5)", "rgba(0, 100, 255, 0.5)"]
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Weather'
+                }
+            }
+        });
+    });
+    </script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> -->
 <?php
 get_footer('dashboard');
