@@ -944,3 +944,17 @@ textarea {
     overflow-wrap: anywhere;
     white-space: normal;
 }
+.mobile-dropdown{
+	display: none;
+}
+.desktop-dropdown{
+	display: block;
+}
+@media only screen and (max-width:550px){
+	.mobile-dropdown{
+		display: block;
+	}
+	.desktop-dropdown{
+		display: none;
+	}
+}
