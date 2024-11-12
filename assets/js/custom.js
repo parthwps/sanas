@@ -425,7 +425,7 @@
         });
         if (!$.fn.DataTable.isDataTable('#budget-expense')) {
             jQuery('#budget-expense').DataTable({
-                // Your DataTable options here
+                "ordering": false,
             });
         }
         // jQuery('.budget-table-sort').DataTable({
