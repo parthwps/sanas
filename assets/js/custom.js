@@ -420,9 +420,9 @@
                 { orderable: false, targets: [1, 2, 3, 4, 5] },
             ]
         });
-        jQuery('.expense-list-table').DataTable({
+        jQuery('.budget-table-sort').DataTable({
             columnDefs: [
-                { orderable: false, targets: [0,1,2,3,4,5,6] },
+                { orderable: false, targets: [0,1, 2, 3, 4, 5, 6] },
             ],
         });
         // jQuery('.budget-table-sort').DataTable({
