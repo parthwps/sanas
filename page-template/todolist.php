@@ -108,11 +108,16 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                         }
 // <span class="year-text">' . $item_year . '</span>'
                         // Generate tables for each month
-                        foreach ($grouped_items as $month_year => $items): ?>
+                        $month_count = 0;
+                        $show_all = isset($_GET['show_all']) && $_GET['show_all'] == 'true';
+
+                        foreach ($grouped_items as $month_year => $items): 
+                            if ($month_count >= 5 && !$show_all) break;
+                            $month_count++;
+                        ?>
                             <table class="mb-0">
                             <tr><th class="todo-subhead text-align-start" colspan="6">
                             <?php
-                            $month_year = $month_year;
                             $month_year = explode(" ", $month_year);
                             ?>
                             <h4><?php echo $month_year[0]; ?> <span class="year-text"><?php echo $month_year[1]; ?></span></h4>
@@ -169,6 +174,13 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                 </tbody>
                             </table>
                         <?php endforeach; ?>
+
+                        <?php if (!$show_all && count($grouped_items) > 5): ?>
+                            <div class="show-all-button">
+                                <a href="?show_all=true" class="btn btn-primary">Show All Months</a>
+                            </div>
+                        <?php endif; ?>
+
                         <?php endif; ?>
                     </div>
                 </div>
