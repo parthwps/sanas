@@ -461,7 +461,7 @@
         });
         jQuery('.my-vendor-table').DataTable({
             columnDefs: [
-                { orderable: false, targets: [0, 2, 3, 4, 5] },
+                { orderable: false, targets: [1, 2, 3, 4, 5] },
             ],
         });
     }
