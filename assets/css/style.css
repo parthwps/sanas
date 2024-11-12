@@ -6477,7 +6477,7 @@ font-size: 18px;
 
 .table-box .vendor-table th {
     line-height: 24px;
-    padding: 20px 15px;
+    padding: 20px 20px;
     border-bottom: 1px solid #ddd !important;
     font-weight: 500;
     color: var(--snas-text-black);
