@@ -452,6 +452,8 @@
         jQuery('.todo-table').DataTable({
             searching: false,
             paging: false,
+            "order": [],
+            "ordering": true,
             columnDefs: [
                 { orderable: false, targets: [0, 2, 3, 4, 5] },
             ],
