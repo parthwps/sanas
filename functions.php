@@ -312,6 +312,7 @@ function create_todo_table() {
             date DATE NOT NULL,
             status VARCHAR(50) NOT NULL DEFAULT 'Yet To Start',
 			completed INT(1) NOT NULL DEFAULT 0,
+            created_at current_time('mysql'),
             PRIMARY KEY (id)
         ) $charset_collate;";
 
@@ -361,6 +362,7 @@ function add_todo_item() {
             'category' => $category,
             'notes' => $notes,
             'user_id' => $current_user_id,
+            'created_at' => current_time('mysql')
         )
     );
 
