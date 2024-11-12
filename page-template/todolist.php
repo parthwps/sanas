@@ -112,7 +112,7 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                             <table class="mb-0">
                             <tr><th class="todo-subhead text-align-start" colspan="6">
                             <?php
-                            $month_year = "January 2024";
+                            $month_year = $month_year;
                             $month_year = explode(" ", $month_year);
                             ?>
                             <h4><?php echo $month_year[0]; ?> <span class="year-text"><?php echo $month_year[1]; ?></span></h4>
