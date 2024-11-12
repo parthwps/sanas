@@ -312,6 +312,7 @@ function create_todo_table() {
             date DATE NOT NULL,
             status VARCHAR(50) NOT NULL DEFAULT 'Yet To Start',
 			completed INT(1) NOT NULL DEFAULT 0,
+            created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (id)
         ) $charset_collate;";
 
@@ -1251,7 +1252,7 @@ function get_expense_list($category_id) {
 add_action('wp_ajax_get_expenses_ajax', 'get_expenses_ajax_handler');
 function get_expenses_ajax_handler() {
     $expenses = get_expense_list();
-    
+
     // Sort expenses by 'created_at' in descending order
     usort($expenses, function($a, $b) {
         return strtotime($b['created_at']) - strtotime($a['created_at']);
