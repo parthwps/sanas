@@ -938,3 +938,9 @@ textarea {
 .ml-auto{
 	margin-left: auto;
 }
+.profile-info-text{
+	word-wrap: break-word;
+    word-break: break-all;
+    overflow-wrap: anywhere;
+    white-space: normal;
+}
