@@ -958,3 +958,6 @@ textarea {
 		display: none;
 	}
 }
+.table-box .vendor-table th, .table-box .vendor-table td {
+    border: 1px solid #eee !important;
+}
