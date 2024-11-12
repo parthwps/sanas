@@ -421,13 +421,10 @@
             ]
         });
         jQuery('.expense-list-table').DataTable({
-            "ordering": false,
+            columnDefs: [
+                { orderable: false, targets: [0,1,2,3,4,5,6] },
+            ],
         });
-        if (!$.fn.DataTable.isDataTable('#budget-expense')) {
-            jQuery('#budget-expense').DataTable({
-                "ordering": false,
-            });
-        }
         // jQuery('.budget-table-sort').DataTable({
         //     columnDefs: [
         //         { orderable: false, targets: [0, 2, 3, 4, 5, 6] },
