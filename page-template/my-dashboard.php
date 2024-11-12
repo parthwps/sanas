@@ -380,7 +380,11 @@ $totals = $wpdb->get_row(
                   foreach ($grouped_items as $month_year => $items): ?>
                       <table class="mb-0">
                       <tr><th class="todo-subhead text-align-start" colspan="7">
-                      <h4><span><?php echo $month_year; ?></span></h4>
+                      <?php
+                            $month_year = $month_year;
+                            $month_year = explode(" ", $month_year);
+                            ?>
+                            <h4><?php echo $month_year[0]; ?> <span class="year-text"><?php echo $month_year[1]; ?></span></h4>
                       </th></tr>
                       </table>
                       <table class="vendor-list-table todo-list-table todo-table" id="todo-table-<?php echo str_replace(' ', '-', $month_year); ?>">
