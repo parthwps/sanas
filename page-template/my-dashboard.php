@@ -688,8 +688,8 @@ $totals = $wpdb->get_row(
 <?php render_modal_html_alert(); ?>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js'></script>
 <script>
-    $(document).ready(function () {
-        var ctx = $("#chart-line");
+      jQuery(document).ready(function() {
+        var ctx = jQuery("#chart-line");
         var myLineChart = new Chart(ctx, {
             type: 'pie',
             data: {
@@ -700,50 +700,14 @@ $totals = $wpdb->get_row(
                 }]
             },
             options: {
-                responsive: true,
-                maintainAspectRatio: false, // Allow full-width adjustment
                 title: {
                     display: true,
                     text: 'Weather'
-                },
-                legend: {
-                    display: true,
-                    labels: {
-                        fontColor: "#333", // Legend text color
-                        fontSize: 12, // Legend text size
-                    }
                 }
             }
         });
     });
-</script>
-
-<div class="page-content page-container" id="page-content">
-    <div class="padding">
-        <div class="row">
-            <div class="container-fluid d-flex justify-content-center">
-                <div class="col-12">
-                    <!-- Full-width card -->
-                    <div class="card">
-                        <div class="card-header">Pie Chart</div>
-                        <div class="card-body" style="height: 500px;">
-                            <canvas id="chart-line"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<style>
-/* Make the canvas full width */
-#chart-line {
-    width: 100% !important;
-    height: auto !important;
-}
-</style>
-
+    </script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> -->
 <?php
 get_footer('dashboard');
