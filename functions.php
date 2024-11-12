@@ -306,6 +306,7 @@ function create_todo_table() {
 
         $sql = "CREATE TABLE $table_name (
             id INT NOT NULL AUTO_INCREMENT,
+            user_id INT NOT NULL,
             title VARCHAR(255) NOT NULL,
             category VARCHAR(255) NOT NULL,
             notes TEXT,
