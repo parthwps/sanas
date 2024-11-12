@@ -712,8 +712,10 @@ $totals = $wpdb->get_row(
                     position: 'bottom',
                     display: true,
                     labels: {
-                        fontColor: "#333", // Legend text color
-                        fontSize: 12, // Legend text size
+                        fontColor: "#333",
+                        fontSize: 12,
+                        width: 10,
+                        padding: 10
                     }
                 }
             }
