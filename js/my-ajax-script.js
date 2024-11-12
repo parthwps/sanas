@@ -1,16 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const tooltipTriggerList = document.querySelectorAll('[data-toggle="tooltip"]')
-    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => {
-        const tooltipInstance = new bootstrap.Tooltip(tooltipTriggerEl);
-      
-        tooltipTriggerEl.addEventListener('shown.bs.tooltip', () => {
-          const tooltipElement = document.querySelector('.tooltip'); // Get the tooltip element
-          tooltipElement.style.top = `${parseInt(tooltipElement.style.top) - 50}px`; // Adjust top by -5px
-          tooltipElement.style.left = `${parseInt(tooltipElement.style.left) - 20}px`; // Adjust left by +10px
-        });
-      
-        return tooltipInstance;
-      });
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
     // Function to show the modal
     function show_confirm_modal_html_alert() {

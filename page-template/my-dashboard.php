@@ -270,7 +270,7 @@ $totals = $wpdb->get_row(
                               <th>Email</th>
                               <th>Ph#</th>
                               <th>Notes</th>
-                              <th class="text-single-line" data-toggle="tooltip" data-bs-original-title="Social Madia Profile">Social Madia Profile</th>
+                              <th class="text-single-line"  data-toggle="tooltip" data-bs-offset="0,-5" data-bs-original-title="Social Madia Profile">Social Madia Profile</th>
                               <th>Pricing</th>
                               <th class="actions">Actions</th>
                             </tr>
@@ -283,12 +283,12 @@ $totals = $wpdb->get_row(
                                 <?php foreach ($my_vendor_items as $my_vendor): ?>
                                     <tr>
                                         <!-- <td><input type="checkbox"></td> -->
-                                        <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['category']); ?>"><?php echo esc_html($my_vendor['category']); ?></td>
-                                        <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['name']); ?>"><?php echo esc_html($my_vendor['name']); ?></td>
-                                        <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['email']); ?>"><?php echo esc_html($my_vendor['email']); ?></td>
-                                        <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['phone']); ?>"><?php echo esc_html($my_vendor['phone']); ?></td>
-                                        <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['notes']); ?>"><?php echo esc_html($my_vendor['notes']); ?></td>
-                                        <td class="text-single-line" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($my_vendor['social_media_profile']); ?>"><?php echo esc_html($my_vendor['social_media_profile']); ?></td>
+                                        <td class="text-single-line text-capitalize"  data-toggle="tooltip" data-bs-offset="0,-5" data-bs-original-title="<?php echo esc_html($my_vendor['category']); ?>"><?php echo esc_html($my_vendor['category']); ?></td>
+                                        <td class="text-single-line text-capitalize"  data-toggle="tooltip" data-bs-offset="0,-5" data-bs-original-title="<?php echo esc_html($my_vendor['name']); ?>"><?php echo esc_html($my_vendor['name']); ?></td>
+                                        <td class="text-single-line"  data-toggle="tooltip" data-bs-offset="0,-5" data-bs-original-title="<?php echo esc_html($my_vendor['email']); ?>"><?php echo esc_html($my_vendor['email']); ?></td>
+                                        <td class="text-single-line text-capitalize"  data-toggle="tooltip" data-bs-offset="0,-5" data-bs-original-title="<?php echo esc_html($my_vendor['phone']); ?>"><?php echo esc_html($my_vendor['phone']); ?></td>
+                                        <td class="text-single-line text-capitalize"  data-toggle="tooltip" data-bs-offset="0,-5" data-bs-original-title="<?php echo esc_html($my_vendor['notes']); ?>"><?php echo esc_html($my_vendor['notes']); ?></td>
+                                        <td class="text-single-line"  data-toggle="tooltip" data-bs-offset="0,-5" data-bs-original-title="<?php echo esc_html($my_vendor['social_media_profile']); ?>"><?php echo esc_html($my_vendor['social_media_profile']); ?></td>
                                         <td>$<?php echo esc_html($my_vendor['pricing']); ?></td>
                                         <td class="actions">
                                           <div>
@@ -389,13 +389,13 @@ $totals = $wpdb->get_row(
                           <tbody>
                               <?php foreach ($items as $item): ?>
                                   <tr <?php echo ($item['completed'] == 1) ? 'class="text-decoration-line-through pe-none"' : ''; ?>>
-                                      <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['category']); ?>">
+                                      <td class="text-single-line text-capitalize"  data-toggle="tooltip" data-bs-offset="0,-5" data-bs-original-title="<?php echo esc_html($item['category']); ?>">
                                           <?php echo esc_html($item['category']); ?>
                                       </td>
-                                      <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['title']); ?>">
+                                      <td class="text-single-line text-capitalize"  data-toggle="tooltip" data-bs-offset="0,-5" data-bs-original-title="<?php echo esc_html($item['title']); ?>">
                                           <?php echo esc_html($item['title']); ?>
                                       </td>
-                                      <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['notes']); ?>">
+                                      <td class="text-single-line text-capitalize"  data-toggle="tooltip" data-bs-offset="0,-5" data-bs-original-title="<?php echo esc_html($item['notes']); ?>">
                                           <?php echo esc_html($item['notes']); ?>
                                       </td>
                                       <td class="text-single-line text-nowrap">
