@@ -99,6 +99,11 @@ jQuery('.budget-category-item .ttl').on('click', function() {
                     return;
                 }
 
+                // Sort expenses by created_at in descending order
+                expenses.sort(function(a, b) {
+                    return new Date(b.created_at) - new Date(a.created_at);
+                });
+
                 var total_estimated = 0;
                 var total_actual = 0;
                 var total_paid = 0;
