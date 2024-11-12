@@ -706,8 +706,7 @@ $totals = $wpdb->get_row(
                     padding: 0
                 },
                 title: {
-                    display: true,
-                    text: 'Weather'
+                    display: false
                 },
                 legend: {
                     display: true,
