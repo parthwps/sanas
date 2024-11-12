@@ -404,7 +404,11 @@ $totals = $wpdb->get_row(
                               </tr>
                           </thead>
                           <tbody>
+                              <?php usort($items, function($a, $b) {
+                                  return strtotime($b['created_at']) - strtotime($a['created_at']);
+                              }); ?>
                               <?php foreach ($items as $item): ?>
+                                
                                   <tr <?php echo ($item['completed'] == 1) ? 'class="text-decoration-line-through pe-none"' : ''; ?>>
                                       <td class="text-single-line text-capitalize"  data-toggle="tooltip" data-bs-offset="0,-5" data-bs-original-title="<?php echo esc_html($item['category']); ?>">
                                           <?php echo esc_html($item['category']); ?>
