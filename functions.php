@@ -1368,6 +1368,7 @@ function add_default_budget_data_on_user_registration($user_id) {
             'category' => 'General',
             'notes'    => 'This is a sample task for new users.',
             'user_id'  => $user_id,
+            'created_at' => current_time('mysql'),
         ]
     );
 
