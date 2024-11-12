@@ -278,6 +278,9 @@ get_sidebar('dashboard');
                     $total_due = 0;
                     
                     if (!empty($expenses)) {
+                        usort($expenses, function($a, $b) {
+                            return strtotime($b['created_at']) - strtotime($a['created_at']);
+                        });
                         foreach ($expenses as $expense) {
                             $total_estimated += $expense['estimated_cost'];
                             $total_actual += $expense['actual_cost']; 
