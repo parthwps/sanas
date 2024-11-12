@@ -127,7 +127,7 @@ $totals = $wpdb->get_row(
       <div class="row">
         <?php if ($get_event) {?>
         <div class="attend-info col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-          <a href="/my-events/" class="full-div-link">My Events</a>
+          <a href="/my-events/" class="full-div-link"></a>
           <div class="inner">
             <div class="event-title-2 mb-5">
               <h4><a href="/my-events/" class="text-black">My Events</a></h4>
@@ -154,7 +154,7 @@ $totals = $wpdb->get_row(
           </div>
         </div>
         <div class="attend-info col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-          <a href="/user-dashboard/?dashboard=guestlist&card_id=<?php echo $get_event[0]->event_card_id; ?>&event_id=<?php echo $get_event[0]->event_no; ?>" class="full-div-link">Guest List</a>
+          <a href="/user-dashboard/?dashboard=guestlist&card_id=<?php echo $get_event[0]->event_card_id; ?>&event_id=<?php echo $get_event[0]->event_no; ?>" class="full-div-link"></a>
           <div class="inner">
             <div class="title-box">
               <div class="title graph">
