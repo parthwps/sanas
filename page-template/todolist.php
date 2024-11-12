@@ -176,7 +176,7 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                         <?php endforeach; ?>
 
                         <?php if (!$show_all && count($grouped_items) > 5): ?>
-                            <div class="todo-search-add-link justify-content-end">
+                            <div class="todo-search-add-link justify-content-center">
                                 <a href="?show_all=true" class="dashbord-btn">Show All</a>
                             </div>
                         <?php //else: ?>
