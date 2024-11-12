@@ -178,7 +178,14 @@ get_sidebar('dashboard');
                     <div class="graph-box">
                       <div class="title">Total Budget</div>
                       <div class="graph">
-                        <div id="donut-chart-1"></div>
+                      <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+<div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+<div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+</div>
+<div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+<div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+</div>
+</div> <canvas id="chart-line" width="299" height="340" class="chartjs-render-monitor" style="display: block; width: 299px; height: 340px;"></canvas>
                       </div>
                     </div>
                   </div>
@@ -564,7 +571,42 @@ if (array_reduce($js_expenses, fn($carry, $item) => $carry && ($item == 0 || $it
     }
     });
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js'></script>
+<script>
+      jQuery(document).ready(function() {
+        var ctx = jQuery("#chart-line");
+        var myLineChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ["Pending", "Sent"],
+                datasets: [{
+                    data: [20, 50],
+                    backgroundColor: ["rgba(255, 0, 0, 0.5)", "rgba(100, 255, 0, 0.5)"]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                layout: {
+                    padding: 0
+                },
+                title: {
+                    display: false
+                },
+                legend: {
+                    position: 'bottom',
+                    display: true,
+                    labels: {
+                        fontColor: "#333",
+                        fontSize: 12,
+                        boxWidth: 10,
+                        padding: 10
+                    }
+                }
+            }
+        });
+    });
+    </script>
 <?php render_confirm_modal_html_alert(); ?>
 <?php render_modal_html_alert(); ?>
 <?php
