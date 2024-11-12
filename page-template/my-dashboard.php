@@ -382,9 +382,14 @@ $totals = $wpdb->get_row(
                       }
                       $grouped_items[$current_item_month_year][] = $item; // Add the item to the respective month
                   }
+                  $month_count = 0;
+                  $show_all = isset($_GET['show_all']) && $_GET['show_all'] == 'true';
 
                   // Generate tables for each month
-                  foreach ($grouped_items as $month_year => $items): ?>
+                  foreach ($grouped_items as $month_year => $items):
+                    if ($month_count >= 5 && !$show_all) break;
+                    $month_count++;
+                    ?>
                       <table class="mb-0">
                       <tr><th class="todo-subhead text-align-start" colspan="7">
                       <?php
@@ -409,7 +414,8 @@ $totals = $wpdb->get_row(
                               <?php usort($items, function($a, $b) {
                                   return strtotime($b['created_at']) - strtotime($a['created_at']);
                               }); ?>
-                              <?php foreach ($items as $item): ?>
+                              <?php
+                              foreach ($items as $item): ?>
                                 
                                   <tr <?php echo ($item['completed'] == 1) ? 'class="text-decoration-line-through pe-none"' : ''; ?>>
                                       <td class="text-single-line text-capitalize"  data-toggle="tooltip" data-bs-offset="0,-5" data-bs-original-title="<?php echo esc_html($item['category']); ?>">
@@ -451,6 +457,11 @@ $totals = $wpdb->get_row(
                           </tbody>
                       </table>
                   <?php endforeach; ?>
+                  <?php if (!$show_all && count($grouped_items) > 5): ?>
+                            <div class="todo-search-add-link justify-content-center">
+                                <a href="?show_all=true" class="dashbord-btn">Show All</a>
+                            </div>
+                        <?php endif; ?>
                   <?php endif; ?>
               </div>
           </div>
