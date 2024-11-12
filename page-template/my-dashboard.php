@@ -714,7 +714,7 @@ $totals = $wpdb->get_row(
                     labels: {
                         fontColor: "#333",
                         fontSize: 12,
-                        width: 10,
+                        boxWidth: 10,
                         padding: 10
                     }
                 }
