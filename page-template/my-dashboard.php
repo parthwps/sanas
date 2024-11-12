@@ -346,14 +346,14 @@ $totals = $wpdb->get_row(
         ?>
         <div class="wed-cat-info todo-list col-12">
           <div class="inner">
-            <div class="todo-search-add-link justify-content-end">
-              <div class="add-link"><a href="#" class="dashbord-btn" data-bs-toggle="modal" data-bs-target="#add-todolist-popup"><i class="icon-plus"></i> Add Task</a>
-              </div>
-            </div>
             <div class="dashboard-todo-list-header">
               <div class="title-box">
                 <h5 class="pageheader-title mb-3"><a href="/to-do-list/" class="text-black">To Do List</a></h5>
               </div>
+              <div class="todo-search-add-link justify-content-end">
+              <div class="add-link"><a href="#" class="dashbord-btn" data-bs-toggle="modal" data-bs-target="#add-todolist-popup"><i class="icon-plus"></i> Add Task</a>
+              </div>
+            </div>
             </div>
             <div class="to-do-table-box table-box upcoming-tasks">
               <div class="vendor-table table-responsive m-0">
