@@ -132,7 +132,7 @@ $totals = $wpdb->get_row(
               <h4><a href="/my-events/" class="text-black">My Events</a></h4>
             </div>
             <div class="inner-box">
-              <a href="/user-dashboard/?dashboard=guestlist&card_id=<?php echo $get_event[0]->event_card_id; ?>&event_id=<?php echo $get_event[0]->event_no; ?>" class="flip-container" style="background-color:#dc587f;">
+              <a href="/user-dashboard/?dashboard=cover&card_id=<?php echo $get_event[0]->event_card_id; ?>&event_id=<?php echo $get_event[0]->event_no; ?>" class="flip-container" style="background-color:#dc587f;">
                 <div class="flipper">
                   <div class="front">
                     <img src="<?php echo $event_front_card_preview; ?>" alt="template">
@@ -156,7 +156,7 @@ $totals = $wpdb->get_row(
           <div class="inner">
             <div class="title-box">
               <div class="title graph">
-                <h4><a href="#" class="text-black">Guests Attending</a></h4>
+                <h4><a href="/user-dashboard/?dashboard=guestlist&card_id=<?php echo $get_event[0]->event_card_id; ?>&event_id=<?php echo $get_event[0]->event_no; ?>" class="text-black">Guests Attending</a></h4>
               </div>
             </div>
             <div class="graph-box">
