@@ -168,7 +168,7 @@ $totals = $wpdb->get_row(
                                 <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
                                     <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
                                 </div>
-                            </div> <canvas id="chart-line" width="299" height="200" class="chartjs-render-monitor" style="display: block; width: 299px; height: 200px;"></canvas>
+                            </div> <canvas id="chart-line" width="299" height="299" class="chartjs-render-monitor" style="display: block; width: 299px; height: 299px;"></canvas>
             </div>
           </div>
         </div>
