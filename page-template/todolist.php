@@ -130,11 +130,10 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php 
-                                    usort($vendor_items, function($a, $b) {
+                                    <?php usort($items, function($a, $b) {
                                         return strtotime($b['created_at']) - strtotime($a['created_at']);
-                                    });
-                                    foreach ($items as $item): ?>
+                                    }); ?>
+                                    <?php foreach ($items as $item): ?>
                                         <tr <?php echo ($item['completed'] == 1) ? 'class="text-decoration-line-through pe-none"' : ''; ?>>
                                             <td class="text-single-line text-capitalize" data-toggle="tooltip" data-bs-original-title="<?php echo esc_html($item['category']); ?>">
                                                 <?php echo esc_html($item['category']); ?>
