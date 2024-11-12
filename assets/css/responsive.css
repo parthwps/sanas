@@ -948,8 +948,9 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile .guest-count {
     .delete-btn>.deletebtn{
         font-size: 14px;
     }
-    tr.todo-check-title th:nth-child(1), tr.todo-check-title th:nth-child(4), .todo-list tr td:nth-child(1), .todo-list tr td:nth-child(4),
-    .todo-list-table colgroup col:nth-child(1), .todo-list-table colgroup col:nth-child(4){
+    tr.todo-check-title th:nth-child(1), tr.todo-check-title th:nth-child(3), tr.todo-check-title th:nth-child(4),
+    .todo-list tr td:nth-child(1), .todo-list tr td:nth-child(3), .todo-list tr td:nth-child(4),
+    .todo-list-table colgroup col:nth-child(1), .todo-list-table colgroup col:nth-child(3), .todo-list-table colgroup col:nth-child(4){
         display: none;
     }
     .lower-box .table-box .table th:nth-child(4),.lower-box .table-box .table td:nth-child(4), .lower-box .table-box .table th:nth-child(5),.lower-box .table-box .table td:nth-child(5){
