@@ -562,16 +562,17 @@ if (array_reduce($js_expenses, fn($carry, $item) => $carry && ($item == 0 || $it
       jQuery(document).ready(function() {
         var categories = <?php echo json_encode($js_categories); ?>;
         var expenses = <?php echo json_encode($js_expenses); ?>;
-        function getRandomColor() {
-            var letters = '0123456789ABCDEF';
+        function getRandomLightColor() {
+            var letters = '89ABCDEF'; // Start with lighter values (higher values) for more lightness
             var color = '#';
             for (var i = 0; i < 6; i++) {
-              color += letters[Math.floor(Math.random() * 16)];
+                color += letters[Math.floor(Math.random() * letters.length)];
             }
             return color;
-          }
+        }
+
         var randomColors = categories.map(function() {
-          return getRandomColor();
+            return getRandomLightColor();
         });
         var ctx = jQuery("#chart-line2");
         var myLineChart = new Chart(ctx, {
