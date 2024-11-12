@@ -1182,7 +1182,7 @@ function create_budget_expense_table() {
             estimated_cost DECIMAL(10, 2),
             actual_cost DECIMAL(10, 2),
             paid DECIMAL(10, 2),
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            created_at current_time('mysql'),
             PRIMARY KEY (id)
         ) $charset_collate;";
 
@@ -1215,7 +1215,7 @@ function add_expense_handler() {
             'estimated_cost' => $estimated_cost,
             'actual_cost' => $actual_cost,
             'paid' => $paid,
-            'created_at' => current_time('mysql', 1)
+            'created_at' => current_time('mysql')
         ]
     );
 
@@ -1251,6 +1251,12 @@ function get_expense_list($category_id) {
 add_action('wp_ajax_get_expenses_ajax', 'get_expenses_ajax_handler');
 function get_expenses_ajax_handler() {
     $expenses = get_expense_list();
+    
+    // Sort expenses by 'created_at' in descending order
+    usort($expenses, function($a, $b) {
+        return strtotime($b['created_at']) - strtotime($a['created_at']);
+    });
+
     $total_estimated = 0;
     $total_actual = 0;
     $total_paid = 0;
