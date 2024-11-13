@@ -1133,6 +1133,11 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile {
         text-align: center;
     }
 
+    .vendor-table-list td:last-child, .vendor-table-list th:last-child{
+        max-width: 35px !important;
+        width: 35px !important;
+    }
+
     .my-vendor-table td:last-child, .my-vendor-table th:last-child {
         max-width: 48px !important;
         width: 48px !important;
