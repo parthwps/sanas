@@ -1123,8 +1123,8 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile {
     }
 
     .todo-list-table td:last-child, .todo-list-table th:last-child {
-        max-width: 30px !important;
-        width: 30px !important;
+        max-width: 35px !important;
+        width: 35px !important;
     }
 
     .todo-table-list table.dataTable thead>tr>th:nth-child(2) .dt-column-title {
