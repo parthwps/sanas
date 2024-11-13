@@ -87,7 +87,7 @@ $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_coun
         <div class="tasks-col to-do-list-table d-table-block col-xl-12 col-lg-12 col-md-12 col-sm-12">
             <div class="inner-box3">
                 <div class="table-box upcoming-tasks">
-                    <div class="vendor-table table-responsive m-0">
+                    <div class="vendor-table table-responsive todo-table-list m-0">
                         <?php
                         $vendor_items = get_vendor_list_items();
                         ?>
