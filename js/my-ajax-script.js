@@ -760,12 +760,12 @@ if (window.location.pathname === '/vendors-list/') {
 
                     // Function to handle the AJAX call for removal
                     function proceedWithRemoval() {
-                        var selectedVendors = currentMoveVendorId;
+                        var vendorId = currentMoveVendorId;
 
                     $.ajax({
                         type: 'POST',
                         url: ajax_object.ajax_url,
-                        data: { action: 'move_vendors_to_my_list', vendor_ids: selectedVendors },
+                        data: { id: vendorId, action: 'move_vendors_to_my_list', vendor_ids: selectedVendors },
                         success: function(response) {
                             if (response.success) {
                                     location.reload();
