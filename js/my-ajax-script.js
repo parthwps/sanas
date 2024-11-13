@@ -760,15 +760,12 @@ if (window.location.pathname === '/vendors-list/') {
 
                     // Function to handle the AJAX call for removal
                     function proceedWithRemoval() {
-                        var vendorId = currentMoveVendorId;
+                        var selectedVendors = currentMoveVendorId;
 
                     $.ajax({
                         type: 'POST',
                         url: ajax_object.ajax_url,
-                        data: {
-                            action: 'move_vendors_to_my_list',
-                            vendor_ids: selectedVendors
-                        },
+                        data: { action: 'move_vendors_to_my_list', vendor_ids: selectedVendors },
                         success: function(response) {
                             if (response.success) {
                                     location.reload();
@@ -789,7 +786,7 @@ if (window.location.pathname === '/vendors-list/') {
                     }
                     var currentMoveVendorId;
                     // Click handler for the delete icon
-                    jQuery(".add-link-btn").on("click", function (e) {
+                    jQuery(".move-vendor-btn").on("click", function (e) {
                         e.preventDefault();
                         currentMoveVendorId = jQuery(this).data("id");
 
