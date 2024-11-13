@@ -1101,19 +1101,19 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile {
         display: none;
     }
 
-    .vendor-table-list table.dataTable thead>tr>th:nth-child(2), .vendor-table-list table.dataTable tbody>tr>td:nth-child(2),
-    .vendor-table-list table.dataTable thead>tr>th:nth-child(5), .vendor-table-list table.dataTable tbody>tr>td:nth-child(5),
-    .vendor-table-list table.dataTable thead>tr>th:nth-child(7), .vendor-table-list table.dataTable tbody>tr>td:nth-child(7),
-    .vendor-table-list table.dataTable colgroup>col:nth-child(2), .vendor-table-list table.dataTable colgroup>col:nth-child(5),
-    .vendor-table-list table.dataTable colgroup>col:nth-child(7){
+    .vendor-table-list thead>tr>th:nth-child(2), .vendor-table-list tbody>tr>td:nth-child(2),
+    .vendor-table-list thead>tr>th:nth-child(5), .vendor-table-list tbody>tr>td:nth-child(5),
+    .vendor-table-list thead>tr>th:nth-child(7), .vendor-table-list tbody>tr>td:nth-child(7),
+    .vendor-table-list colgroup>col:nth-child(2), .vendor-table-list colgroup>col:nth-child(5),
+    .vendor-table-list colgroup>col:nth-child(7){
         display: none;
     }
 
-    .my-vendor-table table.dataTable thead>tr>th:nth-child(1), .my-vendor-table table.dataTable tbody>tr>td:nth-child(1),
-    .my-vendor-table table.dataTable thead>tr>th:nth-child(5), .my-vendor-table table.dataTable tbody>tr>td:nth-child(5),
-    .my-vendor-table table.dataTable thead>tr>th:nth-child(7), .my-vendor-table table.dataTable tbody>tr>td:nth-child(7),
-    .my-vendor-table table.dataTable colgroup>col:nth-child(1), .my-vendor-table table.dataTable colgroup>col:nth-child(5),
-    .my-vendor-table table.dataTable colgroup>col:nth-child(7){
+    .my-vendor-table thead>tr>th:nth-child(1), .my-vendor-table tbody>tr>td:nth-child(1),
+    .my-vendor-table thead>tr>th:nth-child(5), .my-vendor-table tbody>tr>td:nth-child(5),
+    .my-vendor-table thead>tr>th:nth-child(7), .my-vendor-table tbody>tr>td:nth-child(7),
+    .my-vendor-table colgroup>col:nth-child(1), .my-vendor-table colgroup>col:nth-child(5),
+    .my-vendor-table colgroup>col:nth-child(7){
         display: none;
     }
 
