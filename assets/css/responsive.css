@@ -1130,6 +1130,7 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile {
     .todo-list-table td:last-child, .todo-list-table th:last-child {
         max-width: 35px !important;
         width: 35px !important;
+        text-align: center;
     }
 
     .my-vendor-table td:last-child, .my-vendor-table th:last-child {
