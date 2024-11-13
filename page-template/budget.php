@@ -420,7 +420,7 @@ get_sidebar('dashboard');
                     </div>
                   </div>
                   <?php echo isset($first_category) ? esc_attr($first_category) : ''; ?>
-                  <input type="hidden" name="category_id" id="category-id-input" value="<?php echo isset($first_category) ? esc_attr($first_category) : ''; ?>">
+                  <input type="hidden" name="category_id2" id="category-id-input" value="<?php echo isset($first_category) ? esc_attr($first_category) : ''; ?>">
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
                       <button type="submit" class="dashbord-btn">Save</button>
