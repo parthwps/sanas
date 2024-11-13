@@ -1122,7 +1122,11 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile {
         display: none;
     }
 
-    .todo-list-table td:last-child, .todo-list-table th:last-child,
+    .todo-list-table td:last-child, .todo-list-table th:last-child {
+        max-width: 35px !important;
+        width: 35px !important;
+    }
+
     .my-vendor-table td:last-child, .my-vendor-table th:last-child {
         max-width: 40px !important;
         width: 40px !important;
