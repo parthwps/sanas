@@ -399,7 +399,7 @@ $totals = $wpdb->get_row(
                             <h4><?php echo $month_year[0]; ?> <span class="year-text"><?php echo $month_year[1]; ?></span></h4>
                       </th></tr>
                       </table>
-                      <table class="vendor-list-table todo-list-table todo-table" id="todo-table-<?php echo str_replace(' ', '-', $month_year); ?>">
+                      <table class="vendor-list-table todo-list-table todo-table todo-table-list" id="todo-table-<?php echo str_replace(' ', '-', $month_year); ?>">
                           <thead>
                               <tr class="todo-check-title">
                                   <th>Category</th>
