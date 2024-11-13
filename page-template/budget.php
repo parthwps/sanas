@@ -419,7 +419,7 @@ get_sidebar('dashboard');
                       <input type="number" step="0.01" name="paid" class="form-control">
                     </div>
                   </div>
-                  <input type="hidden" name="category_id" id="category-id-input" value="<?php echo isset($expense_category) ? esc_attr($expense_category) : ''; ?>">
+                  <input type="hidden" name="category_id" id="category-id-input" value="<?php echo $first_category; ?>">
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
                       <button type="submit" class="dashbord-btn">Save</button>
