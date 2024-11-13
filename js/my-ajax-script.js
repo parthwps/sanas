@@ -822,7 +822,7 @@ if (window.location.pathname === '/vendors-list/') {
                     if (response.success) {
                         location.reload();
                     } else {
-                        alert(response.data);  
+                        // alert(response.data);  
                     }
                 }
             });
