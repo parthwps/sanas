@@ -1116,6 +1116,7 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile {
     .vendor-table-list td:first-child, .vendor-table-list th:first-child{
         max-width: 30px !important;
         width: 30px !important;
+        text-align: center !important;
     }
 
     .my-vendor-table thead>tr>th:nth-child(1), .my-vendor-table tbody>tr>td:nth-child(1),
@@ -1135,7 +1136,7 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile {
     .vendor-table-list td:last-child, .vendor-table-list th:last-child{
         max-width: 60px !important;
         width: 60px !important;
-        text-align: center !important;
+
     }
 
     .my-vendor-table td:last-child, .my-vendor-table th:last-child {
