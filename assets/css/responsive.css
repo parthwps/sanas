@@ -1122,7 +1122,7 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile {
         display: none;
     }
 
-    .todo-table-list table.dataTable thead>tr>th:nth-child(2) .dt-column-title, .todo-table-list table.dataTable thead>tr>td:nth-child(2) .dt-column-title {
+    .todo-table-list table.dataTable thead>tr>th:nth-child(2) .dt-column-title, .todo-table-list table.dataTable thead>tr>td:nth-child(2) {
         margin: 0 0 0 10px;
     }
 
