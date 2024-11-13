@@ -1122,6 +1122,11 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile {
         display: none;
     }
 
+    .todo-list-table td:last-child, .todo-list-table th:last-child {
+        max-width: 30px !important;
+        width: 30px !important;
+    }
+
     .todo-table-list table.dataTable thead>tr>th:nth-child(2) .dt-column-title {
         margin: 0 0 0 10px;
     }
