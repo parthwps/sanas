@@ -1114,10 +1114,11 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile {
     }
 
     .my-vendor-table thead>tr>th:nth-child(1), .my-vendor-table tbody>tr>td:nth-child(1),
+    .my-vendor-table thead>tr>th:nth-child(3), .my-vendor-table tbody>tr>td:nth-child(3),
     .my-vendor-table thead>tr>th:nth-child(5), .my-vendor-table tbody>tr>td:nth-child(5),
     .my-vendor-table thead>tr>th:nth-child(7), .my-vendor-table tbody>tr>td:nth-child(7),
-    .my-vendor-table colgroup>col:nth-child(1), .my-vendor-table colgroup>col:nth-child(5),
-    .my-vendor-table colgroup>col:nth-child(7){
+    .my-vendor-table colgroup>col:nth-child(1), .my-vendor-table colgroup>col:nth-child(3),
+    .my-vendor-table colgroup>col:nth-child(5), .my-vendor-table colgroup>col:nth-child(7){
         display: none;
     }
 
