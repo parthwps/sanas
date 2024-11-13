@@ -419,8 +419,7 @@ get_sidebar('dashboard');
                       <input type="number" step="0.01" name="paid" class="form-control">
                     </div>
                   </div>
-                  <?php echo isset($first_category) ? esc_attr($first_category) : ''; ?>
-                  <input type="hidden" name="category_id2" id="category-id-input" value="<?php echo isset($first_category) ? esc_attr($first_category) : ''; ?>">
+                  <input type="hidden" name="category_id_add" id="category-id-input" value="<?php echo isset($first_category) ? esc_attr($first_category) : ''; ?>">
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
                       <button type="submit" class="dashbord-btn">Save</button>
@@ -488,7 +487,6 @@ get_sidebar('dashboard');
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
-                    <?php echo isset($first_category) ? esc_attr($first_category) : ''; ?>
                       <input type="hidden" name="category_id" id="category-id-input-edit" value="<?php echo isset($first_category) ? esc_attr($first_category) : ''; ?>">
                       <input type="hidden" name="id" id="edit-expense-id">
                       <button type="submit" class="dashbord-btn">Save</button>

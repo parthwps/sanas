@@ -42,7 +42,7 @@ if (window.location.pathname === '/budget/') {
     jQuery(document).ready(function($) {
         jQuery('.add-expense-trigger').on('click', function() {
             var category = getQueryParam('category');
-            jQuery('#category-id-input').val(category); 
+            jQuery('#category-id-input').val(category);
         })
         var table = jQuery('.budget-table-sort').DataTable({
             "ordering": false,

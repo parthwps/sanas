@@ -1198,7 +1198,7 @@ add_action('wp_ajax_add_expense', 'add_expense_handler');
 function add_expense_handler() {
     global $wpdb;
     $user_id = get_current_user_id();
-    $category_id = isset($_POST['category_id']) ? intval($_POST['category_id']) : 0;
+    $category_id = isset($_POST['category_id_add']) ? intval($_POST['category_id_add']) : 0;
     $expense = sanitize_text_field($_POST['expense']);
     $vendor_name = sanitize_text_field($_POST['vendor_name']);
     $vendor_contact = sanitize_text_field($_POST['vendor_contact']);
