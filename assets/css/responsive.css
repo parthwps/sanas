@@ -1127,6 +1127,11 @@ section.wl-main-canvas .content.content-3 .wl-card-detaile {
         width: 35px !important;
     }
 
+    .my-vendor-table td:last-child, .my-vendor-table th:last-child {
+        max-width: 48px !important;
+        width: 48px !important;
+    }
+
     .todo-table-list table.dataTable thead>tr>th:nth-child(2) .dt-column-title {
         margin: 0 0 0 10px;
     }
