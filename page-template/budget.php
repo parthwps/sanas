@@ -227,8 +227,6 @@ get_sidebar('dashboard');
                   <?php
                   if(isset($_GET['category'])){
                     $first_category = intval($_GET['category']);
-                  }else{
-                    $first_category = $first_category;  
                   }
                   $first_category_expenses = get_expense_list($first_category);
                   $total_estimated = 0;
@@ -421,7 +419,7 @@ get_sidebar('dashboard');
                       <input type="number" step="0.01" name="paid" class="form-control">
                     </div>
                   </div>
-                  <input type="hidden" name="category_id" id="category-id-input" value="<?php echo isset($first_category) ? esc_attr($first_category) : ''; ?>">
+                  <input type="hidden" name="category_id" id="category-id-input" value="<?php echo isset($expense_category) ? esc_attr($expense_category) : ''; ?>">
                   <div class="form-group col-lg-12 col-sm-12">
                     <div class="links-box">
                       <button type="submit" class="dashbord-btn">Save</button>
