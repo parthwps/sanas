@@ -741,7 +741,7 @@ if (window.location.pathname === '/vendors-list/') {
                         jQuery('#confirm_modal-body-text').text(message);
                         jQuery('#confirm_modal_html_alert').modal('show');
                     }
-
+                    show_alert_message4('Move Vendors', 'Are you sure you want to move these vendors to the "My Vendors" page?');
                     // When "Yes" button is clicked
                     jQuery('#modal-yes-button').on('click', function () {
                         proceedWithVendorChange();
