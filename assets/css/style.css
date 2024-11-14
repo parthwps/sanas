@@ -6487,8 +6487,10 @@ font-size: 18px;
     vertical-align: middle;
     text-align: left;
 }
-.table-box .vendor-table th:nth-child(3), .table-box .vendor-table th:nth-child(5),
-.table-box .vendor-table td:nth-child(3), .table-box .vendor-table td:nth-child(5){
+.table-box .vendor-table th:nth-child(3), .table-box .vendor-table td:nth-child(3),
+.table-box .vendor-table th:nth-child(4), .table-box .vendor-table td:nth-child(4),
+.table-box .vendor-table th:nth-child(5), .table-box .vendor-table td:nth-child(5),
+.table-box .vendor-table th:nth-child(6), .table-box .vendor-table td:nth-child(6){
     text-align: left;
 }
 
