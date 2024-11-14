@@ -76,7 +76,7 @@ foreach ($todo_items as $item) {
 $total_count = $completed_count + $pending_count;
 $percent_count = ($completed_count > 0) ? ($completed_count * 100) / $total_count : 0;
 ?>
-<p>You have completed <span class="tast-count-com"><?php echo $completed_count; ?></span> out of <span class="tast-count-total"><?php echo $total_count; ?></span> tasks</p>
+<p class="max-45">You have completed <span class="tast-count-com"><?php echo $completed_count; ?></span> out of <span class="tast-count-total"><?php echo $total_count; ?></span> tasks</p>
 <div class="progress">
     <div id="todo_progressbar" class="progress-bar" role="progressbar" data-percent="<?php echo $percent_count; ?>" data-count="<?php echo $total_count; ?>" style="width: <?php echo $percent_count; ?>%"></div>
 </div>
