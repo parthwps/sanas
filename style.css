@@ -976,5 +976,5 @@ a.full-div-link {
 	max-width: 45%;
 }
 .vendor-table-list th:nth-child(8) .dt-column-order{
-	left: 37% !important;
+	text-align: left !important;
 }
