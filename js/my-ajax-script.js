@@ -784,14 +784,14 @@ if (window.location.pathname === '/vendors-list/') {
                         }
                     });
                     }
-                    var currentMoveVendorId;
-                    // Click handler for the delete icon
-                    jQuery(".move-vendor-btn").on("click", function (e) {
-                        // e.preventDefault();
-                        currentMoveVendorId = jQuery(this).data("id");
-                        console.log(currentMoveVendorId);
-                        // show_alert_message4('Move Vendors', 'Are you sure you want to move these vendors to the "My Vendors" page?');
-                    });
+                    // var currentMoveVendorId;
+                    // // Click handler for the delete icon
+                    // jQuery(".move-vendor-btn").on("click", function (e) {
+                    //     // e.preventDefault();
+                    //     currentMoveVendorId = jQuery(this).data("id");
+                    //     console.log(currentMoveVendorId);
+                    //     // show_alert_message4('Move Vendors', 'Are you sure you want to move these vendors to the "My Vendors" page?');
+                    // });
                 }
             });
         });
