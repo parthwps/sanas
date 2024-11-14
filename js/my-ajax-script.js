@@ -724,7 +724,8 @@ if (window.location.pathname === '/vendors-list/') {
 
             // Move to My Vendors List button click
             jQuery('.move-vendor-btn').on('click', function(e) {
-                e.preventDefault();
+                // e.preventDefault();
+                console.log("0");
                 var selectedVendors = jQuery('.checkSingle:checked').map(function() {
                     return jQuery(this).closest('tr').find('.edit').data('id');
                 }).get();
@@ -759,12 +760,12 @@ if (window.location.pathname === '/vendors-list/') {
 
                     // Function to handle the AJAX call for removal
                     function proceedWithRemoval() {
-                        var vendorId = currentMoveVendorId;
+                        // var vendorId = currentMoveVendorId;
 
                     $.ajax({
                         type: 'POST',
                         url: ajax_object.ajax_url,
-                        data: { id: vendorId, action: 'move_vendors_to_my_list', vendor_ids: selectedVendors },
+                        data: { action: 'move_vendors_to_my_list', vendor_ids: selectedVendors },
                         success: function(response) {
                             if (response.success) {
                                     location.reload();
