@@ -975,3 +975,6 @@ a.full-div-link {
 .max-45{
 	max-width: 45%;
 }
+.vendor-table-list th .dt-column-order{
+	left: 37% !important;
+}
