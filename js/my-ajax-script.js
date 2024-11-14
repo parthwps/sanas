@@ -725,11 +725,10 @@ if (window.location.pathname === '/vendors-list/') {
             // Move to My Vendors List button click
             jQuery('.move-vendor-btn').on('click', function(e) {
                 // e.preventDefault();
-                console.log("0");
                 var selectedVendors = jQuery('.checkSingle:checked').map(function() {
                     return jQuery(this).closest('tr').find('.edit').data('id');
                 }).get();
-
+                console.log(selectedVendors);
                 if (selectedVendors.length === 0) {
                     // alert('Please select at least one vendor to move to the "My Vendors" page.');
                     // Set the modal title and message
