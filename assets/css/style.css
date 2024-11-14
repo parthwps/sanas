@@ -6524,7 +6524,9 @@ font-size: 18px;
 .vendor-list-table th:first-child{
     padding-left: 15px;
 }
-
+.my-vendor-table td:first-child, .my-vendor-table th:first-child{
+    padding-left: 20px;
+}
 .my-vendor-table td:nth-child(4), .my-vendor-table th:nth-child(4){
     text-align: left !important;
 }
