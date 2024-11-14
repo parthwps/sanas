@@ -728,22 +728,14 @@ if (window.location.pathname === '/vendors-list/') {
                 var selectedVendors = jQuery('.checkSingle:checked').map(function() {
                     return jQuery(this).closest('tr').find('.edit').data('id');
                 }).get();
-                console.log(selectedVendors);
                 if (selectedVendors.length === 0) {
-                    // alert('Please select at least one vendor to move to the "My Vendors" page.');
-                    // Set the modal title and message
                     jQuery('#exampleModalLabel').text('Error');
                     jQuery('#modal-body-text').text('Please select at least one vendor to move to the "My Vendors" page.');
-                    // Show the modal
                     jQuery('#modal_html_alert').modal('show');
-
-                    // Handle the click event on the "Yes" button in the modal
                     jQuery('#render-modal-yes-button').on('click', function() {
                         jQuery('#modal_html_alert').modal('hide');
                     });
                 } else {
-
-                    // Function to show the modal
                     function show_alert_message4(title, message) {
                         jQuery('#exampleConfirmModalLabel').text(title);
                         jQuery('#confirm_modal-body-text').text(message);
@@ -752,15 +744,12 @@ if (window.location.pathname === '/vendors-list/') {
 
                     // When "Yes" button is clicked
                     jQuery('#modal-yes-button').on('click', function () {
-                        // Trigger the removal process
-                        proceedWithRemoval();
+                        proceedWithVendorChange();
                         jQuery('#confirm_modal_html_alert').modal('hide');
                     });
 
-                    // Function to handle the AJAX call for removal
-                    function proceedWithRemoval() {
-                        // var vendorId = currentMoveVendorId;
-
+                    function proceedWithVendorChange() {
+                console.log(selectedVendors);
                     $.ajax({
                         type: 'POST',
                         url: ajax_object.ajax_url,
