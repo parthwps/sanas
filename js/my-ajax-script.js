@@ -722,7 +722,6 @@ if (window.location.pathname === '/vendors-list/') {
             });
         });
 
-        jQuery(document).ready(function($) {
             // Move to My Vendors List button click
             jQuery('.move-vendor-btn').on('click', function(e) {
                 e.preventDefault();
@@ -794,7 +793,6 @@ if (window.location.pathname === '/vendors-list/') {
                     // });
                 }
             });
-        });
 
         // Function to show the modal
         function show_alert_message2(title, message) {
