@@ -724,7 +724,7 @@ if (window.location.pathname === '/vendors-list/') {
 
         jQuery(document).ready(function($) {
             // Move to My Vendors List button click
-            jQuery('.add-link-btn').on('click', function(e) {
+            jQuery('.move-vendor-btn').on('click', function(e) {
                 e.preventDefault();
                 var selectedVendors = jQuery('.checkSingle:checked').map(function() {
                     return jQuery(this).closest('tr').find('.edit').data('id');
