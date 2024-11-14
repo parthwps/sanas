@@ -60,7 +60,7 @@ get_sidebar('dashboard');
                         <?php
                         $vendor_items = get_vendor_list_items();
                         
-                        if (empty($vendor_items)) {
+                        // if (empty($vendor_items)) {
                             global $wpdb;
                             $current_user_id = get_current_user_id();
                             
@@ -80,8 +80,8 @@ get_sidebar('dashboard');
                             // );
                             
                             // Refresh vendor items after insert
-                            $vendor_items = get_vendor_list_items();
-                        }
+                            // $vendor_items = get_vendor_list_items();
+                        // }
                         
                         if ($vendor_items): ?>
                             <?php foreach ($vendor_items as $vendor): ?>
